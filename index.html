@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing DNA — Готовый контент на 30 дней для ваших соцсетей</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #7C3AED;
+    --purple-light: #EDE9FE;
+    --purple-dark: #5B21B6;
+    --dark: #1E1B4B;
+    --text: #374151;
+    --gray: #F3F4F6;
+    --border: #E5E7EB;
+    --white: #FFFFFF;
+    --green: #10B981;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 0 24px;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-weight: 800; font-size: 20px; color: var(--dark);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--purple); }
+  .nav-cta {
+    background: var(--purple); color: white;
+    padding: 10px 22px; border-radius: 8px;
+    font-weight: 600; font-size: 14px;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--purple-dark); }
+
+  /* SECTIONS */
+  section { padding: 80px 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* HERO */
+  .hero {
+    padding-top: 140px;
+    padding-bottom: 40px;
+    background: linear-gradient(135deg, #FAFAFA 0%, #F5F3FF 100%);
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--purple-light); color: var(--purple);
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 13px; font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 900; line-height: 1.1;
+    color: var(--dark); letter-spacing: -1.5px;
+    margin-bottom: 16px;
+  }
+  .hero h1 .price { color: var(--purple); }
+  .hero-slogan {
+    font-size: 15px; font-weight: 600;
+    color: var(--purple); margin-bottom: 20px;
+    padding: 10px 16px; background: var(--purple-light);
+    border-radius: 8px; display: inline-block;
+  }
+  .hero-social-proof {
+    text-align: center; margin-top: 16px;
+    font-size: 13px; font-weight: 600; color: #6b7280;
+    letter-spacing: 0.2px;
+  }
+  .hero-sub {
+    font-size: 17px; color: #6B7280; line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .hero-facts {
+    display: flex; flex-direction: column; gap: 12px;
+    margin-bottom: 36px;
+  }
+  .hero-fact {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 15px; font-weight: 500; color: var(--dark);
+  }
+  .hero-fact .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--purple); color: white;
+    padding: 16px 32px; border-radius: 12px;
+    font-weight: 700; font-size: 16px;
+    text-decoration: none; transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(124,58,237,0.4);
+  }
+  .btn-note { font-size: 13px; color: #9CA3AF; margin-top: 12px; }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    position: relative;
+  }
+  .hero-mockup {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .mockup-header {
+    background: var(--dark); padding: 14px 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .mockup-title { color: white; font-size: 13px; font-weight: 600; margin-left: 8px; }
+  .mockup-body { padding: 20px; }
+  .plan-day {
+    display: grid; grid-template-columns: 40px 1fr;
+    gap: 12px; padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .plan-day:last-child { border-bottom: none; }
+  .day-num {
+    width: 36px; height: 36px;
+    background: var(--purple-light); color: var(--purple);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; flex-shrink: 0;
+  }
+  .day-info { }
+  .day-tag {
+    display: inline-block;
+    background: var(--gray); color: #6B7280;
+    padding: 2px 8px; border-radius: 4px;
+    font-size: 11px; font-weight: 600; margin-bottom: 4px;
+  }
+  .day-tag.ig { background: #FCE7F3; color: #BE185D; }
+  .day-tag.tt { background: #E0E7FF; color: #4338CA; }
+  .day-title { font-size: 13px; font-weight: 600; color: var(--dark); }
+  .day-hook { font-size: 12px; color: #9CA3AF; margin-top: 2px; }
+
+  /* MAGNET */
+  .magnet {
+    background: linear-gradient(135deg, var(--purple) 0%, #4F46E5 100%);
+    color: white;
+    padding: 70px 24px;
+  }
+  .magnet-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .magnet h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .magnet-sub { font-size: 17px; opacity: 0.9; margin-bottom: 28px; }
+  .magnet-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+  .magnet-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 16px; font-weight: 500;
+  }
+  .magnet-list li::before { content: "✅"; font-size: 18px; flex-shrink: 0; }
+  .magnet-note { font-size: 14px; opacity: 0.85; margin-bottom: 28px; font-style: italic; }
+  .btn-white {
+    display: inline-block;
+    background: white; color: var(--purple);
+    padding: 16px 32px; border-radius: 12px;
+    font-weight: 700; font-size: 16px;
+    text-decoration: none; transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+  .magnet-proof { font-size: 13px; opacity: 0.75; margin-top: 14px; }
+  .magnet-visual {
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 28px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .magnet-visual-title { font-size: 14px; font-weight: 600; opacity: 0.8; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+  .magnet-item {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px; padding: 14px 16px;
+    margin-bottom: 10px; font-size: 14px; font-weight: 500;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .magnet-item-icon { font-size: 20px; }
+
+  /* PAIN */
+  .pain { background: var(--white); }
+  .section-title {
+    font-size: 38px; font-weight: 800; color: var(--dark);
+    letter-spacing: -1px; margin-bottom: 48px;
+    text-align: center;
+  }
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .pain-card {
+    background: var(--gray);
+    border-radius: 16px; padding: 28px;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .pain-card:hover {
+    border-color: var(--purple-light);
+    background: white;
+    box-shadow: 0 8px 30px rgba(124,58,237,0.08);
+    transform: translateY(-4px);
+  }
+  .pain-emoji { font-size: 32px; margin-bottom: 16px; display: block; }
+  .pain-name { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .pain-quote { font-size: 16px; color: var(--dark); line-height: 1.6; font-style: italic; }
+  .pain-footer {
+    text-align: center; margin-top: 48px;
+    font-size: 26px; font-weight: 800; color: var(--dark); line-height: 1.4;
+    padding: 36px 48px; background: var(--purple-light); border-radius: 16px;
+    letter-spacing: -0.3px;
+  }
+
+  /* WHO WE ARE */
+  .who { background: var(--gray); }
+  .who-inner { max-width: 1100px; margin: 0 auto; }
+  .who h2 { font-size: 38px; font-weight: 800; color: var(--dark); letter-spacing: -1px; margin-bottom: 16px; }
+  .who-desc { font-size: 17px; color: #6B7280; margin-bottom: 48px; max-width: 700px; line-height: 1.7; }
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    background: white; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .compare-table th {
+    padding: 16px 24px; font-size: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    background: var(--dark); color: white;
+  }
+  .compare-table th.ours { background: var(--purple); }
+  .compare-table td {
+    padding: 18px 24px; font-size: 15px;
+    border-bottom: 1px solid var(--border);
+    text-align: center; font-weight: 500;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); }
+  .compare-table td.ours { color: var(--purple); font-weight: 700; background: #F5F3FF; }
+  .badge-win { background: var(--purple); color: white; padding: 4px 12px; border-radius: 100px; font-size: 13px; }
+
+  /* HOW IT WORKS */
+  .how { background: white; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; position: relative; }
+  .steps::before {
+    content: '';
+    position: absolute; top: 48px; left: 20%; right: 20%;
+    height: 2px; background: var(--purple-light);
+    z-index: 0;
+  }
+  .step { text-align: center; position: relative; z-index: 1; }
+  .step-num {
+    width: 80px; height: 80px;
+    background: var(--purple); color: white;
+    border-radius: 50%; margin: 0 auto 24px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 800;
+    box-shadow: 0 8px 24px rgba(124,58,237,0.3);
+  }
+  .step h3 { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+  .step p { font-size: 15px; color: #6B7280; line-height: 1.7; }
+
+  /* PACKAGES */
+  .packages { background: var(--gray); }
+  .pkg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+  .pkg-card {
+    background: white; border-radius: 20px; padding: 36px;
+    border: 2px solid var(--border);
+    transition: all 0.2s;
+  }
+  .pkg-card.featured {
+    border-color: var(--purple);
+    box-shadow: 0 8px 40px rgba(124,58,237,0.15);
+    position: relative;
+  }
+  .pkg-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--purple); color: white;
+    padding: 6px 20px; border-radius: 100px;
+    font-size: 13px; font-weight: 700;
+    white-space: nowrap;
+  }
+  .pkg-name { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #9CA3AF; margin-bottom: 8px; }
+  .pkg-price {
+    font-size: 48px; font-weight: 900; color: var(--dark);
+    letter-spacing: -2px; margin-bottom: 4px;
+  }
+  .pkg-price span { font-size: 20px; font-weight: 600; color: #9CA3AF; }
+  .pkg-price .old { font-size: 20px; text-decoration: line-through; color: #D1D5DB; font-weight: 500; }
+  .pkg-desc { font-size: 14px; color: #6B7280; margin-bottom: 24px; }
+  .pkg-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .pkg-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dark); }
+  .pkg-list li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .pkg-bonus {
+    background: #FEF3C7; border-radius: 10px; padding: 14px 16px;
+    font-size: 13px; font-weight: 600; color: #92400E;
+    margin-bottom: 24px;
+  }
+  .pkg-sep {
+    border: none; border-top: 2px dashed var(--border);
+    margin: 24px 0;
+  }
+  .pkg-divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 40px 0;
+  }
+  .pkg-divider-line { flex: 1; height: 1px; background: var(--border); }
+  .pkg-divider-text { font-size: 15px; font-weight: 600; color: var(--dark); white-space: nowrap; }
+  .pkg-bundle {
+    background: white; border-radius: 20px; padding: 36px;
+    border: 2px solid var(--green);
+    box-shadow: 0 8px 40px rgba(16,185,129,0.1);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  }
+  .bundle-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--green); margin-bottom: 8px; }
+  .bundle-price { font-size: 52px; font-weight: 900; color: var(--dark); letter-spacing: -2px; }
+  .bundle-old { font-size: 20px; color: #D1D5DB; text-decoration: line-through; font-weight: 500; }
+  .bundle-save { background: #D1FAE5; color: #065F46; padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 700; display: inline-block; margin-top: 8px; }
+  .bundle-includes { }
+  .bundle-includes-title { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+  .bundle-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .bundle-list li { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .bundle-list li::before { content: "✓"; color: var(--green); font-weight: 700; }
+  .pkg-single {
+    background: white; border-radius: 24px; padding: 0;
+    border: 2px solid var(--purple);
+    box-shadow: 0 8px 40px rgba(124,58,237,0.15);
+    overflow: hidden;
+  }
+  @media(max-width:768px) { .pkg-single { padding: 0; } }
+  .pkg-single .pkg-badge {
+    position: static; transform: none;
+    display: inline-block; margin-bottom: 12px;
+  }
+
+  /* Подвал пакета с ценой */
+  .pkg-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 48px; gap: 32px;
+    background: linear-gradient(135deg, #f5f0ff 0%, #ede8ff 100%);
+    border-top: 1px solid #ddd6fe;
+    flex-wrap: wrap;
+  }
+  .pkg-footer-left { flex: 1; min-width: 260px; }
+  .pkg-footer-right { text-align: center; flex-shrink: 0; }
+  .pkg-name { font-size: 32px; font-weight: 900; color: var(--purple); letter-spacing: -0.5px; margin: 8px 0 6px; }
+  .pkg-tagline { font-size: 15px; color: #4b5563; line-height: 1.5; max-width: 380px; }
+  .pkg-price-block { margin-bottom: 16px; }
+  .pkg-price-num { font-size: 64px; font-weight: 900; color: var(--dark); letter-spacing: -2px; line-height: 1; }
+  .pkg-price-period { font-size: 20px; font-weight: 600; color: #9ca3af; }
+  .pkg-buy-btn { display: block; white-space: nowrap; }
+  .pkg-buy-note { font-size: 13px; color: #6b7280; margin: 10px 0 0; }
+  @media(max-width:768px) { .pkg-footer { padding: 28px 24px; } }
+
+  /* Элементы пакета */
+  .pkg-items { padding: 8px 0; }
+  .pkg-item {
+    display: flex; gap: 20px;
+    padding: 28px 48px;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background .15s;
+  }
+  .pkg-item:last-child { border-bottom: none; }
+  .pkg-item:hover { background: #fafafa; }
+  .pkg-item-bonus { background: #fffbeb; }
+  .pkg-item-bonus:hover { background: #fef9e7; }
+  .pkg-item-icon { font-size: 32px; flex-shrink: 0; width: 48px; text-align: center; padding-top: 2px; }
+  .pkg-item-body h4 { font-size: 18px; font-weight: 700; color: #111827; margin: 0 0 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .pkg-item-body p { font-size: 15px; color: #4b5563; line-height: 1.65; margin: 0; }
+  .pkg-bonus-tag {
+    font-size: 11px; font-weight: 700; background: #fde68a; color: #92400e;
+    padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  /* Планы А и Б */
+  .pkg-item-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .pkg-plan {
+    background: #f5f0ff; border-radius: 10px; padding: 14px 16px;
+    border-left: 3px solid var(--purple);
+  }
+  .pkg-plan-label { font-size: 13px; font-weight: 700; color: var(--purple); display: block; margin-bottom: 4px; }
+  .pkg-plan-desc { font-size: 13px; color: #4b5563; line-height: 1.5; }
+  @media(max-width:768px) {
+    .pkg-header { padding: 28px 24px; }
+    .pkg-item { padding: 24px; }
+    .pkg-item-plans { grid-template-columns: 1fr; }
+  }
+  .pkg-note {
+    margin-top: 32px;
+    background: var(--purple-light); border-radius: 12px; padding: 24px 32px;
+    font-size: 15px; font-weight: 600; color: var(--purple);
+    line-height: 1.8; text-align: center;
+  }
+  .platform-note {
+    margin-top: 20px;
+    background: white; border-radius: 12px; padding: 18px 24px;
+    font-size: 14px; color: #6B7280; border: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  /* Платформы */
+  .pkg-platforms {
+    padding: 32px 48px 40px;
+    border-top: 1px solid #f3f4f6;
+  }
+  .pkg-platforms-title {
+    font-size: 15px; font-weight: 600; color: #374151;
+    margin: 0 0 20px; text-align: center;
+  }
+  .pkg-platform-tags {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .ptag {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; padding: 20px 8px;
+    border-radius: 14px; font-size: 13px; font-weight: 700;
+    cursor: default; transition: transform .15s, box-shadow .15s;
+    color: white;
+  }
+  .ptag i { font-size: 28px; }
+  .ptag:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+  .ptag-instagram { background: linear-gradient(135deg, #F58529, #DD2A7B, #515BD4); }
+  .ptag-tiktok    { background: #010101; }
+  .ptag-youtube   { background: #FF0000; }
+  .ptag-linkedin  { background: #0A66C2; }
+  .ptag-facebook  { background: #1877F2; }
+  .ptag-telegram  { background: #26A5E4; }
+  @media(max-width:768px) {
+    .pkg-platform-tags { grid-template-columns: repeat(3, 1fr); }
+    .pkg-platforms { padding: 24px; }
+  }
+
+  .why-cheaper {
+    margin-top: 32px;
+    background: var(--purple-light); border-radius: 16px; padding: 28px 32px;
+    color: var(--dark); font-size: 15px; line-height: 1.7;
+  }
+  .why-cheaper p { margin: 0; }
+  .why-cheaper-price {
+    margin-top: 16px !important;
+    font-size: 14px; font-weight: 700;
+    color: var(--purple);
+  }
+
+  /* HERO PHONES */
+  .hero-phones {
+    display: flex; gap: 20px; align-items: flex-start; justify-content: center;
+    width: 100%;
+  }
+  .phone-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; max-width: 180px; }
+  .phone-label { display: flex; gap: 6px; }
+  .phone-tag {
+    padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;
+  }
+  .phone-tag.pink { background: #FCE7F3; color: #BE185D; }
+  .phone-tag.blue { background: #E0E7FF; color: #4338CA; }
+  .phone-frame {
+    width: 100%; aspect-ratio: 9/17;
+    background: #1a1a2e; border-radius: 28px;
+    border: 3px solid #2d2d44;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.05);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .phone-notch {
+    width: 60px; height: 6px; background: #1a1a2e;
+    border-radius: 0 0 8px 8px; margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+  .phone-screen { flex: 1; position: relative; overflow: hidden; }
+
+  /* Video screen */
+  .phone-screen-video {
+    background: linear-gradient(170deg, #2D1B69 0%, #7C3AED 45%, #BE185D 100%);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .phone-video-content { padding: 12px 10px; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+  .phone-video-brand { font-size: 8px; font-weight: 700; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .phone-video-hook { font-size: 11px; font-weight: 800; color: white; line-height: 1.4; margin-bottom: 12px; }
+  .phone-video-play {
+    width: 30px; height: 30px; background: rgba(255,255,255,0.25);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: white; backdrop-filter: blur(4px);
+  }
+  .phone-video-ui { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: flex-end; }
+  .phone-ui-right { display: flex; flex-direction: column; gap: 14px; padding: 40px 8px 60px; align-items: center; }
+  .phone-ui-btn { font-size: 14px; color: white; opacity: 0.9; }
+  .phone-ui-bottom { position: absolute; bottom: 8px; left: 10px; right: 40px; }
+  .phone-ui-name { font-size: 9px; font-weight: 700; color: white; margin-bottom: 2px; }
+  .phone-ui-caption { font-size: 8px; color: rgba(255,255,255,0.8); margin-bottom: 2px; line-height: 1.3; }
+  .phone-ui-audio { font-size: 7px; color: rgba(255,255,255,0.6); }
+
+  /* Carousel screen */
+  .phone-screen-carousel { background: white; display: flex; flex-direction: column; }
+  .phone-ig-header { display: flex; align-items: center; gap: 7px; padding: 8px 10px 6px; border-bottom: 1px solid #F3F4F6; }
+  .phone-ig-avatar { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #7C3AED, #BE185D); flex-shrink: 0; }
+  .phone-ig-user { font-size: 9px; font-weight: 700; color: var(--dark); }
+  .phone-carousel-slide {
+    flex: 1; background: linear-gradient(135deg, #EDE9FE 0%, #F5F3FF 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 16px 12px; text-align: center;
+  }
+  .phone-carousel-num { font-size: 28px; font-weight: 900; color: var(--purple); line-height: 1; margin-bottom: 8px; opacity: 0.3; }
+  .phone-carousel-title { font-size: 11px; font-weight: 800; color: var(--dark); line-height: 1.4; margin-bottom: 6px; }
+  .phone-carousel-sub { font-size: 9px; color: #6B7280; line-height: 1.4; }
+  .phone-carousel-dots { display: flex; gap: 4px; justify-content: center; padding: 6px 0; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: #D1D5DB; }
+  .dot-active { background: var(--purple); width: 14px; border-radius: 3px; }
+  .phone-ig-actions { padding: 6px 10px; font-size: 14px; color: var(--dark); border-top: 1px solid #F3F4F6; }
+
+  .phone-sublabel { font-size: 11px; color: var(--dark); font-weight: 600; text-align: center; line-height: 1.4; }
+
+  @media(max-width:768px) {
+    .hero-phones { gap: 12px; }
+    .phone-wrap { max-width: 150px; }
+  }
+
+  /* EXAMPLES */
+  .examples { background: white; }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+  .tab-btn {
+    padding: 10px 20px; border-radius: 100px;
+    border: 2px solid var(--border); background: white;
+    font-size: 14px; font-weight: 600; color: #6B7280;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--purple); color: white; border-color: var(--purple);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .example-card {
+    background: var(--gray); border-radius: 16px; padding: 28px;
+  }
+  .example-card-title {
+    font-size: 13px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--purple); margin-bottom: 16px;
+  }
+  .plan-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .plan-table th { text-align: left; padding: 8px 10px; color: #9CA3AF; font-weight: 600; border-bottom: 1px solid var(--border); }
+  .plan-table td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .plan-table tr:last-child td { border-bottom: none; }
+  .platform-ig { color: #BE185D; font-weight: 600; }
+  .platform-tt { color: #4338CA; font-weight: 600; }
+  .platform-yt { color: #DC2626; font-weight: 600; }
+  .script-block { }
+  .script-line { margin-bottom: 10px; }
+  .script-label { font-size: 11px; font-weight: 700; color: #9CA3AF; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 3px; }
+  .script-text { font-size: 14px; color: var(--dark); line-height: 1.5; }
+  .seo-block { }
+  .seo-title { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.4; }
+  .seo-preview { font-size: 14px; color: #6B7280; line-height: 1.6; }
+  .example-cta {
+    text-align: center; margin-top: 48px;
+    padding: 32px; background: var(--gray); border-radius: 16px;
+  }
+  .example-cta p { font-size: 17px; font-weight: 600; color: var(--dark); margin-bottom: 16px; }
+
+  /* FAQ */
+  .faq { background: var(--gray); }
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item {
+    background: white; border-radius: 12px; margin-bottom: 12px;
+    overflow: hidden; border: 1px solid var(--border);
+  }
+  .faq-q {
+    padding: 20px 24px; font-size: 16px; font-weight: 600; color: var(--dark);
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    user-select: none;
+  }
+  .faq-q::after { content: "+"; font-size: 22px; color: var(--purple); flex-shrink: 0; transition: transform 0.2s; }
+  .faq-item.open .faq-q::after { content: "−"; }
+  .faq-a {
+    padding: 0 24px; max-height: 0; overflow: hidden;
+    transition: all 0.3s; font-size: 15px; color: #6B7280; line-height: 1.7;
+  }
+  .faq-item.open .faq-a { padding: 0 24px 20px; max-height: 300px; }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: white; text-align: center; padding: 80px 24px;
+  }
+  .final-cta h2 { font-size: 38px; font-weight: 800; color: var(--dark); letter-spacing: -1px; margin-bottom: 16px; }
+  .final-cta p { font-size: 17px; color: #6B7280; max-width: 600px; margin: 0 auto 32px; line-height: 1.7; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.5);
+    text-align: center; padding: 32px 24px; font-size: 14px;
+  }
+  footer span { color: white; font-weight: 600; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-inner, .magnet-inner, .pkg-grid, .example-grid, .pkg-bundle { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 36px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 24px; }
+    .steps::before { display: none; }
+    .section-title { font-size: 28px; }
+    .compare-table { font-size: 13px; }
+    .compare-table th, .compare-table td { padding: 12px 14px; }
+    section { padding: 60px 20px; }
+    .pain-cards { grid-template-columns: 1fr; }
+    .product-items { grid-template-columns: 1fr; }
+  }
+
+  /* SCREEN 2: PROBLEM */
+  .problem-screen { background: #f9f7ff; padding: 48px 20px 80px; }
+  .problem-screen .section-title { text-align: center; margin-bottom: 16px; }
+  .pain-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 48px 0 40px;
+  }
+  .pain-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: box-shadow .2s;
+  }
+  .pain-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+  .pain-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+  .pain-card h3 { font-size: 18px; font-weight: 700; color: #111827; margin: 0 0 12px; }
+  .pain-card p { font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0; }
+  .pain-conclusion {
+    background: #fff3cd;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+  }
+  .pain-conclusion p { margin: 0; font-size: 16px; color: #111827; font-weight: 500; }
+
+  .bridge-block {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 48px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .bridge-block h3 { font-size: 22px; font-weight: 700; color: #111827; margin: 0 0 24px; }
+  .bridge-list { list-style: none; padding: 0; margin: 0 0 28px; }
+  .bridge-list li {
+    font-size: 16px;
+    color: #374151;
+    line-height: 1.6;
+    padding: 10px 0 10px 32px;
+    border-bottom: 1px solid #f3f4f6;
+    position: relative;
+  }
+  .bridge-list li:last-child { border-bottom: none; }
+  .bridge-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--purple);
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .bridge-conclusion {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--purple);
+    margin: 0 0 16px;
+    text-align: center;
+  }
+  .bridge-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .arrow-down {
+    font-size: 22px;
+    color: var(--purple);
+    animation: pulse-arrow 1.4s ease-in-out infinite;
+  }
+  .arrow-down:nth-child(2) { animation-delay: 0.2s; }
+  .arrow-down:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes pulse-arrow {
+    0%, 100% { opacity: 0.25; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(4px); }
+  }
+
+  .pain-card-result {
+    margin: 12px 0 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--purple);
+    border-top: 1px solid #f0eeff;
+    padding-top: 12px;
+  }
+
+  /* SCREEN 3: PRODUCT */
+  .product-screen { background: #fff; padding: 80px 20px; }
+  .product-brand {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 48px 24px 40px;
+    background: linear-gradient(135deg, #f5f0ff 0%, #ede8ff 100%);
+    border-radius: 24px;
+    border: 1px solid #ddd6fe;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .product-brand-name {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--purple);
+    margin: 0 0 12px;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .product-brand-name span { color: #111827; }
+  .product-brand-sub {
+    font-size: 18px;
+    color: #4b5563;
+    margin: 0;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .product-screen .section-title { text-align: center; margin-bottom: 16px; }
+  .product-intro {
+    text-align: center;
+    font-size: 17px;
+    color: #4b5563;
+    max-width: 720px;
+    margin: 0 auto 48px;
+    line-height: 1.65;
+  }
+  .product-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .product-item {
+    display: flex;
+    gap: 20px;
+    background: #f9f7ff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: box-shadow .2s;
+  }
+  .product-item:hover { box-shadow: 0 6px 20px rgba(0,0,0,.07); }
+  .product-icon { font-size: 32px; flex-shrink: 0; }
+  .product-text h4 { font-size: 16px; font-weight: 700; color: #111827; margin: 0 0 8px; }
+  .product-text p { font-size: 14px; color: #4b5563; line-height: 1.6; margin: 0 0 6px; }
+  .product-text p:last-child { margin-bottom: 0; }
+
+  .product-cta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .btn-secondary-outline {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 2px solid var(--purple);
+    color: var(--purple);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, color .2s;
+  }
+  .btn-secondary-outline:hover { background: var(--purple); color: #fff; }
+  .product-cta-note {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Marketing <span>DNA</span></div>
+    <a href="#magnet" class="nav-cta">Попробовать бесплатно →</a>
+  </div>
+</nav>
+
+<!-- BLOCK 1: HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">🧬 AI-сервис контент-маркетинга</div>
+      <h1>Готовый контент на 30 дней — берёте и публикуете в своих соцсетях.</h1>
+      <div class="hero-slogan">Каждый ролик, карусель и пост построены на исследовании вашего бизнеса и анализа ваших клиентов</div>
+      <p class="hero-sub">Анализируем ваш бизнес, вашу аудиторию и конкурентов. Только после этого рождается контент — на языке ваших клиентов, под их боли и желания. Берёшь готовое и публикуешь в своих соцсетях.</p>
+      <div class="hero-facts">
+        <div class="hero-fact">
+          <span class="icon">🗓️</span>
+          <span>Не знаете что публиковать в соцсетях? Больше не будет вопросов что, куда и когда</span>
+        </div>
+        <div class="hero-fact">
+          <span class="icon">🎯</span>
+          <span>Не просто красивые посты — стратегия которая приводит клиентов и делает продажи</span>
+        </div>
+        <div class="hero-fact">
+          <span class="icon">👥</span>
+          <span>Изучаем ваших клиентов — контент цепляет именно их</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-phones">
+
+        <!-- Телефон 1: Видео (Reels) -->
+        <div class="phone-wrap">
+          <div class="phone-label"><span class="phone-tag pink">▶ Reels · 60 сек</span></div>
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen phone-screen-video">
+              <div class="phone-video-content">
+                <div class="phone-video-brand">Студия красоты</div>
+                <div class="phone-video-hook">Она заплатила €180 в другом салоне. И пришла к нам это исправлять</div>
+                <div class="phone-video-play">▶</div>
+              </div>
+              <div class="phone-video-ui">
+                <div class="phone-ui-right">
+                  <div class="phone-ui-btn">♡</div>
+                  <div class="phone-ui-btn">💬</div>
+                  <div class="phone-ui-btn">↗</div>
+                </div>
+                <div class="phone-ui-bottom">
+                  <div class="phone-ui-name">@studiokrasoty</div>
+                  <div class="phone-ui-caption">Об этом не говорят пока не поздно...</div>
+                  <div class="phone-ui-audio">♫ оригинальный звук</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-sublabel">Готовое видео — снято и смонтировано</div>
+        </div>
+
+        <!-- Телефон 2: Карусель -->
+        <div class="phone-wrap">
+          <div class="phone-label"><span class="phone-tag blue">🖼 Карусель · 5 слайдов</span></div>
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen phone-screen-carousel">
+              <div class="phone-ig-header">
+                <div class="phone-ig-avatar"></div>
+                <div class="phone-ig-user">studiokrasoty</div>
+              </div>
+              <div class="phone-carousel-slide">
+                <div class="phone-carousel-num">01</div>
+                <div class="phone-carousel-title">5 вопросов мастеру перед записью</div>
+                <div class="phone-carousel-sub">Об этом не говорят пока не поздно</div>
+              </div>
+              <div class="phone-carousel-dots">
+                <span class="dot dot-active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <div class="phone-ig-actions">♡ &nbsp; 💬 &nbsp; ↗ &nbsp;&nbsp;&nbsp; 🔖</div>
+            </div>
+          </div>
+          <div class="phone-sublabel">Карусель со сценарием, структурой и призывом к действию</div>
+        </div>
+
+      </div>
+      <div style="text-align:center;margin-top:48px">
+        <a href="https://t.me/ContentDNAStart_bot" class="btn-primary">→ Получить контент-план на 7 дней — бесплатно</a>
+        <p style="text-align:center;max-width:380px;margin:12px auto 0;font-size:13px;color:var(--dark);line-height:1.6">Ответьте на несколько вопросов о своём бизнесе — получите контент-план на 7 дней, 2 сценария видео-ролика и карусели, для публикации в ваших соцсетях. Бесплатно.</p>
+        <p class="hero-social-proof">✅ 50+ предпринимателей уже получили свои видео, карусели и контент-план</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 2: PROBLEM — Знакомая история? -->
+<section class="problem-screen" id="problem">
+  <div class="container">
+    <h2 class="section-title">Знакомая история?</h2>
+    <div class="pain-cards">
+      <div class="pain-card">
+        <div class="pain-icon">🙋</div>
+        <h3>Пробовали сами</h3>
+        <p>Каждый раз — головная боль: что снять, что написать, что вообще выложить. Откладывали на "когда будет время". Посты выходили редко и без системы — каждый как отдельная история, никак не связанная с предыдущей.</p>
+        <p class="pain-card-result">Итог: контент есть, но нерегулярный и разрозненный — без стратегии, которая ведёт к клиентам.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">👤</div>
+        <h3>Наняли фрилансера — SMM-маркетолога</h3>
+        <p>Пришёл человек — умеет снимать, делать Reels, красиво оформить профиль. Контент пошёл, стало красивее. Но за этим нет ни исследования аудитории, ни анализа конкурентов, ни понимания что именно заставляет вашего клиента купить.</p>
+        <p class="pain-card-result">Итог: красивый профиль — но без стратегии это просто картинки, которые не продают.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🏢</div>
+        <h3>Обратились в агентство</h3>
+        <p>Всё серьёзно: контракт, бриф, разработка визуального стиля, регулярные Reels. Но любая правка — отдельный счёт. Говорят: "нужно минимум полгода". Платить надо сразу, а результат — обещают, но не гарантируют.</p>
+        <p class="pain-card-result">Итог: каждый месяц оплачиваем работу агентства — немалые деньги, а когда придут клиенты — никто не гарантирует.</p>
+      </div>
+    </div>
+
+    <!-- Мост между экранами -->
+    <div class="bridge-block">
+      <h3>Каким должен быть нормальный инструмент?</h3>
+      <ul class="bridge-list">
+        <li>Понимает ваш бизнес, вашу аудиторию и конкурентов — не работает шаблонами</li>
+        <li>Даёт готовый контент — не план, который вам ещё надо реализовать</li>
+        <li>Работает быстро и стоит разумных денег</li>
+        <li>Каждый месяц — свежий анализ, новые темы, актуальный контент</li>
+      </ul>
+      <p class="bridge-conclusion">Наша команда создала такой сервис и теперь он будет работать для достижения ваших целей!</p>
+      <div class="bridge-arrows">
+        <span class="arrow-down">↓</span>
+        <span class="arrow-down">↓</span>
+        <span class="arrow-down">↓</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 3: PRODUCT — Что вы получаете -->
+<section class="product-screen" id="product">
+  <div class="container">
+    <div class="product-brand">
+      <h2 class="product-brand-name"><span>Marketing</span> DNA</h2>
+      <p class="product-brand-sub">ДНК маркетинга — изучаем ваш бизнес, аудиторию и конкурентов — и создаём готовые видео, карусели и статьи для ваших соцсетей</p>
+    </div>
+    <p class="product-intro">Каждый месяц мы продолжаем изучать ваш бизнес и аудиторию — и создаём контент для соцсетей, который говорит с вашими клиентами на их языке.</p>
+    <div class="product-items">
+      <div class="product-item">
+        <div class="product-icon">📅</div>
+        <div class="product-text">
+          <h4>Два контент-плана на 30 дней</h4>
+          <p><strong>План А — привлечение и прогрев:</strong> полезный контент, который строит доверие и приводит новых подписчиков.</p>
+          <p><strong>План Б — активация и продажи:</strong> контент, который превращает подписчиков в покупателей.</p>
+          <p>Знаете что публиковать каждый день — без раздумий и пустых дней.</p>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-icon">🎬</div>
+        <div class="product-text">
+          <h4>8 готовых роликов (Reels / TikTok / Shorts)</h4>
+          <p>Снятых и смонтированных на основе созданных сценариев, разработанных специально для вашего бизнеса. Берёте и публикуете в своих соцсетях.</p>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-icon">🖼</div>
+        <div class="product-text">
+          <h4>8 готовых каруселей с дизайном</h4>
+          <p>Каждый слайд с текстом и визуалом — берёте и публикуете. Тексты написаны на основе исследования психологических привычек вашей целевой аудитории.</p>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-icon">📊</div>
+        <div class="product-text">
+          <h4>Анализ конкурентов + рекомендации</h4>
+          <p>Изучаем что конкуренты делают хорошо и что не закрывают — находим ваши уникальные контентные возможности. Знаете где занять свободное место в нише.</p>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-icon">📝</div>
+        <div class="product-text">
+          <h4>5 SEO и GEO-статей для сайта</h4>
+          <p>Статьи, оптимизированные под поисковые запросы вашей аудитории — чтобы клиенты находили вас через Google и AI-поисковики.</p>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-icon">🎨</div>
+        <div class="product-text">
+          <h4>30 готовых обложек</h4>
+          <p>Уже оформлены — берёте и используете. Единый стиль на весь месяц, чтобы профиль выглядел профессионально.</p>
+        </div>
+      </div>
+    </div>
+    <div class="product-cta-block">
+      <a href="#packages" class="btn-primary">→ Получить пакет за €250/мес</a>
+      <a href="#magnet" class="btn-secondary-outline">→ Попробовать бесплатно</a>
+      <p class="product-cta-note">Бесплатно: контент-план на 7 дней, два сценария для ролика и карусели</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 2: WHO WE ARE -->
+<section class="who" id="who">
+  <div class="who-inner">
+    <h2>Marketing DNA — глубокий анализ<br>и шикарный результат за короткое время</h2>
+    <p class="who-desc">Сервис по созданию готового контента для малого бизнеса. Изучаем ваш бизнес, конкурентов и клиентов — и создаём видео, карусели, сценарии и SEO-статьи персонально под ваш бизнес. Берёте готовые посты и публикуете в своих соцсетях.</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;background:#111827"></th>
+          <th class="ours">Marketing DNA</th>
+          <th>Агентство</th>
+          <th>Фрилансер</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Старт работы</td>
+          <td class="ours"><span class="badge-win">Мгновенно</span></td>
+          <td>1–2 недели</td>
+          <td>3–7 дней</td>
+        </tr>
+        <tr>
+          <td>Готовый результат</td>
+          <td class="ours"><span class="badge-win">за 24 часа</span></td>
+          <td>2–4 недели</td>
+          <td>1–2 недели</td>
+        </tr>
+        <tr>
+          <td>Стоимость</td>
+          <td class="ours"><span class="badge-win">€250/мес</span></td>
+          <td>от €700/мес</td>
+          <td>от €350/мес</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="why-cheaper">
+      <p>Обычные агентства берут деньги за часы работы своих людей. Нам платят за результат — готовый контент на 30 дней: видео, карусели, посты со смыслом на основе исследования и анализа вашего бизнеса и ваших клиентов.</p>
+      <p class="why-cheaper-price">У нас дешевле, потому что активно используем новые технологии и искусственный интеллект — он делает за часы то, на что у обычных агентств уходят недели работы.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 3: HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <h2 class="section-title">Как это работает</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Изучаем ваш бизнес и аудиторию</h3>
+        <p>Отвечаете на вопросы о своём продукте и клиентах. Мы проводим глубокий анализ бизнеса и исследуем вашу аудиторию — как клиенты думают о своей проблеме, как о ней говорят, что ищут. На основе этого строим семантику вашего бизнеса.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Исследуем конкурентов и создаём контент</h3>
+        <p>Анализируем конкурентов — что делают хорошо и какие темы не закрывают. После этого рождается весь контент: на языке ваших клиентов, под их боли и желания, с учётом свободных ниш в вашей теме.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Получаете и публикуете</h3>
+        <p>Видео, карусели, посты, статьи — готово. С чётким планом: что, куда и когда. Остаётся одно действие — нажать «Опубликовать».</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 4: PACKAGES -->
+<section class="packages" id="packages">
+  <div class="container">
+    <h2 class="section-title">Что вы получаете</h2>
+
+    <!-- SINGLE PACKAGE -->
+    <div class="pkg-single">
+
+      <!-- ЧТО ПОЛУЧАЕТ КЛИЕНТ -->
+      <div class="pkg-items">
+
+        <div class="pkg-item">
+          <div class="pkg-item-icon">📅</div>
+          <div class="pkg-item-body">
+            <h4>Два контент-плана на 30 дней</h4>
+            <p>Вы никогда не будете стоять перед пустым экраном и думать «что сегодня публиковать». Каждый день месяца расписан: тема, формат, цель публикации.</p>
+            <div class="pkg-item-plans">
+              <div class="pkg-plan">
+                <span class="pkg-plan-label">План А — Привлечение и прогрев</span>
+                <span class="pkg-plan-desc">Полезный контент, который строит доверие и приводит новых подписчиков — тех, кто пока вас не знает</span>
+              </div>
+              <div class="pkg-plan">
+                <span class="pkg-plan-label">План Б — Активация и продажи</span>
+                <span class="pkg-plan-desc">Контент, который превращает подписчиков в покупателей — тех, кто уже следит за вами, но ещё не купил</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-item">
+          <div class="pkg-item-icon">🎬</div>
+          <div class="pkg-item-body">
+            <h4>8 готовых роликов (Reels / TikTok / Shorts)</h4>
+            <p>Не сценарии — а уже снятые и смонтированные видео. Каждый ролик создан на основе исследования вашего бизнеса и вашей аудитории: правильный хук, правильный посыл, правильный призыв. Берёте и публикуете в своих соцсетях.</p>
+          </div>
+        </div>
+
+        <div class="pkg-item">
+          <div class="pkg-item-icon">🖼</div>
+          <div class="pkg-item-body">
+            <h4>8 готовых каруселей с дизайном</h4>
+            <p>Каждая карусель — это готовая серия слайдов с текстом и визуалом. Тексты написаны на основе исследования психологических привычек вашей целевой аудитории: что их останавливает, что мотивирует, что убеждает. Берёте и публикуете.</p>
+          </div>
+        </div>
+
+        <div class="pkg-item">
+          <div class="pkg-item-icon">🎨</div>
+          <div class="pkg-item-body">
+            <h4>30 готовых обложек</h4>
+            <p>Единый визуальный стиль на весь месяц — профиль выглядит профессионально и узнаваемо. Уже оформлены под ваш бренд. Берёте и используете без правок.</p>
+          </div>
+        </div>
+
+        <div class="pkg-item">
+          <div class="pkg-item-icon">📝</div>
+          <div class="pkg-item-body">
+            <h4>5 SEO и GEO-статей для сайта</h4>
+            <p>Статьи, оптимизированные под поисковые запросы вашей аудитории — чтобы новые клиенты находили вас через Google и AI-поисковики каждый месяц, даже когда вы не публикуете в соцсетях.</p>
+          </div>
+        </div>
+
+        <div class="pkg-item pkg-item-bonus">
+          <div class="pkg-item-icon">📊</div>
+          <div class="pkg-item-body">
+            <h4>Анализ конкурентов + 5 рекомендаций <span class="pkg-bonus-tag">В первый месяц</span></h4>
+            <p>Изучаем что конкуренты делают хорошо и что не закрывают. Находим свободные контентные ниши — темы, которые никто в вашей сфере не занял. Вы получаете конкретные рекомендации куда двигаться, чтобы выделиться.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ЦЕНА И CTA — в конце, после ценности -->
+      <div class="pkg-footer">
+        <div class="pkg-footer-left">
+          <div class="pkg-name">Marketing DNA</div>
+          <div class="pkg-tagline">Полный готовый контент для ваших соцсетей — каждый месяц</div>
+        </div>
+        <div class="pkg-footer-right">
+          <div class="pkg-price-block">
+            <span class="pkg-price-num">€250</span>
+            <span class="pkg-price-period">/мес</span>
+          </div>
+          <a href="https://buy.stripe.com/PLACEHOLDER_250" class="btn-primary pkg-buy-btn">→ Начать за €250/мес</a>
+          <p class="pkg-buy-note">или <a href="#magnet" style="color:var(--purple)">попробуйте бесплатно →</a></p>
+        </div>
+      </div>
+
+      <!-- ПЛАТФОРМЫ — внутри карточки, под ценой -->
+      <div class="pkg-platforms">
+        <p class="pkg-platforms-title">📱 Указываете платформы которые вам нужны — мы адаптируем контент под каждую.<br>Хотите зайти в новую сеть — дадим всё что нужно для старта.</p>
+        <div class="pkg-platform-tags">
+          <span class="ptag ptag-instagram">
+            <i class="fa-brands fa-instagram"></i>
+            Instagram
+          </span>
+          <span class="ptag ptag-tiktok">
+            <i class="fa-brands fa-tiktok"></i>
+            TikTok
+          </span>
+          <span class="ptag ptag-youtube">
+            <i class="fa-brands fa-youtube"></i>
+            YouTube
+          </span>
+          <span class="ptag ptag-linkedin">
+            <i class="fa-brands fa-linkedin-in"></i>
+            LinkedIn
+          </span>
+          <span class="ptag ptag-facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+            Facebook
+          </span>
+          <span class="ptag ptag-telegram">
+            <i class="fa-brands fa-telegram"></i>
+            Telegram
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pkg-note">
+      🎯 Все тексты написаны на основе исследования психологии поведения ваших клиентов — их страхи, желания и мотивации.<br>Не просто красивый контент — контент который приводит клиентов и делает продажи.
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 5: PAIN -->
+<section class="pain" id="pain">
+  <div class="container">
+    <h2 class="section-title">Вы узнаёте себя?</h2>
+    <div class="cards-grid">
+      <div class="pain-card">
+        <span class="pain-emoji">🔨</span>
+        <div class="pain-name">Паул · Ремонт и отделка</div>
+        <p class="pain-quote">«Понимаю что надо вести соцсети. Но сяду вечером — и смотрю в экран. Не знаю с чего начать»</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-emoji">💅</span>
+        <div class="pain-name">Кристина · Студия красоты</div>
+        <p class="pain-quote">«Нанимала SMM-специалиста. Дорого, долго, и всё равно пришлось всё объяснять самой. Бросила»</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-emoji">🏋️</span>
+        <div class="pain-name">Томас · Фитнес-студия</div>
+        <p class="pain-quote">«Понимаю что надо быть в TikTok. Но не понимаю что туда постить — думал это не для моего бизнеса»</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-emoji">🧠</span>
+        <div class="pain-name">София · Психолог</div>
+        <p class="pain-quote">«Знаю что мои клиенты ищут меня в соцсетях. Но писать о своей работе — не знаю как. Боюсь выглядеть навязчиво»</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-emoji">✨</span>
+        <div class="pain-name">Лаура · Мастер маникюра</div>
+        <p class="pain-quote">«Делаю красивые работы, фотографирую, выкладываю — но не умею придумывать заголовки и темы»</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-emoji">🛋️</span>
+        <div class="pain-name">Арнис · Производство мебели</div>
+        <p class="pain-quote">«Делаем мебель на заказ — работы всегда хорошие. Фотографии выкладываю раз в месяц когда вспомню. Клиентов из соцсетей — ноль»</p>
+      </div>
+    </div>
+    <div class="pain-footer">
+      Создавать контент регулярно — это профессия. Marketing DNA делает эту работу для вас.
+    </div>
+  </div>
+</section>
+
+
+<!-- BLOCK 8: FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <h2 class="section-title">Частые вопросы</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Это точно подойдёт для моей ниши?</div>
+        <div class="faq-a">Да. И ты ничем не рискуешь — начни с бесплатного контент-плана на 7 дней, посмотри что получаешь и тогда принимай решение. Мы уверены что создадим для тебя сильный результат — независимо от ниши.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Контент будет выглядеть шаблонно — как у всех?</div>
+        <div class="faq-a">Нет. Сначала изучаем твой бизнес, клиентов и конкурентов — и только потом создаём контент. Даже два бизнеса из одной сферы деятельности получат два абсолютно разных пакета.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">А если мне не понравится результат?</div>
+        <div class="faq-a">За первый месяц ты получаешь полный пакет — контент-план, сценарии, карусели, статьи. Публикуешь, видишь просмотры и реакцию подписчиков — и даёшь нам обратную связь. При необходимости корректируем для усиления результата. Наша мотивация — чтобы у тебя всё получилось. Мы готовы работать над этим каждый месяц и хотим чтобы ты оставался с нами как можно дольше и рекомендовал нас своим друзьям и коллегам.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Как я получу контент?</div>
+        <div class="faq-a">Удобным для тебя способом — в Telegram, e-mail или WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Можно сначала попробовать бесплатно?</div>
+        <div class="faq-a">Да — именно для этого есть бесплатный контент-план на 7 дней. Без оплаты и без обязательств.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="final">
+  <div class="container">
+    <h2>Ещё не принял решение?</h2>
+    <p>Если ты дочитал до этого места и всё ещё думаешь — возможно ты человек который хочет всё делать сам. Мы это уважаем и ценим.<br><br>Но если хочешь сравнить — что получается у тебя сейчас и что предлагаем мы — у тебя есть простой способ проверить. Без давления. Без обязательств.</p>
+    <a href="#magnet" class="btn-primary" style="font-size:18px;padding:20px 40px">→ Получить бесплатный контент-план на 7 дней</a>
+  </div>
+</section>
+
+<footer>
+  <span>Marketing DNA</span> · Контент-маркетинг для малого бизнеса · 2025
+</footer>
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
