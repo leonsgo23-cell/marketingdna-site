@@ -769,23 +769,103 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
   }
   .product-item {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
     background: #f9f7ff;
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 28px 24px;
+    overflow: hidden;
     transition: box-shadow .2s;
   }
-  .product-item:hover { box-shadow: 0 6px 20px rgba(0,0,0,.07); }
-  .product-icon { font-size: 32px; flex-shrink: 0; }
-  .product-text h4 { font-size: 16px; font-weight: 700; color: #111827; margin: 0 0 8px; }
-  .product-text p { font-size: 14px; color: #4b5563; line-height: 1.6; margin: 0 0 6px; }
+  .product-item:hover { box-shadow: 0 6px 24px rgba(124,58,237,.10); }
+  .product-preview {
+    width: 100%; height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; flex-shrink: 0;
+  }
+  .product-body { padding: 20px 22px 24px; }
+  .product-icon { font-size: 20px; margin-bottom: 8px; display: block; }
+  .product-text h4 { font-size: 15px; font-weight: 700; color: #111827; margin: 0 0 8px; }
+  .product-text p { font-size: 13px; color: #4b5563; line-height: 1.6; margin: 0 0 6px; }
   .product-text p:last-child { margin-bottom: 0; }
+
+  /* Превью: контент-план */
+  .prev-calendar { background: linear-gradient(135deg,#f0f4ff,#e8f0fe); width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+  .prev-cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; padding:16px; width:100%; }
+  .prev-cal-day { height:18px; border-radius:4px; }
+  .prev-cal-day.c-reel { background:#7C3AED; }
+  .prev-cal-day.c-car  { background:#3B82F6; }
+  .prev-cal-day.c-post { background:#10B981; }
+  .prev-cal-day.c-story{ background:#F59E0B; }
+  .prev-cal-day.c-off  { background:#e5e7eb; }
+
+  /* Превью: карусель */
+  .prev-carousel { background: linear-gradient(135deg,#EDE9FE,#DDD6FE); width:100%; height:100%; display:flex; align-items:center; justify-content:center; gap:8px; }
+  .prev-slide { background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.12); display:flex; flex-direction:column; justify-content:flex-end; padding:8px; }
+  .prev-slide.s-main { width:76px; height:100px; }
+  .prev-slide.s-side { width:60px; height:80px; opacity:.7; }
+  .prev-slide-line { height:5px; border-radius:3px; background:#DDD6FE; margin-bottom:4px; }
+  .prev-slide-line.wide { width:80%; }
+  .prev-slide-line.narrow { width:55%; background:#EDE9FE; }
+
+  /* Превью: AI-фото */
+  .prev-photos { background: linear-gradient(135deg,#fdf4ff,#fce7f3); width:100%; height:100%; display:flex; align-items:center; justify-content:center; gap:6px; padding:12px; }
+  .prev-photo { border-radius:10px; overflow:hidden; flex-shrink:0; }
+  .prev-photo.p-main { width:80px; height:110px; background:linear-gradient(160deg,#c084fc,#7C3AED); }
+  .prev-photo.p-side { width:64px; height:88px; background:linear-gradient(160deg,#f0abfc,#a855f7); opacity:.8; }
+  .prev-photo.p-sm   { width:52px; height:72px; background:linear-gradient(160deg,#e9d5ff,#c084fc); opacity:.6; }
+
+  /* Превью: Stories */
+  .prev-stories { background: linear-gradient(135deg,#fff7ed,#fed7aa); width:100%; height:100%; display:flex; align-items:center; justify-content:center; gap:8px; }
+  .prev-story { border-radius:8px; display:flex; flex-direction:column; justify-content:flex-end; padding:6px; overflow:hidden; position:relative; }
+  .prev-story.st-main { width:54px; height:96px; background:linear-gradient(170deg,#fb923c,#dc2626); }
+  .prev-story.st-side { width:42px; height:76px; background:linear-gradient(170deg,#fdba74,#f97316); opacity:.75; }
+  .prev-story-line { height:3px; border-radius:2px; background:rgba(255,255,255,.5); margin-bottom:3px; }
+  .prev-story-line.wl { width:75%; }
+  .prev-story-line.nl { width:50%; background:rgba(255,255,255,.3); }
+
+  /* Превью: SEO-статья */
+  .prev-article { background: linear-gradient(135deg,#f0fdf4,#dcfce7); width:100%; height:100%; display:flex; align-items:center; justify-content:center; padding:16px; }
+  .prev-article-card { background:#fff; border-radius:10px; padding:14px; width:100%; max-width:220px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  .prev-art-h { height:8px; background:#111827; border-radius:4px; width:80%; margin-bottom:10px; }
+  .prev-art-line { height:5px; border-radius:3px; background:#e5e7eb; margin-bottom:5px; }
+  .prev-art-line.al { width:95%; }
+  .prev-art-line.am { width:75%; }
+  .prev-art-line.as { width:55%; background:#d1fae5; }
+
+  /* Превью: конкуренты */
+  .prev-competitors { background: linear-gradient(135deg,#fffbeb,#fef3c7); width:100%; height:100%; display:flex; align-items:flex-end; justify-content:center; gap:10px; padding:16px 20px 20px; }
+  .prev-bar-wrap { display:flex; flex-direction:column; align-items:center; gap:4px; flex:1; }
+  .prev-bar { width:100%; border-radius:5px 5px 0 0; }
+  .prev-bar.b-us   { background:#7C3AED; height:70px; }
+  .prev-bar.b-comp1{ background:#d1d5db; height:45px; }
+  .prev-bar.b-comp2{ background:#d1d5db; height:30px; }
+  .prev-bar.b-comp3{ background:#d1d5db; height:55px; }
+  .prev-bar-label  { font-size:8px; font-weight:700; color:#6b7280; text-align:center; }
+  .prev-bar-label.us { color:#7C3AED; }
+
+  /* Превью: AI-видео */
+  .prev-video { background:linear-gradient(135deg,#1E1B4B,#4C1D95); width:100%; height:100%; display:flex; align-items:center; justify-content:center; gap:10px; }
+  .prev-reel { width:52px; height:92px; border-radius:10px; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:6px; position:relative; }
+  .prev-reel.r-main { width:62px; height:108px; }
+  .prev-reel-bg { position:absolute; inset:0; }
+  .prev-reel.r-main .prev-reel-bg { background:linear-gradient(170deg,#6366f1,#4338ca); }
+  .prev-reel.r-side .prev-reel-bg { background:linear-gradient(170deg,#818cf8,#6366f1); opacity:.7; }
+  .prev-reel-play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:20px; height:20px; background:rgba(255,255,255,.9); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:8px; }
+  .prev-reel-line  { height:3px; border-radius:2px; background:rgba(255,255,255,.4); margin-bottom:3px; position:relative; z-index:1; }
+
+  /* Превью: обложки */
+  .prev-covers { background:linear-gradient(135deg,#0f172a,#1e293b); width:100%; height:100%; display:flex; align-items:center; justify-content:center; gap:8px; padding:12px; }
+  .prev-cover { border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px; position:relative; }
+  .prev-cover.cv-main { width:72px; height:100px; background:linear-gradient(160deg,#7C3AED,#4C1D95); }
+  .prev-cover.cv-side { width:58px; height:80px; background:linear-gradient(160deg,#6d28d9,#3730a3); opacity:.8; }
+  .prev-cover.cv-sm   { width:46px; height:64px; background:linear-gradient(160deg,#5b21b6,#312e81); opacity:.6; }
+  .prev-cover-text { font-size:7px; font-weight:800; color:#fff; text-align:center; padding:0 4px; line-height:1.3; position:relative; z-index:1; }
+  .prev-cover-stripe { position:absolute; bottom:0; left:0; right:0; height:2px; background:#a78bfa; }
 
   .product-cta-block {
     display: flex;
@@ -1051,64 +1131,130 @@
     </div>
     <p class="product-intro">Каждый месяц мы продолжаем изучать ваш бизнес и аудиторию — и создаём контент для соцсетей, который говорит с вашими клиентами на их языке.</p>
     <div class="product-items">
+
+      <!-- 1. Контент-план -->
       <div class="product-item">
-        <div class="product-icon">📅</div>
-        <div class="product-text">
+        <div class="product-preview prev-calendar">
+          <div class="prev-cal-grid">
+            <div class="prev-cal-day c-reel"></div><div class="prev-cal-day c-car"></div><div class="prev-cal-day c-post"></div><div class="prev-cal-day c-off"></div><div class="prev-cal-day c-story"></div><div class="prev-cal-day c-reel"></div><div class="prev-cal-day c-car"></div>
+            <div class="prev-cal-day c-post"></div><div class="prev-cal-day c-off"></div><div class="prev-cal-day c-reel"></div><div class="prev-cal-day c-story"></div><div class="prev-cal-day c-car"></div><div class="prev-cal-day c-post"></div><div class="prev-cal-day c-reel"></div>
+            <div class="prev-cal-day c-story"></div><div class="prev-cal-day c-car"></div><div class="prev-cal-day c-off"></div><div class="prev-cal-day c-reel"></div><div class="prev-cal-day c-post"></div><div class="prev-cal-day c-story"></div><div class="prev-cal-day c-car"></div>
+            <div class="prev-cal-day c-reel"></div><div class="prev-cal-day c-off"></div><div class="prev-cal-day c-post"></div><div class="prev-cal-day c-car"></div><div class="prev-cal-day c-reel"></div><div class="prev-cal-day c-story"></div><div class="prev-cal-day c-post"></div>
+          </div>
+        </div>
+        <div class="product-body product-text">
+          <span class="product-icon">📅</span>
           <h4>Два контент-плана на 30 дней</h4>
           <p><strong>План А — привлечение и прогрев:</strong> полезный контент, который строит доверие и приводит новых подписчиков.</p>
           <p><strong>План Б — активация и продажи:</strong> контент, который превращает подписчиков в покупателей.</p>
-          <p>Знаете что публиковать каждый день — без раздумий и пустых дней.</p>
         </div>
       </div>
+
+      <!-- 2. Карусели -->
       <div class="product-item">
-        <div class="product-icon">🖼</div>
-        <div class="product-text">
+        <div class="product-preview prev-carousel">
+          <div class="prev-slide s-side"><div class="prev-slide-line wide"></div><div class="prev-slide-line narrow"></div></div>
+          <div class="prev-slide s-main"><div class="prev-slide-line wide"></div><div class="prev-slide-line narrow"></div><div class="prev-slide-line wide"></div></div>
+          <div class="prev-slide s-side"><div class="prev-slide-line wide"></div><div class="prev-slide-line narrow"></div></div>
+        </div>
+        <div class="product-body product-text">
+          <span class="product-icon">🖼</span>
           <h4>8 готовых каруселей с дизайном</h4>
-          <p>Каждая карусель — готовая серия слайдов с текстом и визуалом. Тексты написаны на основе исследования психологических привычек вашей целевой аудитории. Берёте и публикуете.</p>
+          <p>Готовая серия слайдов с текстом и визуалом. Тексты написаны на основе психологии вашей аудитории. Берёте и публикуете.</p>
         </div>
       </div>
+
+      <!-- 3. AI-фото -->
       <div class="product-item">
-        <div class="product-icon">📸</div>
-        <div class="product-text">
+        <div class="product-preview prev-photos">
+          <div class="prev-photo p-sm"></div>
+          <div class="prev-photo p-side"></div>
+          <div class="prev-photo p-main"></div>
+        </div>
+        <div class="product-body product-text">
+          <span class="product-icon">📸</span>
           <h4>8 готовых AI-фото для Instagram / TikTok</h4>
           <p>Фотографии сгенерированы под стиль вашего бренда — без съёмки и фотографа. Подходят для постов, Stories и обложек.</p>
         </div>
       </div>
+
+      <!-- 4. Stories -->
       <div class="product-item">
-        <div class="product-icon">📱</div>
-        <div class="product-text">
+        <div class="product-preview prev-stories">
+          <div class="prev-story st-side"><div class="prev-story-line wl"></div><div class="prev-story-line nl"></div></div>
+          <div class="prev-story st-main"><div class="prev-story-line wl"></div><div class="prev-story-line nl"></div><div class="prev-story-line wl"></div></div>
+          <div class="prev-story st-side"><div class="prev-story-line wl"></div><div class="prev-story-line nl"></div></div>
+        </div>
+        <div class="product-body product-text">
+          <span class="product-icon">📱</span>
           <h4>15 готовых Stories</h4>
           <p>Серия Stories под каждую неделю контент-плана — с текстом, визуалом и призывом к действию. Берёте и публикуете.</p>
         </div>
       </div>
+
+      <!-- 5. SEO-статьи -->
       <div class="product-item">
-        <div class="product-icon">📝</div>
-        <div class="product-text">
+        <div class="product-preview prev-article">
+          <div class="prev-article-card">
+            <div class="prev-art-h"></div>
+            <div class="prev-art-line al"></div>
+            <div class="prev-art-line am"></div>
+            <div class="prev-art-line al"></div>
+            <div class="prev-art-line as"></div>
+            <div class="prev-art-line al"></div>
+            <div class="prev-art-line am"></div>
+          </div>
+        </div>
+        <div class="product-body product-text">
+          <span class="product-icon">📝</span>
           <h4>5 SEO и GEO-статей для сайта</h4>
-          <p>Статьи, оптимизированные под поисковые запросы вашей аудитории — чтобы клиенты находили вас через Google и AI-поисковики каждый месяц.</p>
+          <p>Статьи под реальные поисковые запросы аудитории — клиенты находят вас через Google и AI-поисковики каждый месяц.</p>
         </div>
       </div>
+
+      <!-- 6. Конкуренты -->
       <div class="product-item">
-        <div class="product-icon">📊</div>
-        <div class="product-text">
+        <div class="product-preview prev-competitors">
+          <div class="prev-bar-wrap"><div class="prev-bar b-us"></div><div class="prev-bar-label us">Вы</div></div>
+          <div class="prev-bar-wrap"><div class="prev-bar b-comp1"></div><div class="prev-bar-label">Конк. 1</div></div>
+          <div class="prev-bar-wrap"><div class="prev-bar b-comp3"></div><div class="prev-bar-label">Конк. 2</div></div>
+          <div class="prev-bar-wrap"><div class="prev-bar b-comp2"></div><div class="prev-bar-label">Конк. 3</div></div>
+        </div>
+        <div class="product-body product-text">
+          <span class="product-icon">📊</span>
           <h4>Сводка по конкурентам + возможности</h4>
-          <p>Изучаем что конкуренты делают и что не закрывают — находим ваши уникальные контентные возможности. Знаете где занять свободное место в нише.</p>
+          <p>Изучаем что конкуренты делают и что не закрывают — находим свободные темы и форматы для вашего роста.</p>
         </div>
       </div>
+
+      <!-- 7. AI-видео -->
       <div class="product-item">
-        <div class="product-icon">🎬</div>
-        <div class="product-text">
-          <h4>8 готовых AI-видео B-roll <span style="font-size:12px;background:var(--light);color:var(--purple);padding:2px 8px;border-radius:20px;font-weight:700;vertical-align:middle">Пакет В</span></h4>
-          <p>Готовые короткие ролики для Reels, TikTok и Shorts — сгенерированы AI на основе сценариев вашего бизнеса. Берёте и публикуете.</p>
+        <div class="product-preview prev-video">
+          <div class="prev-reel r-side"><div class="prev-reel-bg"></div><div class="prev-reel-play">▶</div><div class="prev-reel-line"></div></div>
+          <div class="prev-reel r-main"><div class="prev-reel-bg"></div><div class="prev-reel-play">▶</div><div class="prev-reel-line"></div><div class="prev-reel-line"></div></div>
+          <div class="prev-reel r-side"><div class="prev-reel-bg"></div><div class="prev-reel-play">▶</div><div class="prev-reel-line"></div></div>
+        </div>
+        <div class="product-body product-text">
+          <span class="product-icon">🎬</span>
+          <h4>8 готовых AI-видео B-roll <span style="font-size:11px;background:#EDE9FE;color:var(--purple);padding:2px 8px;border-radius:20px;font-weight:700;vertical-align:middle">Пакет В</span></h4>
+          <p>Готовые короткие ролики для Reels, TikTok и Shorts — сгенерированы AI под сценарии вашего бизнеса.</p>
         </div>
       </div>
+
+      <!-- 8. Обложки -->
       <div class="product-item">
-        <div class="product-icon">🎨</div>
-        <div class="product-text">
-          <h4>8 готовых обложек для видео <span style="font-size:12px;background:var(--light);color:var(--purple);padding:2px 8px;border-radius:20px;font-weight:700;vertical-align:middle">Пакет В</span></h4>
-          <p>Кастомные обложки (thumbnail) — под каждый ролик. Используете в Instagram, TikTok, YouTube или как отдельный пост.</p>
+        <div class="product-preview prev-covers">
+          <div class="prev-cover cv-sm"><div class="prev-cover-text">ЗАГОЛОВОК</div><div class="prev-cover-stripe"></div></div>
+          <div class="prev-cover cv-side"><div class="prev-cover-text">ЗАГОЛОВОК</div><div class="prev-cover-stripe"></div></div>
+          <div class="prev-cover cv-main"><div class="prev-cover-text">ЗАГОЛОВОК</div><div class="prev-cover-stripe"></div></div>
+        </div>
+        <div class="product-body product-text">
+          <span class="product-icon">🎨</span>
+          <h4>8 готовых обложек для видео <span style="font-size:11px;background:#EDE9FE;color:var(--purple);padding:2px 8px;border-radius:20px;font-weight:700;vertical-align:middle">Пакет В</span></h4>
+          <p>Кастомные thumbnail под каждый ролик. Используете в Instagram, TikTok, YouTube или как отдельный пост.</p>
         </div>
       </div>
+
     </div>
 
     <div class="product-engine">
