@@ -668,9 +668,7 @@
     font-size: 11px; font-weight: 700; text-transform: uppercase;
     letter-spacing: 1px; color: #9CA3AF; margin-bottom: 10px;
   }
-  .portfolio-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-  }
+  .portfolio-thumbs { display: flex; gap: 10px; }
   .pthumbs {
     background: white; border-radius: 12px; overflow: hidden;
     box-shadow: 0 3px 14px rgba(0,0,0,0.11);
@@ -1522,14 +1520,10 @@
         <div class="upsell-person-overlay"></div>
         <div class="upsell-person-label">Делаем сайты под ключ</div>
       </div>
-      <!-- Портфолио 2×2 — клик открывает превью, не уводит с сайта -->
+      <!-- Портфолио — 3 сайта в ряд, клик открывает превью -->
       <div class="portfolio-strip">
         <div class="portfolio-strip-label">Примеры наших работ — нажмите для просмотра</div>
-        <div class="portfolio-grid">
-          <div class="pthumbs" onclick="openSitePreview('https://marketing-dna.com','Marketing DNA')">
-            <img src="https://image.thum.io/get/width/400/https://marketing-dna.com" alt="Marketing DNA" loading="lazy">
-            <div class="pthumbs-name">Marketing DNA</div>
-          </div>
+        <div class="portfolio-thumbs">
           <div class="pthumbs" onclick="openSitePreview('https://smartskola.lv','SmartSkola')">
             <img src="https://image.thum.io/get/width/400/https://smartskola.lv" alt="SmartSkola" loading="lazy">
             <div class="pthumbs-name">SmartSkola</div>
@@ -1539,7 +1533,7 @@
             <div class="pthumbs-name">ModelMatch</div>
           </div>
           <div class="pthumbs" onclick="openSitePreview('https://artandwine.club/ru','Art&Wine')">
-            <img src="https://image.thum.io/get/width/400/https://artandwine.club/ru" alt="Art&Wine" loading="lazy">
+            <img src="https://image.thum.io/get/width/400/crop/280/https://artandwine.club/ru" alt="Art&Wine" loading="lazy">
             <div class="pthumbs-name">Art&amp;Wine</div>
           </div>
         </div>
@@ -1596,7 +1590,11 @@
   // Portfolio site preview modal
   function openSitePreview(url, name) {
     document.getElementById('siteModalTitle').textContent = name;
-    document.getElementById('siteModalImg').src = 'https://image.thum.io/get/width/1200/' + url;
+    const hasCookieBanner = url.includes('artandwine');
+    const screenshotUrl = hasCookieBanner
+      ? 'https://image.thum.io/get/width/1200/crop/500/' + url
+      : 'https://image.thum.io/get/width/1200/' + url;
+    document.getElementById('siteModalImg').src = screenshotUrl;
     document.getElementById('siteModalLink').href = url;
     document.getElementById('siteModal').classList.add('open');
     document.body.style.overflow = 'hidden';
