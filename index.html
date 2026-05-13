@@ -668,25 +668,59 @@
     font-size: 11px; font-weight: 700; text-transform: uppercase;
     letter-spacing: 1px; color: #9CA3AF; margin-bottom: 10px;
   }
-  .portfolio-thumbs { display: flex; gap: 10px; }
+  .portfolio-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
   .pthumbs {
-    flex: 1; background: white; border-radius: 12px; overflow: hidden;
+    background: white; border-radius: 12px; overflow: hidden;
     box-shadow: 0 3px 14px rgba(0,0,0,0.11);
     transition: transform .2s, box-shadow .2s;
-    text-decoration: none; display: block;
+    cursor: pointer;
   }
   .pthumbs:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(124,58,237,0.18); }
-  .pthumbs img { width: 100%; height: 100px; object-fit: cover; object-position: top; display: block; }
+  .pthumbs img { width: 100%; height: 90px; object-fit: cover; object-position: top; display: block; }
   .pthumbs-name {
     font-size: 11px; font-weight: 700; color: #7C3AED;
-    padding: 7px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    padding: 6px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .pthumbs-more {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: #F5F3FF; min-height: 120px; gap: 4px;
+
+  /* Модальное окно */
+  .site-modal {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center;
   }
-  .pthumbs-more-num { font-size: 28px; font-weight: 900; color: #7C3AED; line-height: 1; }
-  .pthumbs-more-label { font-size: 11px; font-weight: 600; color: #7C3AED; }
+  .site-modal.open { display: flex; }
+  .site-modal-box {
+    background: white; border-radius: 16px; overflow: hidden;
+    width: 90%; max-width: 700px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+    animation: modalIn .2s ease;
+  }
+  @keyframes modalIn { from { transform: scale(.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .site-modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px; border-bottom: 1px solid #F3F4F6;
+  }
+  .site-modal-title { font-size: 15px; font-weight: 700; color: #1F2937; }
+  .site-modal-close {
+    background: #F3F4F6; border: none; border-radius: 8px;
+    width: 32px; height: 32px; cursor: pointer; font-size: 14px;
+    color: #6B7280; transition: background .15s;
+  }
+  .site-modal-close:hover { background: #E5E7EB; }
+  .site-modal-screen img {
+    width: 100%; display: block;
+    max-height: 60vh; object-fit: cover; object-position: top;
+  }
+  .site-modal-footer {
+    padding: 12px 18px; border-top: 1px solid #F3F4F6; text-align: right;
+  }
+  .site-modal-link {
+    font-size: 13px; font-weight: 600; color: #9CA3AF;
+    text-decoration: none; transition: color .15s;
+  }
+  .site-modal-link:hover { color: #7C3AED; }
 
   /* FOOTER */
   footer {
@@ -1482,28 +1516,48 @@
       <a href="https://t.me/ContentDNAStart_bot?start=website" class="btn-secondary">→ Создать сайт</a>
     </div>
     <div class="upsell-visual">
-      <!-- Фото человека за ноутбуком — компактное -->
+      <!-- Фото человека за ноутбуком -->
       <div class="upsell-person">
         <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&auto=format&fit=crop&q=80" alt="Работа над сайтом" loading="lazy">
         <div class="upsell-person-overlay"></div>
         <div class="upsell-person-label">Делаем сайты под ключ</div>
       </div>
-      <!-- Портфолио — реальные кликабельные скриншоты -->
+      <!-- Портфолио 2×2 — клик открывает превью, не уводит с сайта -->
       <div class="portfolio-strip">
-        <div class="portfolio-strip-label">Примеры наших работ — нажмите чтобы открыть</div>
-        <div class="portfolio-thumbs">
-          <a class="pthumbs" href="https://marketing-dna.com" target="_blank" rel="noopener">
+        <div class="portfolio-strip-label">Примеры наших работ — нажмите для просмотра</div>
+        <div class="portfolio-grid">
+          <div class="pthumbs" onclick="openSitePreview('https://marketing-dna.com','Marketing DNA')">
             <img src="https://image.thum.io/get/width/400/https://marketing-dna.com" alt="Marketing DNA" loading="lazy">
-            <div class="pthumbs-name">↗ Marketing DNA</div>
-          </a>
-          <a class="pthumbs" href="https://smartskola.lv" target="_blank" rel="noopener">
-            <img src="https://image.thum.io/get/width/400/https://smartskola.lv" alt="SmartSkola" loading="lazy">
-            <div class="pthumbs-name">↗ SmartSkola</div>
-          </a>
-          <div class="pthumbs pthumbs-more">
-            <div class="pthumbs-more-num">+3</div>
-            <div class="pthumbs-more-label">проекта</div>
+            <div class="pthumbs-name">Marketing DNA</div>
           </div>
+          <div class="pthumbs" onclick="openSitePreview('https://smartskola.lv','SmartSkola')">
+            <img src="https://image.thum.io/get/width/400/https://smartskola.lv" alt="SmartSkola" loading="lazy">
+            <div class="pthumbs-name">SmartSkola</div>
+          </div>
+          <div class="pthumbs" onclick="openSitePreview('https://modelmatch.pro/ru','ModelMatch')">
+            <img src="https://image.thum.io/get/width/400/https://modelmatch.pro/ru" alt="ModelMatch" loading="lazy">
+            <div class="pthumbs-name">ModelMatch</div>
+          </div>
+          <div class="pthumbs" onclick="openSitePreview('https://artandwine.club/ru','Art&Wine')">
+            <img src="https://image.thum.io/get/width/400/https://artandwine.club/ru" alt="Art&Wine" loading="lazy">
+            <div class="pthumbs-name">Art&amp;Wine</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно — превью сайта -->
+    <div class="site-modal" id="siteModal" onclick="closeSitePreview()">
+      <div class="site-modal-box" onclick="event.stopPropagation()">
+        <div class="site-modal-header">
+          <span class="site-modal-title" id="siteModalTitle"></span>
+          <button class="site-modal-close" onclick="closeSitePreview()">✕</button>
+        </div>
+        <div class="site-modal-screen">
+          <img id="siteModalImg" src="" alt="">
+        </div>
+        <div class="site-modal-footer">
+          <a id="siteModalLink" href="#" target="_blank" rel="noopener" class="site-modal-link">Открыть сайт полностью ↗</a>
         </div>
       </div>
     </div>
@@ -1538,6 +1592,20 @@
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!wasOpen) item.classList.add('open');
   }
+
+  // Portfolio site preview modal
+  function openSitePreview(url, name) {
+    document.getElementById('siteModalTitle').textContent = name;
+    document.getElementById('siteModalImg').src = 'https://image.thum.io/get/width/1200/' + url;
+    document.getElementById('siteModalLink').href = url;
+    document.getElementById('siteModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSitePreview() {
+    document.getElementById('siteModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSitePreview(); });
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
