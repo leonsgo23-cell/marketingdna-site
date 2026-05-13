@@ -643,39 +643,59 @@
   .btn-secondary:hover { background: var(--purple-dark); }
 
   /* Laptop mockup */
-  .laptop-wrap { display: flex; justify-content: center; align-items: center; }
-  .laptop {
-    width: 340px; position: relative;
+  .laptop-wrap { display: flex; justify-content: center; align-items: flex-end; padding: 20px 0; }
+  .laptop { width: 400px; }
+
+  .laptop-lid {
+    background: #2D2A5E; border-radius: 14px 14px 0 0;
+    padding: 14px 14px 8px; position: relative;
+    box-shadow: 0 -2px 20px rgba(0,0,0,0.15);
   }
-  .laptop-screen-outer {
-    background: #1E1B4B; border-radius: 14px 14px 0 0;
-    padding: 10px 10px 0; box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  .laptop-camera-dot {
+    width: 7px; height: 7px; background: #4C4899; border-radius: 50%;
+    margin: 0 auto 10px;
   }
   .laptop-screen {
-    background: white; border-radius: 6px 6px 0 0;
-    overflow: hidden; height: 200px;
+    background: white; border-radius: 6px; overflow: hidden; height: 220px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
   }
   .laptop-screen-nav {
-    background: #7C3AED; padding: 8px 12px; display: flex; align-items: center; gap: 8px;
+    background: #7C3AED; padding: 7px 10px; display: flex; align-items: center; gap: 6px;
   }
-  .laptop-screen-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); }
-  .laptop-screen-nav-bar { flex: 1; background: rgba(255,255,255,0.2); border-radius: 4px; height: 8px; }
-  .laptop-screen-body { padding: 20px 16px; }
-  .laptop-screen-hero-tag { font-size: 9px; font-weight: 700; color: #7C3AED; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .laptop-screen-hero-title { font-size: 13px; font-weight: 800; color: #1E1B4B; line-height: 1.3; margin-bottom: 8px; }
-  .laptop-screen-hero-sub { font-size: 9px; color: #6B7280; line-height: 1.5; margin-bottom: 12px; }
+  .laptop-screen-nav-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.4); }
+  .laptop-screen-nav-bar { flex: 1; background: rgba(255,255,255,0.2); border-radius: 3px; height: 7px; }
+  .laptop-screen-body { padding: 18px 16px; }
+  .laptop-screen-hero-tag { font-size: 8px; font-weight: 700; color: #7C3AED; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .laptop-screen-hero-title { font-size: 13px; font-weight: 800; color: #1E1B4B; line-height: 1.35; margin-bottom: 8px; }
+  .laptop-screen-hero-sub { font-size: 9px; color: #6B7280; line-height: 1.5; margin-bottom: 14px; }
   .laptop-screen-btn {
     display: inline-block; background: #7C3AED; color: white;
-    font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 6px;
+    font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 5px;
+  }
+
+  .laptop-hinge {
+    background: #1a1740; height: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
   .laptop-base {
-    background: #2D2A5E; height: 14px; border-radius: 0 0 4px 4px;
-    display: flex; justify-content: center; align-items: center;
+    background: linear-gradient(180deg, #ECEAF5 0%, #D8D5EC 100%);
+    border-radius: 0 0 12px 12px; padding: 10px 16px 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
-  .laptop-camera { width: 6px; height: 6px; background: #4C4899; border-radius: 50%; margin-bottom: 8px; }
-  .laptop-keyboard {
-    background: #E5E7EB; height: 10px; border-radius: 0 0 10px 10px;
-    margin: 0 10px;
+  .laptop-keys-row {
+    display: flex; gap: 3px; margin-bottom: 4px;
+  }
+  .laptop-key {
+    flex: 1; height: 7px; background: #C4C0DC; border-radius: 2px;
+    box-shadow: 0 1px 0 #A09CC0;
+  }
+  .laptop-key.wide { flex: 2; }
+  .laptop-trackpad-area {
+    display: flex; justify-content: center; margin-top: 8px;
+  }
+  .laptop-trackpad {
+    width: 80px; height: 16px; background: #C4C0DC;
+    border-radius: 5px; box-shadow: 0 1px 0 #A09CC0;
   }
 
   /* FOOTER */
@@ -1472,7 +1492,8 @@
     </div>
     <div class="laptop-wrap">
       <div class="laptop">
-        <div class="laptop-screen-outer">
+        <div class="laptop-lid">
+          <div class="laptop-camera-dot"></div>
           <div class="laptop-screen">
             <div class="laptop-screen-nav">
               <div class="laptop-screen-nav-dot"></div>
@@ -1488,8 +1509,28 @@
             </div>
           </div>
         </div>
-        <div class="laptop-base"><div class="laptop-camera"></div></div>
-        <div class="laptop-keyboard"></div>
+        <div class="laptop-hinge"></div>
+        <div class="laptop-base">
+          <div class="laptop-keys-row">
+            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
+            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
+            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
+            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
+          </div>
+          <div class="laptop-keys-row">
+            <div class="laptop-key wide"></div><div class="laptop-key"></div><div class="laptop-key"></div>
+            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
+            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key wide"></div>
+          </div>
+          <div class="laptop-keys-row">
+            <div class="laptop-key wide"></div><div class="laptop-key wide"></div>
+            <div class="laptop-key" style="flex:4"></div>
+            <div class="laptop-key wide"></div><div class="laptop-key wide"></div>
+          </div>
+          <div class="laptop-trackpad-area">
+            <div class="laptop-trackpad"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
