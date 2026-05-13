@@ -642,72 +642,51 @@
   }
   .btn-secondary:hover { background: var(--purple-dark); }
 
-  /* Website visual — person photo + browser card + portfolio strip */
-  .upsell-visual { position: relative; padding-bottom: 10px; }
+  /* Website visual — person photo + portfolio grid */
+  .upsell-visual { position: relative; }
 
   .upsell-person {
-    width: 100%; border-radius: 20px; overflow: hidden;
-    height: 320px; position: relative;
+    width: 100%; border-radius: 16px; overflow: hidden;
+    height: 200px; position: relative; margin-bottom: 16px;
   }
   .upsell-person img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+    width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
     display: block;
   }
   .upsell-person-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(20,10,50,0.45) 100%);
-    border-radius: 20px;
+    background: linear-gradient(180deg, transparent 30%, rgba(20,10,50,0.55) 100%);
+  }
+  .upsell-person-label {
+    position: absolute; bottom: 14px; left: 16px;
+    font-size: 14px; font-weight: 700; color: white;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
 
-  .browser-card {
-    background: white; border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.22);
-    overflow: hidden;
-    position: absolute; bottom: -32px; left: -16px;
-    width: 68%;
-    border: 1px solid #E5E7EB;
-  }
-  .browser-bar {
-    background: #F3F4F6; padding: 7px 10px;
-    display: flex; align-items: center; gap: 7px;
-    border-bottom: 1px solid #E5E7EB;
-  }
-  .browser-dots { display: flex; gap: 4px; }
-  .browser-dot { width: 8px; height: 8px; border-radius: 50%; }
-  .browser-dot:nth-child(1) { background: #FF5F57; }
-  .browser-dot:nth-child(2) { background: #FFBD2E; }
-  .browser-dot:nth-child(3) { background: #28CA41; }
-  .browser-url {
-    flex: 1; background: white; border-radius: 4px;
-    font-size: 10px; color: #6B7280; padding: 3px 8px; font-family: monospace;
-  }
-  .browser-screen img {
-    width: 100%; height: 150px; object-fit: cover; object-position: top; display: block;
-  }
-
-  .portfolio-strip { margin-top: 52px; }
+  .portfolio-strip { }
   .portfolio-strip-label {
     font-size: 11px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 1.2px; color: #9CA3AF; margin-bottom: 10px;
+    letter-spacing: 1px; color: #9CA3AF; margin-bottom: 10px;
   }
-  .portfolio-thumbs { display: flex; gap: 8px; }
+  .portfolio-thumbs { display: flex; gap: 10px; }
   .pthumbs {
-    flex: 1; background: white; border-radius: 10px; overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.09);
-    transition: transform .2s; cursor: pointer;
+    flex: 1; background: white; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.11);
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none; display: block;
   }
-  .pthumbs:hover { transform: translateY(-3px); }
-  .pthumbs img { width: 100%; height: 56px; object-fit: cover; object-position: top; display: block; }
+  .pthumbs:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(124,58,237,0.18); }
+  .pthumbs img { width: 100%; height: 100px; object-fit: cover; object-position: top; display: block; }
   .pthumbs-name {
-    font-size: 10px; font-weight: 600; color: #374151;
-    padding: 5px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-size: 11px; font-weight: 700; color: #7C3AED;
+    padding: 7px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   .pthumbs-more {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: #F5F3FF; min-height: 78px; gap: 2px;
+    background: #F5F3FF; min-height: 120px; gap: 4px;
   }
-  .pthumbs-more-num { font-size: 20px; font-weight: 900; color: #7C3AED; }
-  .pthumbs-more-label { font-size: 10px; font-weight: 600; color: #7C3AED; }
+  .pthumbs-more-num { font-size: 28px; font-weight: 900; color: #7C3AED; line-height: 1; }
+  .pthumbs-more-label { font-size: 11px; font-weight: 600; color: #7C3AED; }
 
   /* FOOTER */
   footer {
@@ -719,8 +698,8 @@
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .hero-inner, .magnet-inner, .pkg-grid, .example-grid, .pkg-bundle, .website-upsell-inner { grid-template-columns: 1fr; }
-    .browser-card { left: 0; width: 70%; }
-    .upsell-visual { margin-top: 16px; }
+    .upsell-visual { margin-top: 8px; }
+    .upsell-person { height: 160px; }
     .hero h1 { font-size: 36px; }
     .cards-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; gap: 24px; }
@@ -1503,37 +1482,24 @@
       <a href="https://t.me/ContentDNAStart_bot?start=website" class="btn-secondary">→ Создать сайт</a>
     </div>
     <div class="upsell-visual">
-      <!-- Реальное фото человека за ноутбуком -->
+      <!-- Фото человека за ноутбуком — компактное -->
       <div class="upsell-person">
         <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&auto=format&fit=crop&q=80" alt="Работа над сайтом" loading="lazy">
         <div class="upsell-person-overlay"></div>
-        <!-- Браузер поверх фото с реальным скриншотом -->
-        <div class="browser-card">
-          <div class="browser-bar">
-            <div class="browser-dots">
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-            </div>
-            <div class="browser-url">marketing-dna.com</div>
-          </div>
-          <div class="browser-screen">
-            <img src="https://image.thum.io/get/width/600/https://marketing-dna.com" alt="Marketing DNA" loading="lazy">
-          </div>
-        </div>
+        <div class="upsell-person-label">Делаем сайты под ключ</div>
       </div>
-      <!-- Портфолио — реальные скриншоты наших сайтов -->
+      <!-- Портфолио — реальные кликабельные скриншоты -->
       <div class="portfolio-strip">
-        <div class="portfolio-strip-label">Примеры наших работ</div>
+        <div class="portfolio-strip-label">Примеры наших работ — нажмите чтобы открыть</div>
         <div class="portfolio-thumbs">
-          <div class="pthumbs">
-            <img src="https://image.thum.io/get/width/300/https://marketing-dna.com" alt="Marketing DNA" loading="lazy">
-            <div class="pthumbs-name">Marketing DNA</div>
-          </div>
-          <div class="pthumbs">
-            <img src="https://image.thum.io/get/width/300/https://smartskola.lv" alt="SmartSkola" loading="lazy">
-            <div class="pthumbs-name">SmartSkola</div>
-          </div>
+          <a class="pthumbs" href="https://marketing-dna.com" target="_blank" rel="noopener">
+            <img src="https://image.thum.io/get/width/400/https://marketing-dna.com" alt="Marketing DNA" loading="lazy">
+            <div class="pthumbs-name">↗ Marketing DNA</div>
+          </a>
+          <a class="pthumbs" href="https://smartskola.lv" target="_blank" rel="noopener">
+            <img src="https://image.thum.io/get/width/400/https://smartskola.lv" alt="SmartSkola" loading="lazy">
+            <div class="pthumbs-name">↗ SmartSkola</div>
+          </a>
           <div class="pthumbs pthumbs-more">
             <div class="pthumbs-more-num">+3</div>
             <div class="pthumbs-more-label">проекта</div>
