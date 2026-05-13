@@ -642,68 +642,72 @@
   }
   .btn-secondary:hover { background: var(--purple-dark); }
 
-  /* Laptop mockup */
-  .laptop-wrap { display: flex; justify-content: center; align-items: flex-end; padding: 20px 0; perspective: 1200px; }
-  .laptop {
-    width: 400px;
-    transform: rotateY(-18deg) rotateX(4deg);
-    transform-origin: center bottom;
-    transform-style: preserve-3d;
+  /* Website visual — person photo + browser card + portfolio strip */
+  .upsell-visual { position: relative; padding-bottom: 10px; }
+
+  .upsell-person {
+    width: 100%; border-radius: 20px; overflow: hidden;
+    height: 320px; position: relative;
+  }
+  .upsell-person img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+    display: block;
+  }
+  .upsell-person-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(20,10,50,0.45) 100%);
+    border-radius: 20px;
   }
 
-  .laptop-lid {
-    background: #2D2A5E; border-radius: 14px 14px 0 0;
-    padding: 14px 14px 8px; position: relative;
-    box-shadow: 0 -2px 20px rgba(0,0,0,0.15);
+  .browser-card {
+    background: white; border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+    overflow: hidden;
+    position: absolute; bottom: -32px; left: -16px;
+    width: 68%;
+    border: 1px solid #E5E7EB;
   }
-  .laptop-camera-dot {
-    width: 7px; height: 7px; background: #4C4899; border-radius: 50%;
-    margin: 0 auto 10px;
+  .browser-bar {
+    background: #F3F4F6; padding: 7px 10px;
+    display: flex; align-items: center; gap: 7px;
+    border-bottom: 1px solid #E5E7EB;
   }
-  .laptop-screen {
-    background: white; border-radius: 6px; overflow: hidden; height: 220px;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+  .browser-dots { display: flex; gap: 4px; }
+  .browser-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .browser-dot:nth-child(1) { background: #FF5F57; }
+  .browser-dot:nth-child(2) { background: #FFBD2E; }
+  .browser-dot:nth-child(3) { background: #28CA41; }
+  .browser-url {
+    flex: 1; background: white; border-radius: 4px;
+    font-size: 10px; color: #6B7280; padding: 3px 8px; font-family: monospace;
   }
-  .laptop-screen-nav {
-    background: #7C3AED; padding: 7px 10px; display: flex; align-items: center; gap: 6px;
-  }
-  .laptop-screen-nav-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.4); }
-  .laptop-screen-nav-bar { flex: 1; background: rgba(255,255,255,0.2); border-radius: 3px; height: 7px; }
-  .laptop-screen-body { padding: 18px 16px; }
-  .laptop-screen-hero-tag { font-size: 8px; font-weight: 700; color: #7C3AED; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .laptop-screen-hero-title { font-size: 13px; font-weight: 800; color: #1E1B4B; line-height: 1.35; margin-bottom: 8px; }
-  .laptop-screen-hero-sub { font-size: 9px; color: #6B7280; line-height: 1.5; margin-bottom: 14px; }
-  .laptop-screen-btn {
-    display: inline-block; background: #7C3AED; color: white;
-    font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 5px;
+  .browser-screen img {
+    width: 100%; height: 150px; object-fit: cover; object-position: top; display: block;
   }
 
-  .laptop-hinge {
-    background: #1a1740; height: 5px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  .portfolio-strip { margin-top: 52px; }
+  .portfolio-strip-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.2px; color: #9CA3AF; margin-bottom: 10px;
   }
-  .laptop-base {
-    background: linear-gradient(180deg, #ECEAF5 0%, #D0CCEA 100%);
-    border-radius: 0 0 14px 14px; padding: 12px 20px 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    margin: 0 -12px;
+  .portfolio-thumbs { display: flex; gap: 8px; }
+  .pthumbs {
+    flex: 1; background: white; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+    transition: transform .2s; cursor: pointer;
   }
-  .laptop-keys-row {
-    display: flex; gap: 3px; margin-bottom: 5px;
+  .pthumbs:hover { transform: translateY(-3px); }
+  .pthumbs img { width: 100%; height: 56px; object-fit: cover; object-position: top; display: block; }
+  .pthumbs-name {
+    font-size: 10px; font-weight: 600; color: #374151;
+    padding: 5px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .laptop-key {
-    flex: 1; height: 9px; background: #C4C0DC; border-radius: 2px;
-    box-shadow: 0 2px 0 #9E9ABE;
+  .pthumbs-more {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: #F5F3FF; min-height: 78px; gap: 2px;
   }
-  .laptop-key.wide { flex: 2; }
-  .laptop-key.space { flex: 5; }
-  .laptop-trackpad-area {
-    display: flex; justify-content: center; margin-top: 10px;
-  }
-  .laptop-trackpad {
-    width: 100px; height: 20px; background: #C4C0DC;
-    border-radius: 6px; box-shadow: 0 2px 0 #9E9ABE;
-  }
+  .pthumbs-more-num { font-size: 20px; font-weight: 900; color: #7C3AED; }
+  .pthumbs-more-label { font-size: 10px; font-weight: 600; color: #7C3AED; }
 
   /* FOOTER */
   footer {
@@ -715,7 +719,8 @@
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .hero-inner, .magnet-inner, .pkg-grid, .example-grid, .pkg-bundle, .website-upsell-inner { grid-template-columns: 1fr; }
-    .laptop-wrap { display: none; }
+    .browser-card { left: 0; width: 70%; }
+    .upsell-visual { margin-top: 16px; }
     .hero h1 { font-size: 36px; }
     .cards-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; gap: 24px; }
@@ -1497,41 +1502,41 @@
       </div>
       <a href="https://t.me/ContentDNAStart_bot?start=website" class="btn-secondary">→ Создать сайт</a>
     </div>
-    <div class="laptop-wrap">
-      <div class="laptop">
-        <div class="laptop-lid">
-          <div class="laptop-camera-dot"></div>
-          <div class="laptop-screen">
-            <div class="laptop-screen-nav">
-              <div class="laptop-screen-nav-dot"></div>
-              <div class="laptop-screen-nav-dot"></div>
-              <div class="laptop-screen-nav-dot"></div>
-              <div class="laptop-screen-nav-bar"></div>
+    <div class="upsell-visual">
+      <!-- Реальное фото человека за ноутбуком -->
+      <div class="upsell-person">
+        <img src="https://images.unsplash.com/photo-1585610024909-aa885728c7c1?w=700&auto=format&fit=crop&q=80" alt="Работа над сайтом" loading="lazy">
+        <div class="upsell-person-overlay"></div>
+        <!-- Браузер поверх фото с реальным скриншотом -->
+        <div class="browser-card">
+          <div class="browser-bar">
+            <div class="browser-dots">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
             </div>
-            <div class="laptop-screen-body">
-              <div class="laptop-screen-hero-tag">🧬 Ваш бизнес</div>
-              <div class="laptop-screen-hero-title">Сайт который находят клиенты и который продаёт</div>
-              <div class="laptop-screen-hero-sub">Персонально под ваш продукт или услугу. Готово за 3 дня — без лишних сложностей.</div>
-              <div class="laptop-screen-btn">→ Узнать подробнее</div>
-            </div>
+            <div class="browser-url">marketing-dna.com</div>
+          </div>
+          <div class="browser-screen">
+            <img src="https://s0.wp.com/mshots/v1/https://marketing-dna.com?w=600" alt="Marketing DNA" loading="lazy">
           </div>
         </div>
-        <div class="laptop-hinge"></div>
-        <div class="laptop-base">
-          <div class="laptop-keys-row">
-            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
+      </div>
+      <!-- Портфолио — реальные скриншоты наших сайтов -->
+      <div class="portfolio-strip">
+        <div class="portfolio-strip-label">Примеры наших работ</div>
+        <div class="portfolio-thumbs">
+          <div class="pthumbs">
+            <img src="https://s0.wp.com/mshots/v1/https://marketing-dna.com?w=300" alt="Marketing DNA" loading="lazy">
+            <div class="pthumbs-name">Marketing DNA</div>
           </div>
-          <div class="laptop-keys-row">
-            <div class="laptop-key wide"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key wide"></div>
+          <div class="pthumbs">
+            <img src="https://s0.wp.com/mshots/v1/https://smartskola.lv?w=300" alt="SmartSkola" loading="lazy">
+            <div class="pthumbs-name">SmartSkola</div>
           </div>
-          <div class="laptop-keys-row">
-            <div class="laptop-key wide"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key wide"></div>
-          </div>
-          <div class="laptop-keys-row">
-            <div class="laptop-key wide"></div><div class="laptop-key wide"></div><div class="laptop-key space"></div><div class="laptop-key wide"></div><div class="laptop-key wide"></div>
-          </div>
-          <div class="laptop-trackpad-area">
-            <div class="laptop-trackpad"></div>
+          <div class="pthumbs pthumbs-more">
+            <div class="pthumbs-more-num">+3</div>
+            <div class="pthumbs-more-label">проекта</div>
           </div>
         </div>
       </div>
