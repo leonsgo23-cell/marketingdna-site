@@ -643,8 +643,13 @@
   .btn-secondary:hover { background: var(--purple-dark); }
 
   /* Laptop mockup */
-  .laptop-wrap { display: flex; justify-content: center; align-items: flex-end; padding: 20px 0; }
-  .laptop { width: 400px; }
+  .laptop-wrap { display: flex; justify-content: center; align-items: flex-end; padding: 20px 0; perspective: 1200px; }
+  .laptop {
+    width: 400px;
+    transform: rotateY(-18deg) rotateX(4deg);
+    transform-origin: center bottom;
+    transform-style: preserve-3d;
+  }
 
   .laptop-lid {
     background: #2D2A5E; border-radius: 14px 14px 0 0;
@@ -678,24 +683,26 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
   .laptop-base {
-    background: linear-gradient(180deg, #ECEAF5 0%, #D8D5EC 100%);
-    border-radius: 0 0 12px 12px; padding: 10px 16px 14px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    background: linear-gradient(180deg, #ECEAF5 0%, #D0CCEA 100%);
+    border-radius: 0 0 14px 14px; padding: 12px 20px 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin: 0 -12px;
   }
   .laptop-keys-row {
-    display: flex; gap: 3px; margin-bottom: 4px;
+    display: flex; gap: 3px; margin-bottom: 5px;
   }
   .laptop-key {
-    flex: 1; height: 7px; background: #C4C0DC; border-radius: 2px;
-    box-shadow: 0 1px 0 #A09CC0;
+    flex: 1; height: 9px; background: #C4C0DC; border-radius: 2px;
+    box-shadow: 0 2px 0 #9E9ABE;
   }
   .laptop-key.wide { flex: 2; }
+  .laptop-key.space { flex: 5; }
   .laptop-trackpad-area {
-    display: flex; justify-content: center; margin-top: 8px;
+    display: flex; justify-content: center; margin-top: 10px;
   }
   .laptop-trackpad {
-    width: 80px; height: 16px; background: #C4C0DC;
-    border-radius: 5px; box-shadow: 0 1px 0 #A09CC0;
+    width: 100px; height: 20px; background: #C4C0DC;
+    border-radius: 6px; box-shadow: 0 2px 0 #9E9ABE;
   }
 
   /* FOOTER */
@@ -1512,20 +1519,16 @@
         <div class="laptop-hinge"></div>
         <div class="laptop-base">
           <div class="laptop-keys-row">
-            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
-            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
-            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
-            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
+            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
           </div>
           <div class="laptop-keys-row">
-            <div class="laptop-key wide"></div><div class="laptop-key"></div><div class="laptop-key"></div>
-            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div>
-            <div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key wide"></div>
+            <div class="laptop-key wide"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key wide"></div>
           </div>
           <div class="laptop-keys-row">
-            <div class="laptop-key wide"></div><div class="laptop-key wide"></div>
-            <div class="laptop-key" style="flex:4"></div>
-            <div class="laptop-key wide"></div><div class="laptop-key wide"></div>
+            <div class="laptop-key wide"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key"></div><div class="laptop-key wide"></div>
+          </div>
+          <div class="laptop-keys-row">
+            <div class="laptop-key wide"></div><div class="laptop-key wide"></div><div class="laptop-key space"></div><div class="laptop-key wide"></div><div class="laptop-key wide"></div>
           </div>
           <div class="laptop-trackpad-area">
             <div class="laptop-trackpad"></div>
