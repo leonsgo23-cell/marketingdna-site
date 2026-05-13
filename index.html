@@ -1532,8 +1532,8 @@
             <img src="https://image.thum.io/get/width/400/https://modelmatch.pro/ru" alt="ModelMatch" loading="lazy">
             <div class="pthumbs-name">ModelMatch</div>
           </div>
-          <div class="pthumbs" onclick="openSitePreview('https://artandwine.club/ru','Art&Wine')">
-            <img src="https://image.thum.io/get/width/400/https://artandwine.club/ru" alt="Art&Wine" loading="lazy">
+          <div class="pthumbs" onclick="openSitePreview('https://artandwine.club/ru','Art&Wine','artandwine-preview.png')">
+            <img src="artandwine-preview.png" alt="Art&Wine" style="object-position: top center;">
             <div class="pthumbs-name">Art&amp;Wine</div>
           </div>
         </div>
@@ -1588,13 +1588,11 @@
   }
 
   // Portfolio site preview modal
-  function openSitePreview(url, name) {
+  function openSitePreview(url, name, staticImg) {
     document.getElementById('siteModalTitle').textContent = name;
-    const hasCookieBanner = url.includes('artandwine');
-    const screenshotUrl = hasCookieBanner
-      ? 'https://image.thum.io/get/width/1200/crop/500/' + url
+    document.getElementById('siteModalImg').src = staticImg
+      ? staticImg
       : 'https://image.thum.io/get/width/1200/' + url;
-    document.getElementById('siteModalImg').src = screenshotUrl;
     document.getElementById('siteModalLink').href = url;
     document.getElementById('siteModal').classList.add('open');
     document.body.style.overflow = 'hidden';
