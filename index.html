@@ -668,7 +668,7 @@
     font-size: 11px; font-weight: 700; text-transform: uppercase;
     letter-spacing: 1px; color: #9CA3AF; margin-bottom: 10px;
   }
-  .portfolio-thumbs { display: flex; gap: 10px; }
+  .portfolio-thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .pthumbs {
     background: white; border-radius: 12px; overflow: hidden;
     box-shadow: 0 3px 14px rgba(0,0,0,0.11);
@@ -1533,7 +1533,7 @@
             <div class="pthumbs-name">ModelMatch</div>
           </div>
           <div class="pthumbs" onclick="openSitePreview('https://artandwine.club/ru','Art&Wine')">
-            <img src="https://image.thum.io/get/width/400/crop/280/https://artandwine.club/ru" alt="Art&Wine" loading="lazy">
+            <img src="https://image.thum.io/get/width/400/https://artandwine.club/ru" alt="Art&Wine" loading="lazy">
             <div class="pthumbs-name">Art&amp;Wine</div>
           </div>
         </div>
