@@ -616,16 +616,29 @@
 
   /* WEBSITE UPSELL */
   .website-upsell {
-    background: #F9FAFB; text-align: center; padding: 60px 24px; border-top: 1px solid #E5E7EB;
+    background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+    text-align: center; padding: 80px 24px; border-top: 1px solid #DDD6FE;
   }
-  .website-upsell h2 { font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
-  .website-upsell p { font-size: 16px; color: #6B7280; max-width: 520px; margin: 0 auto 24px; line-height: 1.6; }
+  .website-upsell-icon { font-size: 56px; margin-bottom: 20px; }
+  .website-upsell h2 { font-size: 32px; font-weight: 800; color: var(--dark); margin-bottom: 14px; letter-spacing: -0.5px; }
+  .website-upsell-desc { font-size: 17px; color: #4B5563; max-width: 540px; margin: 0 auto 32px; line-height: 1.7; }
+  .website-upsell-facts {
+    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .website-upsell-fact {
+    background: white; border-radius: 12px; padding: 14px 22px;
+    box-shadow: 0 2px 8px rgba(124,58,237,0.08);
+    font-size: 14px; font-weight: 600; color: var(--dark);
+  }
+  .website-upsell-fact span { color: var(--purple); font-size: 18px; font-weight: 800; display: block; margin-bottom: 2px; }
   .btn-secondary {
-    display: inline-block; background: transparent; color: var(--dark);
-    border: 2px solid var(--dark); padding: 14px 32px; border-radius: 12px;
-    font-size: 15px; font-weight: 700; text-decoration: none; transition: background 0.2s, color 0.2s;
+    display: inline-block; background: var(--purple); color: white;
+    padding: 16px 40px; border-radius: 12px;
+    font-size: 16px; font-weight: 700; text-decoration: none;
+    transition: background 0.2s; box-shadow: 0 4px 16px rgba(124,58,237,0.3);
   }
-  .btn-secondary:hover { background: var(--dark); color: white; }
+  .btn-secondary:hover { background: var(--purple-dark); }
 
   /* FOOTER */
   footer {
@@ -1409,9 +1422,15 @@
 <!-- WEBSITE UPSELL -->
 <section class="website-upsell" id="website">
   <div class="container">
+    <div class="website-upsell-icon">🖥️</div>
     <h2>Нет сайта или он устарел?</h2>
-    <p>Сделаем сайт-визитку или лендинг под ваш продукт или услугу — с нуля, быстро, без лишних сложностей. Цена от €150.</p>
-    <a href="https://t.me/ContentDNAStart_bot?start=website" class="btn-secondary">→ Оставить заявку</a>
+    <p class="website-upsell-desc">Сделаем сайт-визитку или лендинг под ваш продукт или услугу — с нуля, персонально под ваш бизнес. Без технических сложностей с вашей стороны.</p>
+    <div class="website-upsell-facts">
+      <div class="website-upsell-fact"><span>от €150</span>стоимость</div>
+      <div class="website-upsell-fact"><span>от 3 дней</span>срок готовности</div>
+      <div class="website-upsell-fact"><span>с нуля</span>под ваш бизнес</div>
+    </div>
+    <a href="https://t.me/ContentDNAStart_bot?start=website" class="btn-secondary">→ Оставить заявку на сайт</a>
   </div>
 </section>
 
