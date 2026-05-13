@@ -617,28 +617,66 @@
   /* WEBSITE UPSELL */
   .website-upsell {
     background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
-    text-align: center; padding: 80px 24px; border-top: 1px solid #DDD6FE;
+    padding: 80px 24px; border-top: 1px solid #DDD6FE;
   }
-  .website-upsell-icon { font-size: 56px; margin-bottom: 20px; }
+  .website-upsell-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
   .website-upsell h2 { font-size: 32px; font-weight: 800; color: var(--dark); margin-bottom: 14px; letter-spacing: -0.5px; }
-  .website-upsell-desc { font-size: 17px; color: #4B5563; max-width: 540px; margin: 0 auto 32px; line-height: 1.7; }
+  .website-upsell-desc { font-size: 16px; color: #4B5563; margin-bottom: 28px; line-height: 1.7; }
   .website-upsell-facts {
-    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
-    margin-bottom: 32px;
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px;
   }
   .website-upsell-fact {
-    background: white; border-radius: 12px; padding: 14px 22px;
+    background: white; border-radius: 12px; padding: 12px 18px;
     box-shadow: 0 2px 8px rgba(124,58,237,0.08);
-    font-size: 14px; font-weight: 600; color: var(--dark);
+    font-size: 13px; font-weight: 600; color: var(--dark); text-align: center;
   }
-  .website-upsell-fact span { color: var(--purple); font-size: 18px; font-weight: 800; display: block; margin-bottom: 2px; }
+  .website-upsell-fact span { color: var(--purple); font-size: 17px; font-weight: 800; display: block; margin-bottom: 2px; }
   .btn-secondary {
     display: inline-block; background: var(--purple); color: white;
-    padding: 16px 40px; border-radius: 12px;
+    padding: 16px 36px; border-radius: 12px;
     font-size: 16px; font-weight: 700; text-decoration: none;
     transition: background 0.2s; box-shadow: 0 4px 16px rgba(124,58,237,0.3);
   }
   .btn-secondary:hover { background: var(--purple-dark); }
+
+  /* Laptop mockup */
+  .laptop-wrap { display: flex; justify-content: center; align-items: center; }
+  .laptop {
+    width: 340px; position: relative;
+  }
+  .laptop-screen-outer {
+    background: #1E1B4B; border-radius: 14px 14px 0 0;
+    padding: 10px 10px 0; box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  }
+  .laptop-screen {
+    background: white; border-radius: 6px 6px 0 0;
+    overflow: hidden; height: 200px;
+  }
+  .laptop-screen-nav {
+    background: #7C3AED; padding: 8px 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .laptop-screen-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+  .laptop-screen-nav-bar { flex: 1; background: rgba(255,255,255,0.2); border-radius: 4px; height: 8px; }
+  .laptop-screen-body { padding: 20px 16px; }
+  .laptop-screen-hero-tag { font-size: 9px; font-weight: 700; color: #7C3AED; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .laptop-screen-hero-title { font-size: 13px; font-weight: 800; color: #1E1B4B; line-height: 1.3; margin-bottom: 8px; }
+  .laptop-screen-hero-sub { font-size: 9px; color: #6B7280; line-height: 1.5; margin-bottom: 12px; }
+  .laptop-screen-btn {
+    display: inline-block; background: #7C3AED; color: white;
+    font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 6px;
+  }
+  .laptop-base {
+    background: #2D2A5E; height: 14px; border-radius: 0 0 4px 4px;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .laptop-camera { width: 6px; height: 6px; background: #4C4899; border-radius: 50%; margin-bottom: 8px; }
+  .laptop-keyboard {
+    background: #E5E7EB; height: 10px; border-radius: 0 0 10px 10px;
+    margin: 0 10px;
+  }
 
   /* FOOTER */
   footer {
@@ -649,7 +687,8 @@
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    .hero-inner, .magnet-inner, .pkg-grid, .example-grid, .pkg-bundle { grid-template-columns: 1fr; }
+    .hero-inner, .magnet-inner, .pkg-grid, .example-grid, .pkg-bundle, .website-upsell-inner { grid-template-columns: 1fr; }
+    .laptop-wrap { display: none; }
     .hero h1 { font-size: 36px; }
     .cards-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; gap: 24px; }
@@ -933,7 +972,7 @@
     <div>
       <div class="hero-badge">🧬 AI-сервис контент-маркетинга</div>
       <h1>Готовый контент для соцсетей на языке ваших клиентов — публикуете и получаете подписчиков и продажи</h1>
-      <div class="hero-slogan">Каждый ролик, карусель и пост построены на исследовании вашего бизнеса и анализа ваших клиентов</div>
+      <div class="hero-slogan">Каждый ролик, карусель и пост построены на исследовании вашего бизнеса и анализе вашей аудитории</div>
       <p class="hero-sub">Анализируем ваш бизнес, вашу аудиторию и конкурентов. Только после этого рождается контент — на языке ваших клиентов, под их боли и желания. Берёте готовое и публикуете в своих&nbsp;соцсетях.</p>
       <div class="hero-facts">
         <div class="hero-fact">
@@ -1420,16 +1459,39 @@
 
 <!-- WEBSITE UPSELL -->
 <section class="website-upsell" id="website">
-  <div class="container">
-    <div class="website-upsell-icon">🖥️</div>
-    <h2>Нет сайта или он устарел?</h2>
-    <p class="website-upsell-desc">Сделаем сайт-визитку или лендинг под ваш продукт или услугу — с нуля, персонально под ваш бизнес. Без технических сложностей с вашей стороны.</p>
-    <div class="website-upsell-facts">
-      <div class="website-upsell-fact"><span>от €150</span>стоимость</div>
-      <div class="website-upsell-fact"><span>от 3 дней</span>срок готовности</div>
-      <div class="website-upsell-fact"><span>для нового</span>товара или услуги</div>
+  <div class="website-upsell-inner">
+    <div>
+      <h2>Нет сайта или он устарел?</h2>
+      <p class="website-upsell-desc">Сделаем сайт-визитку или лендинг под ваш продукт или услугу — с нуля, персонально под ваш бизнес. Без технических сложностей с вашей стороны.</p>
+      <div class="website-upsell-facts">
+        <div class="website-upsell-fact"><span>от €150</span>стоимость</div>
+        <div class="website-upsell-fact"><span>от 3 дней</span>срок готовности</div>
+        <div class="website-upsell-fact"><span>для нового</span>товара или услуги</div>
+      </div>
+      <a href="https://t.me/ContentDNAStart_bot?start=website" class="btn-secondary">→ Создать сайт</a>
     </div>
-    <a href="https://t.me/ContentDNAStart_bot?start=website" class="btn-secondary">→ Создать сайт</a>
+    <div class="laptop-wrap">
+      <div class="laptop">
+        <div class="laptop-screen-outer">
+          <div class="laptop-screen">
+            <div class="laptop-screen-nav">
+              <div class="laptop-screen-nav-dot"></div>
+              <div class="laptop-screen-nav-dot"></div>
+              <div class="laptop-screen-nav-dot"></div>
+              <div class="laptop-screen-nav-bar"></div>
+            </div>
+            <div class="laptop-screen-body">
+              <div class="laptop-screen-hero-tag">🧬 Ваш бизнес</div>
+              <div class="laptop-screen-hero-title">Сайт который находят клиенты и который продаёт</div>
+              <div class="laptop-screen-hero-sub">Персонально под ваш продукт или услугу. Готово за 3 дня — без лишних сложностей.</div>
+              <div class="laptop-screen-btn">→ Узнать подробнее</div>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base"><div class="laptop-camera"></div></div>
+        <div class="laptop-keyboard"></div>
+      </div>
+    </div>
   </div>
 </section>
 
