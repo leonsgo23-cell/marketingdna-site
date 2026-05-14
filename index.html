@@ -1624,7 +1624,7 @@
   <div class="container">
     <h2>Ещё не приняли решение?</h2>
     <p>Если вы дочитали до этого места и всё ещё думаете — возможно вы человек который хочет всё делать сам. Мы это уважаем и ценим.<br><br>Но если хотите сравнить — что получается у вас сейчас и что предлагаем мы — у вас есть простой способ проверить. Без давления. Без обязательств.</p>
-    <a href="https://t.me/ContentDNAStart_bot?start=final" class="btn-primary" style="font-size:18px;padding:20px 40px">→ Получить бесплатный контент-пакет</a>
+    <a href="https://t.me/ContentDNAStart_bot?start=final" class="btn-primary" style="font-size:18px;padding:20px 40px">→ Получить бесплатный пакет</a>
     <p style="margin-top:16px;font-size:13px;color:#374151">Бесплатно. Без оплаты. Без обязательств.<br>Контент-план · SEO-статья · Пример обложки и фото · Сценарий ролика · Карусель&nbsp;(5&nbsp;слайдов)</p>
   </div>
 </section>
@@ -1665,7 +1665,7 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSitePreview(); });
 
   // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  document.querySelectorAll('a[href^="#"]:not(#siteModalLink)').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
       const target = document.querySelector(a.getAttribute('href'));
