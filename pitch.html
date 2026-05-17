@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing DNA — Pitch Deck</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #E8EDF5;
+    color: #1E293B;
+  }
+
+  /* ── SLIDE BASE ── */
+  .slide {
+    width: 297mm;
+    min-height: 170mm;
+    background: #ffffff;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 40px rgba(124,58,237,0.13);
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .slide {
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      width: 297mm;
+      min-height: 210mm;
+      page-break-after: always;
+    }
+    .no-print { display: none; }
+  }
+
+  /* ── COVER SLIDE ── */
+  .slide-cover {
+    background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 45%, #8B5CF6 100%);
+    min-height: 210mm;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px;
+  }
+  .cover-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #DDD6FE;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 20px;
+    margin-bottom: 32px;
+  }
+  .cover-logo {
+    font-size: 58px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+  }
+  .cover-logo span { color: #C4B5FD; }
+  .cover-tagline {
+    font-size: 18px;
+    color: rgba(255,255,255,0.85);
+    max-width: 560px;
+    line-height: 1.6;
+    margin: 0 auto 48px;
+  }
+  .cover-pills {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  .cover-pill {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.95);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 20px;
+  }
+  .cover-quote {
+    background: rgba(255,255,255,0.1);
+    border-left: 4px solid #C4B5FD;
+    border-radius: 0 10px 10px 0;
+    padding: 18px 24px;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+    font-style: italic;
+    text-align: left;
+  }
+
+  /* ── SLIDE HEADER ── */
+  .slide-header {
+    padding: 28px 44px 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #EEF2F8;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  .slide-num {
+    width: 36px;
+    height: 36px;
+    background: #F5F3FF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #7C3AED;
+    flex-shrink: 0;
+  }
+  .slide-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #94A3B8;
+  }
+  .slide-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #4C1D95;
+    line-height: 1.2;
+  }
+  .slide-title-block { flex: 1; }
+
+  /* ── SLIDE BODY ── */
+  .slide-body {
+    padding: 0 44px 36px;
+    flex: 1;
+  }
+
+  /* ── COMPONENTS ── */
+  .tag {
+    display: inline-block;
+    background: #F5F3FF;
+    color: #7C3AED;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .tag-green { background: #F0FDF4; color: #166534; }
+  .tag-orange { background: #FEF9EE; color: #92400E; }
+
+  .card {
+    background: #F8FAFF;
+    border: 1px solid #E2EAF4;
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .card-blue {
+    background: #F5F3FF;
+    border-color: #DDD6FE;
+  }
+  .card-green {
+    background: #F0FDF4;
+    border-color: #86EFAC;
+  }
+  .card-gold {
+    background: #FFFBEB;
+    border-color: #FDE68A;
+  }
+  .card-red {
+    background: #FFF5F5;
+    border-color: #FECACA;
+  }
+
+  .accent-bar {
+    width: 4px;
+    background: linear-gradient(180deg, #8B5CF6, #7C3AED);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .pain-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .pain-icon {
+    width: 42px;
+    height: 42px;
+    background: #F5F3FF;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .pain-title { font-size: 15px; font-weight: 700; color: #4C1D95; margin-bottom: 4px; }
+  .pain-desc { font-size: 13px; color: #64748B; line-height: 1.5; }
+
+  .check-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.5;
+  }
+  .check-icon { color: #10B981; font-weight: 700; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .cross-icon { color: #EF4444; font-weight: 700; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  .metric-big {
+    text-align: center;
+    padding: 20px;
+  }
+  .metric-value { font-size: 34px; font-weight: 900; color: #7C3AED; line-height: 1; }
+  .metric-label { font-size: 12px; color: #64748B; margin-top: 6px; line-height: 1.4; }
+
+  .flow-step {
+    background: #F8FAFF;
+    border: 1.5px solid #DDD6FE;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #1E293B;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94A3B8;
+    font-size: 18px;
+  }
+
+  .flow-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    background: #7C3AED;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  th:first-child { border-radius: 8px 0 0 0; }
+  th:last-child { border-radius: 0 8px 0 0; }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #EEF2F8;
+    color: #334155;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #F8FAFF; }
+  tr:last-child td { border-bottom: none; }
+
+  .h2 { font-size: 17px; font-weight: 800; color: #4C1D95; margin-bottom: 6px; }
+  .h3 { font-size: 14px; font-weight: 700; color: #7C3AED; margin-bottom: 4px; }
+  .p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .p-sm { font-size: 12px; color: #64748B; line-height: 1.5; }
+
+  .divider {
+    height: 1px;
+    background: #EEF2F8;
+    margin: 20px 0;
+  }
+
+  .highlight {
+    font-weight: 700;
+    color: #7C3AED;
+  }
+
+  .bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7C3AED, #8B5CF6, #10B981);
+  }
+
+  .placeholder {
+    background: #F8FAFF;
+    border: 2px dashed #DDD6FE;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    color: #94A3B8;
+    font-size: 14px;
+  }
+
+  .vision-slide {
+    background: linear-gradient(135deg, #F5F3FF 0%, #F5F3FF 100%);
+  }
+
+  /* ── PRINT BUTTON ── */
+  .print-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+    z-index: 100;
+  }
+  .print-btn:hover { opacity: 0.9; }
+
+  /* ── EXTRA HELPERS ── */
+  .popular-badge {
+    display: inline-block;
+    background: #7C3AED;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .price-big {
+    font-size: 28px;
+    font-weight: 900;
+    color: #7C3AED;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .plan-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #4C1D95;
+    margin-bottom: 4px;
+  }
+  .purple-bold {
+    font-weight: 700;
+    color: #7C3AED;
+  }
+  .col-highlight {
+    background: #F5F3FF !important;
+    font-weight: 700;
+    color: #7C3AED !important;
+  }
+  th.col-highlight {
+    background: #4C1D95 !important;
+    color: white !important;
+  }
+  .expansion-flow {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    margin: 16px 0;
+  }
+  .exp-step {
+    flex: 1;
+    background: #F5F3FF;
+    border: 1.5px solid #DDD6FE;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .exp-arrow {
+    display: flex;
+    align-items: center;
+    color: #94A3B8;
+    font-size: 18px;
+    padding: 0 6px;
+  }
+  .safe-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #EEF2F8;
+    font-size: 13px;
+  }
+  .safe-row:last-child { border-bottom: none; }
+  .safe-label { color: #64748B; }
+  .safe-value { font-weight: 700; color: #4C1D95; }
+  .budget-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+  .budget-table td { padding: 8px 12px; border-bottom: 1px solid #EEF2F8; color: #334155; }
+  .budget-table tr:last-child td { font-weight: 800; color: #4C1D95; border-top: 2px solid #DDD6FE; border-bottom: none; }
+  .budget-table tr:nth-child(even) td { background: #F8FAFF; }
+  .lang-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+  .lang-table th { background: #7C3AED; color: white; padding: 7px 10px; font-size: 11px; border-radius: 0; }
+  .lang-table td { padding: 7px 10px; border-bottom: 1px solid #EEF2F8; }
+  .lang-table tr:last-child td { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Распечатать</button>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 1: COVER
+════════════════════════════════════════════ -->
+<div class="slide slide-cover">
+  <div class="cover-badge">SAFE · Инвестиционный раунд · 2026</div>
+  <div class="cover-logo">Marketing<span>DNA</span></div>
+  <div class="cover-tagline">AI генерирует контент для малого бизнеса — готовый. Каждый месяц.</div>
+  <div class="cover-pills">
+    <div class="cover-pill">✅ MVP запущен</div>
+    <div class="cover-pill">👥 Первые 50 клиентов</div>
+    <div class="cover-pill">📍 Латвия → Прибалтика → Скандинавия</div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 2: ПРОБЛЕМА
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">2</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Проблема</div>
+      <div class="slide-title">Микробизнес есть в соцсетях. Но посты без системы не приносят клиентов.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="pain-item">
+      <div class="pain-icon">🕐</div>
+      <div>
+        <div class="pain-title">"Контент без стратегии — деньги на ветер"</div>
+        <div class="pain-desc">Большинство малых бизнесов публикует хаотично: сегодня фото продукта, завтра ничего, через неделю акция. Без стратегии соцсети не работают — аудитория не растёт, клиенты не приходят.</div>
+      </div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-icon">💸</div>
+      <div>
+        <div class="pain-title">"Агентство — не вариант для микробизнеса"</div>
+        <div class="pain-desc">Полноценное маркетинговое агентство берёт €1 500–5 000/мес за создание контента и ведение аккаунтов. Для малого и микробизнеса это неподъёмно — особенно без гарантии окупаемости.</div>
+      </div>
+    </div>
+    <div class="pain-item" style="margin-bottom:20px">
+      <div class="pain-icon">🤯</div>
+      <div>
+        <div class="pain-title">"Сделать самому — значит стать маркетологом"</div>
+        <div class="pain-desc">Чтобы системно вести контент нужно разобраться в психологии аудитории, стратегии прогрева, форматах для каждой платформы. Это отдельная профессия. Предприниматель занят бизнесом — не контентом.</div>
+      </div>
+    </div>
+    <div class="card card-red">
+      <span style="font-size:13px;color:#991B1B;line-height:1.6;">Большинство микро и малых бизнесов есть в соцсетях — и пробуют. Но регулярный, стратегический контент требует знаний психологии аудитории, понимания форматов и времени, которого у предпринимателя нет. У некоторых получается — у большинства нет. Не потому что они плохие, а потому что контент-маркетинг — это отдельная профессия. Именно этот пробел закрывает Marketing DNA.</span>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 3: ПОЧЕМУ НЕ CHATGPT
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">3</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Ключевое отличие</div>
+      <div class="slide-title">ChatGPT умеет многое. Но инструмент — не система.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div>
+        <div class="card card-red" style="margin-bottom:12px">
+          <div class="h2" style="color:#991B1B;margin-bottom:6px">ChatGPT + самостоятельная работа</div>
+          <div class="p-sm" style="color:#991B1B;margin-bottom:12px">Это возможно — но требует:</div>
+          <div class="check-item"><span class="cross-icon">✗</span> Глубокого знания психологии вашей аудитории</div>
+          <div class="check-item"><span class="cross-icon">✗</span> Понимания стратегии продаж: холодная аудитория vs. тёплая база</div>
+          <div class="check-item"><span class="cross-icon">✗</span> Навыков промпт-инжиниринга — без них результат общий, не персональный</div>
+          <div class="check-item"><span class="cross-icon">✗</span> 10–15 часов в месяц на координацию и создание</div>
+          <div class="check-item"><span class="cross-icon">✗</span> Отдельных инструментов для дизайна, SEO, сценариев видео</div>
+          <div class="check-item"><span class="cross-icon">✗</span> Понимания какой контент работает в вашей нише и регионе</div>
+        </div>
+        <div class="card card-gold">
+          <span style="font-size:13px;color:#92400E;line-height:1.6;">Это реально. Но это полноценная работа маркетолога — не "быстро спросить ChatGPT".</span>
+        </div>
+      </div>
+      <div>
+        <div class="card card-green" style="margin-bottom:12px">
+          <div class="h2" style="color:#166534;margin-bottom:6px">Marketing DNA</div>
+          <div class="p-sm" style="color:#166534;margin-bottom:12px">Всё это уже встроено в систему:</div>
+          <div class="check-item"><span class="check-icon">✓</span> Кастдев аудитории: виртуальные интервью выявляют мотивы и страхи ваших клиентов</div>
+          <div class="check-item"><span class="check-icon">✓</span> Стратегия под цель: план на привлечение новых или активацию существующей базы</div>
+          <div class="check-item"><span class="check-icon">✓</span> Анализ конкурентов: система находит темы которые они не закрывают</div>
+          <div class="check-item"><span class="check-icon">✓</span> Семантическое ядро: контент строится на словах которыми думает ваша аудитория</div>
+          <div class="check-item"><span class="check-icon">✓</span> Готовые материалы с дизайном — не черновики, а финальный контент</div>
+          <div class="check-item"><span class="check-icon">✓</span> 12 вопросов → до 24–48 часов генерации → готово</div>
+        </div>
+        <div class="card card-blue">
+          <span style="font-size:13px;color:#4C1D95;line-height:1.6;">Разница не в возможностях — а в системе. Отвёртка и шуруповёрт умеют одно и то же. Скорость и результат — разные.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 4: РЕШЕНИЕ
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">4</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Решение</div>
+      <div class="slide-title">12 вопросов — и полный контент-пакет на месяц готов</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:8px;align-items:center;margin-bottom:24px">
+      <div class="flow-step">
+        <div style="font-size:22px;margin-bottom:6px">📋</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px">Анкета</div>
+        <div class="p-sm">12 вопросов в Telegram / 7–10 минут</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div style="font-size:22px;margin-bottom:6px">🧠</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px">AI-анализ</div>
+        <div class="p-sm">Аудитория, конкуренты, семантика, кастдев</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div style="font-size:22px;margin-bottom:6px">⚙️</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px">Генерация</div>
+        <div class="p-sm">9 блоков контента создаются параллельно</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div style="font-size:22px;margin-bottom:6px">📦</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px">Готовый пакет</div>
+        <div class="p-sm">Клиент берёт и публикует</div>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="card card-blue">
+        <div class="metric-big">
+          <div class="metric-value">7–10 мин</div>
+          <div class="metric-label">время на анкету</div>
+        </div>
+      </div>
+      <div class="card card-blue">
+        <div class="metric-big">
+          <div class="metric-value">24–48 ч</div>
+          <div class="metric-label">время генерации пакета</div>
+        </div>
+      </div>
+      <div class="card card-blue">
+        <div class="metric-big">
+          <div class="metric-value">0</div>
+          <div class="metric-label">часов работы клиента на контент</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 5: ПРОДУКТ
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">5</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Продукт</div>
+      <div class="slide-title">Два тарифа. Один результат — готовый контент каждый месяц.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2" style="margin-bottom:16px">
+      <div class="card">
+        <div class="plan-title">🔥 Тариф Старт</div>
+        <div class="price-big">€150/мес</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📅 Контент-план на 30 дней — под цель месяца</div>
+        <div class="check-item"><span class="check-icon">✓</span> 🖼 8 готовых каруселей с дизайном</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📸 8 готовых постов: AI-изображение + текст</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📱 15 готовых Stories</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📝 5 SEO и GEO-статей для сайта</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📊 Анализ конкурентов + возможности</div>
+        <div class="p-sm" style="margin-top:12px;color:#7C3AED">+ Доп. язык контента: €30/мес</div>
+      </div>
+      <div class="card card-blue">
+        <div style="margin-bottom:6px"><span class="popular-badge">С AI-видео</span></div>
+        <div class="plan-title">✨ Тариф Профи</div>
+        <div class="price-big">€250/мес</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📅 Контент-план на 30 дней — под цель месяца</div>
+        <div class="check-item"><span class="check-icon">✓</span> 🖼 8 готовых каруселей с дизайном</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📸 8 готовых постов: AI-изображение + текст</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📱 15 готовых Stories</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📝 5 SEO и GEO-статей для сайта</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📊 Анализ конкурентов + возможности</div>
+        <div class="divider" style="margin:12px 0"></div>
+        <div class="check-item"><span class="check-icon">✓</span> <span class="purple-bold">🎬 8 готовых AI-видео (Reels / TikTok / Shorts)</span></div>
+        <div class="check-item"><span class="check-icon">✓</span> <span class="purple-bold">🎨 8 готовых обложек для видео</span></div>
+        <div class="p-sm" style="margin-top:12px;color:#7C3AED">+ Доп. язык контента: €60/мес</div>
+      </div>
+    </div>
+    <div class="card card-gold">
+      <span style="font-size:13px;color:#92400E;line-height:1.6;">Агентство берёт €1 500–5 000/мес: большая часть суммы — это оплата труда за <strong>размещение контента</strong>, то есть работа высокооплачиваемого сотрудника. Marketing DNA даёт контент <strong>сопоставимого или более высокого качества</strong> — предприниматель размещает сам. Агентство = контент + размещение. Marketing DNA = только контент, но <strong>в 6–20 раз дешевле</strong>. Вы экономите на размещении, не теряя в качестве.</span>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 6: ВОРОНКА ПРИВЛЕЧЕНИЯ
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">6</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Привлечение клиентов</div>
+      <div class="slide-title">Бесплатный пакет — это не подарок. Это воронка.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:8px;align-items:center;margin-bottom:20px">
+      <div class="flow-step">
+        <div style="font-size:20px;margin-bottom:6px">🎯</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px">Реклама</div>
+        <div class="p-sm">Instagram / Facebook / таргет на владельцев бизнеса</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div style="font-size:20px;margin-bottom:6px">🆓</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px">Бесплатный пакет</div>
+        <div class="p-sm">Анкета 12 вопросов → контент на 7 дней + статья + ролик + карусель</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div style="font-size:20px;margin-bottom:6px">👀</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px">Видит качество</div>
+        <div class="p-sm">Клиент держит в руках реальный результат под свой бизнес</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div style="font-size:20px;margin-bottom:6px">💳</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px">Покупает подписку</div>
+        <div class="p-sm">Скидка 50% на первый месяц — таймер 48 часов</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="h2" style="margin-bottom:12px">Почему это работает</div>
+        <div class="check-item"><span class="check-icon">✓</span> Нет риска для клиента — он видит результат до оплаты</div>
+        <div class="check-item"><span class="check-icon">✓</span> Персональный контент под его бизнес — не шаблон</div>
+        <div class="check-item"><span class="check-icon">✓</span> Скидка 50% снижает порог первого решения</div>
+        <div class="check-item"><span class="check-icon">✓</span> Таймер 48 часов создаёт момент принятия решения</div>
+      </div>
+      <div class="card card-green">
+        <div class="h2" style="color:#166534;margin-bottom:12px">Экономика воронки</div>
+        <div class="check-item"><span class="check-icon">✓</span> Стоимость генерации бесплатного пакета: ~€0.50 (API costs)</div>
+        <div class="check-item"><span class="check-icon">✓</span> CAC через бесплатный пакет: целевой &lt; €50</div>
+        <div class="check-item"><span class="check-icon">✓</span> LTV при 12 мес. × €200 ARPU: €2 400</div>
+        <div class="check-item"><span class="check-icon">✓</span> LTV / CAC: &gt; 48x</div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 7: GTM
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">7</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Go-to-Market</div>
+      <div class="slide-title">Instagram как основной канал. Три языка. Три рынка одновременно.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div>
+        <div class="h2" style="margin-bottom:14px">Фаза 1 — Старт (сейчас)</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📱 Собственный Instagram/Facebook аккаунт: кейсы, демо результатов, до/после</div>
+        <div class="check-item"><span class="check-icon">✓</span> 🎯 Таргетированная реклама на владельцев малого бизнеса</div>
+        <div style="margin-top:12px;margin-bottom:6px" class="h3">3 параллельных языка:</div>
+        <table class="lang-table">
+          <thead>
+            <tr><th>Язык</th><th>Рынок</th><th>Аудитория</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>🇷🇺 Русский</td><td>Латвия, Эстония, Литва</td><td>Русскоязычные предприниматели Прибалтики</td></tr>
+            <tr><td>🇱🇻 Латышский</td><td>Латвия</td><td>Местный бизнес</td></tr>
+            <tr><td>🇬🇧 Английский</td><td>Скандинавия + Прибалтика</td><td>EN как второй язык в Швеции, Норвегии, Дании</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="h2" style="margin-bottom:14px">Фаза 2 — После первых результатов</div>
+        <div class="check-item"><span class="check-icon">✓</span> 🎬 TikTok — демо AI-контента в действии</div>
+        <div class="check-item"><span class="check-icon">✓</span> 💼 LinkedIn — B2B, агентства, партнёрства</div>
+        <div class="check-item"><span class="check-icon">✓</span> 📺 YouTube — обучение и кейсы</div>
+        <div class="card card-gold" style="margin-top:16px">
+          <span class="p-sm" style="color:#92400E;"><strong>Стратегия:</strong> сначала глубина на одной платформе — потом масштаб. Instagram/Facebook даёт прямой доступ к целевой аудитории с минимальным CAC.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 8: РЫНОК
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">8</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Рынок</div>
+      <div class="slide-title">Старт в Латвии. Цель — вся Европа.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-3" style="margin-bottom:20px">
+      <div class="card">
+        <div class="metric-big">
+          <div class="tag">TAM</div>
+          <div class="metric-value" style="font-size:30px">€8B+</div>
+          <div style="font-size:12px;font-weight:700;color:#4C1D95;margin:6px 0 4px">EU SMB social media marketing</div>
+          <div class="metric-label">25 млн малых бизнесов активно используют соцсети</div>
+        </div>
+      </div>
+      <div class="card card-blue">
+        <div class="metric-big">
+          <div class="tag">SAM</div>
+          <div class="metric-value" style="font-size:30px">€180M</div>
+          <div style="font-size:12px;font-weight:700;color:#4C1D95;margin:6px 0 4px">Прибалтика + Скандинавия</div>
+          <div class="metric-label">~750 000 потенциальных клиентов × €200–250 ARPU</div>
+        </div>
+      </div>
+      <div class="card card-green">
+        <div class="metric-big">
+          <div class="tag tag-green">SOM — год 1</div>
+          <div class="metric-value" style="font-size:30px;color:#166534">€1.8M</div>
+          <div style="font-size:12px;font-weight:700;color:#166534;margin:6px 0 4px">Латвия + русскоязычная Прибалтика</div>
+          <div class="metric-label">~7 500 целевых клиентов × €200–250 ARPU</div>
+        </div>
+      </div>
+    </div>
+    <div class="expansion-flow" style="margin-bottom:12px">
+      <div class="exp-step">
+        <div style="font-size:16px">📍</div>
+        <div style="font-weight:700;font-size:13px;margin:4px 0 2px">Латвия</div>
+        <div class="p-sm">сейчас, 30K SMB, три языка</div>
+      </div>
+      <div class="exp-arrow">→</div>
+      <div class="exp-step">
+        <div style="font-size:16px">🌍</div>
+        <div style="font-weight:700;font-size:13px;margin:4px 0 2px">Прибалтика (LV/RU/EN)</div>
+        <div class="p-sm">месяц 6–12, добавляем LT + ET</div>
+      </div>
+      <div class="exp-arrow">→</div>
+      <div class="exp-step">
+        <div style="font-size:16px">🌐</div>
+        <div style="font-weight:700;font-size:13px;margin:4px 0 2px">Скандинавия (EN)</div>
+        <div class="p-sm">месяц 12–18, EN уже готов</div>
+      </div>
+      <div class="exp-arrow">→</div>
+      <div class="exp-step">
+        <div style="font-size:16px">🇪🇺</div>
+        <div style="font-weight:700;font-size:13px;margin:4px 0 2px">Центральная Европа</div>
+        <div class="p-sm">месяц 18+, DE/FR/PL</div>
+      </div>
+    </div>
+    <div class="card card-gold">
+      <span class="p-sm" style="color:#92400E"><strong>Масштабирование не требует перестройки продукта</strong> — только добавление языка. Новая страна = новый языковой модуль.</span>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 9: КОНКУРЕНТЫ
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">9</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Конкурентный ландшафт</div>
+      <div class="slide-title">Мы не конкурируем с агентствами. Мы закрываем нишу которую они не могут.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="card card-blue" style="margin-bottom:14px">
+      <span style="font-size:13px;color:#4C1D95;line-height:1.6;">Важный нюанс: агентства предлагают полный сервис — создание контента И ведение аккаунтов (публикация, ответы, мониторинг). Именно за это они берут €1 500–5 000/мес. Marketing DNA создаёт контент — клиент публикует сам. Это занимает 30 минут в месяц. Мы не заменяем агентство — мы закрываем потребность которая агентству недоступна по цене.</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Агентство</th>
+          <th>Фрилансер</th>
+          <th>DIY (ChatGPT+Canva)</th>
+          <th style="background:#7C3AED;color:white;font-weight:700;">Marketing DNA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Что включено</strong></td>
+          <td>Создание + публикация + ведение</td>
+          <td>Создание контента</td>
+          <td>Только инструменты</td>
+          <td style="color:#7C3AED;font-weight:700;">Создание со стратегией</td>
+        </tr>
+        <tr>
+          <td><strong>Требует от клиента</strong></td>
+          <td>Минимум времени</td>
+          <td>Постановка задач</td>
+          <td>Всё — время и навыки</td>
+          <td style="color:#7C3AED;font-weight:700;">Нажать "опубликовать"</td>
+        </tr>
+        <tr>
+          <td><strong>Цена/мес</strong></td>
+          <td>€1 500–5 000</td>
+          <td>€300–800</td>
+          <td>~€50 (время)</td>
+          <td style="color:#7C3AED;font-weight:700;">€150–250</td>
+        </tr>
+        <tr>
+          <td><strong>Стратегия</strong></td>
+          <td>Есть</td>
+          <td>Редко</td>
+          <td>Нет</td>
+          <td style="color:#7C3AED;font-weight:700;">Встроена в систему</td>
+        </tr>
+        <tr>
+          <td><strong>Персонализация</strong></td>
+          <td>Высокая</td>
+          <td>Средняя</td>
+          <td>Нет</td>
+          <td style="color:#7C3AED;font-weight:700;">AI по данным бизнеса</td>
+        </tr>
+        <tr>
+          <td><strong>Целевая аудитория</strong></td>
+          <td>Средний+ бизнес</td>
+          <td>Любой</td>
+          <td>Кто умеет</td>
+          <td style="color:#7C3AED;font-weight:700;">Микро и малый бизнес</td>
+        </tr>
+        <tr>
+          <td><strong>Языки / рынки</strong></td>
+          <td>Отдельный договор</td>
+          <td>Отдельный</td>
+          <td>Сам</td>
+          <td style="color:#7C3AED;font-weight:700;">+€30–60/мес</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="card card-green" style="margin-top:14px">
+      <span style="font-size:13px;color:#166534;line-height:1.6;">Наша ниша: микро и малый бизнес которому агентство не по карману, фрилансер ненадёжен, а делать самому — нет времени. €150–250/мес за готовый контент с AI-стратегией — это новая категория на рынке.</span>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 10: БИЗНЕС-МОДЕЛЬ
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">10</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Бизнес-модель</div>
+      <div class="slide-title">Подписка — основа. Языки и страны — мультипликатор.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div>
+        <div class="h2" style="margin-bottom:12px">Потоки выручки</div>
+        <div class="flow-col">
+          <div class="card">
+            <div class="h3">💳 Подписка</div>
+            <div class="p-sm">Тариф Старт €150/мес · Тариф Профи €250/мес</div>
+            <div class="p-sm" style="margin-top:4px"><strong>ARPU ~€200</strong></div>
+          </div>
+          <div class="card card-blue">
+            <div class="h3">🌍 Доп. язык контента</div>
+            <div class="p-sm">+€30/мес (Старт) · +€60/мес (Профи)</div>
+            <div class="p-sm" style="margin-top:4px">Каждый новый рынок клиента = +revenue</div>
+          </div>
+          <div class="card card-green">
+            <div class="h3" style="color:#166534">📍 Новые страны</div>
+            <div class="p-sm">Масштабирование без пересборки продукта</div>
+            <div class="p-sm" style="margin-top:4px">Новый язык = новый рынок</div>
+          </div>
+          <div class="card card-gold">
+            <div class="h3" style="color:#92400E">🤖 AI-инструменты (roadmap)</div>
+            <div class="p-sm">AI-продавец для клиентов: отвечает в Instagram/WhatsApp</div>
+            <div class="p-sm" style="margin-top:4px">Следующий продукт после 50–100 клиентов</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="h2" style="margin-bottom:12px">Почему подписка — это правильно</div>
+        <div class="check-item"><span class="check-icon">✓</span> Предсказуемый доход: MRR растёт с каждым клиентом</div>
+        <div class="check-item"><span class="check-icon">✓</span> Высокий retention: клиент получает новый контент каждый месяц — незачем уходить</div>
+        <div class="check-item"><span class="check-icon">✓</span> Низкий churn: контент нужен всегда пока бизнес работает</div>
+        <div class="check-item"><span class="check-icon">✓</span> Upsell естественен: второй язык продаётся тому же клиенту</div>
+        <div class="grid-2" style="margin-top:16px;gap:10px">
+          <div class="card card-blue">
+            <div class="metric-big" style="padding:14px">
+              <div class="metric-value">~85%</div>
+              <div class="metric-label">Gross margin (AI API — минимальная стоимость)</div>
+            </div>
+          </div>
+          <div class="card card-blue">
+            <div class="metric-big" style="padding:14px">
+              <div class="metric-value">€0</div>
+              <div class="metric-label">Дополнительных затрат при добавлении нового клиента</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 11: UNIT ECONOMICS
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">11</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Экономика</div>
+      <div class="slide-title">Один поток клиентов — предсказуемая выручка.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card">
+        <div class="h2" style="margin-bottom:12px">Без upsell (базово)</div>
+        <div class="check-item"><span class="check-icon">✓</span> 50 клиентов × €200 ARPU = <strong>€10 000/мес</strong></div>
+        <div class="check-item"><span class="check-icon">✓</span> 100 клиентов × €200 ARPU = <strong>€20 000/мес (€240K ARR)</strong></div>
+        <div class="check-item"><span class="check-icon">✓</span> 200 клиентов × €200 ARPU = <strong>€40 000/мес (€480K ARR)</strong></div>
+        <div class="divider"></div>
+        <div class="check-item"><span class="check-icon">✓</span> LTV (12 мес.): €200 × 12 = <strong>€2 400</strong></div>
+        <div class="check-item"><span class="check-icon">✓</span> Target CAC: <strong>&lt; €100</strong></div>
+        <div class="check-item"><span class="check-icon">✓</span> LTV / CAC: <strong>&gt; 24x</strong></div>
+        <div class="check-item"><span class="check-icon">✓</span> Gross margin: <strong>~85%</strong></div>
+      </div>
+      <div class="card card-green">
+        <div class="h2" style="color:#166534;margin-bottom:12px">С upsell доп. язык (50% клиентов)</div>
+        <div class="check-item"><span class="check-icon">✓</span> 50% клиентов добавляют 1 язык: <strong>+€45 ARPU avg</strong></div>
+        <div class="check-item"><span class="check-icon">✓</span> Итого ARPU: <strong>~€245/мес</strong></div>
+        <div class="check-item"><span class="check-icon">✓</span> 200 клиентов: <strong>€49 000/мес (€588K ARR)</strong></div>
+        <div class="divider"></div>
+        <div style="text-align:center;padding:12px 0">
+          <div style="font-size:32px;font-weight:900;color:#166534">+€109K ARR</div>
+          <div class="p-sm" style="margin-top:4px">дополнительно — без новых клиентов</div>
+        </div>
+        <div class="card card-gold" style="margin-top:12px">
+          <span class="p-sm" style="color:#92400E">Каждый клиент который добавляет язык увеличивает LTV на <strong>€540 (€45 × 12)</strong> без увеличения CAC.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 12: ТЯГА
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">12</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Тяга</div>
+      <div class="slide-title">Продукт построен. Первые клиенты платят.</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card">
+        <div class="h2" style="margin-bottom:12px">📊 Первые 50 клиентов</div>
+        <div class="check-item"><span class="check-icon">✓</span> 40 клиентов — первый месяц по скидке 50%: avg €100/мес → <strong style="white-space:nowrap">€4&nbsp;000</strong></div>
+        <div class="check-item"><span class="check-icon">✓</span> 10 клиентов — продлили по полной цене: avg €200/мес → <strong>€2 000</strong></div>
+        <div style="margin-top:10px;padding:12px 16px;background:#F5F3FF;border-radius:8px;border:1px solid #DDD6FE">
+          <div style="font-size:15px;font-weight:800;color:#7C3AED">MRR: €6 000</div>
+          <div style="font-size:15px;font-weight:800;color:#7C3AED;margin-top:4px">ARR: €72 000</div>
+        </div>
+        <div class="divider"></div>
+        <div class="check-item"><span class="check-icon">✓</span> Конверсия в продление (мес.1 → мес.2): <strong>20%</strong> — ранние данные, растёт</div>
+        <div class="check-item"><span class="check-icon">✓</span> Цель: <strong>30%+</strong> к месяцу 4</div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:12px">
+          <div class="h2" style="margin-bottom:12px">🏗 Готовая инфраструктура</div>
+          <div class="check-item"><span class="check-icon">✓</span> Telegram-бот клиентский: анкета 12 вопросов, AI микро-реакции, 3 языка (RU/LV/EN)</div>
+          <div class="check-item"><span class="check-icon">✓</span> AI-конвейер: 9 блоков генерации (кастдев, семантика, конкуренты, статьи, сценарии, карусели, обложки, AI-видео, контент-план)</div>
+          <div class="check-item"><span class="check-icon">✓</span> Сайт marketing-dna.com — задеплоен, работает</div>
+          <div class="check-item"><span class="check-icon">✓</span> HTML-страница результатов для каждого клиента</div>
+          <div class="check-item"><span class="check-icon">✓</span> CRM: логирование всех событий</div>
+          <div class="check-item"><span class="check-icon">✓</span> Система скидок с таймером 48ч и напоминаниями</div>
+          <div class="check-item"><span class="check-icon">✓</span> Создание сайтов для клиентов: визитка €150 / эксперт €299</div>
+        </div>
+        <div class="card card-blue">
+          <span class="p-sm" style="color:#4C1D95"><strong>Технический риск закрыт.</strong> Продукт не в разработке — он работает и генерирует выручку.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 13: КОМАНДА
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">13</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Команда</div>
+      <div class="slide-title">Основатель который уже строил бизнес до $2M</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2" style="margin-bottom:14px">
+      <div>
+        <div class="h2" style="margin-bottom:12px">👤 Основатель — Александр</div>
+        <div class="card" style="margin-bottom:10px">
+          <div class="p-sm" style="font-weight:700;color:#7C3AED;margin-bottom:6px">2005–2015 · Языковое программное обеспечение</div>
+          <div class="p">Разработал и масштабировал программы для изучения языков (PC + мобильное). Пик выручки — <strong>$1.5–2M в год.</strong> Самостоятельный выход на международный рынок.</div>
+        </div>
+        <div class="card card-green">
+          <div class="p-sm" style="font-weight:700;color:#166534;margin-bottom:6px">2015 — сейчас · Art Studio · Рига</div>
+          <div class="p">Действующий бизнес. Выручка <strong>€500K в год.</strong> Предприниматель который понимает боли малого бизнеса изнутри — Marketing DNA строит для таких же как он сам.</div>
+        </div>
+      </div>
+      <div>
+        <div class="h2" style="margin-bottom:12px">👤 Технический партнёр</div>
+        <div class="card" style="margin-bottom:10px">
+          <div class="p">Вся техническая архитектура, AI-интеграции (Claude Sonnet/Haiku), Telegram-боты, деплой. <strong>Продукт уже построен и работает</strong> — главный технический риск закрыт до раунда.</div>
+        </div>
+        <div class="card card-gold" style="margin-bottom:10px">
+          <span class="p-sm" style="color:#92400E"><strong>Главное преимущество команды:</strong> основатель — действующий предприниматель. Он строит продукт который сам использовал бы каждый день.</span>
+        </div>
+        <div class="card card-blue">
+          <span class="p-sm" style="color:#4C1D95">Команда двух человек с взаимодополняющими компетенциями: предпринимательство + техника.</span>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <h3 class="h3" style="font-size:16px;font-weight:800;color:#4C1D95;margin-bottom:14px">📋 Планируемый найм (из средств раунда)</h3>
+    <div class="grid-3">
+      <div class="card card-green">
+        <div class="tag tag-green">МЕСЯЦ 1</div>
+        <div class="h2" style="color:#166534;margin-bottom:8px">👤 Менеджер по клиентам</div>
+        <div class="p-sm" style="margin-bottom:10px">Онбординг новых клиентов, поддержка, retention. При 50+ клиентах двое основателей не справляются с операционкой.</div>
+        <div style="font-weight:700;color:#166534;">€1 500/мес</div>
+      </div>
+      <div class="card card-blue">
+        <div class="tag">МЕСЯЦ 1</div>
+        <div class="h2" style="margin-bottom:8px">📣 Маркетолог</div>
+        <div class="p-sm" style="margin-bottom:10px">Стратегия выхода на новые рынки (LT, EE, Скандинавия), партнёрства с B2B-каналами, упаковка кейсов для привлечения корпоративных клиентов.</div>
+        <div style="font-weight:700;color:#7C3AED;">€1 500/мес</div>
+      </div>
+      <div class="card card-gold">
+        <div class="tag tag-orange">МЕСЯЦ 2–3</div>
+        <div class="h2" style="color:#92400E;margin-bottom:8px">👤 Второй менеджер</div>
+        <div class="p-sm" style="margin-bottom:10px">При росте клиентской базы до 80–100 клиентов. Разделение: онбординг + аккаунт-менеджмент.</div>
+        <div style="font-weight:700;color:#92400E;">€1 500/мес</div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 14: ИНВЕСТИЦИОННЫЙ ЗАПРОС
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">14</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Инвестиционный запрос</div>
+      <div class="slide-title">Куда идут деньги — и что это даёт</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2" style="margin-bottom:14px">
+      <div>
+        <div class="card card-blue" style="margin-bottom:10px">
+          <div class="h2" style="margin-bottom:14px">Условия SAFE</div>
+          <div class="safe-row"><span class="safe-label">Размер раунда</span><span class="safe-value">€150 000</span></div>
+          <div class="safe-row"><span class="safe-label">Valuation Cap</span><span class="safe-value">€1 000 000</span></div>
+          <div class="safe-row"><span class="safe-label">Discount при конверсии</span><span class="safe-value">20%</span></div>
+          <div class="safe-row"><span class="safe-label">Pro-rata права</span><span class="safe-value">Да</span></div>
+          <div class="safe-row"><span class="safe-label">Минимальный чек</span><span class="safe-value">€10 000</span></div>
+          <div class="safe-row"><span class="safe-label">Dilution (при cap)</span><span class="safe-value">~15%</span></div>
+        </div>
+        <div class="p-sm" style="color:#94A3B8;padding:0 4px">SAFE (Simple Agreement for Future Equity) — стандартный инструмент для ранних раундов. Конверсия в долю происходит при следующем раунде или liquidity event. Никаких гарантий и залогов не предусмотрено.</div>
+      </div>
+      <div>
+        <div class="h2" style="margin-bottom:10px">Распределение средств</div>
+        <table class="budget-table">
+          <tbody>
+            <tr><td>👥 Основатели (€2 000/мес × 2)</td><td style="text-align:right;font-weight:600">€48 000</td></tr>
+            <tr><td>👤 Менеджер по клиентам × 2 (€1 500 × 12)</td><td style="text-align:right;font-weight:600">€36 000</td></tr>
+            <tr><td>📣 Маркетолог (€1 500 × 12)</td><td style="text-align:right;font-weight:600">€18 000</td></tr>
+            <tr><td>📱 Реклама Instagram / Facebook / TikTok</td><td style="text-align:right;font-weight:600">€30 000</td></tr>
+            <tr><td>🤝 Контент, кейсы, продвижение</td><td style="text-align:right;font-weight:600">€12 000</td></tr>
+            <tr><td>🌍 Выход на новые рынки (LT, EE, Скандинавия)</td><td style="text-align:right;font-weight:600">€6 000</td></tr>
+            <tr><td><strong>Итого</strong></td><td style="text-align:right"><strong>€150 000</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card card-green">
+      <div style="font-size:13px;color:#166534;line-height:1.7">
+        <strong>Цель раунда:</strong> с €150K → 200 платящих клиентов → €30–40K MRR → следующий раунд при оценке €3–4M.<br>
+        Точка самоокупаемости — ~75 клиентов: выручка €15 000/мес перекрывает ежемесячные расходы €10 500/мес (зарплаты + реклама). После этого инвестиции перестают сгорать.
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 15: ПРИЗЫВ К ДЕЙСТВИЮ
+════════════════════════════════════════════ -->
+<div class="slide" style="background:linear-gradient(135deg,#4C1D95 0%,#7C3AED 50%,#8B5CF6 100%);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+  <div style="max-width:700px;padding:0 20px;">
+    <div style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#DDD6FE;margin-bottom:20px">Почему сейчас</div>
+    <div style="font-size:32px;font-weight:900;line-height:1.2;margin-bottom:28px;color:#fff">В Прибалтике и Скандинавии нет AI-платформы контент-маркетинга для микробизнеса.<br>Мы создаём её первыми.</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px">
+      <div style="background:rgba(255,255,255,0.12);border-radius:12px;padding:18px 14px;">
+        <div style="font-size:26px;font-weight:900;color:#fff;margin-bottom:4px">500 000+</div>
+        <div style="font-size:12px;color:#DDD6FE;line-height:1.5">микро- и малых бизнесов в регионе с активными соцсетями</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:12px;padding:18px 14px;">
+        <div style="font-size:26px;font-weight:900;color:#fff;margin-bottom:4px">5 000</div>
+        <div style="font-size:12px;color:#DDD6FE;line-height:1.5">клиентов = 1% рынка = €1M+ ARR — реальная цель через 2 года</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:12px;padding:18px 14px;">
+        <div style="font-size:26px;font-weight:900;color:#fff;margin-bottom:4px">€150K</div>
+        <div style="font-size:12px;color:#DDD6FE;line-height:1.5">даёт 12 месяцев роста → 200 клиентов → следующий раунд при оценке €3–4M</div>
+      </div>
+    </div>
+    <div style="background:rgba(255,255,255,0.15);border-radius:16px;padding:24px 28px;margin-bottom:28px;border:1px solid rgba(255,255,255,0.25)">
+      <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:12px">Что происходит дальше</div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:8px 14px;text-align:left;font-size:13px;color:#E9D5FF;line-height:1.6">
+        <span style="font-weight:700;color:#fff">01</span><span>30-минутный звонок: отвечаем на все вопросы по продукту и тяге</span>
+        <span style="font-weight:700;color:#fff">02</span><span>Демо-доступ: показываем онбординг и пример результата для реального бизнеса</span>
+        <span style="font-weight:700;color:#fff">03</span><span>SAFE-документ: стандартный шаблон YC, без сюрпризов</span>
+      </div>
+    </div>
+    <div style="font-size:20px;font-weight:900;color:#fff;margin-bottom:8px">Александр Обулевича</div>
+    <div style="font-size:14px;color:#DDD6FE;margin-bottom:4px">Co-founder, Marketing DNA</div>
+    <div style="font-size:14px;color:#C4B5FD;font-weight:600">leonsgo23@gmail.com</div>
+    <div style="margin-top:12px;">
+      <a href="https://marketing-dna.com" target="_blank" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.3);">→ marketing-dna.com</a>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#A78BFA,#7C3AED,#4C1D95)"></div>
+</div>
+
+</body>
+</html>
