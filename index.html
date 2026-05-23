@@ -768,7 +768,7 @@
   }
 
   /* SCREEN 2: PROBLEM */
-  .problem-screen { background: #f9f7ff; padding: 48px 20px 80px; }
+  .problem-screen { background: #f9f7ff; padding: 48px 20px 32px; }
   .problem-screen .section-title { text-align: center; margin-bottom: 16px; }
   .pain-cards {
     display: grid;
@@ -859,7 +859,7 @@
   }
 
   /* SCREEN 3: PRODUCT */
-  .product-screen { background: #fff; padding: 80px 20px; }
+  .product-screen { background: #fff; padding: 40px 20px 80px; }
   .product-brand {
     text-align: center;
     margin-bottom: 40px;
@@ -1302,9 +1302,9 @@
         <span style="font-size:22px;flex-shrink:0;">🎨</span>
         <span style="font-size:14px;color:#e9d5ff;line-height:1.5;">Правильные картинки, визуальные образы и короткие видео которые привлекают именно вашего клиента</span>
       </div>
-      <div style="background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.35);border-radius:12px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;">
-        <span style="font-size:22px;flex-shrink:0;">🔄</span>
-        <span style="font-size:14px;color:#e9d5ff;line-height:1.5;"><strong style="color:#fff;">Реальную реакцию вашей аудитории.</strong> Каждые 15 дней система анализирует что смотрели, сохраняли и на что откликались — и автоматически корректирует следующий контент. ChatGPT этого не делает никогда.</span>
+      <div style="grid-column:1/-1;background:rgba(139,92,246,0.2);border:1.5px solid rgba(139,92,246,0.5);border-radius:12px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:26px;flex-shrink:0;">🔄</span>
+        <span style="font-size:14px;color:#e9d5ff;line-height:1.6;"><strong style="color:#fff;font-size:15px;">Анализирует как реагирует ваша аудитория — и создаёт следующий контент с учётом этого.</strong><br>Каждые 15 дней система смотрит что смотрели, сохраняли и на что откликались ваши подписчики — и на основе этих данных формирует новый контент. Он будет точнее предыдущего. ChatGPT так не умеет.</span>
       </div>
     </div>
 
@@ -1444,7 +1444,6 @@
 <section class="magnet" id="magnet">
   <div class="container">
     <h2>Получите ваш персональный контент-пакет — прямо сейчас, бесплатно</h2>
-    <p class="magnet-lead">Ответьте на несколько вопросов о своём бизнесе в Telegram — и получите персональный&nbsp;пакет:</p>
     <div class="magnet-items">
       <div class="magnet-item">Готовый пост: текст и визуал</div>
       <div class="magnet-item">Карусель — 5 оформленных слайдов</div>
@@ -1604,6 +1603,10 @@
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Можно сначала попробовать бесплатно?</div>
         <div class="faq-a">Да — именно для этого есть бесплатный контент-план на 7 дней. Без оплаты и без обязательств.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Что значит "контент корректируется каждые 15 дней"?</div>
+        <div class="faq-a">Через 15 дней после того как вы начали публиковать контент, система анализирует реальную статистику: какие посты смотрели дольше, что сохраняли, на какие Reels откликались, где выходили из Stories.<br><br>На основе этих данных формируется следующий блок контента — с новыми темами, скорректированными форматами и усиленными хуками. Не по шаблону, а на основе того что уже работает именно у вас и именно с вашей аудиторией.<br><br>Так каждые 15 дней контент становится точнее — и лучше попадает в интересы ваших клиентов.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Есть вопрос или предложение — куда написать?</div>
