@@ -422,6 +422,35 @@
   .lang-table th { background: #7C3AED; color: white; padding: 7px 10px; font-size: 11px; border-radius: 0; }
   .lang-table td { padding: 7px 10px; border-bottom: 1px solid #EEF2F8; }
   .lang-table tr:last-child td { border-bottom: none; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 800px) {
+    body { background: #fff; }
+    .slide {
+      width: 100%;
+      min-height: auto;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      border-bottom: 6px solid #E8EDF5;
+    }
+    .slide-cover { padding: 40px 20px; min-height: auto; }
+    .cover-logo { font-size: 38px; letter-spacing: -1px; }
+    .cover-tagline { font-size: 15px; margin-bottom: 28px; }
+    .cover-badge { font-size: 10px; margin-bottom: 20px; }
+    .cover-pill { font-size: 12px; padding: 6px 14px; }
+    .slide-header { padding: 20px 20px 0; margin-bottom: 18px; }
+    .slide-body { padding: 0 20px 24px; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .slide-num { width: 30px; height: 30px; font-size: 13px; }
+    .slide-title { font-size: 18px; }
+    .h2 { font-size: 15px; }
+    .metric-value { font-size: 28px !important; }
+    .expansion-flow { flex-direction: column; gap: 8px; }
+    .exp-arrow { transform: rotate(90deg); }
+    .safe-row { flex-direction: column; gap: 2px; }
+    .print-btn { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -437,7 +466,7 @@
   <div class="cover-tagline">AI генерирует контент для малого бизнеса — готовый. Каждый месяц.</div>
   <div class="cover-pills">
     <div class="cover-pill">✅ MVP запущен</div>
-    <div class="cover-pill">👥 Первые 50 клиентов</div>
+    <div class="cover-pill">👥 Первые 100+ клиентов</div>
     <div class="cover-pill">📍 Латвия → Прибалтика → Скандинавия</div>
   </div>
   <div class="bottom-bar"></div>
@@ -519,7 +548,7 @@
           <div class="p-sm" style="color:#166534;margin-bottom:12px">Всё это уже встроено в систему:</div>
           <div class="check-item"><span class="check-icon">✓</span> Кастдев аудитории: виртуальные интервью выявляют мотивы и страхи ваших клиентов</div>
           <div class="check-item"><span class="check-icon">✓</span> Стратегия под цель: план на привлечение новых или активацию существующей базы</div>
-          <div class="check-item"><span class="check-icon">✓</span> Анализ конкурентов: система находит темы которые они не закрывают</div>
+          <div class="check-item"><span class="check-icon">✓</span> Анализ конкурентов: что у них работает, что не работает и какие темы они вообще не закрывают — это свободные места в нише</div>
           <div class="check-item"><span class="check-icon">✓</span> Семантическое ядро: контент строится на словах которыми думает ваша аудитория</div>
           <div class="check-item"><span class="check-icon">✓</span> Готовые материалы с дизайном — не черновики, а финальный контент</div>
           <div class="check-item"><span class="check-icon">✓</span> Анкета → до 24–48 часов генерации → готово</div>
