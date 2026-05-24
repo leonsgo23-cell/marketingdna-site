@@ -430,6 +430,8 @@
   .lang-table td { padding: 7px 10px; border-bottom: 1px solid #EEF2F8; }
   .lang-table tr:last-child td { border-bottom: none; }
 
+  .table-scroll-hint { display: none; }
+
   /* ── MOBILE ── */
   @media (max-width: 800px) {
     body { background: #fff; }
@@ -460,6 +462,11 @@
     .flow-4-grid .flow-arrow { transform: rotate(90deg); padding: 2px 0; }
     .safe-row { flex-direction: column; gap: 2px; }
     .slide { border-bottom: 16px solid #E8EDF5; }
+    .check-item { margin-bottom: 6px; }
+    .divider { margin: 10px 0; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table-scroll-hint { display: block; font-size: 11px; color: #94A3B8; text-align: center; margin-bottom: 6px; }
+    #slide-cta { padding: 48px 0 40px; }
     .print-btn { display: none; }
   }
 </style>
@@ -880,6 +887,8 @@
     <div class="card card-blue" style="margin-bottom:14px">
       <span style="font-size:13px;color:#4C1D95;line-height:1.6;">Важный нюанс: агентства предлагают полный сервис — создание контента И ведение аккаунтов (публикация, ответы, мониторинг). Именно за это они берут €1 500–5 000/мес. Marketing DNA создаёт контент — клиент публикует сам. Это занимает 30 минут в месяц. Мы не заменяем агентство — мы закрываем потребность которая агентству недоступна по цене.</span>
     </div>
+    <span class="table-scroll-hint no-print">← прокрутите таблицу →</span>
+    <div class="table-scroll">
     <table>
       <thead>
         <tr>
@@ -942,6 +951,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
     <div class="card card-green" style="margin-top:14px">
       <span style="font-size:13px;color:#166534;line-height:1.6;">Наша ниша: микро и малый бизнес которому агентство не по карману, фрилансер ненадёжен, а делать самому — нет времени. €150–350/мес за готовый контент с AI-стратегией — это новая категория на рынке.</span>
     </div>
@@ -1287,7 +1297,7 @@
       </div>
       <div style="background:rgba(255,255,255,0.12);border-radius:12px;padding:18px 14px;">
         <div style="font-size:26px;font-weight:900;color:#fff;margin-bottom:4px">5 000</div>
-        <div style="font-size:12px;color:#DDD6FE;line-height:1.5">клиентов = 1% рынка = €14.7M ARR → оценка бизнеса ~€150M+ (12x)</div>
+        <div style="font-size:12px;color:#DDD6FE;line-height:1.5">клиентов = 1% рынка = €14.7M ARR → оценка бизнеса ~€88M+ (6x)</div>
       </div>
       <div style="background:rgba(255,255,255,0.12);border-radius:12px;padding:18px 14px;">
         <div style="font-size:26px;font-weight:900;color:#fff;margin-bottom:4px">€150K</div>
