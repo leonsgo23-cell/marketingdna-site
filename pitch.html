@@ -387,6 +387,13 @@
     align-items: stretch;
     margin: 16px 0;
   }
+  .flow-4-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
   .exp-step {
     flex: 1;
     background: #F5F3FF;
@@ -446,9 +453,13 @@
     .slide-title { font-size: 18px; }
     .h2 { font-size: 15px; }
     .metric-value { font-size: 28px !important; }
+    .grid-3 { grid-template-columns: 1fr; }
     .expansion-flow { flex-direction: column; gap: 8px; }
     .exp-arrow { transform: rotate(90deg); }
+    .flow-4-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .flow-4-grid .flow-arrow { transform: rotate(90deg); padding: 2px 0; }
     .safe-row { flex-direction: column; gap: 2px; }
+    .slide { border-bottom: 16px solid #E8EDF5; }
     .print-btn { display: none; }
   }
 </style>
@@ -576,7 +587,7 @@
     </div>
   </div>
   <div class="slide-body">
-    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:8px;align-items:center;margin-bottom:24px">
+    <div class="flow-4-grid">
       <div class="flow-step">
         <div style="font-size:22px;margin-bottom:6px">📋</div>
         <div style="font-weight:700;font-size:13px;margin-bottom:4px">Анкета</div>
@@ -697,7 +708,7 @@
     </div>
   </div>
   <div class="slide-body">
-    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:8px;align-items:center;margin-bottom:20px">
+    <div class="flow-4-grid">
       <div class="flow-step">
         <div style="font-size:20px;margin-bottom:6px">🎯</div>
         <div style="font-weight:700;font-size:13px;margin-bottom:4px">Реклама</div>
@@ -924,9 +935,9 @@
         </tr>
         <tr>
           <td><strong>Языки / рынки</strong></td>
-          <td>Отдельный договор</td>
-          <td>Отдельный</td>
-          <td>Сам</td>
+          <td>Отдельный договор (+доп. оплата)</td>
+          <td>Отдельный (+доп. оплата)</td>
+          <td>Нужны спец. навыки или наём переводчика</td>
           <td style="color:#7C3AED;font-weight:700;">+€30–90/мес</td>
         </tr>
       </tbody>
@@ -986,7 +997,8 @@
           <div class="card card-blue">
             <div class="metric-big" style="padding:14px">
               <div class="metric-value">~85%</div>
-              <div class="metric-label">Gross margin (AI API — минимальная стоимость)</div>
+              <div class="metric-label">Gross margin</div>
+              <div style="font-size:11px;color:#64748B;line-height:1.4;margin-top:4px">из €245 ARPU ~€37 уходит на AI API и хостинг — ~€208 чистой маржи с каждого клиента</div>
             </div>
           </div>
           <div class="card card-blue">
@@ -1174,7 +1186,7 @@
         <div class="card card-blue" style="margin-bottom:10px">
           <div class="h2" style="margin-bottom:14px">Условия SAFE</div>
           <div class="safe-row"><span class="safe-label">Размер раунда</span><span class="safe-value">€150 000</span></div>
-          <div class="safe-row"><span class="safe-label">Valuation Cap</span><span class="safe-value">€1 500 000</span></div>
+          <div class="safe-row"><span class="safe-label">Valuation Cap</span><span class="safe-value" style="text-align:right">€1 500 000<div style="font-size:11px;font-weight:400;color:#64748B;margin-top:2px">ARR €244K × 6x (ранний SaaS, Европа)</div></span></div>
           <div class="safe-row"><span class="safe-label">Discount при конверсии</span><span class="safe-value">20%</span></div>
           <div class="safe-row"><span class="safe-label">Pro-rata права</span><span class="safe-value">Да</span></div>
           <div class="safe-row"><span class="safe-label">Минимальный чек</span><span class="safe-value">€10 000</span></div>
@@ -1208,9 +1220,63 @@
 </div>
 
 <!-- ═══════════════════════════════════════════
-     SLIDE 15: ПРИЗЫВ К ДЕЙСТВИЮ
+     SLIDE 15: ГЛОССАРИЙ
 ════════════════════════════════════════════ -->
-<div class="slide" style="background:linear-gradient(135deg,#4C1D95 0%,#7C3AED 50%,#8B5CF6 100%);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+<div class="slide">
+  <div class="slide-header">
+    <div class="slide-num">15</div>
+    <div class="slide-title-block">
+      <div class="slide-label">Глоссарий</div>
+      <div class="slide-title">Ключевые показатели — простыми словами</div>
+    </div>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="flow-col">
+        <div class="card">
+          <div class="h3">ARPU — средний доход с клиента</div>
+          <div class="p-sm">Средняя сумма которую платит один клиент в месяц. Старт €150 + Стандарт €250 + Профи €350 → при миксе 30/45/25% получаем <strong>€245 ARPU</strong>.</div>
+        </div>
+        <div class="card card-blue">
+          <div class="h3">MRR — ежемесячная выручка</div>
+          <div class="p-sm">Сумма всех активных подписок за месяц. 95 клиентов × ~€214 avg = <strong>€20 335/мес</strong>. Главный операционный показатель SaaS.</div>
+        </div>
+        <div class="card">
+          <div class="h3">ARR — годовая выручка</div>
+          <div class="p-sm">MRR × 12. Показывает масштаб бизнеса в годовом выражении. €20 335 × 12 = <strong>€244 000 ARR</strong>. Используется для расчёта оценки.</div>
+        </div>
+        <div class="card card-blue">
+          <div class="h3">Gross Margin — валовая маржа</div>
+          <div class="p-sm">Доля выручки которая остаётся после прямых затрат (AI API, хостинг). ~85% = из €245 только €37 уходит на прямые расходы, €208 — чистая маржа с клиента.</div>
+        </div>
+      </div>
+      <div class="flow-col">
+        <div class="card card-green">
+          <div class="h3" style="color:#166534">LTV — ценность клиента</div>
+          <div class="p-sm">Сколько клиент приносит за всё время подписки. При 12 месяцах: €245 × 12 = <strong>€2 940 LTV</strong>. Чем выше retention — тем выше LTV.</div>
+        </div>
+        <div class="card">
+          <div class="h3">CAC — стоимость привлечения</div>
+          <div class="p-sm">Сколько стоит привлечь одного платящего клиента (реклама + воронка). Цель: <strong>&lt; €100</strong>. Снижается по мере роста органики и кейсов.</div>
+        </div>
+        <div class="card card-green">
+          <div class="h3" style="color:#166534">LTV/CAC — эффективность роста</div>
+          <div class="p-sm">Сколько мы зарабатываем на каждый €1 потраченный на привлечение. LTV €2 940 ÷ CAC €100 = <strong>&gt;29x</strong>. Норма здорового SaaS — от 3x.</div>
+        </div>
+        <div class="card card-gold">
+          <div class="h3" style="color:#92400E">Valuation Cap (SAFE)</div>
+          <div class="p-sm">Максимальная оценка при которой SAFE конвертируется в долю. Наш cap €1.5M = ARR €244K × 6x. При следующем раунде €5M инвестор получает долю по оценке €1.5M — это его бонус за риск на раннем этапе.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 16: ПРИЗЫВ К ДЕЙСТВИЮ
+════════════════════════════════════════════ -->
+<div class="slide" id="slide-cta" style="background:linear-gradient(135deg,#4C1D95 0%,#7C3AED 50%,#8B5CF6 100%);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
   <div style="max-width:700px;padding:0 20px;">
     <div style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#DDD6FE;margin-bottom:20px">Почему сейчас</div>
     <div style="font-size:32px;font-weight:900;line-height:1.2;margin-bottom:28px;color:#fff">В Прибалтике и Скандинавии нет AI-платформы контент-маркетинга для микробизнеса.<br>Мы создаём её первыми.</div>
