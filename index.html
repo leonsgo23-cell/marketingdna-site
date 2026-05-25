@@ -1199,7 +1199,7 @@
         <div class="product-text">
           <h4>8 готовых AI-видео B-roll <span style="font-size:12px;background:#EDE9FE;color:var(--purple);padding:2px 8px;border-radius:20px;font-weight:700;vertical-align:middle">Тариф Профи</span></h4>
           <p>Готовые короткие ролики для Reels, TikTok и Shorts — сгенерированы AI на основе сценариев вашего бизнеса. Берёте и публикуете.</p>
-          <a href="#" class="product-example-link">Посмотреть пример →</a>
+          <a href="#" class="product-example-link" data-media="reels_primer.mp4" data-type="video">Посмотреть пример →</a>
         </div>
       </div>
       <div class="product-item">
@@ -1207,7 +1207,7 @@
         <div class="product-text">
           <h4>8 готовых каруселей с дизайном</h4>
           <p>Каждая карусель — готовая серия слайдов с текстом и визуалом. Тексты написаны на основе исследования психологических привычек вашей целевой аудитории. Берёте и публикуете.</p>
-          <a href="#" class="product-example-link">Посмотреть пример →</a>
+          <a href="#" class="product-example-link" data-media="carusel_primer.mp4" data-type="video">Посмотреть пример →</a>
         </div>
       </div>
       <div class="product-item">
@@ -1239,7 +1239,7 @@
         <div class="product-text">
           <h4>8 готовых постов: AI-изображение + текст</h4>
           <p>Каждый пост — AI-изображение под стиль вашего бренда плюс готовая подпись. Остаётся только нажать "опубликовать". Без фотографа и съёмки.</p>
-          <a href="#" class="product-example-link">Посмотреть пример →</a>
+          <a href="#" class="product-example-link" data-media="post_primer.jpeg" data-type="image">Посмотреть пример →</a>
         </div>
       </div>
       <div class="product-item">
@@ -1247,7 +1247,7 @@
         <div class="product-text">
           <h4>15 готовых Stories</h4>
           <p>Серия Stories под каждую неделю контент-плана — с текстом, визуалом и призывом к действию. Берёте и публикуете.</p>
-          <a href="#" class="product-example-link">Посмотреть пример →</a>
+          <a href="#" class="product-example-link" data-media="storis_primer.jpeg" data-type="image">Посмотреть пример →</a>
         </div>
       </div>
       <div class="product-item">
@@ -1255,7 +1255,7 @@
         <div class="product-text">
           <h4>8 готовых обложек для видео <span style="font-size:12px;background:#EDE9FE;color:var(--purple);padding:2px 8px;border-radius:20px;font-weight:700;vertical-align:middle">Тариф Профи</span></h4>
           <p>Кастомные обложки (thumbnail) — под каждый ролик. Используете в Instagram, TikTok, YouTube или как отдельный пост.</p>
-          <a href="#" class="product-example-link">Посмотреть пример →</a>
+          <a href="#" class="product-example-link" data-media="oblozka_primer.jpeg" data-type="image">Посмотреть пример →</a>
         </div>
       </div>
     </div>
@@ -1843,6 +1843,17 @@
   <span>Marketing DNA</span> · Контент-маркетинг для малого бизнеса · 2026
 </footer>
 
+<!-- Media lightbox -->
+<div id="mediaLightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+  <button onclick="closeMediaLightbox()" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;">×</button>
+  <video id="mediaLightboxVideo" controls playsinline style="max-width:90vw;max-height:85vh;border-radius:12px;display:none;"></video>
+  <img id="mediaLightboxImg" style="max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain;display:none;" />
+</div>
+<style>
+  #mediaLightbox { display:flex !important; opacity:0; pointer-events:none; transition:opacity 0.2s; }
+  #mediaLightbox.open { opacity:1; pointer-events:all; }
+</style>
+
 <script>
   function showTab(name) {
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -1857,6 +1868,42 @@
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!wasOpen) item.classList.add('open');
   }
+
+  // Media lightbox (video/image examples)
+  document.querySelectorAll('.product-example-link[data-media]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const media = link.getAttribute('data-media');
+      const type = link.getAttribute('data-type');
+      const box = document.getElementById('mediaLightbox');
+      const vid = document.getElementById('mediaLightboxVideo');
+      const img = document.getElementById('mediaLightboxImg');
+      if (type === 'video') {
+        vid.src = media;
+        vid.style.display = 'block';
+        img.style.display = 'none';
+        vid.play();
+      } else {
+        img.src = media;
+        img.style.display = 'block';
+        vid.style.display = 'none';
+        vid.src = '';
+      }
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeMediaLightbox() {
+    const box = document.getElementById('mediaLightbox');
+    const vid = document.getElementById('mediaLightboxVideo');
+    box.classList.remove('open');
+    vid.pause();
+    vid.src = '';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('mediaLightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeMediaLightbox();
+  });
 
   // Portfolio site preview modal
   function openSitePreview(url, name, staticImg) {
