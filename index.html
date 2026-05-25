@@ -70,8 +70,15 @@
   }
   .hero-inner {
     max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "top visual" "bottom visual";
+    gap: 0 60px;
   }
+  .hero-top { grid-area: top; padding-bottom: 0; }
+  .hero-bottom { grid-area: bottom; align-self: end; }
+  .hero-visual { grid-area: visual; align-self: end; }
   .hero-badge {
     display: inline-block;
     background: var(--purple-light); color: var(--purple);
@@ -756,7 +763,10 @@
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .hero-inner, .magnet-inner, .pkg-grid, .example-grid, .pkg-bundle { grid-template-columns: 1fr; }
-    .hero-visual { order: -1; }
+    .hero-inner { display: flex; flex-direction: column; gap: 0; }
+    .hero-top { order: 1; }
+    .hero-visual { order: 2; }
+    .hero-bottom { order: 3; }
     .website-upsell-inner { grid-template-columns: 1fr; }
     .site-tiers { grid-template-columns: 1fr; }
     .upsell-visual { display: none; }
@@ -1054,10 +1064,12 @@
 <!-- BLOCK 1: HERO -->
 <section class="hero" id="hero">
   <div class="hero-inner">
-    <div>
+    <div class="hero-top">
       <div class="hero-badge">🧬 AI-сервис контент-маркетинга для соцсетей</div>
       <h1>Готовые посты для ваших соцсетей на каждый день</h1>
       <p class="hero-tagline">Ваши соцсети — живые. Без стресса.</p>
+    </div>
+    <div class="hero-bottom">
       <p class="hero-sub">Вы получаете всё готовое: карусели с дизайном, посты с изображениями, сторис, короткие видео — каждый пост выходит в нужную соцсеть в нужное время по графику</p>
       <div class="hero-slogan">Пока вы занимаетесь бизнесом — мы занимаемся вашими соцсетями. Каждый пост, карусель и видеоролик построены на исследовании вашего бизнеса и анализе вашей аудитории.</div>
       <div class="hero-facts">
