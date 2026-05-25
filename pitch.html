@@ -463,6 +463,12 @@
     .safe-row { flex-direction: column; gap: 2px; }
     .slide { border-bottom: 16px solid #E8EDF5; }
     .check-item { margin-bottom: 6px; }
+    .growth-grid { grid-template-columns: 1fr !important; }
+    .cta-grid { grid-template-columns: 1fr !important; }
+    .rounds-flow { grid-template-columns: 1fr !important; }
+    .rounds-flow > div:nth-child(2) { display: none; }
+    #slide-cta { padding: 0 !important; }
+    #slide-cta > div { padding: 40px 16px 32px !important; max-width: 100% !important; }
     .divider { margin: 10px 0; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .table-scroll-hint { display: block; font-size: 11px; color: #94A3B8; text-align: center; margin-bottom: 6px; }
@@ -886,7 +892,7 @@
   <div class="slide-body">
 
     <!-- 3 ступени роста -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px">
+    <div class="growth-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px">
 
       <!-- Ступень 1 -->
       <div class="card" style="border-top:4px solid #7C3AED;position:relative">
@@ -1425,7 +1431,7 @@
   <div style="max-width:700px;padding:60px 20px 40px;">
     <div style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#DDD6FE;margin-bottom:20px">Почему сейчас</div>
     <div style="font-size:32px;font-weight:900;line-height:1.2;margin-bottom:28px;color:#fff">В Прибалтике и Скандинавии нет AI-платформы контент-маркетинга для микробизнеса.<br>Мы создаём её первыми.</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px">
+    <div class="cta-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px">
       <div style="background:rgba(255,255,255,0.12);border-radius:12px;padding:18px 14px;">
         <div style="font-size:26px;font-weight:900;color:#fff;margin-bottom:4px">1 500 000+</div>
         <div style="font-size:12px;color:#DDD6FE;line-height:1.5">микро- и малых бизнесов в Прибалтике + Скандинавии с активными соцсетями (Eurostat 2024)</div>
@@ -1441,7 +1447,7 @@
         <div style="font-size:12px;color:#DDD6FE;line-height:1.5">1.5% от 330K SMB Прибалтики → €14.7M ARR → оценка ~€118M+</div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:center;background:rgba(255,255,255,0.10);border-radius:14px;padding:18px 20px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.2)">
+    <div class="rounds-flow" style="display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:center;background:rgba(255,255,255,0.10);border-radius:14px;padding:18px 20px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.2)">
       <div style="text-align:center;padding:0 10px">
         <div style="font-size:11px;font-weight:700;color:#DDD6FE;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Раунд 1 — сейчас</div>
         <div style="font-size:18px;font-weight:900;color:#fff">€250K → 500 кл.</div>
