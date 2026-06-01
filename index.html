@@ -23,6 +23,10 @@
 
   html { scroll-behavior: smooth; }
 
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
   body {
     font-family: 'Inter', sans-serif;
     color: var(--text);
@@ -1049,6 +1053,12 @@
   .forwhom-any strong { color: #7C3AED; }
   @media(max-width: 768px) { .niches-index { grid-template-columns: 1fr 1fr; } }
   @media(max-width: 480px) { .niches-index { grid-template-columns: 1fr 1fr; } }
+  @media(max-width: 768px) {
+    .dead-live-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .lang-phones-row { flex-direction: column !important; align-items: center !important; }
+    .lang-phones-row .phone-wrap-lang { max-width: 200px !important; width: 80% !important; }
+    .lang-phones-bottom { max-width: 200px !important; width: 80% !important; }
+  }
 </style>
 </head>
 <body>
@@ -1136,7 +1146,7 @@
       <p style="font-size:13px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Социальные сети</p>
       <h2 style="font-size:32px;font-weight:800;color:#1a1a2e;line-height:1.3;margin-bottom:20px;">Перед покупкой люди идут<br>в ваши соцсети. Что они там видят?</h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:48px;">
+    <div class="dead-live-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:48px;">
       <!-- Left: dead account — СПА-салон, не постит -->
       <div style="text-align:center;">
         <div style="background:#f3f4f6;border-radius:20px;padding:24px;margin-bottom:16px;">
@@ -1745,10 +1755,10 @@
           <!-- Right: phone mockups 2+1 layout -->
           <div style="display:flex;flex-direction:column;gap:16px;align-items:center;">
             <!-- Row 1: LV + EN -->
-            <div style="display:flex;gap:16px;justify-content:center;width:100%;">
+            <div class="lang-phones-row" style="display:flex;gap:16px;justify-content:center;width:100%;">
 
               <!-- LV phone -->
-              <div style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
+              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
                 <div class="phone-frame" style="width:100%;">
                   <div class="phone-notch"></div>
                   <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
@@ -1767,7 +1777,7 @@
               </div>
 
               <!-- EN phone -->
-              <div style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
+              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
                 <div class="phone-frame" style="width:100%;">
                   <div class="phone-notch"></div>
                   <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
@@ -1788,7 +1798,7 @@
             </div>
 
             <!-- Row 2: RU centered -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;width:100%;">
+            <div class="lang-phones-bottom" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;width:100%;">
               <div class="phone-frame" style="width:100%;">
                 <div class="phone-notch"></div>
                 <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
