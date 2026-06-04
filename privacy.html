@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Политика конфиденциальности — Marketing DNA</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0F172A; color: #E2E8F0; line-height: 1.7; }
+  .header { background: linear-gradient(135deg, #1E293B, #0F172A); padding: 32px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .header-inner { max-width: 760px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
+  .logo { font-size: 22px; font-weight: 800; color: white; text-decoration: none; }
+  .logo span { color: #A78BFA; }
+  .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+  h1 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; color: white; margin-bottom: 8px; }
+  .subtitle { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 48px; }
+  h2 { font-size: 18px; font-weight: 700; color: white; margin: 36px 0 12px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); }
+  p { font-size: 15px; color: rgba(255,255,255,0.65); margin-bottom: 14px; }
+  ul { margin: 10px 0 14px 20px; }
+  li { font-size: 15px; color: rgba(255,255,255,0.65); margin-bottom: 8px; }
+  a { color: #A78BFA; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+  .footer { text-align: center; font-size: 13px; color: rgba(255,255,255,0.25); padding: 32px 24px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .lang-switch { display: flex; gap: 8px; justify-content: flex-end; margin-bottom: 24px; }
+  .lang-btn { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.4); cursor: pointer; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12); background: none; }
+  .lang-btn.active { color: white; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); }
+  [data-lang] { display: none; }
+  [data-lang].visible { display: block; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Marketing <span>DNA</span></a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+    <button class="lang-btn" onclick="setLang('lv')">LV</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+
+  <!-- ── РУССКИЙ ── -->
+  <div data-lang="ru" class="visible">
+    <h1>Политика конфиденциальности</h1>
+    <p class="subtitle">Последнее обновление: июнь 2025 · Marketing DNA</p>
+
+    <h2>1. Кто мы</h2>
+    <p>Marketing DNA — сервис создания контента для малого бизнеса. Мы используем искусственный интеллект для генерации постов, каруселей, видео и статей на основе информации о вашем бизнесе.</p>
+    <p>Контакт: <a href="mailto:marketingdnateam@gmail.com">marketingdnateam@gmail.com</a></p>
+
+    <h2>2. Какие данные мы собираем</h2>
+    <p>Мы собираем только то что необходимо для создания вашего контента:</p>
+    <ul>
+      <li>Информация о вашем бизнесе — ниша, продукт, аудитория, цели</li>
+      <li>Ссылки на соцсети и сайт (если предоставлены)</li>
+      <li>Имя и email для связи</li>
+      <li>Telegram chat ID — для доставки контента в бот</li>
+      <li>Данные об оплате обрабатываются через Stripe — мы не храним данные карт</li>
+    </ul>
+
+    <h2>3. Как мы используем данные</h2>
+    <ul>
+      <li>Генерация персонального контента под ваш бизнес</li>
+      <li>Анализ конкурентов и аудитории</li>
+      <li>Доставка готового пакета через Telegram-бот</li>
+      <li>Связь с вами по вопросам вашего пакета</li>
+    </ul>
+    <p>Мы не передаём ваши данные третьим лицам в маркетинговых целях.</p>
+
+    <h2>4. Хранение данных</h2>
+    <p>Данные хранятся на защищённых серверах Railway (Европа). Сессионные данные и сгенерированный контент хранятся в течение срока действия вашей подписки и 90 дней после её окончания.</p>
+
+    <h2>5. Сервисы третьих сторон</h2>
+    <div class="card">
+      <p><strong>Anthropic (Claude)</strong> — генерация текстов. Данные передаются для обработки запросов.</p>
+    </div>
+    <div class="card">
+      <p><strong>Stripe</strong> — обработка платежей. Данные карт хранятся только у Stripe.</p>
+    </div>
+    <div class="card">
+      <p><strong>Kie.ai</strong> — генерация изображений и видео по вашим промптам.</p>
+    </div>
+    <div class="card">
+      <p><strong>Tavily</strong> — поиск информации о конкурентах в открытых источниках.</p>
+    </div>
+
+    <h2>6. Ваши права</h2>
+    <ul>
+      <li>Запросить копию ваших данных</li>
+      <li>Попросить удалить ваши данные</li>
+      <li>Отозвать согласие на обработку</li>
+    </ul>
+    <p>Для любого из этих запросов напишите на <a href="mailto:marketingdnateam@gmail.com">marketingdnateam@gmail.com</a></p>
+
+    <h2>7. Файлы cookie</h2>
+    <p>Наш сайт использует только технические cookie необходимые для работы. Мы не используем рекламные или аналитические cookie без вашего согласия.</p>
+
+    <h2>8. Согласие</h2>
+    <p>Продолжая использовать нашего бота или сайт, вы соглашаетесь с условиями данной политики конфиденциальности.</p>
+
+    <h2>9. Изменения политики</h2>
+    <p>При изменении политики мы уведомим вас через бот или email. Актуальная версия всегда доступна на этой странице.</p>
+  </div>
+
+  <!-- ── ЛАТЫШСКИЙ ── -->
+  <div data-lang="lv">
+    <h1>Privātuma politika</h1>
+    <p class="subtitle">Pēdējo reizi atjaunināts: jūnijs 2025 · Marketing DNA</p>
+
+    <h2>1. Kas mēs esam</h2>
+    <p>Marketing DNA ir satura veidošanas pakalpojums mazajiem uzņēmumiem. Mēs izmantojam mākslīgo intelektu, lai ģenerētu ierakstus, karuseļus, video un rakstus, pamatojoties uz informāciju par jūsu biznesu.</p>
+    <p>Kontakts: <a href="mailto:marketingdnateam@gmail.com">marketingdnateam@gmail.com</a></p>
+
+    <h2>2. Kādus datus mēs vācam</h2>
+    <ul>
+      <li>Informācija par jūsu biznesu — nozare, produkts, auditorija, mērķi</li>
+      <li>Saites uz sociālajiem tīkliem un vietni (ja norādītas)</li>
+      <li>Vārds un e-pasts saziņai</li>
+      <li>Telegram chat ID — satura piegādei botā</li>
+      <li>Maksājumu dati tiek apstrādāti caur Stripe — mēs neuzglabājam kartes datus</li>
+    </ul>
+
+    <h2>3. Kā mēs izmantojam datus</h2>
+    <ul>
+      <li>Personalizēta satura ģenerēšana jūsu biznesam</li>
+      <li>Konkurentu un auditorijas analīze</li>
+      <li>Gatavā pakotnes piegāde caur Telegram botu</li>
+      <li>Saziņa ar jums par jūsu pakotni</li>
+    </ul>
+    <p>Mēs nenododam jūsu datus trešajām pusēm mārketinga nolūkos.</p>
+
+    <h2>4. Datu glabāšana</h2>
+    <p>Dati tiek glabāti drošos Railway serveros (Eiropa). Sesijas dati un ģenerētais saturs tiek glabāts abonēšanas laikā un 90 dienas pēc tās beigām.</p>
+
+    <h2>5. Trešo pušu pakalpojumi</h2>
+    <p>Anthropic (Claude) — tekstu ģenerēšana. Stripe — maksājumu apstrāde. Kie.ai — attēlu un video ģenerēšana. Tavily — konkurentu meklēšana atklātos avotos.</p>
+
+    <h2>6. Jūsu tiesības</h2>
+    <p>Jūs varat pieprasīt savu datu kopiju, dzēšanu vai atsaukt piekrišanu. Rakstiet uz <a href="mailto:marketingdnateam@gmail.com">marketingdnateam@gmail.com</a></p>
+
+    <h2>7. Piekrišana</h2>
+    <p>Turpinot izmantot mūsu botu vai vietni, jūs piekrītat šīs privātuma politikas nosacījumiem.</p>
+  </div>
+
+  <!-- ── АНГЛИЙСКИЙ ── -->
+  <div data-lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">Last updated: June 2025 · Marketing DNA</p>
+
+    <h2>1. Who we are</h2>
+    <p>Marketing DNA is an AI-powered content creation service for small businesses. We generate posts, carousels, videos and articles based on information about your business.</p>
+    <p>Contact: <a href="mailto:marketingdnateam@gmail.com">marketingdnateam@gmail.com</a></p>
+
+    <h2>2. What data we collect</h2>
+    <ul>
+      <li>Business information — niche, product, audience, goals</li>
+      <li>Links to your social media and website (if provided)</li>
+      <li>Name and email for communication</li>
+      <li>Telegram chat ID — for content delivery via bot</li>
+      <li>Payment data is processed via Stripe — we do not store card details</li>
+    </ul>
+
+    <h2>3. How we use data</h2>
+    <ul>
+      <li>Generating personalised content for your business</li>
+      <li>Competitor and audience analysis</li>
+      <li>Delivering your content package via Telegram bot</li>
+      <li>Communication regarding your package</li>
+    </ul>
+    <p>We do not share your data with third parties for marketing purposes.</p>
+
+    <h2>4. Data storage</h2>
+    <p>Data is stored on secure Railway servers (Europe). Session data and generated content is retained for the duration of your subscription and 90 days after it ends.</p>
+
+    <h2>5. Third-party services</h2>
+    <p>Anthropic (Claude) — text generation. Stripe — payment processing. Kie.ai — image and video generation. Tavily — competitor research from public sources.</p>
+
+    <h2>6. Your rights</h2>
+    <p>You may request a copy of your data, request deletion, or withdraw consent. Write to <a href="mailto:marketingdnateam@gmail.com">marketingdnateam@gmail.com</a></p>
+
+    <h2>7. Consent</h2>
+    <p>By continuing to use our bot or website, you agree to the terms of this privacy policy.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  Marketing DNA · <a href="/">marketing-dna.com</a> · © 2025
+</div>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('visible'));
+  document.querySelector(`[data-lang="${lang}"]`).classList.add('visible');
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
