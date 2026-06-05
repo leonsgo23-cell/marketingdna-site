@@ -1134,7 +1134,7 @@
       </div>
       <div style="text-align:center;">
         <a href="https://t.me/ContentDNAStart_bot?start=hero" class="btn-primary">→ Получить бесплатный пакет</a>
-        <p style="text-align:center;max-width:400px;margin:12px auto 0;font-size:13px;color:var(--dark);line-height:1.6">Готовый пост с текстом и визуалом · карусель (7 слайдов) · сценарий ролика · обложка для видео · SEO-статья · контент-план на 7 дней. Всё персонально под ваш бизнес. Бесплатно</p>
+        <p style="text-align:center;max-width:400px;margin:12px auto 0;font-size:13px;color:var(--dark);line-height:1.6">Готовый пост с текстом и визуалом · карусель (5 слайдов) · сценарий ролика · обложка для видео · SEO-статья · контент-план на 7 дней. Всё персонально под ваш бизнес. Бесплатно</p>
       </div>
     </div>
   </div>
@@ -1349,7 +1349,7 @@
         <div class="product-text">
           <h4>5 SEO и GEO-статей для сайта</h4>
           <p>Статьи, оптимизированные под поисковые запросы вашей аудитории — чтобы клиенты находили вас через Google и AI-поисковики каждый месяц.</p>
-          <a href="#" class="product-example-link">Посмотреть пример →</a>
+          <a class="product-example-link" data-media="seo_article" data-type="html">Посмотреть пример →</a>
         </div>
       </div>
       <div class="product-item">
@@ -1398,7 +1398,7 @@
     <div class="product-cta-block">
       <a href="#packages" class="btn-primary">→ Выбрать пакет</a>
       <a href="https://t.me/ContentDNAStart_bot?start=product" class="btn-secondary-outline">→ Получить бесплатный пакет</a>
-      <p class="product-cta-note">Бесплатно: готовый пост с текстом и визуалом · карусель (7 слайдов) · сценарий ролика · обложка для видео · SEO-статья · контент-план</p>
+      <p class="product-cta-note">Бесплатно: готовый пост с текстом и визуалом · карусель (5 слайдов) · сценарий ролика · обложка для видео · SEO-статья · контент-план</p>
     </div>
   </div>
 </section>
@@ -1643,7 +1643,7 @@
     <h2>Получите ваш персональный контент-пакет — прямо сейчас, бесплатно</h2>
     <div class="magnet-items">
       <div class="magnet-item">Готовый пост: текст и визуал</div>
-      <div class="magnet-item">Карусель — 7 оформленных слайдов</div>
+      <div class="magnet-item">Карусель — 5 оформленных слайдов</div>
       <div class="magnet-item">Сценарий для Reels / TikTok</div>
       <div class="magnet-item">Обложка для видео</div>
       <div class="magnet-item">SEO-статья для сайта</div>
@@ -2043,7 +2043,7 @@
     <h2>Ещё не приняли решение?</h2>
     <p>Если вы дочитали до этого места и всё ещё думаете — возможно вы человек который хочет всё делать сам. Мы это уважаем и ценим.<br><br>Но если хотите сравнить — что получается у вас сейчас и что предлагаем мы — у вас есть простой способ проверить. Без давления. Без обязательств.</p>
     <a href="https://t.me/ContentDNAStart_bot?start=final" class="btn-primary" style="font-size:18px;padding:20px 40px">→ Получить бесплатный пакет</a>
-    <p style="margin-top:16px;font-size:13px;color:#374151">Бесплатно. Без оплаты. Без обязательств.<br>Контент-план · SEO-статья · Пример обложки и фото · Сценарий ролика · Карусель&nbsp;(7&nbsp;слайдов)</p>
+    <p style="margin-top:16px;font-size:13px;color:#374151">Бесплатно. Без оплаты. Без обязательств.<br>Контент-план · SEO-статья · Пример обложки и фото · Сценарий ролика · Карусель&nbsp;(5&nbsp;слайдов)</p>
     <p style="margin-top:20px;font-size:16px;color:#1E293B;">Хотите зафиксировать главные мысли? <a href="about.html" style="color:var(--purple);font-weight:600;text-decoration:none;">Смотрите презентацию →</a></p>
   </div>
 </section>
@@ -2055,6 +2055,7 @@
 <!-- Media lightbox -->
 <div id="mediaLightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;padding:20px;">
   <button onclick="closeMediaLightbox()" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;">×</button>
+  <div id="mediaLightboxHtml" style="display:none;"></div>
   <video id="mediaLightboxVideo" controls playsinline style="max-width:90vw;max-height:85vh;border-radius:12px;display:none;"></video>
   <img id="mediaLightboxImg" style="max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain;display:none;" />
 </div>
@@ -2079,6 +2080,8 @@
   }
 
   // Media lightbox (video/image examples)
+  var seoArticleHtml = '<div style="max-width:680px;width:90vw;max-height:85vh;overflow-y:auto;background:#fff;border-radius:16px;padding:36px 40px;font-family:\'Inter\',sans-serif;">  <div style="font-size:13px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">SEO-статья · пример</div>  <h2 style="font-size:22px;font-weight:800;color:#1E1B4B;margin-bottom:20px;line-height:1.35;">Как вести Instagram, когда на это нет ни времени, ни сил</h2>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:16px;">Вы открываете Instagram своего бизнеса и видите последний пост трёхмесячной давности. Снова. Вы понимаете, что надо что-то написать, но садитесь — и не знаете с чего начать. В итоге закрываете приложение и идёте делать то, что действительно горит. Знакомо?</p>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:16px;">Так живёт большинство владельцев малого бизнеса в Латвии. Психологи, мастера по ногтям, коучи, массажисты — все они знают, что соцсети важны. Но между знать и делать — пропасть шириной в двадцать четыре часа, которых всегда не хватает.</p>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:28px;">А агентства не помогают. Скрытые цены, непонятные презентации, ориентация на крупные компании. Тебе же нужно просто, чтобы аккаунт жил, привлекал людей и не отнимал последние силы.</p>  <h3 style="font-size:17px;font-weight:700;color:#1E1B4B;margin-bottom:12px;">Почему соцсети важны, но так сложно даются</h3>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:16px;">Когда ты сам оказываешь услугу, сам ищешь клиентов и сам ведёшь учёт — контент оказывается в конце списка. Это не лень и не незнание. Это реальность человека, который работает в одиночку или в команде из двух-трёх человек.</p>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:16px;">Instagram и TikTok требуют регулярности. Алгоритмы поощряют тех, кто публикует часто и стабильно. Если ты выкладываешь раз в месяц — тебя просто не видят, даже если контент хороший.</p>  <p style="font-size:13px;color:#9CA3AF;line-height:1.6;margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;">Это пример SEO-статьи, которую Marketing DNA создаёт персонально под ваш бизнес каждый месяц.</p></div>';
+
   document.querySelectorAll('.product-example-link[data-media]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -2087,6 +2090,17 @@
       const box = document.getElementById('mediaLightbox');
       const vid = document.getElementById('mediaLightboxVideo');
       const img = document.getElementById('mediaLightboxImg');
+      const htmlPanel = document.getElementById('mediaLightboxHtml');
+      if (type === 'html') {
+        vid.style.display = 'none';
+        img.style.display = 'none';
+        htmlPanel.innerHTML = media === 'seo_article' ? seoArticleHtml : media;
+        htmlPanel.style.display = 'block';
+        box.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        return;
+      }
+      htmlPanel.style.display = 'none';
       if (type === 'video') {
         vid.src = media;
         vid.style.display = 'block';
@@ -2108,6 +2122,7 @@
     box.classList.remove('open');
     vid.pause();
     vid.src = '';
+    document.getElementById('mediaLightboxHtml').style.display = 'none';
     document.body.style.overflow = '';
   }
   document.getElementById('mediaLightbox').addEventListener('click', function(e) {

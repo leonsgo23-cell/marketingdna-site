@@ -1349,7 +1349,7 @@
         <div class="product-text">
           <h4>5 SEO un GEO raksti vietnei</h4>
           <p>Raksti, optimizēti jūsu auditorijas meklēšanas pieprasījumiem — lai klienti jūs atrastu caur Google un AI meklētājiem katru mēnesi.</p>
-          <a href="#" class="product-example-link">Skatīt piemēru →</a>
+          <a class="product-example-link" data-media="seo_article" data-type="html">Skatīt piemēru →</a>
         </div>
       </div>
       <div class="product-item">
@@ -2060,6 +2060,7 @@
     <div style="width:48px;height:48px;border:4px solid rgba(255,255,255,0.2);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
     <div style="color:rgba(255,255,255,0.7);font-size:14px;">Ielādē...</div>
   </div>
+  <div id="mediaLightboxHtml" style="display:none;"></div>
   <video id="mediaLightboxVideo" controls playsinline style="max-width:90vw;max-height:85vh;border-radius:12px;display:none;"></video>
   <img id="mediaLightboxImg" style="max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain;display:none;" />
 </div>
@@ -2085,6 +2086,8 @@
   }
 
   // Media lightbox (video/image examples)
+  var seoArticleHtml = '<div style="max-width:680px;width:90vw;max-height:85vh;overflow-y:auto;background:#fff;border-radius:16px;padding:36px 40px;font-family:\'Inter\',sans-serif;">  <div style="font-size:13px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">SEO raksts · piemērs</div>  <h2 style="font-size:22px;font-weight:800;color:#1E1B4B;margin-bottom:20px;line-height:1.35;">Kā viest Instagram, kad tam nav ne laika, ne spēka</h2>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:16px;">Jūs atverat sava biznesa Instagram un redzat pēdējo ierakstu no pirms trim mēnešiem. Atkal. Jūs saprotat, ka kaut kas jāraksta, bet apsēžaties — un nezināt, ar ko sākt. Galu galā aizver lietotni un dodaties darīt to, kas patiešām deg. Pazīstami?</p>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:16px;">Tā dzīvo lielākā daļa mazo uzņēmumu īpašnieku Latvijā. Psihologi, nagu meistari, kouči, masieri — viņi visi zina, ka sociālie tīkli ir svarīgi. Bet starp zināt un darīt — plaisa divdesmit četru stundu platumā, kuru vienmēr pietrūkst.</p>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:28px;">Aģentūras nepalīdz. Slēptas cenas, nesaprotamas prezentācijas, orientācija uz lieliem uzņēmumiem. Tev vienkārši vajag, lai konts dzīvo, piesaista cilvēkus un neatņem pēdējos spēkus.</p>  <h3 style="font-size:17px;font-weight:700;color:#1E1B4B;margin-bottom:12px;">Kāpēc sociālie tīkli ir svarīgi, bet tik grūti doties</h3>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:16px;">Kad tu pats sniedz pakalpojumu, pats meklē klientus un pats ved uzskaiti — saturs nonāk saraksta beigās. Tas nav slinkums un ne nezināšana. Tā ir realitāte cilvēkam, kurš strādā viens vai divu-trīs cilvēku komandā.</p>  <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:16px;">Instagram un TikTok prasa regularitāti. Algoritmi apbalvo tos, kas publicē bieži un stabili. Ja tu ieliksi ierakstu reizi mēnesī — tevi vienkārši neredz, pat ja saturs ir labs.</p>  <p style="font-size:13px;color:#9CA3AF;line-height:1.6;margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;">Tas ir SEO raksta piemērs, ko Marketing DNA izveido personīgi jūsu biznesam katru mēnesi.</p></div>';
+
   document.querySelectorAll('.product-example-link[data-media]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -2094,6 +2097,7 @@
       const vid = document.getElementById('mediaLightboxVideo');
       const img = document.getElementById('mediaLightboxImg');
       const loader = document.getElementById('mediaLightboxLoader');
+      const htmlPanel = document.getElementById('mediaLightboxHtml');
 
       // Reset all
       vid.style.display = 'none';
@@ -2105,6 +2109,17 @@
       box.classList.add('open');
       document.body.style.overflow = 'hidden';
 
+      if (type === 'html') {
+        vid.style.display = 'none';
+        img.style.display = 'none';
+        loader.style.display = 'none';
+        htmlPanel.innerHTML = media === 'seo_article' ? seoArticleHtml : media;
+        htmlPanel.style.display = 'block';
+        box.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        return;
+      }
+      htmlPanel.style.display = 'none';
       if (type === 'video') {
         loader.style.display = 'flex';
         vid.style.display = 'none';
@@ -2153,6 +2168,7 @@
     vid.removeAttribute('src');
     vid.load();
     loader.style.display = 'none';
+    document.getElementById('mediaLightboxHtml').style.display = 'none';
     document.body.style.overflow = '';
   }
   document.getElementById('mediaLightbox').addEventListener('click', function(e) {
