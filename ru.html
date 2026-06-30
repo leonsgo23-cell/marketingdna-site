@@ -1086,7 +1086,7 @@
   /* PLATFORM TAGS EXTRA */
   .ptag-google { background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #EA4335 100%); color: #fff; border: none; }
   .ptag-chatgpt { background: #10a37f; color: #fff; }
-  .forwhom-index { background: #F8F7FF; padding: 80px 24px; }
+  .forwhom-index { background: #F8F7FF; padding: 20px 24px 80px; }
   .niches-index { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
   .niche-index { background: white; border-radius: 12px; padding: 24px; text-align: center; border: 1px solid #E8EDF5; }
   .niche-index-icon { font-size: 32px; margin-bottom: 10px; }
@@ -1096,6 +1096,50 @@
   .forwhom-any strong { color: #7C3AED; }
   @media(max-width: 768px) { .niches-index { grid-template-columns: 1fr 1fr; } }
   @media(max-width: 480px) { .niches-index { grid-template-columns: 1fr 1fr; } }
+  .niche-photo { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
+  .niche-text { padding: 16px; }
+  /* Instagram profile block */
+  .week-section { margin: 8px 0; }
+  .ig-profile-outer { display: flex; justify-content: center; }
+  .ig-profile-mock { background: white; border-radius: 20px; border: 1px solid #e5e7eb; box-shadow: 0 8px 40px rgba(0,0,0,0.10); overflow: hidden; width: 100%; max-width: 420px; }
+  .ig-profile-header { display: flex; align-items: center; gap: 20px; padding: 20px 16px 12px; }
+  .ig-profile-avatar { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; border: 2px solid #e5e7eb; }
+  .ig-profile-stats { display: flex; gap: 16px; flex: 1; }
+  .ig-stat { text-align: center; }
+  .ig-stat strong { display: block; font-size: 14px; font-weight: 800; color: #111827; }
+  .ig-stat span { font-size: 10px; color: #6b7280; }
+  .ig-profile-info { padding: 0 16px 14px; }
+  .ig-profile-name { font-size: 12px; font-weight: 700; color: #111827; margin-bottom: 2px; }
+  .ig-profile-bio { font-size: 11px; color: #374151; line-height: 1.5; }
+  .ig-profile-bio span { color: #7c3aed; font-weight: 600; }
+  .ig-tabs { display: flex; border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; }
+  .ig-tab { flex: 1; text-align: center; padding: 10px 0; font-size: 18px; color: #9ca3af; }
+  .ig-tab.active { color: #111827; border-bottom: 2px solid #111827; }
+  .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .ig-post { aspect-ratio: 1/1; position: relative; overflow: hidden; background: #f3f4f6; cursor: pointer; }
+  .ig-post img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ig-post-overlay { position: absolute; top: 0; left: 0; right: 0; height: 42%; background: linear-gradient(rgba(0,0,0,0.32), transparent); pointer-events: none; }
+  .ig-post-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px 7px 7px; background: linear-gradient(transparent, rgba(0,0,0,0.78)); pointer-events: none; }
+  .ig-post-caption-text { font-size: 8.5px; font-weight: 700; color: white; line-height: 1.38; word-break: break-word; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+  .ig-post-day { position: absolute; top: 5px; left: 5px; font-size: 8px; font-weight: 800; color: white; background: rgba(124,58,237,0.85); padding: 2px 6px; border-radius: 4px; backdrop-filter: blur(4px); }
+  .ig-post-day.weekend { background: rgba(100,116,139,0.85); }
+  .ig-post-type { position: absolute; top: 5px; right: 5px; font-size: 12px; line-height: 1; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+  @media(max-width:768px) {
+    .ig-profile-mock { max-width: 100%; border-radius: 16px; }
+    .week-section { margin: 8px 0; }
+    .ig-profile-header { gap: 12px; padding: 14px 12px 8px; }
+    .ig-profile-stats { gap: 8px; }
+    .ig-stat strong { font-size: 13px; }
+    .ig-stat span { font-size: 9px; }
+    .ig-profile-info { padding: 0 12px 10px; }
+    .ig-profile-name { font-size: 11px; }
+    .ig-profile-bio { font-size: 10px; }
+    .ig-post-caption-text { font-size: 7.5px; }
+    .ig-post-day { font-size: 7px; padding: 1px 5px; }
+  }
+  @media(max-width:480px) {
+    .ig-profile-avatar { width: 48px; height: 48px; }
+  }
   @media(max-width: 768px) {
     .dead-live-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
     .lang-section-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
@@ -1297,6 +1341,393 @@
 </section>
 
 <!-- SCREEN 2: PROBLEM — Знакомая история? -->
+<!-- INSTAGRAM БЛОК -->
+<section style="background:#f9fafb;padding:48px 20px 16px;">
+  <div class="container" style="max-width:900px;">
+    <div class="week-section">
+      <div style="text-align:center;margin-bottom:36px;">
+        <div style="display:inline-block;background:#f3f0ff;color:#7c3aed;font-size:12px;font-weight:700;padding:4px 16px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Пример результата</div>
+        <h2 style="font-size:28px;font-weight:800;color:#1e1b4b;margin:0 0 8px;letter-spacing:-0.3px;">Так будет выглядеть ваш Instagram</h2>
+        <p style="font-size:15px;color:#6b7280;margin:0;">7 готовых постов каждую неделю — берёте и публикуете.</p>
+      </div>
+      <div class="ig-profile-outer">
+        <div class="ig-profile-mock">
+          <div class="ig-profile-header">
+            <div class="ig-profile-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);box-shadow:0 0 0 2px #f59e0b,0 0 0 4px white;"></div>
+            <div class="ig-profile-stats">
+              <div class="ig-stat"><strong>34</strong><span>публикаций</span></div>
+              <div class="ig-stat"><strong>2 140</strong><span>подписчиков</span></div>
+              <div class="ig-stat"><strong>312</strong><span>подписок</span></div>
+            </div>
+          </div>
+          <div class="ig-profile-info">
+            <div class="ig-profile-name">Sandra · Персональный тренер 💪</div>
+            <div class="ig-profile-bio">Рига · Похудение без срывов и голодания<br><span>↓ Записаться на первую тренировку</span></div>
+          </div>
+          <div class="ig-tabs">
+            <div class="ig-tab active">⊞</div>
+            <div class="ig-tab">☰</div>
+            <div class="ig-tab">🏷</div>
+          </div>
+          <div class="ig-grid">
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">5 завтраков которые запускают метаболизм →</div></div>
+              <div class="ig-post-day">ПН</div><div class="ig-post-type">⧉</div>
+            </div>
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Laura −9 кг за 8 недель. Без голодания 🤍</div></div>
+              <div class="ig-post-day">ВТ</div>
+            </div>
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Мой день с 6 утра — как выглядит работа тренера 🎥</div></div>
+              <div class="ig-post-day">СР</div><div class="ig-post-type">▶</div>
+            </div>
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Что мешает вам начать прямо сейчас? 👇</div></div>
+              <div class="ig-post-day">ЧТ</div>
+            </div>
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Почему диеты не работают — объясняю за 60 сек</div></div>
+              <div class="ig-post-day">ПТ</div><div class="ig-post-type">▶</div>
+            </div>
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">3 упражнения которые изменят форму за 4 недели →</div></div>
+              <div class="ig-post-day weekend">СБ</div><div class="ig-post-type">⧉</div>
+            </div>
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Итоги недели — вы сделали это 🏆</div></div>
+              <div class="ig-post-day weekend">ВС</div><div class="ig-post-type">▶</div>
+            </div>
+            <div class="ig-post">
+              <img src="trainer_sandra.jpg" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Привет, я Sandra 👋 Начни своё преображение со мной</div></div>
+            </div>
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Меню на неделю: просто, вкусно, работает 🥗</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:24px;">
+        <div style="display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-size:12px;color:#6b7280;line-height:2;">
+          <span><strong style="color:#7c3aed;">ПН</strong> Карусель</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">ВТ</strong> Фото</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">СР</strong> Story Reel</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">ЧТ</strong> Stories</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">ПТ</strong> Veo3 Reel</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#9ca3af;">СБ</strong> Карусель</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#9ca3af;">ВС</strong> Story Reel</span>
+        </div>
+        <div style="margin-top:8px;font-size:13px;font-weight:600;color:#374151;">7 постов в неделю = 30 постов за месяц</div>
+        <div style="margin-top:6px;font-size:12px;color:#9ca3af;">Пример для персонального тренера · Работает для любого бизнеса</div>
+      </div>
+      <div style="text-align:center;margin-top:36px;">
+        <a href="#pricing" style="display:inline-block;background:#7c3aed;color:white;font-size:16px;font-weight:700;padding:16px 40px;border-radius:50px;text-decoration:none;letter-spacing:-0.2px;box-shadow:0 4px 24px rgba(124,58,237,0.40);">Получить бесплатный пакет →</a>
+        <div style="margin-top:12px;font-size:12px;color:#9ca3af;">Без предоплаты · Первая неделя — бесплатно</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ДЛЯ КОГО -->
+<section class="forwhom-index">
+  <div class="container">
+
+    <h2 class="section-title">Вы профессионал в своём деле.<br>Мы — в соцсетях.</h2>
+    <p class="section-sub">Вы развиваете бизнес, клиенты приходят по рекомендациям — вы хороши в том, что делаете. Вести соцсети так, чтобы вас находили, узнавали и записывались — это отдельное искусство. Именно этим занимаемся мы.</p>
+    <div class="niches-index">
+      <div class="niche-index">
+        <img src="niche_cafe.jpg" class="niche-photo" alt="Кафе и рестораны">
+        <div class="niche-text">
+          <div class="niche-index-name">Кафе и рестораны</div>
+          <div class="niche-index-desc">Меню, атмосфера, акции, истории блюд</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_beauty.jpg" class="niche-photo" alt="Салоны красоты">
+        <div class="niche-text">
+          <div class="niche-index-name">Салоны красоты</div>
+          <div class="niche-index-desc">До/после, советы, акции, мастера</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_shop.jpg" class="niche-photo" alt="Магазины и шоурумы">
+        <div class="niche-text">
+          <div class="niche-index-name">Магазины и шоурумы</div>
+          <div class="niche-index-desc">Товары, обзоры, новинки, распродажи</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_fitness.jpg" class="niche-photo" alt="Фитнес и тренеры">
+        <div class="niche-text">
+          <div class="niche-index-name">Фитнес и тренеры</div>
+          <div class="niche-index-desc">Советы, трансформации, программы</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_expert.jpg" class="niche-photo" alt="Мастера и эксперты">
+        <div class="niche-text">
+          <div class="niche-index-name">Мастера и эксперты</div>
+          <div class="niche-index-desc">Коучи, психологи, массажисты, астрологи</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_legal.jpg" class="niche-photo" alt="Юристы и бухгалтеры">
+        <div class="niche-text">
+          <div class="niche-index-name">Юристы и бухгалтеры</div>
+          <div class="niche-index-desc">Экспертный контент, кейсы, разборы</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_realty.jpg" class="niche-photo" alt="Недвижимость">
+        <div class="niche-text">
+          <div class="niche-index-name">Недвижимость</div>
+          <div class="niche-index-desc">Объекты, советы покупателям, рынок</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_design.jpg" class="niche-photo" alt="Дизайн и творчество">
+        <div class="niche-text">
+          <div class="niche-index-name">Дизайн и творчество</div>
+          <div class="niche-index-desc">Портфолио, процесс, истории проектов</div>
+        </div>
+      </div>
+    </div>
+    <p class="forwhom-any">Marketing DNA помогает вести соцсети разным бизнесам — система изучает вашу нишу, аудиторию и конкурентов — на основании анализа создаёт короткие видео, карусели и посты именно для вас и вашей аудитории. Вас увидят, вас запомнят, к вам придут.</p>
+    <div style="background:#fff;border-radius:20px;padding:36px 32px;margin-top:40px;box-shadow:0 4px 20px rgba(124,58,237,0.07);">
+      <p style="text-align:center;font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 12px;">Контент на языке именно ваших клиентов</p>
+      <h3 style="text-align:center;font-size:24px;font-weight:800;color:#1E1B4B;margin:0 0 12px;">Мы пишем не "для всех" —<br>мы пишем для вашей конкретной аудитории</h3>
+      <p style="text-align:center;font-size:15px;color:#6B7280;max-width:640px;margin:0 auto 36px;line-height:1.7;">Каждая ниша думает о своей боли по-разному. Психолог и мастер красоты говорят с разными людьми — разными словами. Мы это изучаем.</p>
+      <div class="mdna-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;">
+        <div style="text-align:center;padding:24px 16px;background:#F5F3FF;border-radius:14px;border:1.5px solid #DDD6FE;">
+          <div style="font-size:36px;margin-bottom:12px;">🧠</div>
+          <h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Психолог / Коуч</h4>
+          <p style="font-size:13px;color:#6B7280;line-height:1.55;margin:0;">Ваши клиенты ищут изменений и выхода. Контент показывает путь — без навязчивости, с теплотой и экспертностью. Они должны почувствовать: <em>"Этот человек понимает меня"</em></p>
+        </div>
+        <div style="text-align:center;padding:24px 16px;background:#F5F3FF;border-radius:14px;border:1.5px solid #DDD6FE;">
+          <div style="font-size:36px;margin-bottom:12px;">✨</div>
+          <h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Мастер красоты</h4>
+          <p style="font-size:13px;color:#6B7280;line-height:1.55;margin:0;">Ваши клиентки ищут уверенность и уход — не список процедур. Мы пишем об этом: про то как они хотят себя чувствовать, а не про то что вы умеете делать</p>
+        </div>
+        <div style="text-align:center;padding:24px 16px;background:#F5F3FF;border-radius:14px;border:1.5px solid #DDD6FE;">
+          <div style="font-size:36px;margin-bottom:12px;">🍽️</div>
+          <h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Кафе / Ресторан</h4>
+          <p style="font-size:13px;color:#6B7280;line-height:1.55;margin:0;">Ваши гости ищут атмосферу и эмоции — не просто еду. Контент создаёт ощущение места ещё до того как человек к вам пришёл</p>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:15px;font-weight:700;color:#7C3AED;margin:0;line-height:1.6;">Для каждой ниши — своя аудитория, свой язык, свои боли. Мы изучаем именно ваших клиентов — и создаём посты,<br>карусели и короткие видео именно для них.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 4: PACKAGES -->
+<section class="packages" id="packages">
+  <div class="container">
+    <h2 class="section-title">Выберите свой пакет</h2>
+
+    <div class="pkg-grid">
+
+      <!-- ТАРИФ СТАРТ: €150 -->
+      <div class="pkg-card">
+        <div class="pkg-card-name">Тариф Старт — Тексты + Визуал</div>
+        <div class="pkg-card-tagline">Готовый контент без коротких видео</div>
+        <div class="pkg-card-price">
+          <span class="pkg-price-num">€150</span>
+          <span class="pkg-price-period">/мес</span>
+        </div>
+        <ul class="pkg-card-items">
+          <li>📅 Контент-план на 30 дней — под вашу цель на месяц</li>
+          <li>🖼 8 готовых каруселей с дизайном</li>
+          <li>📸 8 готовых постов: AI-изображение + текст — берёте и публикуете</li>
+          <li>📱 15 готовых Stories</li>
+          <li>📝 3 SEO и GEO-статей для сайта</li>
+          <li>🎨 8 обложек для Instagram Highlights <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
+          <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
+          <li>🔄 Корректировка контента каждые 15 дней — на основе реальной реакции вашей аудитории</li>
+        </ul>
+        <a href="https://t.me/ContentDNAStart_bot?start=pkg_a" class="btn-secondary-outline pkg-buy-btn">→ Начать за €150/мес</a>
+        <a href="https://t.me/ContentDNAStart_bot?start=pkg_a_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€30/мес</a>
+      </div>
+
+      <!-- ТАРИФ СТАНДАРТ: €250 -->
+      <div class="pkg-card pkg-card-featured">
+        <div class="pkg-card-popular">Популярный</div>
+        <div class="pkg-card-name">Тариф Стандарт — Тексты + Визуал + 4 Видео</div>
+        <div class="pkg-card-tagline">Весь пакет Старт + 4 готовых AI-видео (Reels / TikTok / Shorts)</div>
+        <div class="pkg-card-price">
+          <span class="pkg-price-num">€250</span>
+          <span class="pkg-price-period">/мес</span>
+        </div>
+        <ul class="pkg-card-items">
+          <li>📅 Контент-план на 30 дней — под вашу цель на месяц</li>
+          <li>🖼 8 готовых каруселей с дизайном</li>
+          <li>📸 8 готовых постов: AI-изображение + текст — берёте и публикуете</li>
+          <li>📱 15 готовых Stories</li>
+          <li>📝 3 SEO и GEO-статей для сайта</li>
+          <li>🎨 8 обложек для Instagram Highlights <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
+          <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
+          <li>🔄 Корректировка контента каждые 15 дней — на основе реальной реакции вашей аудитории</li>
+          <hr class="pkg-card-divider">
+          <li class="pkg-extra">🎬 4 готовых AI-видео (Reels / TikTok / Shorts)</li>
+          <li class="pkg-extra">🖼️ 4 готовых обложки для видео</li>
+        </ul>
+        <a href="https://t.me/ContentDNAStart_bot?start=pkg_standard" class="btn-primary pkg-buy-btn">→ Начать за €250/мес</a>
+        <a href="https://t.me/ContentDNAStart_bot?start=pkg_standard_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€60/мес</a>
+      </div>
+
+      <!-- ТАРИФ ПРОФИ: €350 -->
+      <div class="pkg-card">
+        <div class="pkg-card-name">Тариф Профи — Тексты + Визуал + 8 Видео</div>
+        <div class="pkg-card-tagline">Весь пакет Старт + 8 готовых AI-видео (Reels / TikTok / Shorts)</div>
+        <div class="pkg-card-price">
+          <span class="pkg-price-num">€350</span>
+          <span class="pkg-price-period">/мес</span>
+        </div>
+        <ul class="pkg-card-items">
+          <li>📅 Контент-план на 30 дней — под вашу цель на месяц</li>
+          <li>🖼 8 готовых каруселей с дизайном</li>
+          <li>📸 8 готовых постов: AI-изображение + текст — берёте и публикуете</li>
+          <li>📱 15 готовых Stories</li>
+          <li>📝 3 SEO и GEO-статей для сайта</li>
+          <li>🎨 8 обложек для Instagram Highlights <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
+          <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
+          <li>🔄 Корректировка контента каждые 15 дней — на основе реальной реакции вашей аудитории</li>
+          <hr class="pkg-card-divider">
+          <li class="pkg-extra">🎬 8 готовых AI-видео (Reels / TikTok / Shorts)</li>
+          <li class="pkg-extra">🖼️ 8 готовых обложек для видео</li>
+        </ul>
+        <a href="https://t.me/ContentDNAStart_bot?start=pkg_v" class="btn-secondary-outline pkg-buy-btn">→ Начать за €350/мес</a>
+        <a href="https://t.me/ContentDNAStart_bot?start=pkg_v_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€90/мес</a>
+      </div>
+
+    </div>
+
+    <p style="font-size:13px;color:#6B7280;text-align:center;margin:20px 0 0;">⏱ Пакеты постов подготавливаются персонально под ваш бизнес в течение 1–2 рабочих дней. Уведомления приходят в Telegram и на электронную почту по мере готовности каждой части пакета.</p>
+
+    <!-- BLOCK: MULTILINGUAL -->
+    <section style="background:linear-gradient(135deg,#F5F3FF 0%,#EDE9FE 100%);padding:72px 20px;margin:40px -20px 0;border-radius:0;">
+      <div style="max-width:1000px;margin:0 auto;">
+        <div class="lang-section-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+          <!-- Left: text -->
+          <div>
+            <div style="font-size:40px;margin-bottom:16px;">🇱🇻 &nbsp;🇷🇺 &nbsp;🇬🇧</div>
+            <h2 style="font-size:28px;font-weight:800;color:#1a1a2e;margin-bottom:16px;">Ваш контент — на латышском, русском и английском</h2>
+            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:12px;">Латвия многоязычная — ваши клиенты говорят на разных языках. Ваш контент тоже может быть на нескольких языках.</p>
+            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:12px;">За небольшую доплату вы получаете полный пакет тех же материалов на втором языке. Выберите пару: латышский + русский, латышский + английский — или все три языка сразу.</p>
+            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:28px;">Ведёте отдельные аккаунты для разных аудиторий? Каждый получит свой готовый контент.</p>
+          </div>
+          <!-- Right: phone mockups 2+1 layout -->
+          <div style="display:flex;flex-direction:column;gap:16px;align-items:center;">
+            <!-- Row 1: LV + EN -->
+            <div class="lang-phones-row" style="display:flex;gap:16px;justify-content:center;width:100%;">
+
+              <!-- LV phone -->
+              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
+                <div class="phone-frame" style="width:100%;">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
+                    <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
+                      <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Mārketings</div>
+                      <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Ķermenis lūdz pauzi?</div>
+                      <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Masāža ķermenim un prātam.</div>
+                    </div>
+                    <div style="flex:1;min-height:90px;overflow:hidden;">
+                      <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                    </div>
+                    <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Jūsu bizness aug. Mēs parūpējamies par saturu. #bizness #mārketings</div>
+                  </div>
+                </div>
+                <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">LV</div>
+              </div>
+
+              <!-- EN phone -->
+              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
+                <div class="phone-frame" style="width:100%;">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
+                    <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
+                      <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Marketing</div>
+                      <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Your body needs a break?</div>
+                      <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Massage for body, mind and soul.</div>
+                    </div>
+                    <div style="flex:1;min-height:90px;overflow:hidden;">
+                      <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                    </div>
+                    <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Your business grows. We handle the content. #marketing #business</div>
+                  </div>
+                </div>
+                <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">EN</div>
+              </div>
+
+            </div>
+
+            <!-- Row 2: RU centered -->
+            <div class="lang-phones-bottom" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;width:100%;">
+              <div class="phone-frame" style="width:100%;">
+                <div class="phone-notch"></div>
+                <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
+                  <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
+                    <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Маркетинг</div>
+                    <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Тело просит паузу?</div>
+                    <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Массаж для тела, души и настроения.</div>
+                  </div>
+                  <div style="flex:1;min-height:90px;overflow:hidden;">
+                    <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                  </div>
+                  <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Ваш бизнес растёт. Мы берём контент на себя. #маркетинг #бизнес</div>
+                </div>
+              </div>
+              <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">RU</div>
+            </div>
+
+          </div>
+        </div>
+        <div style="margin-top:36px;text-align:center;">
+          <div style="background:white;border-radius:14px;padding:18px 24px;box-shadow:0 4px 20px rgba(124,58,237,0.12);margin-bottom:12px;display:inline-block;">
+            <div style="font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:8px;">+ второй язык к вашему пакету:</div>
+            <div style="font-size:15px;color:#444;">Старт <strong>+€30</strong> &nbsp;·&nbsp; Стандарт <strong>+€60</strong> &nbsp;·&nbsp; <span style="white-space:nowrap">Профи <strong>+€90</strong></span></div>
+          </div>
+          <p style="font-size:14px;color:#888;line-height:1.6;">Кнопка добавления языка — в карточке выбранного вами тарифа.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПЛАТФОРМЫ -->
+    <div class="pkg-platforms" style="margin-top:32px">
+      <p class="pkg-platforms-title">📱 Один пост — четыре платформы. Готовим отдельный текст и хэштеги для каждой.</p>
+      <div class="pkg-platform-tags">
+        <span class="ptag ptag-instagram"><i class="fa-brands fa-instagram"></i> Instagram</span>
+        <span class="ptag ptag-tiktok"><i class="fa-brands fa-tiktok"></i> TikTok</span>
+        <span class="ptag ptag-facebook"><i class="fa-brands fa-facebook"></i> Facebook</span>
+        <span class="ptag ptag-linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</span>
+        <span class="ptag ptag-google"><i class="fa-brands fa-google"></i> Google</span>
+        <span class="ptag ptag-chatgpt">✦ ChatGPT</span>
+      </div>
+    </div>
+
+    <div class="pkg-note">
+      🎯 Все тексты написаны на основе исследования психологии ваших клиентов — их страхи, желания и мотивации.<br>Не просто красивый контент — контент который приводит клиентов и делает продажи.
+    </div>
+  </div>
+</section>
+
 <section class="problem-screen" id="problem">
   <div class="container">
     <h2 class="section-title">Знакомая история?</h2>
@@ -1708,80 +2139,6 @@
   </div>
 </section>
 
-<!-- ДЛЯ КОГО -->
-<section class="forwhom-index">
-  <div class="container">
-    <div class="section-label">Для кого</div>
-    <h2 class="section-title">Вы профессионал в своём деле.<br>Мы — в соцсетях.</h2>
-    <p class="section-sub">Вы развиваете бизнес, клиенты приходят по рекомендациям — вы хороши в том, что делаете. Вести соцсети так, чтобы вас находили, узнавали и записывались — это отдельное искусство. Именно этим занимаемся мы.</p>
-    <div class="niches-index">
-      <div class="niche-index">
-        <div class="niche-index-icon">🍽️</div>
-        <div class="niche-index-name">Кафе и рестораны</div>
-        <div class="niche-index-desc">Меню, атмосфера, акции, истории блюд</div>
-      </div>
-      <div class="niche-index">
-        <div class="niche-index-icon">💆</div>
-        <div class="niche-index-name">Салоны красоты</div>
-        <div class="niche-index-desc">До/после, советы, акции, мастера</div>
-      </div>
-      <div class="niche-index">
-        <div class="niche-index-icon">🛍️</div>
-        <div class="niche-index-name">Магазины и шоурумы</div>
-        <div class="niche-index-desc">Товары, обзоры, новинки, распродажи</div>
-      </div>
-      <div class="niche-index">
-        <div class="niche-index-icon">🏋️</div>
-        <div class="niche-index-name">Фитнес и тренеры</div>
-        <div class="niche-index-desc">Советы, трансформации, программы</div>
-      </div>
-      <div class="niche-index">
-        <div class="niche-index-icon">🧑‍⚕️</div>
-        <div class="niche-index-name">Мастера и эксперты</div>
-        <div class="niche-index-desc">Коучи, психологи, массажисты, астрологи, терапевты</div>
-      </div>
-      <div class="niche-index">
-        <div class="niche-index-icon">🏠</div>
-        <div class="niche-index-name">Недвижимость</div>
-        <div class="niche-index-desc">Объекты, советы покупателям, рынок</div>
-      </div>
-      <div class="niche-index">
-        <div class="niche-index-icon">⚖️</div>
-        <div class="niche-index-name">Юристы и бухгалтеры</div>
-        <div class="niche-index-desc">Экспертный контент, кейсы, разборы</div>
-      </div>
-      <div class="niche-index">
-        <div class="niche-index-icon">🎨</div>
-        <div class="niche-index-name">Дизайн и творчество</div>
-        <div class="niche-index-desc">Портфолио, процесс, истории проектов</div>
-      </div>
-    </div>
-    <p class="forwhom-any">Marketing DNA помогает вести соцсети разным бизнесам — система изучает вашу нишу, аудиторию и конкурентов — на основании анализа создаёт короткие видео, карусели и посты именно для вас и вашей аудитории. Вас увидят, вас запомнят, к вам придут.</p>
-    <div style="background:#fff;border-radius:20px;padding:36px 32px;margin-top:40px;box-shadow:0 4px 20px rgba(124,58,237,0.07);">
-      <p style="text-align:center;font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 12px;">Контент на языке именно ваших клиентов</p>
-      <h3 style="text-align:center;font-size:24px;font-weight:800;color:#1E1B4B;margin:0 0 12px;">Мы пишем не "для всех" —<br>мы пишем для вашей конкретной аудитории</h3>
-      <p style="text-align:center;font-size:15px;color:#6B7280;max-width:640px;margin:0 auto 36px;line-height:1.7;">Каждая ниша думает о своей боли по-разному. Психолог и мастер красоты говорят с разными людьми — разными словами. Мы это изучаем.</p>
-      <div class="mdna-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;">
-        <div style="text-align:center;padding:24px 16px;background:#F5F3FF;border-radius:14px;border:1.5px solid #DDD6FE;">
-          <div style="font-size:36px;margin-bottom:12px;">🧠</div>
-          <h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Психолог / Коуч</h4>
-          <p style="font-size:13px;color:#6B7280;line-height:1.55;margin:0;">Ваши клиенты ищут изменений и выхода. Контент показывает путь — без навязчивости, с теплотой и экспертностью. Они должны почувствовать: <em>"Этот человек понимает меня"</em></p>
-        </div>
-        <div style="text-align:center;padding:24px 16px;background:#F5F3FF;border-radius:14px;border:1.5px solid #DDD6FE;">
-          <div style="font-size:36px;margin-bottom:12px;">✨</div>
-          <h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Мастер красоты</h4>
-          <p style="font-size:13px;color:#6B7280;line-height:1.55;margin:0;">Ваши клиентки ищут уверенность и уход — не список процедур. Мы пишем об этом: про то как они хотят себя чувствовать, а не про то что вы умеете делать</p>
-        </div>
-        <div style="text-align:center;padding:24px 16px;background:#F5F3FF;border-radius:14px;border:1.5px solid #DDD6FE;">
-          <div style="font-size:36px;margin-bottom:12px;">🍽️</div>
-          <h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Кафе / Ресторан</h4>
-          <p style="font-size:13px;color:#6B7280;line-height:1.55;margin:0;">Ваши гости ищут атмосферу и эмоции — не просто еду. Контент создаёт ощущение места ещё до того как человек к вам пришёл</p>
-        </div>
-      </div>
-      <p style="text-align:center;font-size:15px;font-weight:700;color:#7C3AED;margin:0;line-height:1.6;">Для каждой ниши — своя аудитория, свой язык, свои боли. Мы изучаем именно ваших клиентов — и создаём посты,<br>карусели и короткие видео именно для них.</p>
-    </div>
-  </div>
-</section>
 
 <!-- БЕСПЛАТНЫЙ ПАКЕТ -->
 <section class="magnet" id="magnet">
@@ -1812,197 +2169,6 @@
         <span style="font-size:14px;color:#374151;">Ответьте на вопросы о вашем бизнесе — получите готовый бесплатный пакет постов для вашего бизнеса</span>
       </div>
       <p style="font-size:12px;color:#9CA3AF;text-align:center;margin-top:2px;">Telegram — бесплатное приложение для вашего телефона или компьютера.</p>
-    </div>
-  </div>
-</section>
-
-<!-- BLOCK 4: PACKAGES -->
-<section class="packages" id="packages">
-  <div class="container">
-    <h2 class="section-title">Выберите свой пакет</h2>
-
-    <div class="pkg-grid">
-
-      <!-- ТАРИФ СТАРТ: €150 -->
-      <div class="pkg-card">
-        <div class="pkg-card-name">Тариф Старт — Тексты + Визуал</div>
-        <div class="pkg-card-tagline">Готовый контент без коротких видео</div>
-        <div class="pkg-card-price">
-          <span class="pkg-price-num">€150</span>
-          <span class="pkg-price-period">/мес</span>
-        </div>
-        <ul class="pkg-card-items">
-          <li>📅 Контент-план на 30 дней — под вашу цель на месяц</li>
-          <li>🖼 8 готовых каруселей с дизайном</li>
-          <li>📸 8 готовых постов: AI-изображение + текст — берёте и публикуете</li>
-          <li>📱 15 готовых Stories</li>
-          <li>📝 3 SEO и GEO-статей для сайта</li>
-          <li>🎨 8 обложек для Instagram Highlights <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
-          <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
-          <li>🔄 Корректировка контента каждые 15 дней — на основе реальной реакции вашей аудитории</li>
-        </ul>
-        <a href="https://t.me/ContentDNAStart_bot?start=pkg_a" class="btn-secondary-outline pkg-buy-btn">→ Начать за €150/мес</a>
-        <a href="https://t.me/ContentDNAStart_bot?start=pkg_a_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€30/мес</a>
-      </div>
-
-      <!-- ТАРИФ СТАНДАРТ: €250 -->
-      <div class="pkg-card pkg-card-featured">
-        <div class="pkg-card-popular">Популярный</div>
-        <div class="pkg-card-name">Тариф Стандарт — Тексты + Визуал + 4 Видео</div>
-        <div class="pkg-card-tagline">Весь пакет Старт + 4 готовых AI-видео (Reels / TikTok / Shorts)</div>
-        <div class="pkg-card-price">
-          <span class="pkg-price-num">€250</span>
-          <span class="pkg-price-period">/мес</span>
-        </div>
-        <ul class="pkg-card-items">
-          <li>📅 Контент-план на 30 дней — под вашу цель на месяц</li>
-          <li>🖼 8 готовых каруселей с дизайном</li>
-          <li>📸 8 готовых постов: AI-изображение + текст — берёте и публикуете</li>
-          <li>📱 15 готовых Stories</li>
-          <li>📝 3 SEO и GEO-статей для сайта</li>
-          <li>🎨 8 обложек для Instagram Highlights <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
-          <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
-          <li>🔄 Корректировка контента каждые 15 дней — на основе реальной реакции вашей аудитории</li>
-          <hr class="pkg-card-divider">
-          <li class="pkg-extra">🎬 4 готовых AI-видео (Reels / TikTok / Shorts)</li>
-          <li class="pkg-extra">🖼️ 4 готовых обложки для видео</li>
-        </ul>
-        <a href="https://t.me/ContentDNAStart_bot?start=pkg_standard" class="btn-primary pkg-buy-btn">→ Начать за €250/мес</a>
-        <a href="https://t.me/ContentDNAStart_bot?start=pkg_standard_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€60/мес</a>
-      </div>
-
-      <!-- ТАРИФ ПРОФИ: €350 -->
-      <div class="pkg-card">
-        <div class="pkg-card-name">Тариф Профи — Тексты + Визуал + 8 Видео</div>
-        <div class="pkg-card-tagline">Весь пакет Старт + 8 готовых AI-видео (Reels / TikTok / Shorts)</div>
-        <div class="pkg-card-price">
-          <span class="pkg-price-num">€350</span>
-          <span class="pkg-price-period">/мес</span>
-        </div>
-        <ul class="pkg-card-items">
-          <li>📅 Контент-план на 30 дней — под вашу цель на месяц</li>
-          <li>🖼 8 готовых каруселей с дизайном</li>
-          <li>📸 8 готовых постов: AI-изображение + текст — берёте и публикуете</li>
-          <li>📱 15 готовых Stories</li>
-          <li>📝 3 SEO и GEO-статей для сайта</li>
-          <li>🎨 8 обложек для Instagram Highlights <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
-          <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
-          <li>🔄 Корректировка контента каждые 15 дней — на основе реальной реакции вашей аудитории</li>
-          <hr class="pkg-card-divider">
-          <li class="pkg-extra">🎬 8 готовых AI-видео (Reels / TikTok / Shorts)</li>
-          <li class="pkg-extra">🖼️ 8 готовых обложек для видео</li>
-        </ul>
-        <a href="https://t.me/ContentDNAStart_bot?start=pkg_v" class="btn-secondary-outline pkg-buy-btn">→ Начать за €350/мес</a>
-        <a href="https://t.me/ContentDNAStart_bot?start=pkg_v_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€90/мес</a>
-      </div>
-
-    </div>
-
-    <p style="font-size:13px;color:#6B7280;text-align:center;margin:20px 0 0;">⏱ Пакеты постов подготавливаются персонально под ваш бизнес в течение 1–2 рабочих дней. Уведомления приходят в Telegram и на электронную почту по мере готовности каждой части пакета.</p>
-
-    <!-- BLOCK: MULTILINGUAL -->
-    <section style="background:linear-gradient(135deg,#F5F3FF 0%,#EDE9FE 100%);padding:72px 20px;margin:40px -20px 0;border-radius:0;">
-      <div style="max-width:1000px;margin:0 auto;">
-        <div class="lang-section-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
-          <!-- Left: text -->
-          <div>
-            <div style="font-size:40px;margin-bottom:16px;">🇱🇻 &nbsp;🇷🇺 &nbsp;🇬🇧</div>
-            <h2 style="font-size:28px;font-weight:800;color:#1a1a2e;margin-bottom:16px;">Ваш контент — на латышском, русском и английском</h2>
-            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:12px;">Латвия многоязычная — ваши клиенты говорят на разных языках. Ваш контент тоже может быть на нескольких языках.</p>
-            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:12px;">За небольшую доплату вы получаете полный пакет тех же материалов на втором языке. Выберите пару: латышский + русский, латышский + английский — или все три языка сразу.</p>
-            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:28px;">Ведёте отдельные аккаунты для разных аудиторий? Каждый получит свой готовый контент.</p>
-          </div>
-          <!-- Right: phone mockups 2+1 layout -->
-          <div style="display:flex;flex-direction:column;gap:16px;align-items:center;">
-            <!-- Row 1: LV + EN -->
-            <div class="lang-phones-row" style="display:flex;gap:16px;justify-content:center;width:100%;">
-
-              <!-- LV phone -->
-              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
-                <div class="phone-frame" style="width:100%;">
-                  <div class="phone-notch"></div>
-                  <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
-                    <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
-                      <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Mārketings</div>
-                      <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Ķermenis lūdz pauzi?</div>
-                      <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Masāža ķermenim un prātam.</div>
-                    </div>
-                    <div style="flex:1;min-height:90px;overflow:hidden;">
-                      <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
-                    </div>
-                    <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Jūsu bizness aug. Mēs parūpējamies par saturu. #bizness #mārketings</div>
-                  </div>
-                </div>
-                <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">LV</div>
-              </div>
-
-              <!-- EN phone -->
-              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
-                <div class="phone-frame" style="width:100%;">
-                  <div class="phone-notch"></div>
-                  <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
-                    <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
-                      <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Marketing</div>
-                      <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Your body needs a break?</div>
-                      <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Massage for body, mind and soul.</div>
-                    </div>
-                    <div style="flex:1;min-height:90px;overflow:hidden;">
-                      <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
-                    </div>
-                    <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Your business grows. We handle the content. #marketing #business</div>
-                  </div>
-                </div>
-                <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">EN</div>
-              </div>
-
-            </div>
-
-            <!-- Row 2: RU centered -->
-            <div class="lang-phones-bottom" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;width:100%;">
-              <div class="phone-frame" style="width:100%;">
-                <div class="phone-notch"></div>
-                <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
-                  <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
-                    <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Маркетинг</div>
-                    <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Тело просит паузу?</div>
-                    <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Массаж для тела, души и настроения.</div>
-                  </div>
-                  <div style="flex:1;min-height:90px;overflow:hidden;">
-                    <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
-                  </div>
-                  <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Ваш бизнес растёт. Мы берём контент на себя. #маркетинг #бизнес</div>
-                </div>
-              </div>
-              <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">RU</div>
-            </div>
-
-          </div>
-        </div>
-        <div style="margin-top:36px;text-align:center;">
-          <div style="background:white;border-radius:14px;padding:18px 24px;box-shadow:0 4px 20px rgba(124,58,237,0.12);margin-bottom:12px;display:inline-block;">
-            <div style="font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:8px;">+ второй язык к вашему пакету:</div>
-            <div style="font-size:15px;color:#444;">Старт <strong>+€30</strong> &nbsp;·&nbsp; Стандарт <strong>+€60</strong> &nbsp;·&nbsp; <span style="white-space:nowrap">Профи <strong>+€90</strong></span></div>
-          </div>
-          <p style="font-size:14px;color:#888;line-height:1.6;">Кнопка добавления языка — в карточке выбранного вами тарифа.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ПЛАТФОРМЫ -->
-    <div class="pkg-platforms" style="margin-top:32px">
-      <p class="pkg-platforms-title">📱 Один пост — четыре платформы. Готовим отдельный текст и хэштеги для каждой.</p>
-      <div class="pkg-platform-tags">
-        <span class="ptag ptag-instagram"><i class="fa-brands fa-instagram"></i> Instagram</span>
-        <span class="ptag ptag-tiktok"><i class="fa-brands fa-tiktok"></i> TikTok</span>
-        <span class="ptag ptag-facebook"><i class="fa-brands fa-facebook"></i> Facebook</span>
-        <span class="ptag ptag-linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</span>
-        <span class="ptag ptag-google"><i class="fa-brands fa-google"></i> Google</span>
-        <span class="ptag ptag-chatgpt">✦ ChatGPT</span>
-      </div>
-    </div>
-
-    <div class="pkg-note">
-      🎯 Все тексты написаны на основе исследования психологии ваших клиентов — их страхи, желания и мотивации.<br>Не просто красивый контент — контент который приводит клиентов и делает продажи.
     </div>
   </div>
 </section>

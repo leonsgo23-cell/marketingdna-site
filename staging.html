@@ -1044,7 +1044,7 @@
   /* PLATFORM TAGS EXTRA */
   .ptag-google { background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #EA4335 100%); color: #fff; border: none; }
   .ptag-chatgpt { background: #10a37f; color: #fff; }
-  .forwhom-index { background: #F8F7FF; padding: 80px 24px; }
+  .forwhom-index { background: #F8F7FF; padding: 20px 24px 80px; }
   .niches-index { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
   .niche-index { background: white; border-radius: 12px; overflow: hidden; text-align: center; border: 1px solid #E8EDF5; }
   .niche-index-icon { display: none; }
@@ -1063,23 +1063,105 @@
     .lang-phones-row .phone-wrap-lang { max-width: 200px !important; width: 80% !important; }
     .lang-phones-bottom { max-width: 200px !important; width: 80% !important; }
   }
-  .week-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+  /* WEEK CONTENT BLOCK — Instagram Profile Style */
+  .week-section { margin: 48px 0; }
+  .ig-profile-outer {
+    display: flex; justify-content: center;
   }
+  .ig-profile-mock {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+    overflow: hidden;
+    width: 100%; max-width: 420px;
+  }
+  .ig-profile-header {
+    display: flex; align-items: center; gap: 20px;
+    padding: 20px 16px 12px;
+  }
+  .ig-profile-avatar {
+    width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+    border: 2px solid #e5e7eb;
+  }
+  .ig-profile-stats {
+    display: flex; gap: 16px; flex: 1;
+  }
+  .ig-stat { text-align: center; }
+  .ig-stat strong { display: block; font-size: 14px; font-weight: 800; color: #111827; }
+  .ig-stat span { font-size: 10px; color: #6b7280; }
+  .ig-profile-info { padding: 0 16px 14px; }
+  .ig-profile-name { font-size: 12px; font-weight: 700; color: #111827; margin-bottom: 2px; }
+  .ig-profile-bio { font-size: 11px; color: #374151; line-height: 1.5; }
+  .ig-profile-bio span { color: #7c3aed; font-weight: 600; }
+  .ig-tabs {
+    display: flex; border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6;
+  }
+  .ig-tab {
+    flex: 1; text-align: center; padding: 10px 0;
+    font-size: 18px; color: #9ca3af;
+  }
+  .ig-tab.active { color: #111827; border-bottom: 2px solid #111827; }
+  .ig-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+  .ig-post {
+    aspect-ratio: 1/1; position: relative; overflow: hidden;
+    background: #f3f4f6; cursor: pointer;
+  }
+  .ig-post img, .ig-post video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .ig-post-overlay {
+    position: absolute; top: 0; left: 0; right: 0; height: 42%;
+    background: linear-gradient(rgba(0,0,0,0.32), transparent);
+    pointer-events: none;
+  }
+  .ig-post-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 18px 7px 7px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.78));
+    pointer-events: none;
+  }
+  .ig-post-caption-text {
+    font-size: 8.5px; font-weight: 700; color: white;
+    line-height: 1.38; word-break: break-word;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+  .ig-post-day {
+    position: absolute; top: 5px; left: 5px;
+    font-size: 8px; font-weight: 800; color: white;
+    background: rgba(124,58,237,0.85); padding: 2px 6px;
+    border-radius: 4px; backdrop-filter: blur(4px);
+  }
+  .ig-post-day.weekend { background: rgba(100,116,139,0.85); }
+  .ig-post-type {
+    position: absolute; top: 5px; right: 5px;
+    font-size: 12px; line-height: 1;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+  .ig-post-placeholder {
+    aspect-ratio: 1/1; background: #f9fafb;
+    border: 1px dashed #e5e7eb;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: #d1d5db;
+  }
+
   @media(max-width:768px) {
-    .week-grid {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding-bottom: 8px;
-      -webkit-overflow-scrolling: touch;
-    }
-    .week-grid > div {
-      min-width: 28vw;
-      flex-shrink: 0;
-    }
+    .ig-profile-mock { max-width: 100%; border-radius: 16px; }
+    .week-section { margin: 8px 0; }
+    .ig-profile-header { gap: 12px; padding: 14px 12px 8px; }
+    .ig-profile-stats { gap: 8px; }
+    .ig-stat strong { font-size: 13px; }
+    .ig-stat span { font-size: 9px; }
+    .ig-profile-info { padding: 0 12px 10px; }
+    .ig-profile-name { font-size: 11px; }
+    .ig-profile-bio { font-size: 10px; }
+    .ig-post-caption-text { font-size: 7.5px; }
+    .ig-post-day { font-size: 7px; padding: 1px 5px; }
+  }
+  @media(max-width:480px) {
+    .ig-profile-avatar { width: 48px; height: 48px; }
   }
 </style>
 </head>
@@ -1409,107 +1491,6 @@
       </div>
     </div>
 
-    <!-- 🆕 БЛОК: НЕДЕЛЯ КОНТЕНТА — staging preview -->
-    <div style="border:2px dashed #ef4444;position:relative;border-radius:16px;margin:40px 0;padding:32px 24px 28px;">
-      <span style="position:absolute;top:-12px;left:20px;background:#ef4444;color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;font-family:monospace;">🆕 НОВЫЙ БЛОК</span>
-
-      <div style="text-align:center;margin-bottom:28px;">
-        <div style="display:inline-block;background:#f3f0ff;color:#7c3aed;font-size:12px;font-weight:700;padding:4px 16px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Пример недели</div>
-        <h3 style="font-size:22px;font-weight:800;color:#1e1b4b;margin:0 0 6px;">Что вы получаете за одну неделю</h3>
-        <p style="font-size:14px;color:#6b7280;margin:0;">Готово — берёте и публикуете</p>
-      </div>
-
-      <div class="week-grid">
-
-        <!-- ПН: Reels -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:100px;">ПН</div>
-          <div style="width:100%;background:#f5f3ff;border-radius:12px;overflow:hidden;aspect-ratio:9/16;">
-            <video src="reels_primer.mp4" muted playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:15px;">🎬</div>
-            <div style="font-size:11px;font-weight:700;color:#1e1b4b;margin-top:2px;">AI-видео Reels</div>
-          </div>
-        </div>
-
-        <!-- ВТ: Карусель -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:100px;">ВТ</div>
-          <div style="width:100%;background:#f5f3ff;border-radius:12px;overflow:hidden;aspect-ratio:9/16;">
-            <video src="carusel_primer.mp4" muted playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:15px;">🖼</div>
-            <div style="font-size:11px;font-weight:700;color:#1e1b4b;margin-top:2px;">Карусель</div>
-          </div>
-        </div>
-
-        <!-- СР: Пост -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:100px;">СР</div>
-          <div style="width:100%;background:#f5f3ff;border-radius:12px;overflow:hidden;aspect-ratio:9/16;">
-            <img src="post_primer.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Пример поста">
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:15px;">📸</div>
-            <div style="font-size:11px;font-weight:700;color:#1e1b4b;margin-top:2px;">Пост + текст</div>
-          </div>
-        </div>
-
-        <!-- ЧТ: Reels 2 -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:100px;">ЧТ</div>
-          <div style="width:100%;background:#f5f3ff;border-radius:12px;overflow:hidden;aspect-ratio:9/16;">
-            <video src="reels_primer.mp4" muted playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:15px;">🎬</div>
-            <div style="font-size:11px;font-weight:700;color:#1e1b4b;margin-top:2px;">AI-видео Reels</div>
-          </div>
-        </div>
-
-        <!-- ПТ: Карусель 2 -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:100px;">ПТ</div>
-          <div style="width:100%;background:#f5f3ff;border-radius:12px;overflow:hidden;aspect-ratio:9/16;">
-            <video src="carusel_primer.mp4" muted playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:15px;">🖼</div>
-            <div style="font-size:11px;font-weight:700;color:#1e1b4b;margin-top:2px;">Карусель</div>
-          </div>
-        </div>
-
-        <!-- СБ: Пост 2 -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#9ca3af;color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:100px;">СБ</div>
-          <div style="width:100%;background:#f5f3ff;border-radius:12px;overflow:hidden;aspect-ratio:9/16;">
-            <img src="post_primer.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Пример поста">
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:15px;">📸</div>
-            <div style="font-size:11px;font-weight:700;color:#1e1b4b;margin-top:2px;">Пост + текст</div>
-          </div>
-        </div>
-
-        <!-- ВС: Stories -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#9ca3af;color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:100px;">ВС</div>
-          <div style="width:100%;background:#f5f3ff;border-radius:12px;overflow:hidden;aspect-ratio:9/16;">
-            <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Пример Stories">
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:15px;">📱</div>
-            <div style="font-size:11px;font-weight:700;color:#1e1b4b;margin-top:2px;">Stories</div>
-          </div>
-        </div>
-
-      </div>
-
-      <p style="text-align:center;font-size:13px;color:#9ca3af;margin:20px 0 0;">+ обложки для каждого видео · контент-план · анализ конкурентов</p>
-    </div>
-    <!-- / КОНЕЦ: НЕДЕЛЯ КОНТЕНТА -->
 
     <div class="product-engine">
       <div class="engine-block">
@@ -1815,10 +1796,136 @@
   </div>
 </section>
 
+<!-- БЛОК: НЕДЕЛЯ КОНТЕНТА — Instagram профиль -->
+<section style="background:#f9fafb;padding:48px 20px 16px;">
+  <div class="container" style="max-width:900px;">
+    <div class="week-section">
+      <div style="text-align:center;margin-bottom:36px;">
+        <div style="display:inline-block;background:#f3f0ff;color:#7c3aed;font-size:12px;font-weight:700;padding:4px 16px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Пример результата</div>
+        <h2 style="font-size:28px;font-weight:800;color:#1e1b4b;margin:0 0 8px;letter-spacing:-0.3px;">Так будет выглядеть ваш Instagram</h2>
+        <p style="font-size:15px;color:#6b7280;margin:0;">7 готовых постов каждую неделю — берёте и публикуете.</p>
+      </div>
+
+      <div class="ig-profile-outer">
+        <div class="ig-profile-mock">
+
+          <div class="ig-profile-header">
+            <div class="ig-profile-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);border:3px solid transparent;background-clip:padding-box;box-shadow:0 0 0 2px #f59e0b,0 0 0 4px white;"></div>
+            <div class="ig-profile-stats">
+              <div class="ig-stat"><strong>34</strong><span>публикаций</span></div>
+              <div class="ig-stat"><strong>2 140</strong><span>подписчиков</span></div>
+              <div class="ig-stat"><strong>312</strong><span>подписок</span></div>
+            </div>
+          </div>
+          <div class="ig-profile-info">
+            <div class="ig-profile-name">Sandra · Персональный тренер 💪</div>
+            <div class="ig-profile-bio">Рига · Похудение без срывов и голодания<br><span>↓ Записаться на первую тренировку</span></div>
+          </div>
+
+          <div class="ig-tabs">
+            <div class="ig-tab active">⊞</div>
+            <div class="ig-tab">☰</div>
+            <div class="ig-tab">🏷</div>
+          </div>
+
+          <div class="ig-grid">
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&q=80" alt="Завтраки">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">5 завтраков которые запускают метаболизм →</div></div>
+              <div class="ig-post-day">ПН</div>
+              <div class="ig-post-type">⧉</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&q=80" alt="Результат">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Laura −9 кг за 8 недель. Без голодания 🤍</div></div>
+              <div class="ig-post-day">ВТ</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&q=80" alt="День тренера">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Мой день с 6 утра — как выглядит работа тренера 🎥</div></div>
+              <div class="ig-post-day">СР</div>
+              <div class="ig-post-type">▶</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=400&fit=crop&q=80" alt="Вопрос">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Что мешает вам начать прямо сейчас? 👇</div></div>
+              <div class="ig-post-day">ЧТ</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=400&fit=crop&q=80" alt="Совет">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Почему диеты не работают — объясняю за 60 сек</div></div>
+              <div class="ig-post-day">ПТ</div>
+              <div class="ig-post-type">▶</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=400&fit=crop&q=80" alt="Упражнения">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">3 упражнения которые изменят форму за 4 недели →</div></div>
+              <div class="ig-post-day weekend">СБ</div>
+              <div class="ig-post-type">⧉</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&h=400&fit=crop&q=80" alt="Итоги">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Итоги недели — вы сделали это 🏆</div></div>
+              <div class="ig-post-day weekend">ВС</div>
+              <div class="ig-post-type">▶</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="trainer_sandra.jpg" alt="Тренер">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Привет, я Sandra 👋 Начни своё преображение со мной</div></div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop&q=80" alt="Питание">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Меню на неделю: просто, вкусно, работает 🥗</div></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <div style="display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-size:12px;color:#6b7280;line-height:2;">
+          <span><strong style="color:#7c3aed;">ПН</strong> Карусель</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">ВТ</strong> Фото</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">СР</strong> Story Reel</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">ЧТ</strong> Stories</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">ПТ</strong> Veo3 Reel</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#9ca3af;">СБ</strong> Карусель</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#9ca3af;">ВС</strong> Story Reel</span>
+        </div>
+        <div style="margin-top:8px;font-size:13px;font-weight:600;color:#374151;">7 постов в неделю = 30 постов за месяц</div>
+        <div style="margin-top:6px;font-size:12px;color:#9ca3af;">Пример для персонального тренера · Работает для любого бизнеса</div>
+      </div>
+
+      <div style="text-align:center;margin-top:36px;">
+        <a href="#pricing" style="display:inline-block;background:#7c3aed;color:white;font-size:16px;font-weight:700;padding:16px 40px;border-radius:50px;text-decoration:none;letter-spacing:-0.2px;box-shadow:0 4px 24px rgba(124,58,237,0.40);transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(124,58,237,0.50)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(124,58,237,0.40)'">Получить бесплатный пакет →</a>
+        <div style="margin-top:12px;font-size:12px;color:#9ca3af;">Без предоплаты · Первая неделя — бесплатно</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ДЛЯ КОГО -->
 <section class="forwhom-index">
   <div class="container">
-    <div class="section-label">Для кого</div>
+
     <h2 class="section-title">Вы профессионал в своём деле.<br>Мы — в соцсетях.</h2>
     <p class="section-sub">Вы развиваете бизнес, клиенты приходят по рекомендациям — вы хороши в том, что делаете. Вести соцсети так, чтобы вас находили, узнавали и записывались — это отдельное искусство. Именно этим занимаемся мы.</p>
     <div class="niches-index">
@@ -1858,17 +1965,17 @@
         </div>
       </div>
       <div class="niche-index">
-        <img src="niche_realty.jpg" class="niche-photo" alt="Недвижимость">
-        <div class="niche-text">
-          <div class="niche-index-name">Недвижимость</div>
-          <div class="niche-index-desc">Объекты, советы покупателям, рынок</div>
-        </div>
-      </div>
-      <div class="niche-index">
         <img src="niche_legal.jpg" class="niche-photo" alt="Юристы и бухгалтеры">
         <div class="niche-text">
           <div class="niche-index-name">Юристы и бухгалтеры</div>
           <div class="niche-index-desc">Экспертный контент, кейсы, разборы</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_realty.jpg" class="niche-photo" alt="Недвижимость">
+        <div class="niche-text">
+          <div class="niche-index-name">Недвижимость</div>
+          <div class="niche-index-desc">Объекты, советы покупателям, рынок</div>
         </div>
       </div>
       <div class="niche-index">
@@ -2475,6 +2582,208 @@
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+</script>
+
+<!-- ============================================================ -->
+<!-- LATVIAN PREVIEW — для переноса в lv.html                    -->
+<!-- Прокрутите вниз чтобы увидеть латышскую версию двух блоков  -->
+<!-- ============================================================ -->
+
+<div style="background:#1e1b4b;color:white;text-align:center;padding:16px;font-size:13px;font-weight:700;letter-spacing:1px;">
+  🇱🇻 LATVIEŠU VERSIJA — PRIEKŠSKATĪJUMS
+</div>
+
+<!-- LV: Instagram блок -->
+<section style="background:#f9fafb;padding:48px 20px 16px;">
+  <div class="container" style="max-width:900px;">
+    <div class="week-section">
+      <div style="text-align:center;margin-bottom:36px;">
+        <div style="display:inline-block;background:#f3f0ff;color:#7c3aed;font-size:12px;font-weight:700;padding:4px 16px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Rezultāta piemērs</div>
+        <h2 style="font-size:28px;font-weight:800;color:#1e1b4b;margin:0 0 8px;letter-spacing:-0.3px;">Tā izskatīsies jūsu Instagram</h2>
+        <p style="font-size:15px;color:#6b7280;margin:0;">7 gatavās ziņas katru nedēļu — ņemiet un publicējiet.</p>
+      </div>
+
+      <div class="ig-profile-outer">
+        <div class="ig-profile-mock">
+          <div class="ig-profile-header">
+            <div class="ig-profile-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);border:3px solid transparent;background-clip:padding-box;box-shadow:0 0 0 2px #f59e0b,0 0 0 4px white;"></div>
+            <div class="ig-profile-stats">
+              <div class="ig-stat"><strong>34</strong><span>publikācijas</span></div>
+              <div class="ig-stat"><strong>2 140</strong><span>sekotāji</span></div>
+              <div class="ig-stat"><strong>312</strong><span>seko</span></div>
+            </div>
+          </div>
+          <div class="ig-profile-info">
+            <div class="ig-profile-name">Sandra · Personālā trenere 💪</div>
+            <div class="ig-profile-bio">Rīga · Svara zaudēšana bez badošanās<br><span>↓ Pierakstīties uz pirmo treniņu</span></div>
+          </div>
+          <div class="ig-tabs">
+            <div class="ig-tab active">⊞</div>
+            <div class="ig-tab">☰</div>
+            <div class="ig-tab">🏷</div>
+          </div>
+          <div class="ig-grid">
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">5 brokastis, kas paātrina vielmaiņu →</div></div>
+              <div class="ig-post-day">Pr</div>
+              <div class="ig-post-type">⧉</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Laura −9 kg 8 nedēļās. Bez badošanās 🤍</div></div>
+              <div class="ig-post-day">Ot</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Mana diena no 6:00 — kā izskatās treneres darbs 🎥</div></div>
+              <div class="ig-post-day">Tr</div>
+              <div class="ig-post-type">▶</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Kas jums traucē sākt tieši tagad? 👇</div></div>
+              <div class="ig-post-day">Ce</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Kāpēc diētas nedarbojas — izskaidroju 60 sek.</div></div>
+              <div class="ig-post-day">Pk</div>
+              <div class="ig-post-type">▶</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">3 vingrinājumi, kas mainīs ķermeni 4 nedēļās →</div></div>
+              <div class="ig-post-day weekend">Se</div>
+              <div class="ig-post-type">⧉</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Nedēļas kopsavilkums — jūs to izdarījāt 🏆</div></div>
+              <div class="ig-post-day weekend">Sv</div>
+              <div class="ig-post-type">▶</div>
+            </div>
+
+            <div class="ig-post">
+              <img src="trainer_sandra.jpg" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Sveiki, es esmu Sandra 👋 Sāc savu pārvērtību ar mani</div></div>
+            </div>
+
+            <div class="ig-post">
+              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop&q=80" alt="">
+              <div class="ig-post-overlay"></div>
+              <div class="ig-post-caption"><div class="ig-post-caption-text">Ēdienkarte nedēļai: vienkārši, garšīgi, efektīvi 🥗</div></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <div style="display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-size:12px;color:#6b7280;line-height:2;">
+          <span><strong style="color:#7c3aed;">Pr</strong> Karuselis</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">Ot</strong> Foto</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">Tr</strong> Story Reel</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">Ce</strong> Stories</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#7c3aed;">Pk</strong> Veo3 Reel</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#9ca3af;">Se</strong> Karuselis</span><span style="color:#d1d5db;">·</span>
+          <span><strong style="color:#9ca3af;">Sv</strong> Story Reel</span>
+        </div>
+        <div style="margin-top:8px;font-size:13px;font-weight:600;color:#374151;">7 ieraksti nedēļā = 30 ieraksti mēnesī</div>
+        <div style="margin-top:6px;font-size:12px;color:#9ca3af;">Personālās treneres piemērs · Darbojas jebkuram uzņēmumam</div>
+      </div>
+
+      <div style="text-align:center;margin-top:36px;">
+        <a href="#pricing" style="display:inline-block;background:#7c3aed;color:white;font-size:16px;font-weight:700;padding:16px 40px;border-radius:50px;text-decoration:none;letter-spacing:-0.2px;box-shadow:0 4px 24px rgba(124,58,237,0.40);">Saņemt bezmaksas paketi →</a>
+        <div style="margin-top:12px;font-size:12px;color:#9ca3af;">Bez priekšapmaksas · Pirmā nedēļa — bezmaksas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LV: Niches блок -->
+<section class="forwhom-index" style="padding:20px 24px 80px;">
+  <div class="container">
+    <h2 class="section-title">Jūs esat profesionālis savā jomā.<br>Mēs — sociālajos tīklos.</h2>
+    <p class="section-sub">Jūs attīstāt savu biznesu, klienti nāk pēc ieteikumiem — jūs labi pārzināt savu jomu. Vadīt sociālos tīklus tā, lai jūs atrastu, atpazītu un pierakstītos — tas ir atsevišķs mākslas veids. Tieši ar to mēs nodarbojamies.</p>
+    <div class="niches-index">
+      <div class="niche-index">
+        <img src="niche_cafe.jpg" class="niche-photo" alt="Kafejnīcas">
+        <div class="niche-text">
+          <div class="niche-index-name">Kafejnīcas un restorāni</div>
+          <div class="niche-index-desc">Ēdienkarte, atmosfēra, akcijas, stāsti par ēdieniem</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_beauty.jpg" class="niche-photo" alt="Skaistums">
+        <div class="niche-text">
+          <div class="niche-index-name">Skaistumkopšanas saloni</div>
+          <div class="niche-index-desc">Pirms/pēc, padomi, akcijas, meistari</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_shop.jpg" class="niche-photo" alt="Veikali">
+        <div class="niche-text">
+          <div class="niche-index-name">Veikali un šourumi</div>
+          <div class="niche-index-desc">Preces, apskati, jaunumi, izpārdošanas</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_fitness.jpg" class="niche-photo" alt="Fitness">
+        <div class="niche-text">
+          <div class="niche-index-name">Fitness un treneri</div>
+          <div class="niche-index-desc">Padomi, transformācijas, programmas</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_expert.jpg" class="niche-photo" alt="Eksperti">
+        <div class="niche-text">
+          <div class="niche-index-name">Meistari un eksperti</div>
+          <div class="niche-index-desc">Kouči, psihologi, masieri, astrologi, terapeiti</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_legal.jpg" class="niche-photo" alt="Juristi">
+        <div class="niche-text">
+          <div class="niche-index-name">Juristi un grāmatveži</div>
+          <div class="niche-index-desc">Eksperta saturs, gadījumi, analīze</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_realty.jpg" class="niche-photo" alt="Nekustamais">
+        <div class="niche-text">
+          <div class="niche-index-name">Nekustamais īpašums</div>
+          <div class="niche-index-desc">Objekti, padomi pircējiem, tirgus</div>
+        </div>
+      </div>
+      <div class="niche-index">
+        <img src="niche_design.jpg" class="niche-photo" alt="Dizains">
+        <div class="niche-text">
+          <div class="niche-index-name">Dizains un radošums</div>
+          <div class="niche-index-desc">Portfolio, process, projektu stāsti</div>
+        </div>
+      </div>
+    </div>
+    <p class="forwhom-any">Marketing DNA palīdz dažādiem uzņēmumiem vadīt sociālos tīklus — sistēma pēta jūsu nišu, auditoriju un konkurentus — un izveido īsus video, karuseļus un ziņas tieši jums. Jūs redzēs, jūs atcerēsies, pie jums nāks.</p>
+  </div>
+</section>
+<!-- / END LATVIAN PREVIEW -->
+
 </script>
 </body>
 </html>
