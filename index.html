@@ -104,6 +104,18 @@
     text-decoration: none; transition: background 0.2s;
   }
   .nav-cta:hover { background: var(--purple-dark); }
+  .nav-cta-short { display: none; }
+  /* Мобильная шапка: полный текст кнопки не влезает — короткая надпись, компактный логотип, без неактивной EN */
+  @media(max-width:600px) {
+    nav { padding: 0 10px; }
+    .nav-inner { gap: 6px; }
+    .nav-logo { font-size: 16px; white-space: nowrap; }
+    .nav-cta { padding: 8px 10px; font-size: 12px; white-space: nowrap; }
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline; }
+    .lang-btn-disabled { display: none; }
+    .lang-btn { padding: 4px 7px; }
+  }
 
   /* SECTIONS */
   section { padding: 80px 24px; }
@@ -670,7 +682,8 @@
     padding: 0 24px; max-height: 0; overflow: hidden;
     transition: all 0.3s; font-size: 15px; color: #6B7280; line-height: 1.7;
   }
-  .faq-item.open .faq-a { padding: 0 24px 20px; max-height: 300px; }
+  /* max-height должен вмещать самый длинный ответ на узком экране — 300px обрезало текст */
+  .faq-item.open .faq-a { padding: 0 24px 20px; max-height: 2000px; }
 
   /* FINAL CTA */
   .final-cta {
@@ -1097,8 +1110,9 @@
   .niche-index-desc { font-size: 12px; color: #64748B; line-height: 1.6; }
   .forwhom-any { margin-top: 20px; text-align: center; font-size: 14px; color: #64748B; }
   .forwhom-any strong { color: #7C3AED; }
-  @media(max-width: 768px) { .niches-index { grid-template-columns: 1fr 1fr; } }
-  @media(max-width: 480px) { .niches-index { grid-template-columns: 1fr 1fr; } }
+  /* minmax(0,1fr): фото с большой внутренней шириной не дают колонкам ужаться (grid blowout) */
+  @media(max-width: 768px) { .niches-index { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media(max-width: 480px) { .niches-index { grid-template-columns: minmax(0, 1fr); } }
   .niche-photo { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
   .niche-text { padding: 16px; }
   /* Instagram profile block */
@@ -1161,9 +1175,9 @@
         <div class="lang-switcher">
       <span class="lang-btn active">LV</span>
       <a href="/ru" class="lang-btn" onclick="localStorage.setItem('mdna_lang','ru')">RU</a>
-      <span class="lang-btn" style="opacity:0.4;cursor:default;">EN</span>
+      <span class="lang-btn lang-btn-disabled" style="opacity:0.4;cursor:default;">EN</span>
     </div>
-    <a href="https://t.me/ContentDNAStart_bot?start=lv_nav" class="nav-cta">Saņemt bezmaksas pakotni →</a>
+    <a href="https://t.me/ContentDNAStart_bot?start=lv_nav" class="nav-cta"><span class="nav-cta-full">Saņemt bezmaksas pakotni →</span><span class="nav-cta-short">Bezmaksas pakotne →</span></a>
   </div>
 </nav>
 
