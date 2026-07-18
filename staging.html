@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta name="robots" content="noindex, nofollow">
 <script>
   (function(){
     var lang = localStorage.getItem('mdna_lang');
@@ -105,6 +104,18 @@
     text-decoration: none; transition: background 0.2s;
   }
   .nav-cta:hover { background: var(--purple-dark); }
+  .nav-cta-short { display: none; }
+  /* Мобильная шапка: полный текст кнопки не влезает — короткая надпись, компактный логотип, без неактивной EN */
+  @media(max-width:600px) {
+    nav { padding: 0 10px; }
+    .nav-inner { gap: 6px; }
+    .nav-logo { font-size: 16px; white-space: nowrap; }
+    .nav-cta { padding: 8px 10px; font-size: 12px; white-space: nowrap; }
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline; }
+    .lang-btn-disabled { display: none; }
+    .lang-btn { padding: 4px 7px; }
+  }
 
   /* SECTIONS */
   section { padding: 80px 24px; }
@@ -671,7 +682,8 @@
     padding: 0 24px; max-height: 0; overflow: hidden;
     transition: all 0.3s; font-size: 15px; color: #6B7280; line-height: 1.7;
   }
-  .faq-item.open .faq-a { padding: 0 24px 20px; max-height: 300px; }
+  /* max-height должен вмещать самый длинный ответ на узком экране — 300px обрезало текст */
+  .faq-item.open .faq-a { padding: 0 24px 20px; max-height: 2000px; }
 
   /* FINAL CTA */
   .final-cta {
@@ -1098,8 +1110,9 @@
   .niche-index-desc { font-size: 12px; color: #64748B; line-height: 1.6; }
   .forwhom-any { margin-top: 20px; text-align: center; font-size: 14px; color: #64748B; }
   .forwhom-any strong { color: #7C3AED; }
-  @media(max-width: 768px) { .niches-index { grid-template-columns: 1fr 1fr; } }
-  @media(max-width: 480px) { .niches-index { grid-template-columns: 1fr 1fr; } }
+  /* minmax(0,1fr): фото с большой внутренней шириной не дают колонкам ужаться (grid blowout) */
+  @media(max-width: 768px) { .niches-index { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media(max-width: 480px) { .niches-index { grid-template-columns: minmax(0, 1fr); } }
   .niche-photo { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
   .niche-text { padding: 16px; }
   /* Instagram profile block */
@@ -1162,9 +1175,9 @@
         <div class="lang-switcher">
       <a href="/" class="lang-btn" onclick="localStorage.setItem('mdna_lang','lv')">LV</a>
       <span class="lang-btn active">RU</span>
-      <span class="lang-btn" style="opacity:0.4;cursor:default;">EN</span>
+      <span class="lang-btn lang-btn-disabled" style="opacity:0.4;cursor:default;">EN</span>
     </div>
-    <a href="https://t.me/ContentDNAStart_bot?start=nav" class="nav-cta">Получить бесплатный пакет →</a>
+    <a href="https://t.me/ContentDNAStart_bot?start=nav" class="nav-cta"><span class="nav-cta-full">Получить бесплатный пакет →</span><span class="nav-cta-short">Бесплатный пакет →</span></a>
   </div>
 </nav>
 <script>localStorage.setItem("mdna_lang","ru");</script>
@@ -1191,10 +1204,14 @@
         </div>
         <div class="hero-fact">
           <span class="icon">🎯</span>
-          <span>Не просто красивые посты — стратегия которая приводит клиентов и делает продажи</span>
+          <span>Красивые посты сами по себе не продают. За каждым — стратегия, которая приводит клиентов</span>
+        </div>
+        <div class="hero-fact">
+          <span class="icon">🧠</span>
+          <span>Психология покупателя в каждом посте — приёмы, доказанные наукой и жизнью</span>
         </div>
       </div>
-      <p class="hero-social-proof" style="text-align:left;margin-top:6px;">✅ Каждые 15 дней — новый анализ, свежие темы, актуальный контент</p>
+      <p class="hero-social-proof" style="text-align:left;margin-top:6px;">✅ Регулярный анализ и обновление — на основе реакции вашей аудитории</p>
       <p class="hero-social-proof" style="text-align:left;margin-top:8px;">✅ В 5 раз дешевле чем в агентствах</p>
     </div>
     <div class="hero-visual">
@@ -1207,7 +1224,7 @@
             <div class="phone-notch"></div>
             <div class="phone-screen phone-screen-video" style="background:#000;overflow:hidden;">
               <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
-                <source src="reels.mp4" type="video/mp4">
+                <source src="/reels.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -1221,7 +1238,7 @@
             <div class="phone-notch"></div>
             <div class="phone-screen phone-screen-carousel" style="background:#1a1a2e;overflow:hidden;display:flex;align-items:center;justify-content:center;">
               <video autoplay muted loop playsinline style="width:100%;height:auto;object-fit:contain;display:block;">
-                <source src="carousel.mp4" type="video/mp4">
+                <source src="/carousel.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -1231,7 +1248,7 @@
       </div>
       <div style="text-align:center;">
         <a href="https://t.me/ContentDNAStart_bot?start=hero" class="btn-primary">→ Получить бесплатный пакет</a>
-        <p style="text-align:center;max-width:400px;margin:12px auto 0;font-size:13px;color:var(--dark);line-height:1.6">Готовый пост с текстом и визуалом · карусель (5 слайдов) · сценарий ролика · обложка для видео · SEO-статья · контент-план на 7 дней. Всё персонально под ваш бизнес. Бесплатно</p>
+        <p style="text-align:center;max-width:400px;margin:12px auto 0;font-size:13px;color:var(--dark);line-height:1.6">3 готовых поста с текстом и визуалом · карусель (7 слайдов) · 2 сторис · Story Reel · обложка и сценарий ролика · SEO-статья · контент-план на 7 дней. Всё персонально под ваш бизнес. Бесплатно</p>
       </div>
     </div>
   </div>
@@ -1255,15 +1272,15 @@
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;margin-bottom:14px;">
               <div style="aspect-ratio:1;border-radius:4px;overflow:hidden;position:relative;">
-                <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
                 <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.6);padding:3px 5px;font-size:9px;color:#fff;font-weight:600;">1 год назад</div>
               </div>
               <div style="aspect-ratio:1;border-radius:4px;overflow:hidden;position:relative;">
-                <img src="post_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+                <img src="/post_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
                 <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.6);padding:3px 5px;font-size:9px;color:#fff;font-weight:600;">10 мес назад</div>
               </div>
               <div style="aspect-ratio:1;border-radius:4px;overflow:hidden;position:relative;">
-                <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:left top;">
+                <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:left top;">
                 <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.6);padding:3px 5px;font-size:9px;color:#fff;font-weight:600;">8 мес назад</div>
               </div>
               <!-- Битое фото — нижний левый -->
@@ -1285,7 +1302,7 @@
           </div>
         </div>
         <p style="font-size:15px;color:#ef4444;font-weight:600;">❌ Клиент уходит молча</p>
-        <p style="font-size:13px;color:#6b7280;margin-top:4px;">"А они ещё работают?"</p>
+        <p style="font-size:13px;color:#6b7280;margin-top:4px;">«А они ещё работают?»</p>
       </div>
       <!-- Right: active account — Кафе, постит регулярно -->
       <div style="text-align:center;">
@@ -1331,7 +1348,7 @@
           </div>
         </div>
         <p style="font-size:15px;color:#16a34a;font-weight:600;">✅ Клиент видит живой бизнес</p>
-        <p style="font-size:13px;color:#6b7280;margin-top:4px;">"Они активны — можно доверять"</p>
+        <p style="font-size:13px;color:#6b7280;margin-top:4px;">«Они активны — можно доверять»</p>
       </div>
     </div>
     <div class="vitrina-grid">
@@ -1341,7 +1358,7 @@
           <div style="position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(124,58,237,0.25) 0%,transparent 70%);pointer-events:none;"></div>
           <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.8;margin:0 0 14px;">Представьте: человек уже почти готов купить. Он слышал о вас, ему интересно. И вот он открывает Instagram...</p>
           <p style="font-size:20px;font-weight:800;color:#fff;line-height:1.4;margin:0 0 18px;">Последний пост — три месяца назад. <span style="color:#A78BFA;">Тишина.</span></p>
-          <p style="font-size:14px;color:rgba(255,255,255,0.65);line-height:1.75;font-style:italic;margin:0;border-left:3px solid #7C3AED;padding-left:14px;">"А они ещё работают? А вдруг закрылись? Не рискну." — И он ушёл. Молча. Вы даже не узнали.</p>
+          <p style="font-size:14px;color:rgba(255,255,255,0.65);line-height:1.75;font-style:italic;margin:0;border-left:3px solid #7C3AED;padding-left:14px;">«А они ещё работают? А вдруг закрылись? Не рискну.» — И он ушёл. Молча. Вы даже не узнали.</p>
         </div>
         <div style="background:#F5F3FF;border-radius:16px;padding:24px 28px;border-left:4px solid #7C3AED;">
           <p style="font-size:17px;font-weight:800;color:#1E1B4B;line-height:1.45;margin:0 0 10px;">Соцсети сегодня — это ваша витрина на улице с миллионами прохожих.</p>
@@ -1353,7 +1370,7 @@
         <div style="font-size:36px;margin-bottom:20px;">✅</div>
         <p style="font-size:19px;font-weight:800;color:#fff;margin:0 0 16px;line-height:1.45;">Marketing DNA даёт вашим соцсетям жизнь — каждый месяц, без пауз, без выгорания.</p>
         <div style="width:40px;height:2px;background:rgba(255,255,255,0.3);margin:0 auto 16px;"></div>
-        <p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.8;">Тот кого видят регулярно — тому доверяют.<br>Кому доверяют — к тому приходят,<br>сначала в соцсети, потом покупают.</p>
+        <p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.8;">Кого видят регулярно, тому и доверяют.<br>Кому доверяют — к тому приходят,<br>сначала в соцсети, потом покупают.</p>
       </div>
     </div>
   </div>
@@ -1432,7 +1449,7 @@
               <div class="ig-post-day weekend">ВС</div><div class="ig-post-type">▶</div>
             </div>
             <div class="ig-post">
-              <img src="trainer_sandra.jpg" alt="">
+              <img src="/trainer_sandra.jpg" alt="">
               <div class="ig-post-overlay"></div>
               <div class="ig-post-caption"><div class="ig-post-caption-text">Привет, я Sandra 👋 Начни своё преображение со мной</div></div>
             </div>
@@ -1466,56 +1483,56 @@
 
     <div class="niches-index">
       <div class="niche-index">
-        <img src="niche_cafe.jpg" class="niche-photo" alt="Кафе и рестораны">
+        <img src="/niche_cafe.jpg" class="niche-photo" alt="Кафе и рестораны">
         <div class="niche-text">
           <div class="niche-index-name">Кафе и рестораны</div>
-          <div class="niche-index-desc">Большинство гостей смотрят соцсети заведения до визита. Ваши фото и видео — это первое впечатление, которое решает: придут к вам или к конкуренту. Мы создаём контент который продаёт атмосферу ещё до того как человек переступил порог</div>
+          <div class="niche-index-desc">Большинство гостей смотрят соцсети заведения до визита. Ваши фото и видео — это первое впечатление, которое решает: придут к вам или к конкуренту. Мы создаём контент, который продаёт атмосферу ещё до того как человек переступил порог</div>
         </div>
       </div>
       <div class="niche-index">
-        <img src="niche_beauty.jpg" class="niche-photo" alt="Салоны красоты">
+        <img src="/niche_beauty.jpg" class="niche-photo" alt="Салоны красоты">
         <div class="niche-text">
           <div class="niche-index-name">Салоны красоты</div>
           <div class="niche-index-desc">Клиентки возвращаются к мастеру — не в салон. Они выбирают по доверию: смотрят работы, читают посты, чувствуют характер человека. Мы строим этот образ в соцсетях — чтобы новые клиентки приходили уже готовые записаться</div>
         </div>
       </div>
       <div class="niche-index">
-        <img src="niche_shop.jpg" class="niche-photo" alt="Магазины и шоурумы">
+        <img src="/niche_shop.jpg" class="niche-photo" alt="Магазины и шоурумы">
         <div class="niche-text">
           <div class="niche-index-name">Магазины и шоурумы</div>
           <div class="niche-index-desc">Покупатель сегодня сначала изучает в соцсетях — потом идёт в магазин. Мы показываем товар через образ жизни и эмоцию: не «вот куртка», а «так ты будешь выглядеть». Это превращает подписчика в покупателя</div>
         </div>
       </div>
       <div class="niche-index">
-        <img src="niche_fitness.jpg" class="niche-photo" alt="Фитнес и тренеры">
+        <img src="/niche_fitness.jpg" class="niche-photo" alt="Фитнес и тренеры">
         <div class="niche-text">
           <div class="niche-index-name">Фитнес и тренеры</div>
           <div class="niche-index-desc">Главный барьер у будущих клиентов — «у меня не получится». Трансформации реальных людей похожих на них разрушают этот барьер лучше любой рекламы. Мы строим контент вокруг результатов и пути — не вокруг упражнений</div>
         </div>
       </div>
       <div class="niche-index">
-        <img src="niche_expert.jpg" class="niche-photo" alt="Мастера и эксперты">
+        <img src="/niche_expert.jpg" class="niche-photo" alt="Мастера и эксперты">
         <div class="niche-text">
           <div class="niche-index-name">Мастера и эксперты</div>
           <div class="niche-index-desc">К психологу, коучу или терапевту не обращаются по прайс-листу. Решение принимается после того как человек прочитал посты и почувствовал: «Этот человек понимает меня». Мы создаём именно такой контент</div>
         </div>
       </div>
       <div class="niche-index">
-        <img src="niche_legal.jpg" class="niche-photo" alt="Юристы и бухгалтеры">
+        <img src="/niche_legal.jpg" class="niche-photo" alt="Юристы и бухгалтеры">
         <div class="niche-text">
           <div class="niche-index-name">Юристы и бухгалтеры</div>
           <div class="niche-index-desc">Ваши клиенты боятся выглядеть некомпетентно — и боятся ошибиться. Контент который объясняет сложное просто снимает эту тревогу и делает вас экспертом которому доверяют ещё до первого звонка</div>
         </div>
       </div>
       <div class="niche-index">
-        <img src="niche_realty.jpg" class="niche-photo" alt="Недвижимость">
+        <img src="/niche_realty.jpg" class="niche-photo" alt="Недвижимость">
         <div class="niche-text">
           <div class="niche-index-name">Недвижимость</div>
-          <div class="niche-index-desc">Покупка или аренда — одно из самых эмоционально нагруженных решений в жизни. Клиенты ищут не просто объект — они ищут человека который поможет не ошибиться. Контент строит этот образ надёжного партнёра заблаговременно</div>
+          <div class="niche-index-desc">Покупка или аренда — одно из самых эмоционально нагруженных решений в жизни. За квадратными метрами клиент ищет человека, который поможет не ошибиться. Контент строит этот образ надёжного партнёра заблаговременно</div>
         </div>
       </div>
       <div class="niche-index">
-        <img src="niche_design.jpg" class="niche-photo" alt="Дизайн и творчество">
+        <img src="/niche_design.jpg" class="niche-photo" alt="Дизайн и творчество">
         <div class="niche-text">
           <div class="niche-index-name">Дизайн и творчество</div>
           <div class="niche-index-desc">В дизайне клиент платит не за результат — он платит за вкус и за то как вы думаете. Портфолио показывает что вы делаете. Контент показывает кто вы — и именно это продаёт</div>
@@ -1533,9 +1550,9 @@
 <section style="background:#F8F7FF;padding:32px 24px 40px;">
   <div style="max-width:1000px;margin:0 auto;">
     <div style="background:#fff;border-radius:20px;padding:48px 40px;box-shadow:0 4px 24px rgba(124,58,237,0.07);">
-      <p style="text-align:center;font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 12px;">Уникальный механизм</p>
-      <h2 style="text-align:center;font-size:32px;font-weight:800;color:#1E1B4B;margin:0 0 16px;letter-spacing:-0.5px;">Ваш контент становится точнее<br>каждые 15 дней</h2>
-      <p style="text-align:center;font-size:16px;color:#6B7280;max-width:600px;margin:0 auto 48px;line-height:1.7;">Это не разовый проект — это живая система которая учится на реальной реакции вашей аудитории. С каждым циклом контент бьёт точнее.</p>
+      <p style="text-align:center;font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 12px;">Механизм, который учится</p>
+      <h2 style="text-align:center;font-size:32px;font-weight:800;color:#1E1B4B;margin:0 0 16px;letter-spacing:-0.5px;">Ваш контент становится точнее<br>с каждым циклом</h2>
+      <p style="text-align:center;font-size:16px;color:#6B7280;max-width:600px;margin:0 auto 48px;line-height:1.7;">Живая система учится на реальной реакции вашей аудитории. С каждым циклом контент бьёт точнее.</p>
       <div class="mdna-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px;">
         <div style="background:#F5F3FF;border-radius:16px;padding:28px 24px;text-align:center;border:1.5px solid #DDD6FE;">
           <div style="width:52px;height:52px;background:#7C3AED;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;margin:0 auto 16px;">1</div>
@@ -1561,30 +1578,31 @@
         <p style="font-size:14px;color:#A78BFA;margin:0;line-height:1.7;">Обычные агентства делают контент по шаблону раз в месяц. Мы создаём следующий блок на основе реальных данных вашей аудитории. Это нельзя купить отдельно — это встроено в систему.</p>
       </div>
       <div style="padding-top:40px;border-top:1px solid #F3F4F6;">
-        <h3 style="text-align:center;font-size:26px;font-weight:800;color:#1E1B4B;margin:0 0 12px;letter-spacing:-0.3px;">Мы не обещаем клиентов.<br>Мы создаём условия при которых они приходят сами</h3>
+        <h3 style="text-align:center;font-size:26px;font-weight:800;color:#1E1B4B;margin:0 0 12px;letter-spacing:-0.3px;">Мы не обещаем клиентов.<br>Мы создаём условия, при которых они приходят сами</h3>
         <p style="text-align:center;font-size:15px;color:#6B7280;max-width:600px;margin:0 auto 32px;line-height:1.7;">Контент привлекает клиентов, если он строится на четырёх принципах:</p>
         <div class="mdna-2col" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px;">
           <div style="display:flex;gap:14px;background:#F9F7FF;border-radius:14px;padding:20px;border:1px solid #EDE9FE;">
             <div style="font-size:26px;flex-shrink:0;padding-top:2px;">🎯</div>
-            <div><h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 6px;">Написан на языке вашей аудитории</h4><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Человек видит себя в посте: <em>"Это про меня"</em>. Такой контент не пролистывают.</p></div>
+            <div><h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 6px;">Написан на языке вашей аудитории</h4><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Человек видит себя в посте: <em>«Это про меня»</em>. Такой контент не пролистывают.</p></div>
           </div>
           <div style="display:flex;gap:14px;background:#F9F7FF;border-radius:14px;padding:20px;border:1px solid #EDE9FE;">
             <div style="font-size:26px;flex-shrink:0;padding-top:2px;">🔄</div>
-            <div><h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 6px;">Выходит регулярно и системно</h4><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Когда возникает потребность — первым вспоминают вас, а не конкурента который "куда-то пропал".</p></div>
+            <div><h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 6px;">Выходит регулярно и системно</h4><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Когда возникает потребность — первым вспоминают вас, а не конкурента который «куда-то пропал».</p></div>
           </div>
           <div style="display:flex;gap:14px;background:#F9F7FF;border-radius:14px;padding:20px;border:1px solid #EDE9FE;">
             <div style="font-size:26px;flex-shrink:0;padding-top:2px;">📈</div>
-            <div><h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 6px;">Улучшается по реальным данным</h4><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Каждые 15 дней — анализ реакций. Попадание в интересы ваших клиентов растёт с каждым циклом.</p></div>
+            <div><h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 6px;">Улучшается по реальным данным</h4><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Каждый цикл — анализ реакций. Попадание в интересы ваших клиентов растёт с каждым циклом.</p></div>
           </div>
           <div style="display:flex;gap:14px;background:#F9F7FF;border-radius:14px;padding:20px;border:1px solid #EDE9FE;">
             <div style="font-size:26px;flex-shrink:0;padding-top:2px;">💡</div>
-            <div><h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 6px;">Демонстрирует вашу экспертизу</h4><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Контент показывает что вы знаете своё дело. Это не реклама — это доказательство.</p></div>
+            <div><h4 style="font-size:15px;font-weight:700;color:#1E1B4B;margin:0 0 6px;">Демонстрирует вашу экспертизу</h4><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Контент показывает, что вы знаете своё дело. Реклама обещает. Такой контент доказывает.</p></div>
           </div>
         </div>
         <div style="background:linear-gradient(135deg,#7C3AED 0%,#4F46E5 100%);border-radius:14px;padding:24px 28px;text-align:center;">
-          <p style="font-size:17px;font-weight:700;color:#fff;margin:0 0 8px;line-height:1.5;">Это не магия и не обещание. Это система.</p>
+          <p style="font-size:17px;font-weight:700;color:#fff;margin:0 0 8px;line-height:1.5;">Магии здесь нет. Есть система.</p>
           <p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.7;">Регулярный контент + написан языком ЦА + постоянная оптимизация = клиенты приходят с намного большей вероятностью чем от случайных постов раз в месяц.</p>
         </div>
+        <p style="text-align:center;font-size:13px;color:#9CA3AF;margin:16px 0 0;">Длина цикла зависит от тарифа: Старт и Стандарт — 15 дней, Профи — 10 дней.</p>
       </div>
     </div>
   </div>
@@ -1611,9 +1629,9 @@
           <li>📸 8 готовых постов: AI-изображение + текст — берёте и публикуете</li>
           <li>📱 15 готовых Stories</li>
           <li class="pkg-extra">🎬 4 Story Reels — анимированные слайды для Reels и TikTok</li>
-          <li>📝 3 SEO и GEO-статей для сайта</li>
+          <li>📝 3 SEO- и GEO-статьи для сайта</li>
           <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
-          <li>🔄 Корректировка контента каждые 15 дней — на основе реальной реакции вашей аудитории</li>
+          <li>🔄 Контент двумя порциями по 15 дней — каждая следующая создаётся по реакциям вашей аудитории</li>
         </ul>
         <a href="https://t.me/ContentDNAStart_bot?start=pkg_a" class="btn-secondary-outline pkg-buy-btn">→ Начать за €150/мес</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Хотите контент сразу на двух языках?</p>
@@ -1634,9 +1652,9 @@
           <li>🖼 8 готовых каруселей с дизайном</li>
           <li>📸 8 готовых постов: AI-изображение + текст — берёте и публикуете</li>
           <li>📱 15 готовых Stories</li>
-          <li>📝 3 SEO и GEO-статей для сайта</li>
+          <li>📝 3 SEO- и GEO-статьи для сайта</li>
           <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
-          <li>🔄 Корректировка контента каждые 15 дней — на основе реальной реакции вашей аудитории</li>
+          <li>🔄 Контент двумя порциями по 15 дней — каждая следующая создаётся по реакциям вашей аудитории</li>
           <hr class="pkg-card-divider">
           <li class="pkg-extra">🎬 8 Story Reels — анимированные слайды для Reels и TikTok</li>
           <li class="pkg-extra">🎥 2 AI Video — короткие AI-видео</li>
@@ -1660,9 +1678,9 @@
           <li>🖼 8 готовых каруселей с дизайном</li>
           <li>📸 8 готовых постов: AI-изображение + текст — берёте и публикуете</li>
           <li>📱 15 готовых Stories</li>
-          <li>📝 3 SEO и GEO-статей для сайта</li>
+          <li>📝 3 SEO- и GEO-статьи для сайта</li>
           <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
-          <li>🔄 Корректировка контента каждые 15 дней — на основе реальной реакции вашей аудитории</li>
+          <li>🔄 Контент тремя порциями по 10 дней — аналитика чаще, коррекции быстрее</li>
           <hr class="pkg-card-divider">
           <li class="pkg-extra">🎬 10 Story Reels — анимированные слайды для Reels и TikTok</li>
           <li class="pkg-extra">🎥 4 AI Video — короткие AI-видео</li>
@@ -1673,6 +1691,11 @@
         <a href="https://t.me/ContentDNAStart_bot?start=pkg_v_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€90/мес</a>
       </div>
 
+    </div>
+
+    <!-- BLOCK: PSYCHOLOGY DIGEST NOTE (черновик для staging, 18.07.2026) -->
+    <div class="pkg-note" style="margin-top:32px;">
+      🧠 В каждой волне контента используются знания психологии покупателя: в посты, карусели и короткие видео для вашего бизнеса включены приёмы, усиливающие внимание аудитории
     </div>
 
     <p style="font-size:13px;color:#6B7280;text-align:center;margin:20px 0 0;">⏱ Пакеты постов подготавливаются персонально под ваш бизнес в течение 1–2 рабочих дней. Уведомления приходят в Telegram и на электронную почту по мере готовности каждой части пакета.</p>
@@ -1705,7 +1728,7 @@
                       <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Masāža ķermenim un prātam.</div>
                     </div>
                     <div style="flex:1;min-height:90px;overflow:hidden;">
-                      <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                      <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
                     </div>
                     <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Jūsu bizness aug. Mēs parūpējamies par saturu. #bizness #mārketings</div>
                   </div>
@@ -1724,7 +1747,7 @@
                       <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Massage for body, mind and soul.</div>
                     </div>
                     <div style="flex:1;min-height:90px;overflow:hidden;">
-                      <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                      <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
                     </div>
                     <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Your business grows. We handle the content. #marketing #business</div>
                   </div>
@@ -1745,7 +1768,7 @@
                     <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Массаж для тела, души и настроения.</div>
                   </div>
                   <div style="flex:1;min-height:90px;overflow:hidden;">
-                    <img src="storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                    <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
                   </div>
                   <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Ваш бизнес растёт. Мы берём контент на себя. #маркетинг #бизнес</div>
                 </div>
@@ -1779,7 +1802,7 @@
     </div>
 
     <div class="pkg-note">
-      🎯 Все тексты написаны на основе исследования психологии ваших клиентов — их страхи, желания и мотивации.<br>Не просто красивый контент — контент который приводит клиентов и делает продажи.
+      🎯 Все тексты написаны на основе исследования психологии ваших клиентов — их страхи, желания и мотивации.<br>Контент, который приводит клиентов и делает продажи.
     </div>
   </div>
 </section>
@@ -1791,7 +1814,7 @@
       <div class="pain-card">
         <div class="pain-icon">🙋</div>
         <h3>Пробовали сами</h3>
-        <p>Каждый раз — головная боль: что снять, что написать, что вообще выложить. Откладывали на "когда будет время". Посты выходили редко и без системы — каждый как отдельная история, никак не связанная с предыдущей.</p>
+        <p>Каждый раз — головная боль: что снять, что написать, что вообще выложить. Откладывали на «когда будет время». Посты выходили редко и без системы — каждый как отдельная история, никак не связанная с предыдущей.</p>
         <p class="pain-card-result">Итог: контент есть, но нерегулярный и разрозненный — без стратегии, которая ведёт к клиентам.</p>
       </div>
       <div class="pain-card">
@@ -1803,13 +1826,13 @@
       <div class="pain-card">
         <div class="pain-icon">🏢</div>
         <h3>Обратились в агентство</h3>
-        <p>Всё серьёзно: контракт, бриф, разработка визуального стиля, регулярные Reels. Но любая правка — отдельный счёт. Говорят: "нужно минимум полгода". Платить надо сразу, а результат — обещают, но не гарантируют.</p>
+        <p>Всё серьёзно: контракт, бриф, разработка визуального стиля, регулярные Reels. Но любая правка — отдельный счёт. Говорят: «нужно минимум полгода». Платить надо сразу, а результат — обещают, но не гарантируют.</p>
         <p class="pain-card-result">Итог: каждый месяц оплачиваем работу агентства — немалые деньги, а когда придут клиенты — никто не гарантирует.</p>
       </div>
     </div>
 
     <div class="scenario-total">
-      <p>Если считать по деньгам — у агентства €700–1500, у фрилансера это €350–500 в месяц. И это за ведение одной соцсети <span style="white-space:nowrap">— за каждую следующую соцсеть</span> дополнительные деньги.</p>
+      <p>Если считать по деньгам — у агентства €700–1500, у фрилансера €350–500 в месяц. И это за ведение одной соцсети <span style="white-space:nowrap">— за каждую следующую соцсеть</span> дополнительные деньги.</p>
       <p>Если считать по времени — недели на онбординг, правки, согласования. А контент нужен сегодня.</p>
     </div>
 
@@ -1817,15 +1840,15 @@
       <h3>Что если есть четвёртый путь?</h3>
       <p>Контент, созданный на основе <strong>реального исследования</strong> — вашего бизнеса, вашей аудитории, ваших конкурентов. Не шаблоны. Не общие советы.</p>
       <p><strong>Контент для Instagram, TikTok, Facebook и LinkedIn — за одну цену.</strong> Один визуал, текст и хэштеги адаптированы под каждую платформу.</p>
-      <p>Готовые видео, карусели и статьи — за 24 часа. Каждый месяц. По цене доступной малому бизнесу — и с результатом, за который агентства берут в 5 раз больше.</p>
-      <p>Контент который работает на привлечение, прогрев и продажи — одновременно. Без найма команды, без правок, без ожидания.</p>
+      <p>Готовые видео, карусели и статьи — за 1–2 дня. Каждый месяц. По цене доступной малому бизнесу — и с результатом, за который агентства берут в 5 раз больше.</p>
+      <p>Контент который работает на привлечение, прогрев и продажи — одновременно. Без найма команды и недель ожидания.</p>
     </div>
 
     <!-- Мост между экранами -->
     <div class="bridge-block">
       <h3>Каким должен быть хороший контент-сервис?</h3>
       <ul class="bridge-list">
-        <li>Понимает ваш бизнес и конкурентов — посты интересны для ваших клиентов</li>
+        <li>Понимает ваш бизнес и конкурентов — посты интересны вашим клиентам</li>
         <li>Даёт готовый контент — надо только опубликовать</li>
         <li>Работает быстро и стоит разумных денег</li>
         <li>Каждый месяц — свежий анализ, новые темы, актуальный контент</li>
@@ -1869,7 +1892,7 @@
         <div class="product-icon">📊</div>
         <div class="product-text">
           <h4>Сводка по конкурентам + возможности</h4>
-          <p>Изучаем что конкуренты делают и что не закрывают — находим ваши уникальные контентные возможности. Знаете где занять свободное место в нише.</p>
+          <p>Изучаем что конкуренты делают и что не закрывают — находим ваши уникальные контентные возможности. Знаете, где занять свободное место в нише.</p>
           <a href="#" class="product-example-link" data-media="competitors" data-type="html">Посмотреть пример →</a>
         </div>
       </div>
@@ -1884,7 +1907,7 @@
       <div class="product-item">
         <div class="product-icon">📝</div>
         <div class="product-text">
-          <h4>3 SEO и GEO-статей для сайта</h4>
+          <h4>3 SEO- и GEO-статьи для сайта</h4>
           <p>Статьи, оптимизированные под поисковые запросы вашей аудитории — чтобы клиенты находили вас через Google и AI-поисковики каждый месяц.</p>
           <a class="product-example-link" data-media="seo_article" data-type="html">Посмотреть пример →</a>
         </div>
@@ -1893,7 +1916,7 @@
         <div class="product-icon">📸</div>
         <div class="product-text">
           <h4>8 готовых постов: AI-изображение + текст</h4>
-          <p>Каждый пост — AI-изображение под стиль вашего бренда плюс готовая подпись. Остаётся только нажать "опубликовать". Без фотографа и съёмки.</p>
+          <p>Каждый пост — AI-изображение под стиль вашего бренда плюс готовая подпись. Остаётся только нажать «опубликовать». Без фотографа и съёмки.</p>
           <a href="#" class="product-example-link" data-media="post_primer.jpeg" data-type="image">Посмотреть пример →</a>
         </div>
       </div>
@@ -1920,7 +1943,7 @@
         <div style="font-size:32px;flex-shrink:0">🧠</div>
         <div>
           <h4>Психология покупателя — в основе каждого текста</h4>
-          <p>Мы проводим кастдев: изучаем как ваши клиенты думают о своей проблеме, какими словами описывают боль, что их останавливает от покупки. Каждый текст — на языке вашей аудитории, а не на языке "маркетолога".</p>
+          <p>Мы проводим кастдев: изучаем как ваши клиенты думают о своей проблеме, какими словами описывают боль, что их останавливает от покупки. Каждый текст — на языке вашей аудитории, а не на языке «маркетолога».</p>
         </div>
       </div>
       <div class="engine-block">
@@ -1935,7 +1958,7 @@
     <div class="product-cta-block">
       <a href="#packages" class="btn-primary">→ Выбрать пакет</a>
       <a href="https://t.me/ContentDNAStart_bot?start=product" class="btn-secondary-outline">→ Получить бесплатный пакет</a>
-      <p class="product-cta-note">Бесплатно: готовый пост с текстом и визуалом · карусель (5 слайдов) · сценарий ролика · обложка для видео · SEO-статья · контент-план</p>
+      <p class="product-cta-note">Бесплатно: 3 готовых поста · карусель (7 слайдов) · 2 сторис · Story Reel · обложка и сценарий ролика · SEO-статья · контент-план</p>
     </div>
   </div>
 </section>
@@ -1958,7 +1981,7 @@
     </div>
 
     <!-- 6 факторов -->
-    <p style="font-size:13px;font-weight:700;color:#a78bfa;letter-spacing:1px;text-transform:uppercase;margin:0 0 16px;">Качественный контент — это система которая учитывает:</p>
+    <p style="font-size:13px;font-weight:700;color:#a78bfa;letter-spacing:1px;text-transform:uppercase;margin:0 0 16px;">Качественный контент — это система, которая учитывает:</p>
     <div class="factors-grid">
       <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;">
         <span style="font-size:22px;flex-shrink:0;">🌍</span>
@@ -1986,18 +2009,18 @@
       </div>
       <div style="grid-column:1/-1;background:rgba(139,92,246,0.2);border:1.5px solid rgba(139,92,246,0.5);border-radius:12px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;">
         <span style="font-size:26px;flex-shrink:0;">🔄</span>
-        <span style="font-size:14px;color:#e9d5ff;line-height:1.6;"><strong style="color:#fff;font-size:15px;">Анализирует как реагирует ваша аудитория — и создаёт следующий контент с учётом этого.</strong><br>Каждые 15 дней система смотрит что смотрели, сохраняли и на что откликались ваши подписчики — и на основе этих данных формирует новый контент. Он будет точнее предыдущего. ChatGPT так не умеет.</span>
+        <span style="font-size:14px;color:#e9d5ff;line-height:1.6;"><strong style="color:#fff;font-size:15px;">Анализирует как реагирует ваша аудитория — и создаёт следующий контент с учётом этого.</strong><br>Каждый цикл (15 дней, в тарифе Профи — 10) система проверяет, что ваши подписчики смотрели, сохраняли, на что откликались — и на основе этих данных формирует новый контент. Он будет точнее предыдущего. ChatGPT так не умеет.</span>
       </div>
     </div>
 
     <!-- Итоговая фраза -->
     <div style="background:rgba(139,92,246,0.25);border:1.5px solid rgba(139,92,246,0.5);border-radius:16px;padding:24px 28px;margin-bottom:20px;text-align:center;">
-      <p style="font-size:17px;font-weight:700;color:#fff;line-height:1.6;margin:0 0 12px;">Сложить всё это вместе и превратить в последовательность действий которые создают образ вашего продукта или услуги в соцсетях — это не "спросить ChatGPT".</p>
+      <p style="font-size:17px;font-weight:700;color:#fff;line-height:1.6;margin:0 0 12px;">Сложить всё это вместе и превратить в последовательность действий которые создают образ вашего продукта или услуги в соцсетях — это не «спросить ChatGPT».</p>
       <p style="font-size:15px;color:#ddd6fe;line-height:1.6;margin:0;">Отвечаете на несколько вопросов — система анализирует, учитывает и создаёт весь нужный контент каждый месяц. <strong style="color:#fff;">Берёте и публикуете.</strong></p>
     </div>
     <div style="text-align:center;margin-top:28px;">
       <a href="https://t.me/ContentDNAStart_bot?start=chatgpt" class="btn-primary" style="display:inline-block;background:#7C3AED;color:#fff;font-size:16px;font-weight:700;padding:16px 36px;border-radius:12px;text-decoration:none;">→ Получить бесплатный пакет</a>
-      <p style="font-size:13px;color:#c4b5fd;margin-top:10px;">Бесплатно. Без оплаты. Без обязательств.</p>
+      <p style="font-size:13px;color:#c4b5fd;margin-top:10px;">Бесплатно. Без карты и без обязательств.</p>
     </div>
 
   </div>
@@ -2006,7 +2029,7 @@
 <!-- BLOCK 2: WHO WE ARE -->
 <section class="who" id="who">
   <div class="who-inner">
-    <h2>Marketing DNA — глубокий анализ<br>и шикарный результат за короткое время</h2>
+    <h2>Marketing DNA — глубокий анализ<br>и готовый контент за 1–2 дня</h2>
     <p class="who-desc">Сервис по созданию готового контента для малого бизнеса. Изучаем ваш бизнес, конкурентов и клиентов — и создаём видео, карусели, сценарии и SEO-статьи персонально под ваш бизнес. Берёте готовые посты и публикуете в своих&nbsp;соцсетях.</p>
     <div class="compare-table-wrap">
     <table class="compare-table">
@@ -2095,8 +2118,8 @@
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <h3>Контент становится точнее каждые 15 дней</h3>
-        <p>Через 15 дней после старта система анализирует реальную реакцию вашей аудитории: что смотрели, что сохраняли, на что откликались. На основе этих данных формируется новый контент — уже с учётом того что работает именно у вас. Не общие шаблоны, а живое обучение на вашей аудитории.</p>
+        <h3>Контент становится точнее с каждым циклом</h3>
+        <p>Через 15 дней после старта (в тарифе Профи — через 10) система анализирует реальную реакцию вашей аудитории: что смотрели, что сохраняли, на что откликались. На основе этих данных формируется новый контент — уже с учётом того что работает именно у вас. Не общие шаблоны, а живое обучение на вашей аудитории.</p>
       </div>
     </div>
   </div>
@@ -2123,22 +2146,19 @@
       <div style="flex:1;min-width:240px;background:rgba(255,255,255,0.13);border:1px solid rgba(196,181,253,0.4);border-radius:16px;padding:28px;position:relative;">
         <div style="position:absolute;top:-12px;left:28px;background:#10B981;color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 12px;border-radius:20px;text-transform:uppercase;">Включено в сервис</div>
         <div style="font-size:28px;margin-bottom:12px;">🗓️</div>
-        <h3 style="color:#fff;font-size:17px;font-weight:700;margin-bottom:10px;">Оптимизация по результатам</h3>
-        <p style="color:#c4b5fd;font-size:14px;line-height:1.65;margin:0;">На 15-й день анализируем что зашло вашей аудитории — охваты, сохранения, реакции. На основе этого дорабатываем вторую половину контента. Ваш пакет становится лучше каждый месяц.</p>
+        <h3 style="color:#fff;font-size:17px;font-weight:700;margin-bottom:10px;">Сервис публикации</h3>
+        <p style="color:#c4b5fd;font-size:14px;line-height:1.65;margin:0;">Готовим единый визуал и отдельный текст с хэштегами для каждой вашей соцсети. Вы утверждаете контент-план — дальше всё публикуется само, в нужное время и в нужной сети. Работаем с планировщиками, которые официально рекомендуют сами платформы.</p>
       </div>
     </div>
 
     <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:28px 32px;text-align:center;">
-      <p style="color:#e9d5ff;font-size:16px;line-height:1.7;margin:0;">Сервис снимает с вас огромный пласт работы — от создания контента до его регулярного выхода в соцсети. Никаких дедлайнов, никакого «надо бы что-то написать». Всё запланировано, всё выходит, всё работает на ваш бизнес — пока вы занимаетесь другими важными делами.</p>
+      <p style="color:#e9d5ff;font-size:16px;line-height:1.7;margin:0;">Сервис снимает с вас огромный пласт работы — от создания контента до его регулярного выхода в соцсети. Никаких дедлайнов, никакого «надо бы что-то написать». Всё запланировано и выходит по графику, пока вы занимаетесь другими делами.</p>
     </div>
 
   </div>
 </section>
 
 
-<!-- ======================================================= -->
-<!-- 🔴 STAGING: McKINSEY AI URGENCY BLOCK — новый блок, тест -->
-<!-- ======================================================= -->
 <section style="background:linear-gradient(135deg,#fef3c7 0%,#fffbeb 100%);padding:80px 24px;border:3px solid red;">
   <div style="max-width:780px;margin:0 auto;text-align:center;">
 
@@ -2190,15 +2210,17 @@
   <div class="container">
     <h2>Получите ваш персональный контент-пакет — прямо сейчас, бесплатно</h2>
     <div class="magnet-items">
-      <div class="magnet-item">Готовый пост: текст и визуал</div>
+      <div class="magnet-item">3 готовых поста: текст и визуал</div>
       <div class="magnet-item">Карусель — 7 оформленных слайдов</div>
+      <div class="magnet-item">2 готовые сторис</div>
+      <div class="magnet-item">Story Reel — короткое видео</div>
       <div class="magnet-item">Сценарий для Reels / TikTok</div>
       <div class="magnet-item">Обложка для видео</div>
       <div class="magnet-item">SEO-статья для сайта</div>
       <div class="magnet-item">Контент-план на 7 дней</div>
     </div>
     <a href="https://t.me/ContentDNAStart_bot?start=magnet" class="btn-primary">→ Получить бесплатный пакет</a>
-    <p class="magnet-note">Бесплатно. Без оплаты. Без обязательств. Всё под ваш конкретный бизнес.</p>
+    <p class="magnet-note">Бесплатно. Без карты и без обязательств. Всё под ваш конкретный бизнес.</p>
     <div style="display:flex;flex-direction:column;gap:8px;margin-top:20px;max-width:400px;margin-left:auto;margin-right:auto;text-align:left;">
       <p style="font-size:12px;font-weight:700;color:#9CA3AF;text-align:center;margin-bottom:4px;letter-spacing:1px;text-transform:uppercase;">Как это работает — 3 шага</p>
       <div style="display:flex;align-items:center;gap:12px;background:#F5F3FF;border-radius:10px;padding:10px 14px;">
@@ -2224,32 +2246,32 @@
     <h2 class="section-title">Вы узнаёте себя?</h2>
     <div class="cards-grid">
       <div class="pain-card">
-        <img src="avatar_paul.jpg" class="pain-avatar" alt="Паул">
+        <img src="/avatar_paul.jpg" class="pain-avatar" alt="Паул">
         <div class="pain-name">Паул · Ремонт и отделка</div>
-        <p class="pain-quote">«Понимаю что надо вести соцсети. Но сяду вечером — и смотрю в экран. Не знаю с чего начать»</p>
+        <p class="pain-quote">«Понимаю, что надо вести соцсети. Но сяду вечером — и смотрю в экран. Не знаю с чего начать»</p>
       </div>
       <div class="pain-card">
-        <img src="avatar_kristina.jpg" class="pain-avatar" alt="Кристина">
+        <img src="/avatar_kristina.jpg" class="pain-avatar" alt="Кристина">
         <div class="pain-name">Кристина · Студия красоты</div>
         <p class="pain-quote">«Нанимала SMM-специалиста. Дорого, долго, и всё равно пришлось всё объяснять самой. Бросила»</p>
       </div>
       <div class="pain-card">
-        <img src="avatar_tomas.jpg" class="pain-avatar" alt="Томас">
+        <img src="/avatar_tomas.jpg" class="pain-avatar" alt="Томас">
         <div class="pain-name">Томас · Фитнес-студия</div>
-        <p class="pain-quote">«Понимаю что надо быть в TikTok. Но не понимаю что туда постить — думал это не для моего бизнеса»</p>
+        <p class="pain-quote">«Понимаю, что надо быть в TikTok. Но не понимаю что туда постить — думал это не для моего бизнеса»</p>
       </div>
       <div class="pain-card">
-        <img src="avatar_sofia.jpg" class="pain-avatar" alt="София">
+        <img src="/avatar_sofia.jpg" class="pain-avatar" alt="София">
         <div class="pain-name">София · Психолог</div>
-        <p class="pain-quote">«Знаю что мои клиенты ищут меня в соцсетях. Но писать о своей работе — не знаю как. Боюсь выглядеть навязчиво»</p>
+        <p class="pain-quote">«Знаю, что мои клиенты ищут меня в соцсетях. Но писать о своей работе — не знаю как. Боюсь выглядеть навязчиво»</p>
       </div>
       <div class="pain-card">
-        <img src="avatar_laura.jpg" class="pain-avatar" alt="Лаура">
+        <img src="/avatar_laura.jpg" class="pain-avatar" alt="Лаура">
         <div class="pain-name">Лаура · Мастер маникюра</div>
         <p class="pain-quote">«Делаю красивые работы, фотографирую, выкладываю — но не умею придумывать заголовки и темы»</p>
       </div>
       <div class="pain-card">
-        <img src="avatar_arnis.jpg" class="pain-avatar" alt="Арнис">
+        <img src="/avatar_arnis.jpg" class="pain-avatar" alt="Арнис">
         <div class="pain-name">Арнис · Производство мебели</div>
         <p class="pain-quote">«Делаем мебель на заказ — работы всегда хорошие. Фотографии выкладываю раз в месяц когда вспомню. Клиентов из соцсетей — ноль»</p>
       </div>
@@ -2268,7 +2290,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Чем отличаются тарифы Старт, Стандарт и Профи?</div>
-        <div class="faq-a">Все три тарифа включают одинаковую текстовую и визуальную базу: контент-план на 30 дней, 8 каруселей, 8 постов с AI-изображением, 15 Stories, 3 SEO-статьи, анализ конкурентов и корректировку каждые 15 дней.<br><br>Разница — в количестве видео и частоте публикаций:<br><br><strong>Тариф Старт (€150/мес)</strong> — 4 Story Reels (анимированные слайды для Reels и TikTok). Итого 20 постов в месяц. Подходит если видео снимаете сами — мы даём сценарии.<br><br><strong>Тариф Стандарт (€250/мес)</strong> — 8 Story Reels + 2 AI Video + 2 обложки. Итого 26 постов в месяц.<br><br><strong>Тариф Профи (€350/мес)</strong> — 10 Story Reels + 4 AI Video + 4 обложки. Итого 30 постов в месяц — публикация каждый день.</div>
+        <div class="faq-a">Все три тарифа включают одинаковую текстовую и визуальную базу: контент-план на 30 дней, 8 каруселей, 8 постов с AI-изображением, 15 Stories, 3 SEO-статьи, анализ конкурентов и регулярную корректировку по реакции аудитории.<br><br>Во всех тарифах контент приходит порциями: после каждой порции мы собираем аналитику ваших публикаций, и следующая часть создаётся уже на реальных данных — что понравилось вашей аудитории, а что нет.<br><br>Разница — в количестве видео и в том, как быстро наступают коррекции:<br><br><strong>Тариф Старт (€150/мес)</strong> — 4 Story Reels (анимированные слайды для Reels и TikTok), контент двумя порциями по 15 дней. Итого 20 постов в месяц. Подходит если видео снимаете сами — мы даём сценарии.<br><br><strong>Тариф Стандарт (€250/мес)</strong> — 8 Story Reels + 2 AI Video + 2 обложки, контент двумя порциями по 15 дней. Итого 26 постов в месяц.<br><br><strong>Тариф Профи (€350/мес)</strong> — 10 Story Reels + 4 AI Video + 4 обложки, контент тремя порциями по 10 дней. Мы чаще проверяем реакцию ваших клиентов — быстрее меняем то, что не работает, и усиливаем то, что нравится вашим клиентам. Итого 30 постов в месяц — публикация каждый день.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Можно получить контент на нескольких языках?</div>
@@ -2276,7 +2298,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Это точно подойдёт для моей ниши?</div>
-        <div class="faq-a">Да. И вы ничем не рискуете — начните с бесплатного контент-плана на 7 дней, посмотрите что получаете и тогда принимайте решение. Мы уверены что создадим для вас сильный результат — независимо от ниши.</div>
+        <div class="faq-a">Да. И вы ничем не рискуете — начните с бесплатного контент-плана на 7 дней, посмотрите что получаете и тогда принимайте решение. Мы уверены, что создадим для вас сильный результат — независимо от ниши.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Контент будет выглядеть шаблонно — как у всех?</div>
@@ -2284,11 +2306,11 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">А если мне не понравится результат?</div>
-        <div class="faq-a">Ошибки — орфографические, фактические, переводческие или противоречащие ценностям вашего бренда — исправляем в течение 24 часов, всегда. Для этого не нужно ждать следующего месяца.<br><br>Одна стратегическая правка в месяц включена в тариф: если тон или направление поста не то — корректируем. Все ваши пожелания по стратегии фиксируем и учитываем при составлении контента на следующий месяц.<br><br>Индивидуальные изменения к конкретным файлам — другой цвет, другое изображение, переработка отдельного видео — это персональная работа которая обсуждается и оформляется отдельно.<br><br>По любому вопросу пишите в нашу Службу заботы — живой человек ответит и разберётся вместе с вами.</div>
+        <div class="faq-a">Ошибки — орфографические, фактические, переводческие или противоречащие ценностям вашего бренда — исправляем в течение 24 часов, всегда. Для этого не нужно ждать следующего месяца.<br><br>Одна стратегическая правка в месяц включена в тариф: если тон или направление поста не то — корректируем. Все ваши пожелания по стратегии фиксируем и учитываем при составлении контента на следующий месяц.<br><br>Индивидуальные изменения к конкретным файлам — другой цвет, другое изображение, переработка отдельного видео — это персональная работа, которая обсуждается и оформляется отдельно.<br><br>По любому вопросу пишите в нашу Службу заботы — живой человек ответит и разберётся вместе с вами.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Как работает публикация? Мне нужно самому всё выкладывать?</div>
-        <div class="faq-a">Всё просто. Каждый пост приходит к вам готовым — текст, изображение или видео, всё прикреплено. Публикуете сами в удобное время или передаёте помощнику. Контент-план с расписанием тоже в комплекте — всё спланировано заранее, вам остаётся только нажать кнопку.</div>
+        <div class="faq-a">Два варианта на выбор.<br><br><strong>Вариант 1. Публикуете сами:</strong> каждый день в нужное время приходит напоминание с готовым материалом — текст, изображение или видео, всё прикреплено. Копируете и публикуете по графику. Можно делать самостоятельно или передать помощнику.<br><br><strong>Вариант 2. Через планировщик:</strong> подключаем официальный планировщик к вашим соцсетям — вы даёте доступ Marketing DNA, мы загружаем весь контент-план. Каждый пост выходит в нужной соцсети в нужное время, по графику контент-плана. От вас нужно одно: один раз просмотреть готовый план перед запуском и дать добро на публикацию.<br><br><em>Marketing DNA работает только с планировщиками, которые официально рекомендуют сами платформы — Instagram, Facebook, LinkedIn, TikTok и YouTube.</em></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Как я получу контент?</div>
@@ -2299,8 +2321,8 @@
         <div class="faq-a">Да — именно для этого есть бесплатный контент-план на 7 дней. Без оплаты и без обязательств.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Что значит "контент корректируется каждые 15 дней"?</div>
-        <div class="faq-a">Через 15 дней после того как вы начали публиковать контент, система анализирует реальную статистику: какие посты смотрели дольше, что сохраняли, на какие Reels откликались, где выходили из Stories.<br><br>На основе этих данных формируется следующий блок контента — с новыми темами, скорректированными форматами и усиленными хуками. Не по шаблону, а на основе того что уже работает именно у вас и именно с вашей аудиторией.<br><br>Так каждые 15 дней контент становится точнее — и лучше попадает в интересы ваших клиентов.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">Что значит «контент корректируется каждые 15 дней» (в Профи — каждые 10)?</div>
+        <div class="faq-a">В тарифах Старт и Стандарт — через 15 дней, в тарифе Профи — через 10 дней после того как вы начали публиковать контент, система анализирует реальную статистику: какие посты смотрели дольше, что сохраняли, на какие Reels откликались, где выходили из Stories.<br><br>На основе этих данных формируется следующая порция контента — с новыми темами, скорректированными форматами и усиленными хуками. Не по шаблону, а на основе того что уже работает именно у вас и именно с вашей аудиторией.<br><br>Так с каждым циклом контент становится точнее — и лучше попадает в интересы ваших клиентов.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Есть вопрос или предложение — куда написать?</div>
@@ -2326,7 +2348,7 @@
     <!-- ЛЕВАЯ ЧАСТЬ: тарифы -->
     <div>
       <h2>Соцсети разогревают интерес —<br>на сайте интерес превращается в продажи</h2>
-      <p class="website-upsell-desc">Можно показывать свой товар или услугу прямо в соцсетях и там же продавать — или делать это через свой сайт.<br>Сайт — это где заинтересованный человек принимает решение. Видит кто вы, что именно делаете, как это выглядит, сколько стоит — всё в одном месте.<br>Мы делаем хорошие сайты быстро и недорого — персонально под ваш бренд, ваш продукт и тех клиентов которых вы хотите привлекать.</p>
+      <p class="website-upsell-desc">Можно показывать свой товар или услугу прямо в соцсетях и там же продавать — или делать это через свой сайт.<br>Сайт — это где заинтересованный человек принимает решение. Видит кто вы, что именно делаете, как это выглядит, сколько стоит — всё в одном месте.<br>Мы делаем хорошие сайты быстро и недорого — персонально под ваш бренд, ваш продукт и тех клиентов, которых вы хотите привлекать.</p>
 
       <div class="site-tiers">
 
@@ -2335,7 +2357,7 @@
           <div class="tier-name">Сайт-визитка</div>
           <div class="tier-screens">3 экрана · 1–2 дня</div>
           <div class="tier-price">€150</div>
-          <div class="tier-desc">Кто вы, что делаете, как с вами связаться. Идеально для мастеров, фрилансеров и специалистов которые хотят быстро и недорого получить свою страницу в интернете.</div>
+          <div class="tier-desc">Кто вы, что делаете, как с вами связаться. Идеально для мастеров, фрилансеров и специалистов, которые хотят быстро и недорого получить свою страницу в интернете.</div>
           <div class="tier-label">Пример сайта-визитки</div>
           <div class="tier-thumbs">
             <div class="pthumbs" onclick="openSitePreview('https://6a05d5047df708a1b9fdf74f--regal-tiramisu-3311e3.netlify.app','Визитка — Lena Kalnina')">
@@ -2351,7 +2373,7 @@
           <div class="tier-name">Сайт эксперта</div>
           <div class="tier-screens">9 экранов · до 5 дней</div>
           <div class="tier-price">€299</div>
-          <div class="tier-desc">Полная упаковка: история, услуги с фото, процесс работы, кейсы, отзывы и FAQ. Для тех кто хочет выглядеть профессионально и продавать дороже.</div>
+          <div class="tier-desc">Полная упаковка: история, услуги с фото, процесс работы, кейсы, отзывы и FAQ. Для тех, кто хочет выглядеть профессионально и продавать дороже.</div>
           <div class="tier-label">Пример сайта эксперта</div>
           <div class="tier-thumbs">
             <div class="pthumbs" onclick="openSitePreview('https://6a05dd8f35b7ec05081a1e03--regal-tiramisu-3311e3.netlify.app','Эксперт — Lena Kalnina')">
@@ -2370,7 +2392,7 @@
           <div class="tier-label">Примеры наших работ</div>
           <div class="tier-thumbs">
             <div class="pthumbs" onclick="openSitePreview('https://smartskola.lv','SmartSkola','smartskola-preview.png')">
-              <img src="smartskola-preview.png" alt="SmartSkola">
+              <img src="/smartskola-preview.png" alt="SmartSkola">
               <div class="pthumbs-name">SmartSkola</div>
             </div>
             <div class="pthumbs" onclick="openSitePreview('https://modelmatch.pro/ru','ModelMatch')">
@@ -2378,7 +2400,7 @@
               <div class="pthumbs-name">ModelMatch</div>
             </div>
             <div class="pthumbs" onclick="openSitePreview('https://artandwine.club/ru','Art&Wine','artandwine-preview.png')">
-              <img src="artandwine-preview.png" alt="Art&Wine" style="object-position: top center;">
+              <img src="/artandwine-preview.png" alt="Art&Wine" style="object-position: top center;">
               <div class="pthumbs-name">Art&amp;Wine</div>
             </div>
           </div>
@@ -2425,9 +2447,9 @@
 <section class="final-cta" id="final">
   <div class="container">
     <h2>Ещё не приняли решение?</h2>
-    <p>Если вы дочитали до этого места и всё ещё думаете — возможно вы человек который хочет всё делать сам. Мы это уважаем и ценим.<br><br>Но если хотите сравнить — что получается у вас сейчас и что предлагаем мы — у вас есть простой способ проверить. Без давления. Без обязательств.</p>
+    <p>Если вы дочитали до этого места и всё ещё думаете — возможно, вы человек, который хочет всё делать сам. Мы это уважаем и ценим.<br><br>Но если хотите сравнить — что получается у вас сейчас и что предлагаем мы — у вас есть простой способ проверить. Без давления. Без обязательств.</p>
     <a href="https://t.me/ContentDNAStart_bot?start=final" class="btn-primary" style="font-size:18px;padding:20px 40px">→ Получить бесплатный пакет</a>
-    <p style="margin-top:16px;font-size:13px;color:#374151">Бесплатно. Без оплаты. Без обязательств.<br>Контент-план · SEO-статья · Пример обложки и фото · Сценарий ролика · Карусель&nbsp;(5&nbsp;слайдов)</p>
+    <p style="margin-top:16px;font-size:13px;color:#374151">Бесплатно. Без карты и без обязательств.<br>Контент-план · SEO-статья · 3 поста · 2 сторис · Story Reel · Обложка и сценарий ролика · Карусель&nbsp;(7&nbsp;слайдов)</p>
     <div style="display:flex;flex-direction:column;gap:8px;margin-top:20px;max-width:400px;margin-left:auto;margin-right:auto;text-align:left;">
       <p style="font-size:12px;font-weight:700;color:#9CA3AF;text-align:center;margin-bottom:4px;letter-spacing:1px;text-transform:uppercase;">Как это работает — 3 шага</p>
       <div style="display:flex;align-items:center;gap:12px;background:#F5F3FF;border-radius:10px;padding:10px 14px;">
@@ -2444,7 +2466,7 @@
       </div>
       <p style="font-size:12px;color:#9CA3AF;text-align:center;margin-top:2px;">Telegram — бесплатное приложение для вашего телефона или компьютера.</p>
     </div>
-    <p style="margin-top:20px;font-size:16px;color:#1E293B;">Хотите зафиксировать главные мысли? <a href="about.html" style="color:var(--purple);font-weight:600;text-decoration:none;">Смотрите презентацию →</a></p>
+    <p style="margin-top:20px;font-size:16px;color:#1E293B;">Хотите зафиксировать главные мысли? <a href="/about.html" style="color:var(--purple);font-weight:600;text-decoration:none;">Смотрите презентацию →</a></p>
   </div>
 </section>
 
