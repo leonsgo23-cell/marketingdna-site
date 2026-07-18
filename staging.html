@@ -1056,6 +1056,21 @@
   .pkg-card-items li { font-size: 14px; color: #374151; line-height: 1.5; }
   .pkg-card-items .pkg-extra { color: var(--purple); font-weight: 700; }
   .pkg-card-divider { border: none; border-top: 2px dashed #e5e7eb; margin: 6px 0; }
+  .pkg-card-premium { border-color: #5b21b6; box-shadow: 0 8px 28px rgba(91,33,182,.18); }
+  .pkg-card-premium-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #5b21b6; color: #fff; font-size: 12px; font-weight: 700; padding: 5px 18px; border-radius: 20px; white-space: nowrap; }
+  .pkg-extras-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; margin: 0 0 2px; }
+  .pkg-extras-label.t1 { color: #9ca3af; }
+  .pkg-extras-label.t2 { color: var(--purple); }
+  .pkg-extras-label.t3 { color: #5b21b6; }
+  .pkg-extra-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .pkg-extra-dots { display: inline-flex; gap: 3px; }
+  .pkg-extra-dots span { width: 6px; height: 6px; border-radius: 50%; background: currentColor; display: inline-block; }
+  .pkg-extra-delta { font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 20px; white-space: nowrap; }
+  .pkg-extra-delta.t2 { background: #EDE9FE; color: var(--purple); }
+  .pkg-extra-delta.t3 { background: #5b21b6; color: #fff; }
+  .pkg-card-items li.pkg-extra.t1 { color: #6b7280; font-weight: 600; }
+  .pkg-card-items li.pkg-extra.t3 { font-size: 15px; }
+  .pkg-extra-rich { background: #F5F3FF; border-radius: 10px; padding: 6px 10px; margin: -2px -4px; }
   .pkg-buy-btn { display: block; text-align: center; width: 100%; box-sizing: border-box; }
 
   @media(max-width: 768px) {
@@ -1632,7 +1647,14 @@
           <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
           <li>🔄 Контент двумя волнами по 15 дней - каждая следующая анализируется и создаётся по реакциям вашей аудитории</li>
           <hr class="pkg-card-divider">
-          <li class="pkg-extra">🎬 4 Story Reels - анимированные слайды для Reels и TikTok</li>
+          <div class="pkg-extras-label t1">Что добавлено к базе</div>
+          <li class="pkg-extra t1">
+            <div class="pkg-extra-row">
+              <span>🎬 4 Story Reels</span>
+              <span class="pkg-extra-dots" style="color:#9ca3af"><span></span><span></span><span></span><span></span></span>
+            </div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">анимированные слайды для Reels и TikTok</div>
+          </li>
         </ul>
         <a href="https://t.me/ContentDNAStart_bot?start=pkg_a" class="btn-secondary-outline pkg-buy-btn">→ Начать за €150/мес</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Хотите контент сразу на двух языках?</p>
@@ -1657,9 +1679,19 @@
           <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
           <li>🔄 Контент двумя волнами по 15 дней - каждая следующая анализируется и создаётся по реакциям вашей аудитории</li>
           <hr class="pkg-card-divider">
-          <li class="pkg-extra">🎬 8 Story Reels - анимированные слайды для Reels и TikTok</li>
-          <li class="pkg-extra">🎥 2 AI Video - короткие AI-видео</li>
-          <li class="pkg-extra">🖼️ 2 обложки для AI Video</li>
+          <div class="pkg-extras-label t2">Всё из Старт, плюс:</div>
+          <li class="pkg-extra t2">
+            <div class="pkg-extra-row">
+              <span>🎬 8 Story Reels</span>
+              <span style="display:flex;align-items:center;gap:6px;">
+                <span class="pkg-extra-dots" style="color:var(--purple)"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+                <span class="pkg-extra-delta t2">×2 к Старту</span>
+              </span>
+            </div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">анимированные слайды для Reels и TikTok</div>
+          </li>
+          <li class="pkg-extra t2">🎥 2 AI Video - короткие AI-видео <span class="pkg-extra-delta t2">новое</span></li>
+          <li class="pkg-extra t2">🖼️ 2 обложки для AI Video</li>
         </ul>
         <a href="https://t.me/ContentDNAStart_bot?start=pkg_standard" class="btn-primary pkg-buy-btn">→ Начать за €250/мес</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Хотите контент сразу на двух языках?</p>
@@ -1667,7 +1699,8 @@
       </div>
 
       <!-- ТАРИФ ПРОФИ: €350 -->
-      <div class="pkg-card">
+      <div class="pkg-card pkg-card-premium">
+        <div class="pkg-card-premium-badge">Максимум</div>
         <div class="pkg-card-name">Тариф Профи - Тексты + Визуал + Story Reels + AI Video</div>
         <div class="pkg-card-tagline">Весь пакет Старт + 10 Story Reels и 4 AI Video</div>
         <div class="pkg-card-price">
@@ -1683,9 +1716,19 @@
           <li>📊 Сводка по конкурентам + возможности <span style="font-size:11px;color:#9ca3af">(в первый месяц)</span></li>
           <li>🔄 Контент тремя волнами по 10 дней - аналитика проводится чаще, коррекции быстрее</li>
           <hr class="pkg-card-divider">
-          <li class="pkg-extra">🎬 10 Story Reels - анимированные слайды для Reels и TikTok</li>
-          <li class="pkg-extra">🎥 4 AI Video - короткие AI-видео</li>
-          <li class="pkg-extra">🖼️ 4 обложки для AI Video</li>
+          <div class="pkg-extras-label t3">Всё из Стандарт, плюс:</div>
+          <li class="pkg-extra t3 pkg-extra-rich">
+            <div class="pkg-extra-row">
+              <span>🎬 10 Story Reels</span>
+              <span style="display:flex;align-items:center;gap:6px;">
+                <span class="pkg-extra-dots" style="color:#5b21b6"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+                <span class="pkg-extra-delta t3">+2 к Стандарту</span>
+              </span>
+            </div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">анимированные слайды для Reels и TikTok</div>
+          </li>
+          <li class="pkg-extra t3 pkg-extra-rich">🎥 4 AI Video - короткие AI-видео <span class="pkg-extra-delta t3">+2</span></li>
+          <li class="pkg-extra t3 pkg-extra-rich">🖼️ 4 обложки для AI Video <span class="pkg-extra-delta t3">+2</span></li>
         </ul>
         <a href="https://t.me/ContentDNAStart_bot?start=pkg_v" class="btn-secondary-outline pkg-buy-btn">→ Начать за €350/мес</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Хотите контент сразу на двух языках?</p>
