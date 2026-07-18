@@ -1056,6 +1056,21 @@
   .pkg-card-items li { font-size: 14px; color: #374151; line-height: 1.5; }
   .pkg-card-items .pkg-extra { color: var(--purple); font-weight: 700; }
   .pkg-card-divider { border: none; border-top: 2px dashed #e5e7eb; margin: 6px 0; }
+  .pkg-card-premium { border-color: #5b21b6; box-shadow: 0 8px 28px rgba(91,33,182,.18); }
+  .pkg-card-premium-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #5b21b6; color: #fff; font-size: 12px; font-weight: 700; padding: 5px 18px; border-radius: 20px; white-space: nowrap; }
+  .pkg-extras-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; margin: 0 0 2px; }
+  .pkg-extras-label.t1 { color: #9ca3af; }
+  .pkg-extras-label.t2 { color: var(--purple); }
+  .pkg-extras-label.t3 { color: #5b21b6; }
+  .pkg-extra-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .pkg-extra-dots { display: inline-flex; gap: 3px; }
+  .pkg-extra-dots span { width: 6px; height: 6px; border-radius: 50%; background: currentColor; display: inline-block; }
+  .pkg-extra-delta { font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 20px; white-space: nowrap; }
+  .pkg-extra-delta.t2 { background: #EDE9FE; color: var(--purple); }
+  .pkg-extra-delta.t3 { background: #5b21b6; color: #fff; }
+  .pkg-card-items li.pkg-extra.t1 { color: #6b7280; font-weight: 600; }
+  .pkg-card-items li.pkg-extra.t3 { font-size: 15px; }
+  .pkg-extra-rich { background: #F5F3FF; border-radius: 10px; padding: 6px 10px; margin: -2px -4px; }
   .pkg-buy-btn { display: block; text-align: center; width: 100%; box-sizing: border-box; }
 
   @media(max-width: 768px) {
@@ -1554,27 +1569,28 @@
       <div class="mdna-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px;">
         <div style="background:#F5F3FF;border-radius:16px;padding:28px 24px;text-align:center;border:1.5px solid #DDD6FE;">
           <div style="width:52px;height:52px;background:#7C3AED;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;margin:0 auto 16px;">1</div>
-          <div style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">1.–15. diena</div>
+          <div style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Viļņa sākums</div>
           <h4 style="font-size:16px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Palaižam saturu</h4>
-          <p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Pilna pakotne tiek izveidota, pamatojoties uz jūsu biznesa, auditorijas un konkurentu analīzi. Jūs publicējat pēc grafika.</p>
+          <p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Pilna pakotne tiek izveidota, pamatojoties uz jūsu biznesa, auditorijas un konkurentu analīzi. Tiek publicēts automātiski pēc grafika — īstajā laikā un pareizajā tīklā, jums tikai jāapstiprina.</p>
         </div>
         <div style="background:#F5F3FF;border-radius:16px;padding:28px 24px;text-align:center;border:1.5px solid #DDD6FE;">
           <div style="width:52px;height:52px;background:#7C3AED;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;margin:0 auto 16px;">2</div>
-          <div style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">15. diena</div>
-          <h4 style="font-size:16px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Analizējam reakciju</h4>
+          <div style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Pēc katra viļņa</div>
+          <h4 style="font-size:16px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Analizējam reakciju un uzvedību</h4>
           <p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Ko skatījās ilgāk, ko saglabāja, uz ko atsaucās. Jūsu auditorijas reālie dati — nevis pieņēmumi.</p>
         </div>
         <div style="background:#EDE9FE;border-radius:16px;padding:28px 24px;text-align:center;border:1.5px solid #7C3AED;box-shadow:0 4px 20px rgba(124,58,237,0.12);">
           <div style="width:52px;height:52px;background:#7C3AED;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;margin:0 auto 16px;">3</div>
-          <div style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">16.–30. diena</div>
-          <h4 style="font-size:16px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Uzlabojam nākamo bloku</h4>
+          <div style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Jauns vilnis</div>
+          <h4 style="font-size:16px;font-weight:700;color:#1E1B4B;margin:0 0 10px;">Uzlabojam nākamo vilni</h4>
           <p style="font-size:13px;color:#6B7280;line-height:1.6;margin:0;">Nākamais saturs tiek veidots, ņemot vērā datus: tēmas precīzākas, formāti labāki, nokļūšana jūsu auditorijas interesēs — augstāka.</p>
         </div>
       </div>
       <div style="background:#1E1B4B;border-radius:14px;padding:28px 32px;text-align:center;margin-bottom:40px;">
         <p style="font-size:17px;font-weight:700;color:#fff;margin:0 0 10px;">Katrs jauns cikls — saturs precīzāks par iepriekšējo</p>
-        <p style="font-size:14px;color:#A78BFA;margin:0;line-height:1.7;">Parasti aģentūras veido saturu pēc veidnēm reizi mēnesī. Mēs veidojam nākamo bloku, pamatojoties uz jūsu auditorijas reālajiem datiem. To nevar nopirkt atsevišķi — tas ir iestrādāts sistēmā.</p>
+        <p style="font-size:14px;color:#A78BFA;margin:0;line-height:1.7;">Parasti aģentūras veido saturu pēc veidnēm reizi mēnesī. Mēs veidojam nākamo vilni, pamatojoties uz jūsu auditorijas reālajiem datiem. To nevar nopirkt atsevišķi — tas ir iestrādāts sistēmā.</p>
       </div>
+      <p style="text-align:center;font-size:13px;color:#9CA3AF;margin:16px 0 0;">Viena viļņa garums atkarīgs no tarifa: Starts un Standarts — 2 viļņi pa 15 dienām (1.–15. un 16.–30. diena). Profi — 3 viļņi pa 10 dienām (1.–10., 11.–20. un 21.–30. diena) — analīze un korekcija pēc katra viļņa.</p>
       <div style="padding-top:40px;border-top:1px solid #F3F4F6;">
         <h3 style="text-align:center;font-size:26px;font-weight:800;color:#1E1B4B;margin:0 0 12px;letter-spacing:-0.3px;">Mēs neapsolām klientus.<br>Mēs radām apstākļus, kuros viņi nāk paši</h3>
         <p style="text-align:center;font-size:15px;color:#6B7280;max-width:600px;margin:0 auto 32px;line-height:1.7;">Saturs piesaista klientus, ja tas balstās uz četriem principiem:</p>
@@ -1600,7 +1616,6 @@
           <p style="font-size:17px;font-weight:700;color:#fff;margin:0 0 8px;line-height:1.5;">Maģijas te nav. Ir sistēma.</p>
           <p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.7;">Regulārs saturs + rakstīts mērķauditorijas valodā + pastāvīga optimizācija = klienti nāk ar daudz lielāku varbūtību nekā no nejaušiem ierakstiem reizi mēnesī.</p>
         </div>
-        <p style="text-align:center;font-size:13px;color:#9CA3AF;margin:16px 0 0;">Cikla garums atkarīgs no tarifa: Starts un Standarts — 15 dienas, Profi — 10 dienas.</p>
       </div>
     </div>
   </div>
@@ -1626,10 +1641,18 @@
           <li>🖼 8 gatavi karuseļi ar dizainu</li>
           <li>📸 8 gatavi ieraksti: AI attēls + teksts — ņemat un publicējat</li>
           <li>📱 15 gatavi Stāsti</li>
-          <li class="pkg-extra">🎬 4 Story Reels — animēti slaidi Reels un TikTok</li>
           <li>📝 3 SEO un GEO raksti vietnei</li>
           <li>📊 Konkurentu apskats + iespējas <span style="font-size:11px;color:#9ca3af">(pirmajā mēnesī)</span></li>
-          <li>🔄 Saturs divās daļās pa 15 dienām — katra nākamā top pēc jūsu auditorijas reakcijām</li>
+          <li>🔄 Saturs divos viļņos pa 15 dienām — katrs nākamais tiek analizēts un top pēc jūsu auditorijas reakcijām</li>
+          <hr class="pkg-card-divider">
+          <div class="pkg-extras-label t1">Kas pievienots bāzei</div>
+          <li class="pkg-extra t1">
+            <div class="pkg-extra-row">
+              <span>🎬 4 Story Reels</span>
+              <span class="pkg-extra-dots" style="color:#9ca3af"><span></span><span></span><span></span><span></span></span>
+            </div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">animēti slaidi Reels un TikTok</div>
+          </li>
         </ul>
         <a href="https://t.me/ContentDNAStart_bot?start=lv_pkg_a" class="btn-secondary-outline pkg-buy-btn">→ Sākt par €150/mēn.</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Vēlaties saturu uzreiz divās valodās?</p>
@@ -1652,11 +1675,21 @@
           <li>📱 15 gatavi Stāsti</li>
           <li>📝 3 SEO un GEO raksti vietnei</li>
           <li>📊 Konkurentu apskats + iespējas <span style="font-size:11px;color:#9ca3af">(pirmajā mēnesī)</span></li>
-          <li>🔄 Saturs divās daļās pa 15 dienām — katra nākamā top pēc jūsu auditorijas reakcijām</li>
+          <li>🔄 Saturs divos viļņos pa 15 dienām — katrs nākamais tiek analizēts un top pēc jūsu auditorijas reakcijām</li>
           <hr class="pkg-card-divider">
-          <li class="pkg-extra">🎬 8 Story Reels — animēti slaidi Reels un TikTok</li>
-          <li class="pkg-extra">🎥 2 AI Video — īsi AI video</li>
-          <li class="pkg-extra">🖼️ 2 AI Video vāki</li>
+          <div class="pkg-extras-label t2">Viss no Starta, plus:</div>
+          <li class="pkg-extra t2">
+            <div class="pkg-extra-row">
+              <span>🎬 8 Story Reels</span>
+              <span style="display:flex;align-items:center;gap:6px;">
+                <span class="pkg-extra-dots" style="color:var(--purple)"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+                <span class="pkg-extra-delta t2">×2 vairāk nekā Startā</span>
+              </span>
+            </div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">animēti slaidi Reels un TikTok</div>
+          </li>
+          <li class="pkg-extra t2">🎥 2 AI Video — īsi AI video <span class="pkg-extra-delta t2">jauns</span></li>
+          <li class="pkg-extra t2">🖼️ 2 AI Video vāki</li>
         </ul>
         <a href="https://t.me/ContentDNAStart_bot?start=lv_pkg_standard" class="btn-primary pkg-buy-btn">→ Sākt par €250/mēn.</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Vēlaties saturu uzreiz divās valodās?</p>
@@ -1664,7 +1697,8 @@
       </div>
 
       <!-- TARIFS PROFI: €350 -->
-      <div class="pkg-card">
+      <div class="pkg-card pkg-card-premium">
+        <div class="pkg-card-premium-badge">Maksimums</div>
         <div class="pkg-card-name">Tarifs Profi — Teksti + Vizuāls + Story Reels + AI Video</div>
         <div class="pkg-card-tagline">Visa Starta pakotne + 10 Story Reels un 4 AI Video</div>
         <div class="pkg-card-price">
@@ -1678,11 +1712,21 @@
           <li>📱 15 gatavi Stāsti</li>
           <li>📝 3 SEO un GEO raksti vietnei</li>
           <li>📊 Konkurentu apskats + iespējas <span style="font-size:11px;color:#9ca3af">(pirmajā mēnesī)</span></li>
-          <li>🔄 Saturs trīs daļās pa 10 dienām — biežāka analītika, ātrākas korekcijas</li>
           <hr class="pkg-card-divider">
-          <li class="pkg-extra">🎬 10 Story Reels — animēti slaidi Reels un TikTok</li>
-          <li class="pkg-extra">🎥 4 AI Video — īsi AI video</li>
-          <li class="pkg-extra">🖼️ 4 AI Video vāki</li>
+          <div class="pkg-extras-label t3">Viss no Standarta, plus:</div>
+          <li class="pkg-extra t3 pkg-extra-rich">🔄 Saturs trīs viļņos pa 10 dienām — biežāka analītika, ātrākas korekcijas</li>
+          <li class="pkg-extra t3 pkg-extra-rich">
+            <div class="pkg-extra-row">
+              <span>🎬 10 Story Reels</span>
+              <span style="display:flex;align-items:center;gap:6px;">
+                <span class="pkg-extra-dots" style="color:#5b21b6"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+                <span class="pkg-extra-delta t3">+2 vairāk nekā Standartā</span>
+              </span>
+            </div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">animēti slaidi Reels un TikTok</div>
+          </li>
+          <li class="pkg-extra t3 pkg-extra-rich">🎥 4 AI Video — īsi AI video <span class="pkg-extra-delta t3">+2</span></li>
+          <li class="pkg-extra t3 pkg-extra-rich">🖼️ 4 AI Video vāki <span class="pkg-extra-delta t3">+2</span></li>
         </ul>
         <a href="https://t.me/ContentDNAStart_bot?start=lv_pkg_v" class="btn-secondary-outline pkg-buy-btn">→ Sākt par €350/mēn.</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Vēlaties saturu uzreiz divās valodās?</p>
@@ -1691,7 +1735,12 @@
 
     </div>
 
-    <p style="font-size:13px;color:#6B7280;text-align:center;margin:20px 0 0;">⏱ Satura pakotnes tiek sagatavotas personīgi jūsu biznesam 1–2 darba dienu laikā. Paziņojumi Telegram un uz e-pastu — par katras pakotnes daļas gatavību.</p>
+    <!-- BLOKS: PSYCHOLOGY DIGEST NOTE -->
+    <div class="pkg-note" style="margin-top:32px;">
+      🧠 Katrā satura vilnī tiek izmantotas pircēju psiholoģijas zināšanas: ierakstos, karuselēs un īsajos videoklipos jūsu biznesam iekļauti paņēmieni, kas pastiprina mērķauditorijas (MA) uzmanību
+    </div>
+
+    <p style="font-size:13px;color:#6B7280;text-align:center;margin:20px 0 0;">⏱ Satura pakotnes tiek sagatavotas personīgi jūsu biznesam 1–2 darba dienu laikā. Paziņojumi Telegram un uz e-pastu — par katra viļņa gatavību.</p>
 
     <!-- BLOKS: DAUDZVALODU -->
     <section style="background:linear-gradient(135deg,#F5F3FF 0%,#EDE9FE 100%);padding:72px 20px;margin:40px -20px 0;border-radius:0;">
@@ -2180,7 +2229,7 @@
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#F5F3FF;border-radius:10px;padding:10px 14px;">
         <span style="width:24px;height:24px;background:#7C3AED;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">3</span>
-        <span style="font-size:14px;color:#374151;">Atbildiet uz jautājumiem par savu biznesu — saņemiet gatavu bezmaksas ierakstu pakotni jūsu biznesam</span>
+        <span style="font-size:14px;color:#374151;">Atsūtiet saiti uz savu vietni/Instagram — saņemiet gatavu bezmaksas ierakstu pakotni jūsu biznesam</span>
       </div>
       <p style="font-size:12px;color:#9CA3AF;text-align:center;margin-top:2px;">Telegram — bezmaksas lietotne jūsu tālrunim vai datoram.</p>
     </div>
@@ -2237,7 +2286,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Ar ko atšķiras tarifi Starts, Standarts un Profi?</div>
-        <div class="faq-a">Visi trīs tarifi ietver vienādu teksta un vizuālo bāzi: satura plāns 30 dienām, 8 karuseļi, 8 ieraksti ar AI attēlu, 15 Stāsti, 3 SEO raksti, konkurentu analīze un regulāra korekcija pēc auditorijas reakcijas.<br><br>Visos tarifos saturs tiek piegādāts pa daļām: pēc katras daļas mēs apkopojam jūsu publikāciju analītiku, un nākamā daļa top jau uz reāliem datiem — kas jūsu auditorijai patika un kas ne.<br><br>Atšķirība — video satura daudzumā un tajā, cik ātri notiek korekcijas:<br><br><strong>Tarifs Starts (€150/mēn.)</strong> — 4 Story Reels (animēti slaidi Reels un TikTok), saturs divās daļās pa 15 dienām. Kopā 20 ieraksti mēnesī. Piemērots, ja video filmējat paši — mēs dodam scenārijus.<br><br><strong>Tarifs Standarts (€250/mēn.)</strong> — 8 Story Reels + 2 AI Video + 2 vāki, saturs divās daļās pa 15 dienām. Kopā 26 ieraksti mēnesī.<br><br><strong>Tarifs Profi (€350/mēn.)</strong> — 10 Story Reels + 4 AI Video + 4 vāki, saturs trīs daļās pa 10 dienām. Biežāk pārbaudām jūsu klientu reakciju — ātrāk mainām to, kas nestrādā, un pastiprinām to, kas jūsu klientiem patīk. Kopā 30 ieraksti mēnesī — publikācija katru dienu.</div>
+        <div class="faq-a">Visi trīs tarifi ietver vienādu teksta un vizuālo bāzi: satura plāns 30 dienām, 8 karuseļi, 8 ieraksti ar AI attēlu, 15 Stāsti, 3 SEO raksti, konkurentu analīze un regulāra korekcija pēc auditorijas reakcijas.<br><br>Visos tarifos saturs tiek piegādāts viļņos: pēc katra viļņa mēs apkopojam jūsu publikāciju analītiku, un nākamais vilnis top jau uz reāliem datiem — kas jūsu auditorijai patika un kas ne.<br><br>Atšķirība — video satura daudzumā un tajā, cik ātri notiek korekcijas:<br><br><strong>Tarifs Starts (€150/mēn.)</strong> — 4 Story Reels (animēti slaidi Reels un TikTok), saturs divos viļņos pa 15 dienām. Kopā 20 ieraksti mēnesī. Piemērots, ja video filmējat paši — mēs dodam scenārijus.<br><br><strong>Tarifs Standarts (€250/mēn.)</strong> — 8 Story Reels + 2 AI Video + 2 vāki, saturs divos viļņos pa 15 dienām. Kopā 26 ieraksti mēnesī.<br><br><strong>Tarifs Profi (€350/mēn.)</strong> — 10 Story Reels + 4 AI Video + 4 vāki, saturs trīs viļņos pa 10 dienām. Biežāk pārbaudām jūsu klientu reakciju — ātrāk mainām to, kas nestrādā, un pastiprinām to, kas jūsu klientiem patīk. Kopā 30 ieraksti mēnesī — publikācija katru dienu.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Vai var saņemt saturu vairākās valodās?</div>
@@ -2269,7 +2318,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Ko nozīmē «saturs tiek koriģēts ik pēc 15 dienām» (tarifā Profi — ik pēc 10)?</div>
-        <div class="faq-a">Tarifos Starts un Standarts — pēc 15 dienām, tarifā Profi — pēc 10 dienām no tā brīža, kad sākāt publicēt saturu, sistēma analizē reālo statistiku: kādus ierakstus skatījās ilgāk, ko saglabāja, uz kādiem Reels atsaucās, kur izgāja no Stāstiem.<br><br>Pamatojoties uz šiem datiem, tiek veidota nākamā satura daļa — ar jaunām tēmām, koriģētiem formātiem un pastiprinātiem āķiem. Ne pēc veidnes, bet pamatojoties uz to, kas jau strādā tieši pie jums un tieši ar jūsu auditoriju.<br><br>Tādā veidā ar katru ciklu saturs kļūst precīzāks — un labāk atbilst jūsu klientu interesēm.</div>
+        <div class="faq-a">Tarifos Starts un Standarts — pēc 15 dienām, tarifā Profi — pēc 10 dienām no tā brīža, kad sākāt publicēt saturu, sistēma analizē reālo statistiku: kādus ierakstus skatījās ilgāk, ko saglabāja, uz kādiem Reels atsaucās, kur izgāja no Stāstiem.<br><br>Pamatojoties uz šiem datiem, tiek veidots nākamais satura vilnis — ar jaunām tēmām, koriģētiem formātiem un pastiprinātiem āķiem. Ne pēc veidnes, bet pamatojoties uz to, kas jau strādā tieši pie jums un tieši ar jūsu auditoriju.<br><br>Tādā veidā ar katru ciklu saturs kļūst precīzāks — un labāk atbilst jūsu klientu interesēm.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Ir jautājums vai priekšlikums — kur rakstīt?</div>
@@ -2409,7 +2458,7 @@
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#F5F3FF;border-radius:10px;padding:10px 14px;">
         <span style="width:24px;height:24px;background:#7C3AED;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">3</span>
-        <span style="font-size:14px;color:#374151;">Atbildiet uz jautājumiem par savu biznesu — saņemiet gatavu bezmaksas ierakstu pakotni jūsu biznesam</span>
+        <span style="font-size:14px;color:#374151;">Atsūtiet saiti uz savu vietni/Instagram — saņemiet gatavu bezmaksas ierakstu pakotni jūsu biznesam</span>
       </div>
       <p style="font-size:12px;color:#9CA3AF;text-align:center;margin-top:2px;">Telegram — bezmaksas lietotne jūsu tālrunim vai datoram.</p>
     </div>
