@@ -834,6 +834,7 @@
     .hero h1 { font-size: 36px; }
     .cards-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; gap: 24px; }
+    .simple-steps-grid { grid-template-columns: 1fr !important; }
     .steps::before { display: none; }
     .section-title { font-size: 28px; }
     .compare-table { font-size: 13px; }
@@ -1268,6 +1269,114 @@
     </div>
   </div>
 </section>
+
+<!-- BLOCK: SIMPLE START — «На самом деле всё просто» (staging 19.07.2026) -->
+<section id="simple-start" style="background:linear-gradient(180deg,#F5F3FF 0%,#fff 100%);padding:72px 20px;">
+  <div class="container" style="max-width:1000px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <h2 class="section-title" style="margin-bottom:12px;">На самом деле всё просто</h2>
+      <p style="font-size:17px;color:#6B7280;max-width:560px;margin:0 auto;line-height:1.6;">Вы делаете один шаг — остальное делаем мы. Никаких брифов, созвонов и «пришлите логотип».</p>
+    </div>
+
+    <div class="simple-steps-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:36px;">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;position:relative;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="width:34px;height:34px;background:#7C3AED;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;">1</span>
+          <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">⏱ Вы: 2 минуты</span>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Пришлите ссылку на ваш сайт или Instagram</h3>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Это всё, что от вас нужно. Ни анкет, ни фотосессий, ни «опишите вашу целевую аудиторию».</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="width:34px;height:34px;background:#7C3AED;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;">2</span>
+          <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">🤖 Мы: всё остальное</span>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Изучаем ваш бизнес и готовим посты</h3>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Система разбирает ваш бизнес, клиентов и конкурентов — и собирает бесплатный пакет постов. Вы в это время работаете.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="width:34px;height:34px;background:#7C3AED;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;">3</span>
+          <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">✅ Вы: посмотреть и решить</span>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Получаете готовые посты</h3>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Понравилось — публикуете сами или разрешаете нам публиковать за вас, прямо по расписанию.</p>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:28px;">Итог через месяц: 20–30 готовых публикаций, лента живёт каждый день — а вы не написали ни строчки.</p>
+
+    <div style="max-width:520px;margin:0 auto;text-align:center;">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+        <input id="simpleLinkInput" type="text" inputmode="url" placeholder="Ссылка на ваш сайт или Instagram" style="flex:1;min-width:220px;padding:14px 16px;border:1.5px solid #D1D5DB;border-radius:12px;font-size:15px;color:#1a1a2e;outline:none;" onfocus="this.style.borderColor='#7C3AED'" onblur="this.style.borderColor='#D1D5DB'">
+        <a href="https://t.me/ContentDNAStart_bot?start=steps" target="_blank" rel="noopener" class="btn-primary" id="simpleTgBtn" style="white-space:nowrap;">→ Получить бесплатный пакет</a>
+      </div>
+      <p id="simpleCopyHint" style="display:none;font-size:13px;color:#059669;margin-top:10px;font-weight:600;">✅ Ссылка скопирована — просто вставьте её в чат боту</p>
+      <p style="font-size:13px;color:#9CA3AF;margin-top:10px;">Бесплатно · Без карты · Займёт 2 минуты</p>
+      <p style="font-size:14px;color:#6B7280;margin-top:18px;">Нет Telegram или некогда разбираться? <a href="#" id="simpleManualToggle" style="color:#7C3AED;font-weight:600;text-decoration:underline;">Оставьте ссылку — напишем вам сами</a></p>
+      <div id="simpleManualForm" style="display:none;margin-top:14px;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+        <input id="simpleManualLink" type="text" inputmode="url" placeholder="Ссылка на ваш сайт или Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+        <input id="simpleManualName" type="text" placeholder="Как к вам обращаться (необязательно)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+        <input id="simpleManualHp" type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+        <button id="simpleManualSend" class="btn-primary" style="width:100%;border:none;cursor:pointer;">Отправить — мы напишем вам сами</button>
+        <p id="simpleManualStatus" style="display:none;font-size:14px;margin-top:10px;font-weight:600;"></p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var tgBtn = document.getElementById('simpleTgBtn');
+  var linkInput = document.getElementById('simpleLinkInput');
+  var copyHint = document.getElementById('simpleCopyHint');
+  tgBtn.addEventListener('click', function () {
+    var v = (linkInput.value || '').trim();
+    if (v && navigator.clipboard) {
+      navigator.clipboard.writeText(v).then(function () { copyHint.style.display = 'block'; }).catch(function () {});
+    }
+  });
+  var toggle = document.getElementById('simpleManualToggle');
+  var form = document.getElementById('simpleManualForm');
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    var v = (linkInput.value || '').trim();
+    if (v && !document.getElementById('simpleManualLink').value) document.getElementById('simpleManualLink').value = v;
+  });
+  var sendBtn = document.getElementById('simpleManualSend');
+  var statusEl = document.getElementById('simpleManualStatus');
+  sendBtn.addEventListener('click', function () {
+    var link = (document.getElementById('simpleManualLink').value || '').trim();
+    if (link.length < 4) {
+      statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Впишите, пожалуйста, ссылку на ваш сайт или Instagram.';
+      return;
+    }
+    sendBtn.disabled = true; sendBtn.textContent = 'Отправляем...';
+    fetch('https://marketingdna-bot-production.up.railway.app/site_lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        link: link,
+        name: (document.getElementById('simpleManualName').value || '').trim(),
+        website: document.getElementById('simpleManualHp').value || '',
+        lang: 'ru',
+      }),
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      if (d && d.ok) {
+        statusEl.style.display = 'block'; statusEl.style.color = '#059669';
+        statusEl.textContent = '✅ Приняли! Напишем вам сами — обычно в течение дня.';
+        sendBtn.style.display = 'none';
+      } else { throw new Error('bad response'); }
+    }).catch(function () {
+      statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Не получилось отправить. Попробуйте ещё раз или напишите нам в Telegram.';
+      sendBtn.disabled = false; sendBtn.textContent = 'Отправить — мы напишем вам сами';
+    });
+  });
+})();
+</script>
 
 <!-- BLOCK: DEAD SOCIAL MEDIA -->
 <section style="background:#fff;padding:72px 20px;">
