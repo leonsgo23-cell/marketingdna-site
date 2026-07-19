@@ -1446,12 +1446,21 @@
       statusEl.textContent = 'Оставьте контакт: WhatsApp, телефон или email — иначе нам некуда вам написать.';
       return;
     }
-    // Телефон без кода страны не принимаем — иначе клиенту не из Латвии не дозвониться
+    // Телефон без «+»: чиним номер сами, клиента не гоняем (фидбек Александра:
+    // 37129224388 — код страны уже есть, не хватало только плюса, а форма упиралась)
     var digitsOnly = contact.replace(/[\s()\-\.]/g, '');
-    if (/^\d{5,}$/.test(digitsOnly) && contact.indexOf('+') === -1 && contact.indexOf('@') === -1) {
-      statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Добавьте, пожалуйста, код страны к номеру — например +371 ' + contact.trim() + '.';
-      return;
+    if (contact.indexOf('@') === -1 && contact.indexOf('+') === -1 && /^\d+$/.test(digitsOnly)) {
+      if (digitsOnly.length >= 10) {
+        // Длинный номер — код страны уже внутри, просто добавляем «+»
+        contact = '+' + digitsOnly;
+        document.getElementById('simpleManualContact').value = contact;
+      } else if (digitsOnly.length >= 5) {
+        // Короткий местный номер — подставляем код Латвии, человек может поправить
+        document.getElementById('simpleManualContact').value = '+371 ' + digitsOnly;
+        statusEl.style.display = 'block'; statusEl.style.color = '#B45309';
+        statusEl.textContent = 'Мы добавили код Латвии +371. Если страна другая — поправьте код. Затем нажмите «Отправить заявку» ещё раз.';
+        return;
+      }
     }
     sendBtn.disabled = true; sendBtn.textContent = 'Отправляем...';
     fetch(API, {
