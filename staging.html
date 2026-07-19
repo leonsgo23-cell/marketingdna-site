@@ -1305,77 +1305,154 @@
       </div>
     </div>
 
-    <div style="max-width:640px;margin:0 auto 28px;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:12px;padding:16px 22px;text-align:center;">
+        <div style="max-width:560px;margin:0 auto;text-align:center;">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+        <input id="simpleLinkInput" type="text" inputmode="url" placeholder="Ссылка на ваш сайт или Instagram" style="flex:1;min-width:220px;padding:14px 16px;border:1.5px solid #D1D5DB;border-radius:12px;font-size:15px;color:#1a1a2e;outline:none;" onfocus="this.style.borderColor='#7C3AED'" onblur="this.style.borderColor='#D1D5DB'">
+        <button id="simpleMainBtn" class="btn-primary" style="white-space:nowrap;border:none;cursor:pointer;">→ Получить бесплатный пакет</button>
+      </div>
+      <p id="simpleLinkHint" style="display:none;font-size:13px;color:#DC2626;margin-top:8px;font-weight:600;">Впишите, пожалуйста, ссылку на ваш сайт или Instagram</p>
+      <p style="font-size:13px;color:#9CA3AF;margin-top:10px;">Бесплатно · Без карты · Пакет приходит в Telegram-бот</p>
+
+      <!-- Шаг выбора: есть Telegram / нет -->
+      <div id="simpleChoice" style="display:none;margin-top:16px;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:22px;">
+        <p style="font-size:15px;font-weight:700;color:#1a1a2e;margin:0 0 6px;">Ваш пакет придёт в Telegram — это бесплатное приложение.</p>
+        <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Все материалы вы сможете брать и публиковать в своих соцсетях.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+          <a id="simpleTgGo" href="#" target="_blank" rel="noopener" class="btn-primary" style="white-space:nowrap;">📱 У меня есть Telegram — открыть</a>
+          <button id="simpleNoTg" style="white-space:nowrap;padding:14px 20px;border-radius:12px;border:1.5px solid #7C3AED;background:#fff;color:#7C3AED;font-size:15px;font-weight:700;cursor:pointer;">✉️ У меня нет Telegram</button>
+        </div>
+        <p id="simpleTgHint" style="display:none;font-size:13px;color:#059669;margin:12px 0 0;font-weight:600;">✅ Ссылка скопирована — в чате бота просто вставьте её</p>
+      </div>
+
+      <!-- Ветка «нет Telegram»: контакт для связи -->
+      <div id="simpleManualForm" style="display:none;margin-top:14px;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+        <p style="font-size:14px;color:#1a1a2e;font-weight:600;margin:0 0 12px;">Оставьте контакт — напишем вам в течение дня и поможем получить ваш бесплатный пакет.</p>
+        <input id="simpleManualLink" type="text" inputmode="url" placeholder="Ссылка на ваш сайт или Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+        <input id="simpleManualContact" type="text" placeholder="Куда вам написать: WhatsApp, телефон или email" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+        <input id="simpleManualHp" type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+        <button id="simpleManualSend" class="btn-primary" style="width:100%;border:none;cursor:pointer;">Отправить заявку</button>
+        <p id="simpleManualStatus" style="display:none;font-size:14px;margin-top:10px;font-weight:600;"></p>
+      </div>
+
+      <p style="font-size:14px;color:#6B7280;margin-top:18px;">Некогда разбираться? <a href="#" id="simpleManualToggle" style="color:#7C3AED;font-weight:600;text-decoration:underline;">Оставьте ссылку и контакт — напишем вам сами</a></p>
+    </div>
+
+    <div style="max-width:640px;margin:32px auto 0;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:12px;padding:16px 22px;text-align:center;">
       <p style="font-size:14px;color:#4C1D95;line-height:1.7;margin:0 0 10px;"><strong>А дальше</strong> - выбираете один из пакетов на весь месяц: готовые посты в ваших соцсетях, регулярно и вовремя. Публиковать тоже можем мы - по расписанию: ваша лента живёт каждый день - соцсети привлекают новых подписчиков и клиентов.</p>
       <a href="#packages" style="font-size:14px;font-weight:700;color:#7C3AED;text-decoration:underline;">Посмотреть пакеты →</a>
     </div>
-
-    <div style="max-width:520px;margin:0 auto;text-align:center;">
-      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-        <input id="simpleLinkInput" type="text" inputmode="url" placeholder="Ссылка на ваш сайт или Instagram" style="flex:1;min-width:220px;padding:14px 16px;border:1.5px solid #D1D5DB;border-radius:12px;font-size:15px;color:#1a1a2e;outline:none;" onfocus="this.style.borderColor='#7C3AED'" onblur="this.style.borderColor='#D1D5DB'">
-        <a href="https://t.me/ContentDNAStart_bot?start=steps" target="_blank" rel="noopener" class="btn-primary" id="simpleTgBtn" style="white-space:nowrap;">→ Получить бесплатный пакет</a>
-      </div>
-      <p id="simpleCopyHint" style="display:none;font-size:13px;color:#059669;margin-top:10px;font-weight:600;">✅ Ссылка скопирована — просто вставьте её в чат боту</p>
-      <p style="font-size:13px;color:#9CA3AF;margin-top:10px;">Бесплатно · Без карты · Займёт 2 минуты</p>
-      <p style="font-size:14px;color:#6B7280;margin-top:18px;">Некогда разбираться? <a href="#" id="simpleManualToggle" style="color:#7C3AED;font-weight:600;text-decoration:underline;">Оставьте ссылку — напишем вам сами и поможем с первым шагом</a></p>
-      <div id="simpleManualForm" style="display:none;margin-top:14px;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
-        <input id="simpleManualLink" type="text" inputmode="url" placeholder="Ссылка на ваш сайт или Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
-        <input id="simpleManualName" type="text" placeholder="Как к вам обращаться (необязательно)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
-        <input id="simpleManualHp" type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
-        <button id="simpleManualSend" class="btn-primary" style="width:100%;border:none;cursor:pointer;">Отправить — мы напишем вам сами</button>
-        <p id="simpleManualStatus" style="display:none;font-size:14px;margin-top:10px;font-weight:600;"></p>
-      </div>
     </div>
   </div>
 </section>
 <script>
 (function () {
-  var tgBtn = document.getElementById('simpleTgBtn');
+  var API = 'https://marketingdna-bot-production.up.railway.app/site_lead';
+  var BOT = 'https://t.me/ContentDNAStart_bot';
   var linkInput = document.getElementById('simpleLinkInput');
-  var copyHint = document.getElementById('simpleCopyHint');
-  tgBtn.addEventListener('click', function () {
-    var v = (linkInput.value || '').trim();
-    if (v && navigator.clipboard) {
-      navigator.clipboard.writeText(v).then(function () { copyHint.style.display = 'block'; }).catch(function () {});
+  var mainBtn = document.getElementById('simpleMainBtn');
+  var linkHint = document.getElementById('simpleLinkHint');
+  var choice = document.getElementById('simpleChoice');
+  var tgGo = document.getElementById('simpleTgGo');
+  var tgHint = document.getElementById('simpleTgHint');
+  var noTgBtn = document.getElementById('simpleNoTg');
+  var form = document.getElementById('simpleManualForm');
+  var mLink = document.getElementById('simpleManualLink');
+
+  function b64url(s) {
+    try { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+    catch (e) { return null; }
+  }
+  function postLead(payload) {
+    try {
+      fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).catch(function () {});
+    } catch (e) {}
+  }
+  function currentLink() { return (linkInput.value || '').trim(); }
+
+  mainBtn.addEventListener('click', function () {
+    var v = currentLink();
+    if (v.length < 4) {
+      linkHint.style.display = 'block';
+      linkInput.focus();
+      return;
+    }
+    linkHint.style.display = 'none';
+    form.style.display = 'none';
+    // Готовим кнопку Telegram: короткая ссылка зашивается в start-параметр,
+    // длинная — через буфер обмена
+    var enc = b64url(v);
+    if (enc && enc.length <= 62) {
+      tgGo.href = BOT + '?start=L_' + enc;
+      tgGo.dataset.clip = '';
+    } else {
+      tgGo.href = BOT + '?start=steps';
+      tgGo.dataset.clip = v;
+    }
+    choice.style.display = 'block';
+    choice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  tgGo.addEventListener('click', function () {
+    var v = currentLink();
+    postLead({ link: v, kind: 'tg_click', lang: 'ru' });
+    if (tgGo.dataset.clip && navigator.clipboard) {
+      navigator.clipboard.writeText(tgGo.dataset.clip).then(function () { tgHint.style.display = 'block'; }).catch(function () {});
     }
   });
-  var toggle = document.getElementById('simpleManualToggle');
-  var form = document.getElementById('simpleManualForm');
-  toggle.addEventListener('click', function (e) {
+
+  function openManualForm() {
+    choice.style.display = 'none';
+    form.style.display = 'block';
+    var v = currentLink();
+    if (v && !mLink.value) mLink.value = v;
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  noTgBtn.addEventListener('click', openManualForm);
+  document.getElementById('simpleManualToggle').addEventListener('click', function (e) {
     e.preventDefault();
-    form.style.display = form.style.display === 'none' ? 'block' : 'none';
-    var v = (linkInput.value || '').trim();
-    if (v && !document.getElementById('simpleManualLink').value) document.getElementById('simpleManualLink').value = v;
+    openManualForm();
   });
+
   var sendBtn = document.getElementById('simpleManualSend');
   var statusEl = document.getElementById('simpleManualStatus');
   sendBtn.addEventListener('click', function () {
-    var link = (document.getElementById('simpleManualLink').value || '').trim();
+    var link = (mLink.value || '').trim();
+    var contact = (document.getElementById('simpleManualContact').value || '').trim();
     if (link.length < 4) {
       statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
       statusEl.textContent = 'Впишите, пожалуйста, ссылку на ваш сайт или Instagram.';
       return;
     }
+    if (contact.length < 5) {
+      statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Оставьте контакт: WhatsApp, телефон или email — иначе нам некуда вам написать.';
+      return;
+    }
     sendBtn.disabled = true; sendBtn.textContent = 'Отправляем...';
-    fetch('https://marketingdna-bot-production.up.railway.app/site_lead', {
+    fetch(API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         link: link,
-        name: (document.getElementById('simpleManualName').value || '').trim(),
+        contact: contact,
+        kind: 'no_telegram',
         website: document.getElementById('simpleManualHp').value || '',
         lang: 'ru',
       }),
     }).then(function (r) { return r.json(); }).then(function (d) {
       if (d && d.ok) {
         statusEl.style.display = 'block'; statusEl.style.color = '#059669';
-        statusEl.textContent = '✅ Приняли! Напишем вам сами — обычно в течение дня — и поможем сделать первый шаг.';
+        statusEl.textContent = '✅ Приняли! Напишем вам в течение дня — поможем получить ваш бесплатный пакет.';
         sendBtn.style.display = 'none';
       } else { throw new Error('bad response'); }
     }).catch(function () {
       statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Не получилось отправить. Попробуйте ещё раз или напишите нам в Telegram.';
-      sendBtn.disabled = false; sendBtn.textContent = 'Отправить — мы напишем вам сами';
+      statusEl.textContent = 'Не получилось отправить. Попробуйте ещё раз чуть позже.';
+      sendBtn.disabled = false; sendBtn.textContent = 'Отправить заявку';
     });
   });
 })();
