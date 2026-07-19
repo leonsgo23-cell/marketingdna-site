@@ -1305,7 +1305,7 @@
       </div>
     </div>
 
-    <p style="text-align:center;font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:28px;">Итог через месяц: 20–30 готовых публикаций, лента живёт каждый день — а вы не написали ни строчки.</p>
+    <p style="text-align:center;font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:28px;">Итог через месяц: 20–30 готовых публикаций в ваших соцсетях, лента живёт каждый день — а вы не написали ни строчки.</p>
 
     <div style="max-width:520px;margin:0 auto;text-align:center;">
       <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
@@ -1314,7 +1314,7 @@
       </div>
       <p id="simpleCopyHint" style="display:none;font-size:13px;color:#059669;margin-top:10px;font-weight:600;">✅ Ссылка скопирована — просто вставьте её в чат боту</p>
       <p style="font-size:13px;color:#9CA3AF;margin-top:10px;">Бесплатно · Без карты · Займёт 2 минуты</p>
-      <p style="font-size:14px;color:#6B7280;margin-top:18px;">Нет Telegram или некогда разбираться? <a href="#" id="simpleManualToggle" style="color:#7C3AED;font-weight:600;text-decoration:underline;">Оставьте ссылку — напишем вам сами</a></p>
+      <p style="font-size:14px;color:#6B7280;margin-top:18px;">Некогда разбираться? <a href="#" id="simpleManualToggle" style="color:#7C3AED;font-weight:600;text-decoration:underline;">Оставьте ссылку — напишем вам сами и поможем с первым шагом</a></p>
       <div id="simpleManualForm" style="display:none;margin-top:14px;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
         <input id="simpleManualLink" type="text" inputmode="url" placeholder="Ссылка на ваш сайт или Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
         <input id="simpleManualName" type="text" placeholder="Как к вам обращаться (необязательно)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
@@ -1366,7 +1366,7 @@
     }).then(function (r) { return r.json(); }).then(function (d) {
       if (d && d.ok) {
         statusEl.style.display = 'block'; statusEl.style.color = '#059669';
-        statusEl.textContent = '✅ Приняли! Напишем вам сами — обычно в течение дня.';
+        statusEl.textContent = '✅ Приняли! Напишем вам сами — обычно в течение дня — и поможем сделать первый шаг.';
         sendBtn.style.display = 'none';
       } else { throw new Error('bad response'); }
     }).catch(function () {
