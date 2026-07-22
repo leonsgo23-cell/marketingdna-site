@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kā strādā Marketing DNA — saturs sociālajiem tīkliem bez aģentūras</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple: #7C3AED;
+  --purple-light: #EDE9FE;
+  --purple-dark: #5B21B6;
+  --dark: #1E1B4B;
+  --text: #374151;
+  --gray: #F3F4F6;
+  --border: #E5E7EB;
+  --white: #FFFFFF;
+  --green: #10B981;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 0 24px;
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  font-weight: 800; font-size: 20px; color: var(--dark);
+  letter-spacing: -0.5px; text-decoration: none;
+}
+.nav-logo span { color: var(--purple); }
+.nav-cta {
+  background: var(--purple); color: white;
+  padding: 10px 22px; border-radius: 8px;
+  font-weight: 600; font-size: 14px;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--purple-dark); }
+
+/* LAYOUT */
+section { padding: 80px 24px; }
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* BUTTONS */
+.btn-primary {
+  display: inline-block;
+  background: var(--purple); color: white;
+  padding: 16px 32px; border-radius: 12px;
+  font-weight: 700; font-size: 16px;
+  text-decoration: none; transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+}
+.btn-primary:hover {
+  background: var(--purple-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(124,58,237,0.4);
+}
+.btn-outline {
+  display: inline-block;
+  border: 2px solid var(--purple); color: var(--purple);
+  padding: 14px 30px; border-radius: 12px;
+  font-weight: 700; font-size: 16px;
+  text-decoration: none; transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--purple-light); }
+.btn-white {
+  display: inline-block;
+  background: white; color: var(--purple);
+  padding: 16px 32px; border-radius: 12px;
+  font-weight: 700; font-size: 16px;
+  text-decoration: none; transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+/* SECTION LABEL */
+.section-label {
+  display: inline-block;
+  background: var(--purple-light); color: var(--purple);
+  padding: 6px 16px; border-radius: 100px;
+  font-size: 13px; font-weight: 700;
+  margin-bottom: 16px; letter-spacing: 0.3px;
+}
+.section-title {
+  font-size: 36px; font-weight: 800; color: var(--dark);
+  letter-spacing: -0.5px; line-height: 1.2;
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 18px; color: #6B7280; line-height: 1.7;
+  max-width: 640px;
+}
+
+/* ═══════════════ HERO ═══════════════ */
+.hero {
+  padding-top: 140px;
+  padding-bottom: 80px;
+  background: linear-gradient(135deg, #FAFAFA 0%, #F5F3FF 100%);
+  text-align: center;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--purple-light); color: var(--purple);
+  padding: 6px 18px; border-radius: 100px;
+  font-size: 13px; font-weight: 700;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 52px; font-weight: 900; line-height: 1.1;
+  color: var(--dark); letter-spacing: -1.5px;
+  margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;
+}
+.hero h1 em { color: var(--purple); font-style: normal; }
+.hero-sub {
+  font-size: 19px; color: #6B7280; line-height: 1.7;
+  max-width: 560px; margin: 0 auto 36px;
+}
+.hero-stats {
+  display: flex; justify-content: center; gap: 48px;
+  margin-bottom: 40px; flex-wrap: wrap;
+}
+.hero-stat { text-align: center; }
+.hero-stat-num { font-size: 32px; font-weight: 900; color: var(--purple); }
+.hero-stat-label { font-size: 13px; color: #6B7280; font-weight: 500; }
+.hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.hero-note { font-size: 13px; color: #9CA3AF; margin-top: 14px; }
+
+/* ═══════════════ PAIN ═══════════════ */
+.pain { background: var(--white); }
+.pain-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 48px;
+}
+.pain-card {
+  background: var(--gray); border-radius: 16px; padding: 28px 24px;
+  border-left: 4px solid #EF4444;
+}
+.pain-emoji { font-size: 28px; margin-bottom: 14px; }
+.pain-title { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+.pain-desc { font-size: 14px; color: #6B7280; line-height: 1.6; }
+.pain-conclusion {
+  margin-top: 32px;
+  background: linear-gradient(135deg, #FEF2F2, #FECACA);
+  border-radius: 16px; padding: 24px 28px;
+  border: 1px solid #FECACA;
+  font-size: 16px; color: #991B1B; line-height: 1.7; font-weight: 500;
+}
+
+/* ═══════════════ HOW ═══════════════ */
+.how { background: var(--gray); }
+.steps {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  margin-top: 48px; position: relative;
+}
+.step {
+  background: white; border-radius: 16px; padding: 28px 22px;
+  text-align: center; position: relative;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.step-num {
+  width: 40px; height: 40px;
+  background: var(--purple); color: white;
+  border-radius: 50%; font-weight: 800; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+}
+.step-icon { font-size: 28px; margin-bottom: 12px; }
+.step-title { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+.step-desc { font-size: 13px; color: #6B7280; line-height: 1.6; }
+.step-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: var(--purple); margin-top: 32px;
+  display: none;
+}
+.how-note {
+  margin-top: 32px; text-align: center;
+  background: var(--purple-light); border-radius: 12px; padding: 20px 24px;
+  font-size: 15px; color: var(--purple); font-weight: 600;
+}
+
+/* ═══════════════ WHAT ═══════════════ */
+.what { background: var(--white); }
+.plans-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  margin-top: 48px;
+}
+.plan {
+  border: 2px solid var(--border); border-radius: 20px; padding: 32px 28px;
+  position: relative;
+}
+.plan.popular {
+  border-color: var(--purple);
+  box-shadow: 0 8px 32px rgba(124,58,237,0.15);
+}
+.plan-badge {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--purple); color: white;
+  padding: 4px 20px; border-radius: 100px;
+  font-size: 12px; font-weight: 700; white-space: nowrap;
+}
+.plan-name { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
+.plan-tagline { font-size: 14px; color: #6B7280; margin-bottom: 20px; }
+.plan-price { font-size: 40px; font-weight: 900; color: var(--purple); margin-bottom: 4px; }
+.plan-price span { font-size: 16px; font-weight: 500; color: #9CA3AF; }
+.plan-discount {
+  display: inline-block;
+  background: #DCFCE7; color: #166534;
+  padding: 4px 12px; border-radius: 6px;
+  font-size: 13px; font-weight: 600; margin-bottom: 20px;
+}
+.plan-divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+.plan-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.plan-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--text); line-height: 1.5;
+}
+.plan-list li .check { color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.plan-list li .purple { color: var(--purple); font-weight: 600; }
+.plan-addon { font-size: 13px; color: var(--purple); font-weight: 600; margin-top: 12px; }
+.plan-btn { display: block; text-align: center; margin-top: 20px; }
+
+/* ═══════════════ FREE PACKAGE ═══════════════ */
+.free-pkg {
+  background: linear-gradient(135deg, var(--purple) 0%, #4F46E5 100%);
+  color: white;
+}
+.free-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.free-pkg h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+.free-pkg .sub { font-size: 17px; opacity: 0.9; margin-bottom: 28px; }
+.free-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.free-list li { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 500; }
+.free-list li::before { content: "✅"; font-size: 16px; flex-shrink: 0; }
+.free-note { font-size: 14px; opacity: 0.8; font-style: italic; margin-bottom: 28px; }
+.free-visual {
+  background: rgba(255,255,255,0.12);
+  border-radius: 20px; padding: 28px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.free-visual-title { font-size: 15px; font-weight: 700; opacity: 0.8; margin-bottom: 16px; letter-spacing: 0.5px; }
+.free-item {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px; padding: 14px 16px;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 12px;
+  font-size: 14px; font-weight: 600;
+}
+.free-item:last-child { margin-bottom: 0; }
+.free-item-icon { font-size: 20px; }
+
+/* ═══════════════ FOR WHOM ═══════════════ */
+.forwhom { background: var(--gray); }
+.niches {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  margin-top: 48px;
+}
+.niche {
+  background: white; border-radius: 14px; padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.niche:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.niche-icon { font-size: 36px; margin-bottom: 12px; }
+.niche-name { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+.niche-desc { font-size: 13px; color: #9CA3AF; line-height: 1.5; }
+.forwhom-not {
+  margin-top: 32px; padding: 22px 28px;
+  background: white; border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 15px; color: #6B7280; line-height: 1.7;
+}
+
+/* ═══════════════ FINAL CTA ═══════════════ */
+.final-cta {
+  background: var(--dark); text-align: center; padding: 100px 24px;
+}
+.final-cta h2 {
+  font-size: 42px; font-weight: 900; color: white;
+  letter-spacing: -1px; line-height: 1.15;
+  margin-bottom: 16px; max-width: 700px; margin-left: auto; margin-right: auto;
+}
+.final-cta h2 em { color: #A78BFA; font-style: normal; }
+.final-cta .sub {
+  font-size: 18px; color: #9CA3AF; margin-bottom: 36px;
+  max-width: 480px; margin-left: auto; margin-right: auto;
+}
+.final-note { font-size: 14px; color: #6B7280; margin-top: 16px; }
+
+/* FOOTER */
+footer {
+  background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 32px 24px; text-align: center;
+}
+footer .footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-weight: 800; font-size: 18px; color: white; }
+.footer-logo span { color: #A78BFA; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 14px; color: #6B7280; text-decoration: none; }
+.footer-links a:hover { color: white; }
+
+/* 3-column plans grid (desktop only) */
+.plans-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* Agency comparison grid */
+.compare-grid {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center;
+}
+.compare-arrow { text-align: center; font-size: 28px; color: #6B7280; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero h1 { font-size: 36px; }
+  .pain-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .plans-grid { grid-template-columns: 1fr; }
+  .plans-grid-3 { grid-template-columns: 1fr; }
+  .free-inner { grid-template-columns: 1fr; gap: 32px; }
+  .niches { grid-template-columns: 1fr 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .compare-arrow { display: none; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 28px; }
+  .section-title { font-size: 26px; }
+  .steps { grid-template-columns: 1fr; }
+  .niches { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 24px; }
+  .hero-stat-num { font-size: 24px; }
+  .final-cta h2 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Marketing <span>DNA</span></a>
+    <a href="https://t.me/ContentDNAStart_bot?start=lv_nav_about" class="nav-cta">Saņemt bezmaksas pakotni →</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-badge">AI SMM saturs, balstīts uz jūsu auditorijas un konkurentu analīzi</div>
+  <h1>Profesionāls saturs<br>sociālajiem tīkliem <em>30 dienām</em></h1>
+  <p class="hero-sub">Mākslīgā intelekta sistēma izpēta jūsu biznesu, auditoriju un konkurentus — un sagatavo gatavus ierakstus, foto un video. Jūs tikai publicējat.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">4</div>
+      <div class="hero-stat-label">jautājumi startam</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">9</div>
+      <div class="hero-stat-label">satura bloki</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">30 dienas</div>
+      <div class="hero-stat-label">gatava satura</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">30 minūtes</div>
+      <div class="hero-stat-label">jūsu laika mēnesī</div>
+    </div>
+  </div>
+  <div class="hero-cta-group">
+    <a href="https://t.me/ContentDNAStart_bot?start=lv_hero_about" class="btn-primary">→ Saņemt bezmaksas pakotni</a>
+    <a href="#plans" class="btn-outline">Apskatīt tarifus</a>
+  </div>
+  <p class="hero-note">Bezmaksas pakotne — bez kartes un saistībām</p>
+</section>
+
+<!-- ═══════════════ PAIN ═══════════════ -->
+<section class="pain">
+  <div class="container">
+    <div class="section-label">Problēma</div>
+    <h2 class="section-title">Jūs publicējat.<br>Bet sociālie tīkli nedod gaidīto rezultātu.</h2>
+    <p class="section-sub">Klienti ir — bet mazāk, nekā varētu būt. Jo bez sistēmas un stratēģijas sociālie tīkli dod nejaušu rezultātu, nevis paredzamu izaugsmi.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-emoji">🕐</div>
+        <div class="pain-title">Nav laika sociālo tīklu uzturēšanai</div>
+        <div class="pain-desc">Cenšaties publicēt — bet bez skaidra plāna, ko, kur un kad. Algoritmi virza kontus, kas regulāri publicē saturu, kurš interesē konkrētu auditoriju. Bez šīs izpratnes pūles ir, bet izaugsmes nav.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-emoji">🤷</div>
+        <div class="pain-title">Nav skaidrs, ko publicēt</div>
+        <div class="pain-desc">Produkta foto, akcija, kaut kas personīgs... Saturs ir, bet nav loģikas un stratēģijas. Auditorija neaug, sekotāji nekļūst par pircējiem.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-emoji">📉</div>
+        <div class="pain-title">Publicējat — bet bez atdeves</div>
+        <div class="pain-desc">Laiks tiek ieguldīts, saturs iznāk — bet jaunu klientu no sociālajiem tīkliem nepienāk. Saturs bez stratēģijas strādā tukšgaitā: tas nerunā jūsu auditorijas valodā un neatrisina tās sāpes.</div>
+      </div>
+    </div>
+    <div class="pain-conclusion">
+      Rezultāts: uzņēmējs mēģina — bet bez zināšanām par auditorijas psiholoģiju, uzticības veidošanas stratēģiju un formātu izpratni. Satura mārketings ir atsevišķa profesija. <strong>Tieši šo robu aizpilda Marketing DNA.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+<section class="how">
+  <div class="container">
+    <div class="section-label">Kā tas strādā</div>
+    <h2 class="section-title">4 soļi — un saturs mēnesim ir gatavs</h2>
+    <p class="section-sub">Nekāda dizaina, nekādu tehnisku zināšanu. Tikai atbildes uz jautājumiem.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-icon">💬</div>
+        <div class="step-title">Anketa Telegramā</div>
+        <div class="step-desc">4 jautājumi par jūsu biznesu. Aizņem 2–3 minūtes. Tieši telefonā.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-icon">🧠</div>
+        <div class="step-title">AI analīze</div>
+        <div class="step-desc">Sistēma analizē jūsu auditoriju, konkurentus, semantiku un jūsu klientu galvenās sāpes.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-icon">⚙️</div>
+        <div class="step-title">Pakotnes ģenerēšana</div>
+        <div class="step-desc">9 satura bloki tiek veidoti paralēli: teksti, karuseļi, video scenāriji, raksti, satura plāns. Gatavs 24–48 stundās.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-icon">📲</div>
+        <div class="step-title">Jūs publicējat</div>
+        <div class="step-desc">Saņemat gatavu pakotni: ierakstus, karuseļus, video — publicējat paši pēc satura plāna grafika.</div>
+      </div>
+    </div>
+    <div class="how-note">
+      ✨ Personalizēts saturs, balstīts uz jūsu auditorijas un biznesa analīzi
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FREE PACKAGE ═══════════════ -->
+<section class="free-pkg">
+  <div class="free-inner">
+    <div>
+      <div style="display:inline-block;background:rgba(255,255,255,0.2);color:white;padding:6px 16px;border-radius:100px;font-size:13px;font-weight:700;margin-bottom:20px;">Bezmaksas — bez kartes</div>
+      <h2>Saņemiet bezmaksas<br>pakotni jau tagad</h2>
+      <p class="sub" style="margin-bottom:24px;">Atbildiet uz 4 jautājumiem par savu biznesu — un lūk, ko mēs izdarīsim:</p>
+      <ul class="free-list">
+        <li>Izpētīsim jūsu mērķauditoriju — kā tā domā par jūsu produktu, ar kādiem vārdiem to meklē sociālajos tīklos un meklētājos</li>
+        <li>Izveidosim SEO rakstu, optimizētu meklētājiem un AI meklētājiem (GPT, Perplexity)</li>
+        <li>Analizēsim konkurentus — kāds vizuāls un saturs uzrunā jūsu auditoriju</li>
+        <li>Sastādīsim satura plānu un sagatavosim gatavu materiālu pakotni publicēšanai</li>
+      </ul>
+      <p class="free-note" style="margin-top:20px;">Redzēsiet, kā tas strādā — un pieņemsiet lēmumu par turpmāko sadarbību.</p>
+      <a href="https://t.me/ContentDNAStart_bot?start=lv_free_about" class="btn-white">→ Saņemt bezmaksas pakotni</a>
+    </div>
+    <div class="free-visual">
+      <div class="free-visual-title">KO JŪS SAŅEMAT</div>
+      <div class="free-item"><span class="free-item-icon">📸</span> 3 gatavi ieraksti: AI attēls + teksts</div>
+      <div class="free-item"><span class="free-item-icon">🎠</span> Karuselis — 7 gatavi slaidi</div>
+      <div class="free-item"><span class="free-item-icon">📱</span> 2 gatavas Stories</div>
+      <div class="free-item"><span class="free-item-icon">🎥</span> Story Reel — īss video</div>
+      <div class="free-item"><span class="free-item-icon">🎬</span> Video scenārijs (Reels / TikTok)</div>
+      <div class="free-item"><span class="free-item-icon">🎨</span> Gatavs vāks video</div>
+      <div class="free-item"><span class="free-item-icon">📝</span> SEO raksts mājaslapai</div>
+      <div class="free-item"><span class="free-item-icon">📅</span> Satura plāns 7 dienām</div>
+      <div style="margin-top:16px;padding:14px 16px;background:rgba(255,255,255,0.15);border-radius:10px;font-size:13px;color:rgba(255,255,255,0.9);font-weight:600;text-align:center;">
+        Cena: €0 — vienmēr bez maksas
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PLANS ═══════════════ -->
+<section class="what" id="plans">
+  <div class="container">
+    <div class="section-label">Tarifi</div>
+    <h2 class="section-title">Pilna pakotne — no €150/mēn.</h2>
+    <p class="section-sub">Sāciet ar bezmaksas pakotni — pārliecinieties par kvalitāti, tad izvēlieties tarifu.</p>
+    <div class="plans-grid plans-grid-3">
+
+      <!-- TARIFS STARTS -->
+      <div class="plan">
+        <div class="plan-name">Tarifs Starts</div>
+        <div class="plan-tagline">Teksti + vizuāls sociālajiem tīkliem</div>
+        <div class="plan-price">€150 <span>/mēn.</span></div>
+        <hr class="plan-divider">
+        <ul class="plan-list">
+          <li><span class="check">✓</span> Satura plāns 30 dienām — jūsu mēneša mērķim</li>
+          <li><span class="check">✓</span> 8 gatavi karuseļi ar dizainu</li>
+          <li><span class="check">✓</span> 8 gatavi ieraksti: AI attēls + teksts</li>
+          <li><span class="check">✓</span> 15 gatavas Stories</li>
+          <li><span class="check">✓</span> 3 SEO un GEO raksti mājaslapai</li>
+          <li><span class="check">✓</span> Konkurentu apskats <span style="font-size:12px;color:#9CA3AF">(pirmajā mēnesī)</span></li>
+          <li><span class="check">✓</span> Saturs divās daļās pa 15 dienām — otrā tiek veidota, balstoties uz jūsu auditorijas analītiku</li>
+        </ul>
+        <p class="plan-addon">+ Papildu satura valoda: €30/mēn.</p>
+        <div class="plan-btn">
+          <a href="https://t.me/ContentDNAStart_bot?start=lv_pkg_a_about" class="btn-outline" style="display:block;text-align:center;">→ Sākt par €150/mēn.</a>
+        </div>
+      </div>
+
+      <!-- TARIFS STANDARTS -->
+      <div class="plan popular">
+        <div class="plan-badge">Populāra izvēle</div>
+        <div class="plan-name">Tarifs Standarts</div>
+        <div class="plan-tagline">Teksti + vizuāls + Story Reels + AI Video</div>
+        <div class="plan-price">€250 <span>/mēn.</span></div>
+        <hr class="plan-divider">
+        <ul class="plan-list">
+          <li><span class="check">✓</span> Viss no tarifa Starts</li>
+          <li><span class="check purple">✓ 8 Story Reels + 2 AI Video (Reels / TikTok / Shorts)</span></li>
+          <li><span class="check purple">✓ 2 vāki AI Video</span></li>
+        </ul>
+        <p class="plan-addon">+ Papildu satura valoda: €60/mēn.</p>
+        <div class="plan-btn">
+          <a href="https://t.me/ContentDNAStart_bot?start=lv_pkg_standard_about" class="btn-primary" style="display:block;text-align:center;">→ Sākt par €250/mēn.</a>
+        </div>
+      </div>
+
+      <!-- TARIFS PROFI -->
+      <div class="plan">
+        <div class="plan-name">Tarifs Profi</div>
+        <div class="plan-tagline">Teksti + vizuāls + Story Reels + AI Video</div>
+        <div class="plan-price">€350 <span>/mēn.</span></div>
+        <hr class="plan-divider">
+        <ul class="plan-list">
+          <li><span class="check">✓</span> Viss no tarifa Starts</li>
+          <li><span class="check purple">✓ 10 Story Reels + 4 AI Video (Reels / TikTok / Shorts)</span></li>
+          <li><span class="check purple">✓ 4 vāki AI Video</span></li>
+          <li><span class="check purple">✓ Saturs trīs daļās pa 10 dienām — korekcijas atbilstoši jūsu klientu uzvedībai notiek ātrāk</span></li>
+        </ul>
+        <p class="plan-addon">+ Papildu satura valoda: €90/mēn.</p>
+        <div class="plan-btn">
+          <a href="https://t.me/ContentDNAStart_bot?start=lv_pkg_v_about" class="btn-outline" style="display:block;text-align:center;">→ Sākt par €350/mēn.</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ AGENCY COMPARISON ═══════════════ -->
+<section style="background:var(--dark);padding:72px 24px;">
+  <div class="container">
+    <div class="section-label" style="background:rgba(255,255,255,0.12);color:#C4B5FD;">Kāpēc lētāk</div>
+    <h2 class="section-title" style="color:white;margin-bottom:16px;">Aģentūra — tas nav tikai saturs.<br>Jūs maksājat par visu iekļauto.</h2>
+    <p style="font-size:17px;color:#9CA3AF;max-width:640px;margin-bottom:48px;line-height:1.7;">Kā aviācijā: ir aviokompānijas, kur biļetē iekļauts viss — ēdiens, sēdvietas izvēle, serviss. Un ir tādas, kur maksājat tikai par lidojumu. Abas nogādās jūs galamērķī.</p>
+    <div class="compare-grid">
+      <div style="background:rgba(255,255,255,0.06);border-radius:20px;padding:32px 28px;border:1px solid rgba(255,255,255,0.1);">
+        <div style="font-size:15px;font-weight:700;color:#9CA3AF;margin-bottom:20px;letter-spacing:1px;">MĀRKETINGA AĢENTŪRA</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:white;">
+            <span style="width:28px;height:28px;background:rgba(239,68,68,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;">💰</span>
+            Algas tiem, kas veido saturu
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:white;">
+            <span style="width:28px;height:28px;background:rgba(239,68,68,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;">💰</span>
+            Algas tiem, kas publicē un uztur kontu
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:white;">
+            <span style="width:28px;height:28px;background:rgba(239,68,68,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;">💰</span>
+            Aģentūras īpašnieka peļņa
+          </div>
+        </div>
+        <div style="font-size:26px;font-weight:900;color:#EF4444;">€1 500 – 5 000/mēn.</div>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div style="background:linear-gradient(135deg,rgba(124,58,237,0.3),rgba(79,70,229,0.3));border-radius:20px;padding:32px 28px;border:1px solid rgba(124,58,237,0.4);">
+        <div style="font-size:15px;font-weight:700;color:#A78BFA;margin-bottom:20px;letter-spacing:1px;">MARKETING DNA</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:white;">
+            <span style="width:28px;height:28px;background:rgba(16,185,129,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;">✓</span>
+            Satura veidošana — AI + ekspertīze
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#6B7280;">
+            <span style="width:28px;height:28px;background:rgba(107,114,128,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;">—</span>
+            Publicējat paši vai caur plānotāju
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#6B7280;">
+            <span style="width:28px;height:28px;background:rgba(107,114,128,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;">—</span>
+            Maksājat tikai par satura veidošanu
+          </div>
+        </div>
+        <div style="font-size:26px;font-weight:900;color:#A78BFA;">€150 – 350/mēn.</div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:22px 28px;background:rgba(255,255,255,0.05);border-radius:14px;font-size:15px;color:#9CA3AF;line-height:1.7;border:1px solid rgba(255,255,255,0.08);">
+      Satura kvalitāte ir salīdzināma, jo tiek izmantoti līdzīgi rīki. Marketing DNA veic mērķauditorijas izpēti, konkurentu analīzi, sastāda semantisko kodolu — virzīšanas stratēģijā tiek izmantotas zināšanas par jūsu lietotāju psiholoģiju un labākā mārketinga prakse jūsu nišā. Atšķirība ir tajā, kā šīs zināšanas tiek izmantotas, kādā secībā un kādiem mērķiem. Un galvenais jautājums — <strong style="color:white;">par ko tieši jūs maksājat?</strong> Marketing DNA ņem maksu tikai par satura veidošanu, balstoties uz analīzi. Publicēšanu veicat paši — pēc gatava grafika no satura plāna. Jūs nemaksājat par aģentūras darbinieku darbu, kuri publicē ierakstus jūsu vietā.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOR WHOM ═══════════════ -->
+<section class="forwhom">
+  <div class="container">
+    <div class="section-label">Kam</div>
+    <h2 class="section-title">Jūs esat profesionālis savā jomā.<br>Mēs — sociālajos tīklos.</h2>
+    <p class="section-sub">Jūs attīstāt biznesu, klienti nāk pēc ieteikumiem — jūs esat labs tajā, ko darāt. Uzturēt sociālos tīklus tā, lai jūs atrastu, atpazītu un pieteiktos — tā ir atsevišķa māksla. Tieši ar to nodarbojamies mēs.</p>
+    <div class="niches">
+      <div class="niche">
+        <div class="niche-icon">🍽️</div>
+        <div class="niche-name">Kafejnīcas un restorāni</div>
+        <div class="niche-desc">Ēdienkarte, atmosfēra, akcijas, ēdienu stāsti</div>
+      </div>
+      <div class="niche">
+        <div class="niche-icon">💆</div>
+        <div class="niche-name">Skaistumkopšanas saloni</div>
+        <div class="niche-desc">Pirms/pēc, padomi, akcijas, meistari</div>
+      </div>
+      <div class="niche">
+        <div class="niche-icon">🛍️</div>
+        <div class="niche-name">Veikali un šourumi</div>
+        <div class="niche-desc">Preces, apskati, jaunumi, izpārdošanas</div>
+      </div>
+      <div class="niche">
+        <div class="niche-icon">🏋️</div>
+        <div class="niche-name">Fitness un treneri</div>
+        <div class="niche-desc">Padomi, transformācijas, programmas</div>
+      </div>
+      <div class="niche">
+        <div class="niche-icon">🏠</div>
+        <div class="niche-name">Nekustamais īpašums</div>
+        <div class="niche-desc">Objekti, padomi pircējiem, tirgus</div>
+      </div>
+      <div class="niche">
+        <div class="niche-icon">⚖️</div>
+        <div class="niche-name">Juristi un grāmatveži</div>
+        <div class="niche-desc">Ekspertu saturs, gadījumi, analīzes</div>
+      </div>
+      <div class="niche">
+        <div class="niche-icon">🎨</div>
+        <div class="niche-name">Dizains un radošums</div>
+        <div class="niche-desc">Portfolio, process, projektu stāsti</div>
+      </div>
+      <div class="niche">
+        <div class="niche-icon">🧑‍⚕️</div>
+        <div class="niche-name">Meistari un eksperti</div>
+        <div class="niche-desc">Kouči, psihologi, masieri, astrologi, terapeiti</div>
+      </div>
+    </div>
+    <p style="margin-top:20px;text-align:center;font-size:14px;color:#64748B;">Marketing DNA palīdz uzturēt sociālos tīklus dažādiem biznesiem — sistēma izpēta jūsu nišu, auditoriju un konkurentus — un, balstoties uz analīzi, veido īsus video, karuseļus un ierakstus tieši jums un jūsu auditorijai. Jūs pamanīs, jūs atcerēsies, pie jums atnāks.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ WEBSITES ═══════════════ -->
+<section style="background:var(--white);padding:80px 24px;">
+  <div class="container">
+    <div class="section-label">Papildus</div>
+    <h2 class="section-title">Nav mājaslapas vai tā novecojusi?<br>Izveidosim 3–7 dienās.</h2>
+    <p class="section-sub">Viena komanda — saturs sociālajiem tīkliem un mājaslapa jūsu biznesam. Bez tehniskām grūtībām no jūsu puses.</p>
+    <div class="plans-grid" style="margin-top:40px;">
+      <div class="plan">
+        <div class="plan-name">Vizītkartes mājaslapa</div>
+        <div class="plan-tagline">3 ekrāni · līdz 3 dienām</div>
+        <div class="plan-price">€150</div>
+        <hr class="plan-divider">
+        <ul class="plan-list">
+          <li><span class="check">✓</span> Kas jūs esat, ko darāt, kā ar jums sazināties</li>
+          <li><span class="check">✓</span> Ideāli meistariem, frīlanseriem un speciālistiem</li>
+          <li><span class="check">✓</span> Gatavs 3 dienās</li>
+        </ul>
+        <div class="plan-btn">
+          <a href="https://t.me/ContentDNAStart_bot?start=lv_website_vizitka_about" class="btn-outline" style="display:block;text-align:center;">→ Uzzināt vairāk</a>
+        </div>
+      </div>
+      <div class="plan popular">
+        <div class="plan-badge">Populāra izvēle</div>
+        <div class="plan-name">Eksperta mājaslapa</div>
+        <div class="plan-tagline">9 ekrāni · līdz 7 dienām</div>
+        <div class="plan-price">€299</div>
+        <hr class="plan-divider">
+        <ul class="plan-list">
+          <li><span class="check">✓</span> Stāsts, pakalpojumi ar foto, darba process</li>
+          <li><span class="check">✓</span> Gadījumi, atsauksmes un BUJ</li>
+          <li><span class="check">✓</span> Tiem, kas vēlas izskatīties profesionāli un pārdot dārgāk</li>
+        </ul>
+        <div class="plan-btn">
+          <a href="https://t.me/ContentDNAStart_bot?start=lv_website_expert_about" class="btn-primary" style="display:block;text-align:center;">→ Uzzināt vairāk</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FINAL CTA ═══════════════ -->
+<section class="final-cta">
+  <h2>Sāciet ar <em>bezmaksas</em> pakotni.<br>Pārliecinieties — tad izlemiet.</h2>
+  <p class="sub">4 jautājumi Telegramā. Pirmā satura pakotne — bez maksas. Bez kartes un bez saistībām.</p>
+  <a href="https://t.me/ContentDNAStart_bot?start=lv_final_about" class="btn-primary" style="font-size:18px;padding:20px 42px;">→ Saņemt bezmaksas pakotni</a>
+  <p class="final-note">Vai uzreiz izvēlieties tarifu — Starts €150 · Standarts €250 · Profi €350/mēn.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Marketing <span>DNA</span></div>
+    <div class="footer-links">
+      <a href="index.html">Sākums</a>
+      <a href="https://t.me/ContentDNAStart_bot">Telegram bots</a>
+    </div>
+    <div style="font-size:13px;color:#4B5563;">© 2026 Marketing DNA</div>
+  </div>
+</footer>
+
+</body>
+</html>
