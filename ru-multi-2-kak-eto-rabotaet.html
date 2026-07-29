@@ -1188,9 +1188,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 
 <style>
-/* nav (64px) + pagemenu are BOTH fixed, stacked; body padding reserves
-   real flow space for both so page content never renders underneath them */
-body{padding-top:118px;}
+/* nav (64px) + pagemenu are BOTH fixed, stacked. Reserve real flow space
+   for them with a dedicated spacer element -- NOT body's own padding,
+   because Cookiebot sets an inline body[style="padding-top:0"] at runtime
+   on the live site that silently wins over any body{} CSS rule. */
+.pagemenu-spacer{height:118px;}
 .pagemenu{background:#F8F7FF;border-bottom:1px solid #E8EDF5;position:fixed;top:64px;left:0;right:0;z-index:90;}
 .pagemenu-inner{max-width:1100px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:0 16px;-webkit-overflow-scrolling:touch;}
 .pagemenu a{white-space:nowrap;padding:13px 14px;font-size:14px;font-weight:600;color:#6B7280;text-decoration:none;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;}
@@ -1218,7 +1220,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 <script>localStorage.setItem("mdna_lang","ru");</script>
-<nav class="pagemenu"><div class="pagemenu-inner"><a href="ru-multi-1-glavnaya.html">Главная</a><a href="ru-multi-2-kak-eto-rabotaet.html" class="active">Как это работает</a><a href="ru-multi-3-tarify.html">Тарифы</a><a href="ru-multi-4-dlya-kogo.html">Для кого</a><a href="ru-multi-5-otzyvy-faq.html">Отзывы и вопросы</a></div></nav>
+<nav class="pagemenu"><div class="pagemenu-inner"><a href="ru-multi-1-glavnaya.html">Главная</a><a href="ru-multi-2-kak-eto-rabotaet.html" class="active">Как это работает</a><a href="ru-multi-3-tarify.html">Тарифы</a><a href="ru-multi-4-dlya-kogo.html">Для кого</a><a href="ru-multi-5-otzyvy-faq.html">Отзывы и вопросы</a></div></nav><div class="pagemenu-spacer"></div>
 <section class="how" id="how">
   <div class="container">
     <h2 class="section-title">Как это работает</h2>
