@@ -54,9 +54,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
 
   <div class="lang-switch">
-    <button class="lang-btn active" onclick="setLang('ru')">RU</button>
-    <button class="lang-btn" onclick="setLang('lv')">LV</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn active" onclick="setLang('ru', event)">RU</button>
+    <button class="lang-btn" onclick="setLang('lv', event)">LV</button>
+    <button class="lang-btn" onclick="setLang('en', event)">EN</button>
   </div>
 
   <!-- ── РУССКИЙ ── -->
@@ -104,6 +104,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <h2>8. Контакт</h2>
     <p>По всем вопросам: <a href="mailto:marketingdnateam@gmail.com">marketingdnateam@gmail.com</a></p>
+    <div class="card" style="margin-top:16px;">
+      <p style="margin:0;"><strong>Оператор данных / юридические реквизиты:</strong><br>
+      SIA «KERAM STUDIJA»<br>
+      Рег. № 40203735766<br>
+      Юр. адрес: Augusta Deglava iela 152/3 k-36, Rīga, LV-1021, Латвия</p>
+    </div>
+    <p style="margin-top:14px;font-size:14px;"><a href="privacy.html?lang=ru">Политика конфиденциальности →</a></p>
   </div>
 
   <!-- ── ЛАТЫШСКИЙ ── -->
@@ -150,6 +157,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <h2>8. Kontakts</h2>
     <p><a href="mailto:marketingdnateam@gmail.com">marketingdnateam@gmail.com</a></p>
+    <div class="card" style="margin-top:16px;">
+      <p style="margin:0;"><strong>Datu pārzinis / juridiskie rekvizīti:</strong><br>
+      SIA «KERAM STUDIJA»<br>
+      Reģ. Nr. 40203735766<br>
+      Juridiskā adrese: Augusta Deglava iela 152/3 k-36, Rīga, LV-1021, Latvija</p>
+    </div>
+    <p style="margin-top:14px;font-size:14px;"><a href="privacy.html?lang=lv">Privātuma politika →</a></p>
   </div>
 
   <!-- ── АНГЛИЙСКИЙ ── -->
@@ -196,6 +210,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <h2>8. Contact</h2>
     <p><a href="mailto:marketingdnateam@gmail.com">marketingdnateam@gmail.com</a></p>
+    <div class="card" style="margin-top:16px;">
+      <p style="margin:0;"><strong>Data controller / legal details:</strong><br>
+      SIA «KERAM STUDIJA»<br>
+      Reg. No. 40203735766<br>
+      Legal address: Augusta Deglava iela 152/3 k-36, Rīga, LV-1021, Latvia</p>
+    </div>
+    <p style="margin-top:14px;font-size:14px;"><a href="privacy.html?lang=en">Privacy Policy →</a></p>
   </div>
 
 </div>
@@ -205,12 +226,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <script>
-function setLang(lang) {
+function setLang(lang, ev) {
+  if (!document.querySelector('[data-lang="'+lang+'"]')) lang = 'ru';
   document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('visible'));
-  document.querySelector(`[data-lang="${lang}"]`).classList.add('visible');
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
+  document.querySelector('[data-lang="'+lang+'"]').classList.add('visible');
+  var btns = document.querySelectorAll('.lang-btn');
+  btns.forEach(btn => btn.classList.remove('active'));
+  if (ev && ev.target) { ev.target.classList.add('active'); }
+  else { var idx = {ru:0, lv:1, en:2}[lang]; if (btns[idx]) btns[idx].classList.add('active'); }
 }
+(function () {
+  var q = (location.search.match(/[?&]lang=(ru|lv|en)/) || [])[1];
+  var h = (location.hash.replace('#','').match(/^(ru|lv|en)$/) || [])[0];
+  setLang(q || h || 'ru');
+})();
 </script>
 
 </body>
