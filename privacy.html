@@ -53,9 +53,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
 
   <div class="lang-switch">
-    <button class="lang-btn active" onclick="setLang('ru')">RU</button>
-    <button class="lang-btn" onclick="setLang('lv')">LV</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn active" onclick="setLang('ru', event)">RU</button>
+    <button class="lang-btn" onclick="setLang('lv', event)">LV</button>
+    <button class="lang-btn" onclick="setLang('en', event)">EN</button>
   </div>
 
   <!-- ── РУССКИЙ ── -->
@@ -211,12 +211,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <script>
-function setLang(lang) {
+function setLang(lang, ev) {
+  if (!document.querySelector('[data-lang="'+lang+'"]')) lang = 'ru';
   document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('visible'));
-  document.querySelector(`[data-lang="${lang}"]`).classList.add('visible');
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
+  document.querySelector('[data-lang="'+lang+'"]').classList.add('visible');
+  var btns = document.querySelectorAll('.lang-btn');
+  btns.forEach(btn => btn.classList.remove('active'));
+  if (ev && ev.target) { ev.target.classList.add('active'); }
+  else { var idx = {ru:0, lv:1, en:2}[lang]; if (btns[idx]) btns[idx].classList.add('active'); }
 }
+(function () {
+  var q = (location.search.match(/[?&]lang=(ru|lv|en)/) || [])[1];
+  var h = (location.hash.replace('#','').match(/^(ru|lv|en)$/) || [])[0];
+  setLang(q || h || 'ru');
+})();
 </script>
 
 </body>
