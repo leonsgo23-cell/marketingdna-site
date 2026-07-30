@@ -1199,6 +1199,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .pagemenu a:hover{color:#7C3AED;}
 .pagemenu a.active{color:#7C3AED;border-bottom-color:#7C3AED;}
 .pagemenu::-webkit-scrollbar{height:0;}
+/* the spacer above already clears nav+menu (118px) -- sections' own
+   top padding was tuned for a single-page scroll where something always
+   preceded them; as a page's FIRST element that padding just stacks on
+   top of the spacer, producing a big empty gap. Trim it back down. */
+.hero{padding-top:32px !important;}
+@media(max-width:480px){ section{padding:44px 20px;} }
 </style>
 </head>
 <body>
@@ -1220,7 +1226,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 <script>localStorage.setItem("mdna_lang","ru");</script>
-<nav class="pagemenu"><div class="pagemenu-inner"><a href="ru-multi-1-glavnaya.html" class="active">Главная</a><a href="ru-multi-2-tarify.html">Тарифы</a><a href="ru-multi-3-kak-eto-rabotaet.html">Как это работает</a><a href="ru-multi-4-dlya-kogo.html">Для кого</a><a href="ru-multi-5-otzyvy-faq.html">Отзывы и вопросы</a><a href="ru-multi-6-sayty.html">Сайты</a></div></nav><div class="pagemenu-spacer"></div>
+<nav class="pagemenu"><div class="pagemenu-inner"><a href="ru-multi-1-glavnaya.html" class="active">Главная</a><a href="ru-multi-2-tarify.html">Тарифы</a><a href="ru-multi-3-kak-eto-rabotaet.html">Как это работает</a><a href="ru-multi-4-dlya-kogo.html">Для кого</a><a href="ru-multi-5-sayty.html">Сайты</a><a href="ru-multi-6-otzyvy-faq.html">Отзывы и вопросы</a></div></nav><div class="pagemenu-spacer"></div>
 <section class="hero" id="hero">
   <div class="hero-inner">
     <div class="hero-top">
