@@ -1219,7 +1219,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="nav-logo">Marketing <span>DNA</span></div>
         <div class="lang-switcher">
       <span class="lang-btn active">LV</span>
-      <a href="/ru" class="lang-btn" onclick="localStorage.setItem('mdna_lang','ru')">RU</a>
+      <a href="/ru" class="lang-btn" onclick="try{localStorage.setItem('mdna_lang','ru')}catch(e){}">RU</a>
       <span class="lang-btn lang-btn-disabled" style="opacity:0.4;cursor:default;">EN</span>
     </div>
     <a href="#simple-start-form" data-entry="lv_nav" class="nav-cta"><span class="nav-cta-full">Izmēģināt bez maksas →</span><span class="nav-cta-short">Izmēģināt bez maksas →</span></a>
