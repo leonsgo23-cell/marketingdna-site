@@ -1222,7 +1222,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="lang-btn active">RU</span>
       <span class="lang-btn lang-btn-disabled" style="opacity:0.4;cursor:default;">EN</span>
     </div>
-    <a href="ru.html#simple-start-form" data-entry="nav" class="nav-cta"><span class="nav-cta-full">Получить бесплатный пакет →</span><span class="nav-cta-short">Бесплатный пакет →</span></a>
+    <a href="ru.html#simple-start-form" data-entry="nav" class="nav-cta"><span class="nav-cta-full">Оставить заявку на ведение соцсетей →</span><span class="nav-cta-short">Заявка на ведение →</span></a>
   </div>
 </nav>
 <script>try{localStorage.setItem("mdna_lang","ru");}catch(e){}</script>
@@ -1358,7 +1358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="who" id="who">
   <div class="who-inner">
     <h2>Marketing DNA - глубокий анализ<br>и готовый контент за 1–2 дня</h2>
-    <p class="who-desc" style="margin-bottom:20px;">Сервис по созданию готового контента для малого бизнеса. Изучаем ваш бизнес, конкурентов и клиентов - и создаём видео, карусели, сценарии и SEO-статьи персонально под ваш бизнес. Берёте готовые посты и публикуете в своих&nbsp;соцсетях.</p>
+    <p class="who-desc" style="margin-bottom:20px;">Команда маркетологов, которая создаёт готовый контент для малого бизнеса. Изучаем ваш бизнес, конкурентов и клиентов - и делаем видео, карусели, сценарии и SEO-статьи персонально под ваш бизнес. Берёте готовые посты и публикуете в своих&nbsp;соцсетях.</p>
     <h2 class="section-title" style="text-align:center;margin-bottom:16px;">Сравнительная таблица</h2>
     <div class="compare-table-wrap">
     <table class="compare-table">
@@ -1402,7 +1402,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </tr>
         <tr>
           <td>Стоимость</td>
-          <td class="ours"><span class="badge-win">от €59/мес</span></td>
+          <td class="ours"><span class="badge-win">от €99/мес</span></td>
           <td>от €700/мес</td>
           <td>от €350/мес</td>
           <td>Стоимость вашего часа</td>
@@ -1416,11 +1416,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </tr>
       </tbody>
     </table>
-    </div>
-
-    <div class="why-cheaper">
-      <p>Обычные агентства берут деньги за часы работы своих людей. Нам платят за результат - готовый контент на 30 дней: видео, карусели, посты со смыслом на основе исследования и анализа вашего бизнеса и ваших клиентов.</p>
-      <p class="why-cheaper-price">У нас дешевле, потому что активно используем новые технологии и искусственный интеллект - он делает за часы то, на что у обычных агентств уходят недели работы.</p>
     </div>
   </div>
 </section>
@@ -1447,5 +1442,76 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     SIA «KERAM STUDIJA» · Рег. № 40203735766 · Augusta Deglava iela 152/3 k-36, Rīga, LV-1021 · <a href="privacy.html?lang=ru" style="color:rgba(255,255,255,0.6);">Политика конфиденциальности</a> · <a href="terms.html?lang=ru" style="color:rgba(255,255,255,0.6);">Условия использования</a> · © 2026
   </div>
 </footer>
+<div id="leadModalOverlay" style="display:none;position:fixed;inset:0;background:rgba(26,26,46,.55);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:18px;padding:32px 28px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25);text-align:left;">
+    <button onclick="closeLeadModal()" aria-label="Закрыть" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;background:#F3F4F6;border-radius:50%;font-size:16px;color:#6B7280;cursor:pointer;line-height:1;">✕</button>
+    <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Оставить заявку на ведение соцсетей</h3>
+    <p style="font-size:14px;color:#6B7280;margin:0 0 18px;">Ответим в течение дня.</p>
+    <input id="leadName" type="text" placeholder="Имя" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+    <input id="leadContact" type="text" placeholder="Телефон или email" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+    <input id="leadBiz" type="text" placeholder="Что продаёте и кому?" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:16px;outline:none;">
+    <button id="leadSendBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;" onclick="submitLeadModal()">Отправить заявку</button>
+    <p id="leadStatus" style="display:none;font-size:13px;margin-top:10px;font-weight:600;text-align:center;"></p>
+  </div>
+</div>
+<script>
+(function () {
+  var API = 'https://marketingdna-bot-production.up.railway.app/site_lead';
+  var overlay = document.getElementById('leadModalOverlay');
+  var entryPoint = 'steps';
+
+  window.openLeadModal = function (entry) {
+    entryPoint = entry || 'steps';
+    overlay.style.display = 'flex';
+  };
+  window.closeLeadModal = function () {
+    overlay.style.display = 'none';
+  };
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeLeadModal();
+  });
+
+  document.querySelectorAll('a[data-entry]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      openLeadModal(a.dataset.entry || 'cta');
+    });
+  });
+
+  window.submitLeadModal = function () {
+    var name = (document.getElementById('leadName').value || '').trim();
+    var contact = (document.getElementById('leadContact').value || '').trim();
+    var biz = (document.getElementById('leadBiz').value || '').trim();
+    var statusEl = document.getElementById('leadStatus');
+    if (!name) {
+      statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Напишите, пожалуйста, имя.';
+      return;
+    }
+    if (contact.length < 5) {
+      statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Оставьте контакт: WhatsApp, телефон или email — иначе нам некуда вам написать.';
+      return;
+    }
+    var sendBtn = document.getElementById('leadSendBtn');
+    sendBtn.disabled = true; sendBtn.textContent = 'Отправляем...';
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, contact: contact, link: biz, kind: 'lead_form', entry: entryPoint, lang: 'ru' }),
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      if (d && d.ok) {
+        statusEl.style.display = 'block'; statusEl.style.color = '#059669';
+        statusEl.textContent = '✅ Приняли! Напишем вам в течение дня.';
+        sendBtn.style.display = 'none';
+      } else { throw new Error('bad response'); }
+    }).catch(function () {
+      statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Не получилось отправить. Попробуйте ещё раз чуть позже.';
+      sendBtn.disabled = false; sendBtn.textContent = 'Отправить заявку';
+    });
+  };
+})();
+</script>
 </body>
 </html>
