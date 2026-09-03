@@ -1521,23 +1521,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="leadModalOverlay" style="display:none;position:fixed;inset:0;background:rgba(26,26,46,.55);z-index:9999;align-items:center;justify-content:center;padding:20px;">
   <div style="background:#fff;border-radius:18px;padding:32px 28px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25);text-align:left;">
     <button onclick="closeLeadModal()" aria-label="Aizvērt" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;background:#F3F4F6;border-radius:50%;font-size:16px;color:#6B7280;cursor:pointer;line-height:1;">✕</button>
-    <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Pieteikties sociālo tīklu vadībai</h3>
-    <p style="font-size:14px;color:#6B7280;margin:0 0 18px;">Atbildēsim dienas laikā.</p>
-    <input id="leadName" type="text" placeholder="Vārds" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
-    <input id="leadContact" type="text" placeholder="Tālrunis vai e-pasts" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
-    <input id="leadBiz" type="text" placeholder="Ko pārdodat un kam?" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:16px;outline:none;">
-    <button id="leadSendBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;" onclick="submitLeadModal()">Nosūtīt pieteikumu</button>
-    <p id="leadStatus" style="display:none;font-size:13px;margin-top:10px;font-weight:600;text-align:center;"></p>
+
+    <div id="leadViewFree">
+      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Saņemt bezmaksas pakotni</h3>
+      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Saite uz jūsu mājaslapu vai Instagram - saņemiet saturu 7 dienām bez maksas, tieši Telegram.</p>
+      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Saite uz mājaslapu vai Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
+      <p id="freeLinkHint" style="display:none;font-size:12px;color:#DC2626;margin:0 0 10px;font-weight:600;">Lūdzu, ierakstiet saiti uz jūsu mājaslapu vai Instagram.</p>
+      <button id="freeTgBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:4px;">📱 Saņemt Telegram</button>
+      <p id="freeTgHint" style="display:none;font-size:12px;color:#059669;margin:10px 0 0;font-weight:600;">✅ Saite nokopēta - ielīmējiet to bota tērzēšanā.</p>
+      <a href="#" id="freeNoTgToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">Nav Telegram? Iesniegt pieteikumu</a>
+    </div>
+
+    <div id="leadViewForm" style="display:none">
+      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Pieteikties sociālo tīklu vadībai</h3>
+      <p style="font-size:14px;color:#6B7280;margin:0 0 18px;">Atbildēsim dienas laikā.</p>
+      <input id="leadName" type="text" placeholder="Vārds" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+      <input id="leadContact" type="text" placeholder="Tālrunis vai e-pasts" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+      <input id="leadBiz" type="text" placeholder="Ko pārdodat un kam?" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:16px;outline:none;">
+      <button id="leadSendBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;" onclick="submitLeadModal()">Nosūtīt pieteikumu</button>
+      <p id="leadStatus" style="display:none;font-size:13px;margin-top:10px;font-weight:600;text-align:center;"></p>
+      <a href="#" id="leadBackToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">← Ir Telegram? Ātrāk caur botu</a>
+    </div>
+
   </div>
 </div>
 <script>
 (function () {
   var API = 'https://marketingdna-bot-production.up.railway.app/site_lead';
+  var BOT = 'https://t.me/ContentDNAStart_bot';
   var overlay = document.getElementById('leadModalOverlay');
+  var viewFree = document.getElementById('leadViewFree');
+  var viewForm = document.getElementById('leadViewForm');
   var entryPoint = 'lv_steps';
 
   window.openLeadModal = function (entry) {
     entryPoint = entry || 'lv_steps';
+    viewFree.style.display = 'block';
+    viewForm.style.display = 'none';
     overlay.style.display = 'flex';
   };
   window.closeLeadModal = function () {
@@ -1552,6 +1572,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       e.preventDefault();
       openLeadModal(a.dataset.entry || 'cta');
     });
+  });
+
+  function b64url(s) {
+    try { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+    catch (e) { return null; }
+  }
+  function postLead(payload) {
+    try { fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(function () {}); }
+    catch (e) {}
+  }
+
+  var freeLinkInput = document.getElementById('freeLinkInput');
+  var freeLinkHint = document.getElementById('freeLinkHint');
+  var freeTgHint = document.getElementById('freeTgHint');
+
+  document.getElementById('freeTgBtn').addEventListener('click', function () {
+    var v = (freeLinkInput.value || '').trim();
+    if (v.length < 4) {
+      freeLinkHint.style.display = 'block';
+      freeLinkInput.focus();
+      return;
+    }
+    freeLinkHint.style.display = 'none';
+    var enc = b64url(v);
+    var url, clip = '';
+    if (enc && enc.length <= 62) {
+      url = BOT + '?start=lv_L_' + enc;
+    } else {
+      url = BOT + '?start=lv_steps';
+      clip = v;
+    }
+    postLead({ link: v, kind: 'tg_click', entry: entryPoint, lang: 'lv' });
+    if (clip && navigator.clipboard) {
+      navigator.clipboard.writeText(clip).then(function () { freeTgHint.style.display = 'block'; }).catch(function () {});
+    }
+    window.open(url, '_blank', 'noopener');
+  });
+
+  document.getElementById('freeNoTgToggle').addEventListener('click', function (e) {
+    e.preventDefault();
+    var v = (freeLinkInput.value || '').trim();
+    if (v && !document.getElementById('leadBiz').value) document.getElementById('leadBiz').value = v;
+    viewFree.style.display = 'none';
+    viewForm.style.display = 'block';
+  });
+  document.getElementById('leadBackToggle').addEventListener('click', function (e) {
+    e.preventDefault();
+    viewForm.style.display = 'none';
+    viewFree.style.display = 'block';
   });
 
   window.submitLeadModal = function () {
