@@ -1315,12 +1315,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div id="leadViewFree">
       <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Получить бесплатный пакет</h3>
-      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Ссылка на ваш сайт или Instagram - получите контент на 7 дней бесплатно, прямо в Telegram.</p>
+      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Ссылка на ваш сайт или Instagram - соберём контент на 7 дней бесплатно.</p>
       <input id="freeLinkInput" type="text" inputmode="url" placeholder="Ссылка на сайт или Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
       <p id="freeLinkHint" style="display:none;font-size:12px;color:#DC2626;margin:0 0 10px;font-weight:600;">Впишите, пожалуйста, ссылку на ваш сайт или Instagram.</p>
-      <button id="freeTgBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:4px;">📱 Получить в Telegram</button>
+
+      <!-- Выбор канала. Кнопка WhatsApp скрыта, пока в скрипте ниже не задан WA_NUMBER:
+           нет номера - сайт работает как раньше, только Telegram. -->
+      <p id="freeChannelLabel" style="display:none;font-size:13px;font-weight:700;color:#4B5563;margin:16px 0 8px;">Куда прислать?</p>
+      <button id="freeWaBtn" class="btn-primary" style="display:none;width:100%;border:none;cursor:pointer;background:#25D366;margin-bottom:9px;">📱 В WhatsApp</button>
+      <button id="freeTgBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:4px;">✈️ В Telegram</button>
       <p id="freeTgHint" style="display:none;font-size:12px;color:#059669;margin:10px 0 0;font-weight:600;">✅ Ссылка скопирована - вставьте её в чате бота.</p>
-      <a href="#" id="freeNoTgToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">Нет Telegram? Оставить заявку</a>
+      <a href="#" id="freeNoTgToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">Нет ни того, ни другого? Оставьте контакт - напишем сами</a>
     </div>
 
     <div id="leadViewForm" style="display:none">
@@ -1340,6 +1345,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 (function () {
   var API = 'https://marketingdna-bot-production.up.railway.app/site_lead';
   var BOT = 'https://t.me/ContentDNAStart_bot';
+
+  // ── ЕДИНСТВЕННОЕ МЕСТО, ГДЕ ЗАДАЁТСЯ НОМЕР WHATSAPP ────────────────────────
+  // Пусто - кнопки WhatsApp нет, сайт работает как раньше (только Telegram).
+  // Вписать номер в международном формате без плюса и пробелов, например '37120000000' -
+  // кнопка появится сама, ничего больше менять не нужно.
+  var WA_NUMBER = '';
   var overlay = document.getElementById('leadModalOverlay');
   var viewFree = document.getElementById('leadViewFree');
   var viewForm = document.getElementById('leadViewForm');
@@ -1378,15 +1389,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var freeLinkInput = document.getElementById('freeLinkInput');
   var freeLinkHint = document.getElementById('freeLinkHint');
   var freeTgHint = document.getElementById('freeTgHint');
+  var freeWaBtn = document.getElementById('freeWaBtn');
+  var freeTgBtn = document.getElementById('freeTgBtn');
+  var freeChannelLabel = document.getElementById('freeChannelLabel');
 
-  document.getElementById('freeTgBtn').addEventListener('click', function () {
+  // Выбор канала показываем, только когда есть куда выбирать. Без номера WhatsApp
+  // остаётся один Telegram - и подпись «Куда прислать?» над одной кнопкой не нужна.
+  if (WA_NUMBER) {
+    freeWaBtn.style.display = 'block';
+    freeChannelLabel.style.display = 'block';
+  } else {
+    freeTgBtn.textContent = '📱 Получить в Telegram';
+  }
+
+  // Проверка ссылки - общая для обеих кнопок
+  function requireLink() {
     var v = (freeLinkInput.value || '').trim();
     if (v.length < 4) {
       freeLinkHint.style.display = 'block';
       freeLinkInput.focus();
-      return;
+      return null;
     }
     freeLinkHint.style.display = 'none';
+    return v;
+  }
+
+  // WhatsApp: клиент ОБЯЗАН написать первым - именно его сообщение открывает
+  // 24-часовое окно, внутри которого мы можем свободно вести переписку. Поэтому
+  // здесь ссылка wa.me с заранее набранным текстом, а не форма со сбором номера.
+  freeWaBtn.addEventListener('click', function () {
+    var v = requireLink();
+    if (!v) return;
+    var msg = 'Здравствуйте! Хочу бесплатный пакет контента.\n'
+            + 'Мой сайт или Instagram: ' + v + '\n'
+            + '(код входа: web-ru-' + entryPoint + ')';
+    postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'ru' });
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  });
+
+  freeTgBtn.addEventListener('click', function () {
+    var v = requireLink();
+    if (!v) return;
     var enc = b64url(v);
     var url, clip = '';
     if (enc && enc.length <= 62) {
