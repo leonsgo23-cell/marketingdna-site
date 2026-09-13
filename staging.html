@@ -1320,7 +1320,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">📝 Вы: оставляете заявку</span>
         </div>
         <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Оставьте имя и контакт</h3>
-        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Как к вам обращаться и куда написать - email, WhatsApp или Telegram. Это всё, что нужно на первом шаге.</p>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Как к вам обращаться и куда написать — WhatsApp или Telegram. Это всё, что нужно на первом шаге.</p>
       </div>
       <div style="background:#fff;border:2px solid #DC2626;border-radius:16px;padding:28px 24px;position:relative;">
         <span style="position:absolute;top:-13px;left:20px;background:#DC2626;color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;">Правка · новая карточка</span>
@@ -1394,7 +1394,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Оставить заявку на ведение соцсетей</h3>
       <p style="font-size:14px;color:#6B7280;margin:0 0 18px;">Ответим в течение дня.</p>
       <input id="leadName" type="text" placeholder="Имя" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
-      <input id="leadContact" type="text" placeholder="Телефон или email" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+      <input id="leadContact" type="text" placeholder="Номер WhatsApp или ник в Telegram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
       <input id="leadBiz" type="text" placeholder="Что продаёте и кому?" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:16px;outline:none;">
       <button id="leadSendBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;" onclick="submitLeadModal()">Отправить заявку</button>
       <p id="leadStatus" style="display:none;font-size:13px;margin-top:10px;font-weight:600;text-align:center;"></p>
@@ -1533,7 +1533,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     if (contact.length < 5) {
       statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Оставьте контакт: WhatsApp, телефон или email — иначе нам некуда вам написать.';
+      statusEl.textContent = 'Оставьте номер WhatsApp или ник в Telegram — иначе нам некуда прислать ваш пакет.';
       return;
     }
     var sendBtn = document.getElementById('leadSendBtn');
