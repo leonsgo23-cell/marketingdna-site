@@ -6,12 +6,15 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Marketing DNA</title>
 <!--
-  Страница тестового режима (22.09.2026, решение Александра): «сделаем на веб-странице
-  отдельной вкладкой и разместим на нашем же сайте — просто так она не будет
-  открываться людям, а если кому-то хотим показать, даём прямую ссылку».
+  Страница тестового режима (22.09.2026). Александр: «достаточно всё сделать на
+  сайте… ну и кто-то зайдёт на этот тест, ну и пусть зайдёт, мы же его не прячем.
+  Кто захочет посмотреть, как будет выглядеть контент с его фотографиями — вот
+  ссылка на сайт, и всё».
 
-  Без ключа в адресе страница ничего не показывает. Ключ выдаёт менеджер командой
-  /test_link в боте. Данные уходят на сервер бота (CORS разрешён для наших доменов).
+  Страница открыта: клиент заводится сам при отправке. Написать ему первыми мы не
+  можем (ни Telegram, ни WhatsApp вне суточного окна), поэтому результат отдаём
+  ссылкой прямо здесь; контакт спрашиваем, но не требуем.
+  Данные уходят на сервер бота, CORS там разрешён для наших доменов.
 -->
 <style>
 *{box-sizing:border-box}
@@ -30,7 +33,10 @@ input[type=file]{display:none}
 .thumbs img{width:100%;height:88px;object-fit:cover;border-radius:10px}
 .go{display:block;width:100%;background:#7C3AED;color:#fff;border:0;border-radius:14px;padding:17px;font-size:16px;font-weight:700;margin-top:26px;cursor:pointer;font-family:inherit}
 .go[disabled]{opacity:.55}
-.msg{margin-top:14px;font-size:14px;min-height:20px}
+.contact{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font:inherit;padding:14px}
+.contact:focus{outline:2px solid #7C3AED;outline-offset:1px}
+.msg{margin-top:14px;font-size:14px;min-height:20px;word-break:break-all}
+.link{display:inline-block;margin-top:14px;color:#A78BFA;word-break:break-all}
 .ok{text-align:center;padding:40px 0}
 .ok h2{font-size:22px;margin:0 0 10px}
 html,body{overflow-x:hidden}
@@ -55,11 +61,14 @@ var T = {
     go: 'Собрать контент',
     sending: 'Отправляем…',
     okTitle: 'Готово, мы начали',
-    okText: 'Материалы будут готовы примерно через 30 минут. Мы пришлём их вам туда же, где вы получили эту ссылку.',
+    okText: 'Материалы будут готовы примерно через 30 минут.',
     tooShort: 'Напишите чуть подробнее — три-четыре предложения.',
     err: 'Не получилось отправить. Попробуйте ещё раз.',
     added: 'Добавлено фотографий: ',
-    noKey: 'Эта страница открывается по личной ссылке. Напишите нам, и мы её пришлём.'
+    step3: 'Куда вам написать (по желанию)',
+    ph3: 'Telegram, WhatsApp или почта',
+    hint3: 'Если оставите — ответим лично. Если нет, просто сохраните ссылку, которую покажем после отправки.',
+    keep: 'Сохраните эту ссылку — материалы появятся по ней:'
   },
   lv: {
     title: 'Paskatieties, kā izskatīsies jūsu saturs',
@@ -74,11 +83,14 @@ var T = {
     go: 'Sagatavot saturu',
     sending: 'Sūtām…',
     okTitle: 'Gatavs, esam sākuši',
-    okText: 'Materiāli būs gatavi apmēram pēc 30 minūtēm. Atsūtīsim tos turpat, kur saņēmāt šo saiti.',
+    okText: 'Materiāli būs gatavi apmēram pēc 30 minūtēm.',
     tooShort: 'Uzrakstiet mazliet vairāk — trīs četrus teikumus.',
     err: 'Neizdevās nosūtīt. Mēģiniet vēlreiz.',
     added: 'Pievienotas fotogrāfijas: ',
-    noKey: 'Šī lapa atveras pēc personīgas saites. Uzrakstiet mums, un mēs to atsūtīsim.'
+    step3: 'Kur jums rakstīt (pēc vēlēšanās)',
+    ph3: 'Telegram, WhatsApp vai e-pasts',
+    hint3: 'Ja atstāsiet — atbildēsim personīgi. Ja nē, vienkārši saglabājiet saiti, ko parādīsim pēc nosūtīšanas.',
+    keep: 'Saglabājiet šo saiti — materiāli parādīsies tur:'
   }
 };
 
@@ -86,15 +98,13 @@ function q(name) {
   var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(location.search);
   return m ? decodeURIComponent(m[1]) : '';
 }
-var KEY = q('k').replace(/[^\w-]/g, '');
-var t = T[q('l') === 'lv' ? 'lv' : 'ru'];
-document.documentElement.lang = q('l') === 'lv' ? 'lv' : 'ru';
+// Язык: из адреса, иначе по языку браузера — страница открыта для всех
+var LANG = q('l') === 'lv' ? 'lv' : (q('l') === 'ru' ? 'ru' : ((navigator.language || '').slice(0,2) === 'lv' ? 'lv' : 'ru'));
+var t = T[LANG], KEY = '';
+document.documentElement.lang = LANG;
 function el(id) { return document.getElementById(id); }
 
-// Без ключа страница не показывает форму — её адрес не должен работать «просто так»
-if (!KEY) {
-  el('app').innerHTML = '<div class="ok"><h2>Marketing DNA</h2><p class="lead">' + t.noKey + '</p></div>';
-} else {
+{
   el('app').innerHTML =
     '<h1>' + t.title + '</h1><p class="lead">' + t.lead + '</p>' +
     '<div class="step">' + t.step1 + '</div>' +
@@ -106,6 +116,9 @@ if (!KEY) {
     '<div class="thumbs" id="th"></div>' +
     '<div class="hint">' + t.hint2 + '</div>' +
     '<div class="hint">' + t.hint2b + '</div>' +
+    '<div class="step">' + t.step3 + '</div>' +
+    '<input id="c" class="contact" placeholder="' + t.ph3 + '">' +
+    '<div class="hint">' + t.hint3 + '</div>' +
     '<button class="go" id="go">' + t.go + '</button>' +
     '<div class="msg" id="m"></div>';
 
@@ -146,28 +159,47 @@ if (!KEY) {
     var d = el('d').value.trim();
     if (d.length < MIN_DESC) { el('m').textContent = t.tooShort; return; }
     el('go').disabled = true; el('m').textContent = t.sending;
+
+    // Клиента заводим в момент отправки: страница открыта, заранее мы его не знаем
+    fetch(API + '/test/start', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lang: LANG })
+    }).then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!j || !j.key) throw new Error('start');
+        KEY = j.key;
+        return sendPhotos();
+      })
+      .then(function () {
+        return fetch(API + '/test/' + KEY + '/go', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ description: d, photos: photos.length, contact: el('c').value.trim() })
+        });
+      })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('go')); })
+      .then(function (j) {
+        el('app').innerHTML = '<div class="ok"><h2>' + t.okTitle + '</h2><p class="lead">' + t.okText + '</p>' +
+          (j.result ? '<p class="lead">' + t.keep + '</p><a class="link" href="' + j.result + '">' + j.result + '</a>' : '') +
+          '</div>';
+      })
+      .catch(function () { el('m').textContent = t.err; el('go').disabled = false; });
+  };
+
+  // Снимки идут по одному: так видно ход отправки и не упирается в размер запроса
+  function sendPhotos() {
     var i = 0;
-    (function send() {
-      if (i < photos.length) {
+    return new Promise(function (done) {
+      (function next() {
+        if (i >= photos.length) return done();
         fetch(API + '/test/' + KEY + '/photo', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ image: photos[i] })
         }).then(function () {
-          i++; el('m').textContent = t.sending + ' ' + i + '/' + photos.length; send();
-        }).catch(function () { i++; send(); });
-        return;
-      }
-      fetch(API + '/test/' + KEY + '/start', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ description: d, photos: photos.length })
-      }).then(function (r) {
-        if (!r.ok) throw new Error('start');
-        el('app').innerHTML = '<div class="ok"><h2>' + t.okTitle + '</h2><p class="lead">' + t.okText + '</p></div>';
-      }).catch(function () {
-        el('m').textContent = t.err; el('go').disabled = false;
-      });
-    })();
-  };
+          i++; el('m').textContent = t.sending + ' ' + i + '/' + photos.length; next();
+        }).catch(function () { i++; next(); });
+      })();
+    });
+  }
 }
 </script>
 </body>
