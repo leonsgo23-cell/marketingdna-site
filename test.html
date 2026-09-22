@@ -81,9 +81,14 @@ var T = {
     added: 'Добавлено фотографий: ',
     step3: 'Шаг 3. На каком языке делать контент',
     step4: 'Шаг 4. Куда прислать материалы',
-    ph4: 'Номер WhatsApp или ваш ник в Telegram',
-    hint4: 'Обязательно — иначе нам некуда отправить готовое.',
-    needContact: 'Укажите, куда прислать материалы.'
+    wa: 'В WhatsApp',
+    tg: 'В Telegram',
+    phPhone: 'Номер WhatsApp, например 371 20 000 000',
+    hintWa: 'Пришлём материалы на этот номер.',
+    hintTg: 'После кнопки откроется наш бот — нажмите в нём «Начать», и мы пришлём материалы туда.',
+    needPhone: 'Укажите номер WhatsApp.',
+    openTg: 'Открыть Telegram',
+    tgWait: 'Остался один шаг: откройте бота и нажмите «Начать» — тогда мы начнём собирать и пришлём материалы вам.'
   },
   lv: {
     title: 'Paskatieties, kā izskatīsies jūsu saturs',
@@ -104,9 +109,14 @@ var T = {
     added: 'Pievienotas fotogrāfijas: ',
     step3: '3. solis. Kādā valodā veidot saturu',
     step4: '4. solis. Kurp atsūtīt materiālus',
-    ph4: 'WhatsApp numurs vai jūsu segvārds Telegram',
-    hint4: 'Obligāti — citādi mums nebūs, kurp nosūtīt gatavo.',
-    needContact: 'Norādiet, kurp atsūtīt materiālus.'
+    wa: 'Uz WhatsApp',
+    tg: 'Uz Telegram',
+    phPhone: 'WhatsApp numurs, piemēram 371 20 000 000',
+    hintWa: 'Atsūtīsim materiālus uz šo numuru.',
+    hintTg: 'Pēc pogas atvērsies mūsu bots — nospiediet tajā «Sākt», un mēs atsūtīsim materiālus turp.',
+    needPhone: 'Norādiet WhatsApp numuru.',
+    openTg: 'Atvērt Telegram',
+    tgWait: 'Palicis viens solis: atveriet botu un nospiediet «Sākt» — tad sāksim gatavot un atsūtīsim jums materiālus.'
   }
 };
 
@@ -139,8 +149,12 @@ function el(id) { return document.getElementById(id); }
       '<button type="button" class="lang" data-v="en">English</button>' +
     '</div>' +
     '<div class="step">' + t.step4 + '</div>' +
-    '<input id="c" class="contact" placeholder="' + t.ph4 + '">' +
-    '<div class="hint">' + t.hint4 + '</div>' +
+    '<div class="langs" id="ch">' +
+      '<button type="button" class="lang on" data-ch="whatsapp">' + t.wa + '</button>' +
+      '<button type="button" class="lang" data-ch="telegram">' + t.tg + '</button>' +
+    '</div>' +
+    '<input id="c" class="contact" style="margin-top:10px" placeholder="' + t.phPhone + '" inputmode="tel">' +
+    '<div class="hint" id="ch_hint">' + t.hintWa + '</div>' +
     '<button class="go" id="go">' + t.go + '</button>' +
     '<div class="msg" id="m"></div>';
 
@@ -188,17 +202,31 @@ function el(id) { return document.getElementById(id); }
     };
   });
 
+  // Канал: WhatsApp — нужен номер; Telegram — номер не нужен, клиент подтвердит
+  // переход нажатием кнопки в боте (так же, как вход с главной страницы сайта)
+  var CHANNEL = 'whatsapp';
+  [].forEach.call(document.querySelectorAll('[data-ch]'), function (b) {
+    b.onclick = function () {
+      CHANNEL = b.getAttribute('data-ch');
+      [].forEach.call(document.querySelectorAll('[data-ch]'), function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+      el('c').style.display = CHANNEL === 'whatsapp' ? '' : 'none';
+      el('ch_hint').textContent = CHANNEL === 'whatsapp' ? t.hintWa : t.hintTg;
+    };
+  });
+
   el('go').onclick = function () {
     var d = el('d').value.trim();
     if (d.length < MIN_DESC) { el('m').textContent = t.tooShort; return; }
-    var contact = el('c').value.trim();
-    if (contact.length < 4) { el('m').textContent = t.needContact; el('c').focus(); return; }
+    var phone = el('c').value.trim();
+    if (CHANNEL === 'whatsapp' && phone.replace(/\D/g, '').length < 8) {
+      el('m').textContent = t.needPhone; el('c').focus(); return;
+    }
     el('go').disabled = true; el('m').textContent = t.sending;
 
-    // Клиента заводим в момент отправки — по контакту, который он указал
     fetch(API + '/test/start', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lang: CONTENT_LANG, contact: contact })
+      body: JSON.stringify({ lang: CONTENT_LANG, channel: CHANNEL, phone: phone })
     }).then(function (r) { return r.json(); })
       .then(function (j) {
         if (!j || !j.key) throw new Error('start');
@@ -212,8 +240,13 @@ function el(id) { return document.getElementById(id); }
         });
       })
       .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('go')); })
-      .then(function () {
-        el('app').innerHTML = '<div class="ok"><h2>' + t.okTitle + '</h2><p class="lead">' + t.okText + '</p></div>';
+      .then(function (j) {
+        if (j && j.telegram) {
+          el('app').innerHTML = '<div class="ok"><h2>' + t.okTitle + '</h2><p class="lead">' + t.tgWait + '</p>' +
+            '<a class="go" style="text-decoration:none;display:inline-block;width:auto;padding:16px 28px" href="' + j.telegram + '">' + t.openTg + '</a></div>';
+        } else {
+          el('app').innerHTML = '<div class="ok"><h2>' + t.okTitle + '</h2><p class="lead">' + t.okText + '</p></div>';
+        }
       })
       .catch(function () { el('m').textContent = t.err; el('go').disabled = false; });
   };
