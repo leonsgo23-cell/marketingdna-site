@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Marketing DNA</title>
+<!--
+  Страница тестового режима (22.09.2026, решение Александра): «сделаем на веб-странице
+  отдельной вкладкой и разместим на нашем же сайте — просто так она не будет
+  открываться людям, а если кому-то хотим показать, даём прямую ссылку».
+
+  Без ключа в адресе страница ничего не показывает. Ключ выдаёт менеджер командой
+  /test_link в боте. Данные уходят на сервер бота (CORS разрешён для наших доменов).
+-->
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#141229;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
+.wrap{max-width:640px;margin:0 auto;padding:28px 18px 56px}
+h1{font-size:25px;line-height:1.25;margin:0 0 10px}
+.lead{opacity:.8;margin:0 0 26px}
+.step{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#A78BFA;margin:26px 0 10px}
+textarea{width:100%;min-height:130px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font:inherit;padding:14px;resize:vertical}
+textarea:focus{outline:2px solid #7C3AED;outline-offset:1px}
+.hint{font-size:13px;opacity:.6;margin-top:8px}
+.pick{display:block;width:100%;text-align:center;border:1px dashed rgba(255,255,255,.35);border-radius:14px;padding:18px;margin-top:12px;cursor:pointer;font-weight:600}
+.pick:active{background:rgba(255,255,255,.06)}
+input[type=file]{display:none}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;margin-top:12px}
+.thumbs img{width:100%;height:88px;object-fit:cover;border-radius:10px}
+.go{display:block;width:100%;background:#7C3AED;color:#fff;border:0;border-radius:14px;padding:17px;font-size:16px;font-weight:700;margin-top:26px;cursor:pointer;font-family:inherit}
+.go[disabled]{opacity:.55}
+.msg{margin-top:14px;font-size:14px;min-height:20px}
+.ok{text-align:center;padding:40px 0}
+.ok h2{font-size:22px;margin:0 0 10px}
+html,body{overflow-x:hidden}
+</style>
+</head>
+<body><div class="wrap" id="app"></div>
+<script>
+var API = 'https://marketingdna-bot-production.up.railway.app';
+var MAX = 10, MIN_DESC = 30, photos = [];
+
+var T = {
+  ru: {
+    title: 'Посмотрите, как будет выглядеть ваш контент',
+    lead: 'Мы соберём для вас карусель, ролик, пост и сторис — на ваших собственных фотографиях. Это займёт около получаса.',
+    step1: 'Шаг 1. Расскажите о бизнесе',
+    ph1: 'Чем занимаетесь, что продаёте, где находитесь, кто ваши покупатели. Три-четыре предложения.',
+    hint1: 'Чем конкретнее, тем точнее получатся тексты.',
+    step2: 'Шаг 2. Фотографии вашего места',
+    hint2: 'Витрина, зал, рабочее место, товар. От трёх до десяти снимков — обычных, с телефона.',
+    hint2b: 'С фотографиями материалы будут сделаны в вашем помещении. Без них тоже получится — но обстановка будет общей.',
+    pick: 'Выбрать фотографии',
+    go: 'Собрать контент',
+    sending: 'Отправляем…',
+    okTitle: 'Готово, мы начали',
+    okText: 'Материалы будут готовы примерно через 30 минут. Мы пришлём их вам туда же, где вы получили эту ссылку.',
+    tooShort: 'Напишите чуть подробнее — три-четыре предложения.',
+    err: 'Не получилось отправить. Попробуйте ещё раз.',
+    added: 'Добавлено фотографий: ',
+    noKey: 'Эта страница открывается по личной ссылке. Напишите нам, и мы её пришлём.'
+  },
+  lv: {
+    title: 'Paskatieties, kā izskatīsies jūsu saturs',
+    lead: 'Sagatavosim jums karuseli, video, ierakstu un stories — ar jūsu pašu fotogrāfijām. Tas aizņems apmēram pusstundu.',
+    step1: '1. solis. Pastāstiet par savu biznesu',
+    ph1: 'Ar ko nodarbojaties, ko pārdodat, kur atrodaties, kas ir jūsu pircēji. Trīs četri teikumi.',
+    hint1: 'Jo konkrētāk, jo precīzāki būs teksti.',
+    step2: '2. solis. Jūsu vietas fotogrāfijas',
+    hint2: 'Skatlogs, zāle, darba vieta, prece. No trim līdz desmit attēliem — parastiem, no telefona.',
+    hint2b: 'Ar fotogrāfijām saturs tiks veidots tieši jūsu telpās. Bez tām arī sanāks — tikai vide būs vispārīga.',
+    pick: 'Izvēlēties fotogrāfijas',
+    go: 'Sagatavot saturu',
+    sending: 'Sūtām…',
+    okTitle: 'Gatavs, esam sākuši',
+    okText: 'Materiāli būs gatavi apmēram pēc 30 minūtēm. Atsūtīsim tos turpat, kur saņēmāt šo saiti.',
+    tooShort: 'Uzrakstiet mazliet vairāk — trīs četrus teikumus.',
+    err: 'Neizdevās nosūtīt. Mēģiniet vēlreiz.',
+    added: 'Pievienotas fotogrāfijas: ',
+    noKey: 'Šī lapa atveras pēc personīgas saites. Uzrakstiet mums, un mēs to atsūtīsim.'
+  }
+};
+
+function q(name) {
+  var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(location.search);
+  return m ? decodeURIComponent(m[1]) : '';
+}
+var KEY = q('k').replace(/[^\w-]/g, '');
+var t = T[q('l') === 'lv' ? 'lv' : 'ru'];
+document.documentElement.lang = q('l') === 'lv' ? 'lv' : 'ru';
+function el(id) { return document.getElementById(id); }
+
+// Без ключа страница не показывает форму — её адрес не должен работать «просто так»
+if (!KEY) {
+  el('app').innerHTML = '<div class="ok"><h2>Marketing DNA</h2><p class="lead">' + t.noKey + '</p></div>';
+} else {
+  el('app').innerHTML =
+    '<h1>' + t.title + '</h1><p class="lead">' + t.lead + '</p>' +
+    '<div class="step">' + t.step1 + '</div>' +
+    '<textarea id="d" placeholder="' + t.ph1 + '"></textarea>' +
+    '<div class="hint">' + t.hint1 + '</div>' +
+    '<div class="step">' + t.step2 + '</div>' +
+    '<label class="pick" for="f">' + t.pick + '</label>' +
+    '<input id="f" type="file" accept="image/*" multiple>' +
+    '<div class="thumbs" id="th"></div>' +
+    '<div class="hint">' + t.hint2 + '</div>' +
+    '<div class="hint">' + t.hint2b + '</div>' +
+    '<button class="go" id="go">' + t.go + '</button>' +
+    '<div class="msg" id="m"></div>';
+
+  // Снимок с телефона весит мегабайты — ужимаем прямо в браузере, иначе клиент
+  // будет ждать загрузку, а сервер получать лишнее
+  function shrink(file) {
+    return new Promise(function (res) {
+      var img = new Image(), url = URL.createObjectURL(file);
+      img.onload = function () {
+        var s = Math.min(1, 1400 / Math.max(img.width, img.height));
+        var c = document.createElement('canvas');
+        c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        res(c.toDataURL('image/jpeg', 0.82));
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); res(null); };
+      img.src = url;
+    });
+  }
+
+  el('f').onchange = function (e) {
+    var files = [].slice.call(e.target.files || []).slice(0, MAX - photos.length);
+    var i = 0;
+    (function next() {
+      if (i >= files.length) { el('m').textContent = t.added + photos.length; return; }
+      shrink(files[i++]).then(function (d) {
+        if (d) {
+          photos.push(d);
+          var im = document.createElement('img'); im.src = d; el('th').appendChild(im);
+        }
+        next();
+      });
+    })();
+  };
+
+  el('go').onclick = function () {
+    var d = el('d').value.trim();
+    if (d.length < MIN_DESC) { el('m').textContent = t.tooShort; return; }
+    el('go').disabled = true; el('m').textContent = t.sending;
+    var i = 0;
+    (function send() {
+      if (i < photos.length) {
+        fetch(API + '/test/' + KEY + '/photo', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: photos[i] })
+        }).then(function () {
+          i++; el('m').textContent = t.sending + ' ' + i + '/' + photos.length; send();
+        }).catch(function () { i++; send(); });
+        return;
+      }
+      fetch(API + '/test/' + KEY + '/start', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ description: d, photos: photos.length })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('start');
+        el('app').innerHTML = '<div class="ok"><h2>' + t.okTitle + '</h2><p class="lead">' + t.okText + '</p></div>';
+      }).catch(function () {
+        el('m').textContent = t.err; el('go').disabled = false;
+      });
+    })();
+  };
+}
+</script>
+</body>
+</html>
