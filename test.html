@@ -11,9 +11,11 @@
   Кто захочет посмотреть, как будет выглядеть контент с его фотографиями — вот
   ссылка на сайт, и всё».
 
-  Страница открыта: клиент заводится сам при отправке. Написать ему первыми мы не
-  можем (ни Telegram, ни WhatsApp вне суточного окна), поэтому результат отдаём
-  ссылкой прямо здесь; контакт спрашиваем, но не требуем.
+  Страница открыта: клиент заводится в момент отправки, по указанному контакту.
+  Контакт обязателен — Александр 22.09: «зачем мы на сайте будем хранить информацию,
+  придёт он или не придёт: в WhatsApp или Telegram ему выслали — у нас есть контакт,
+  мы контролируем, что ему уходит». Готовый пакет сначала смотрит менеджер и только
+  потом отправляет клиенту.
   Данные уходят на сервер бота, CORS там разрешён для наших доменов.
 -->
 <style>
@@ -33,6 +35,9 @@ input[type=file]{display:none}
 .thumbs img{width:100%;height:88px;object-fit:cover;border-radius:10px}
 .go{display:block;width:100%;background:#7C3AED;color:#fff;border:0;border-radius:14px;padding:17px;font-size:16px;font-weight:700;margin-top:26px;cursor:pointer;font-family:inherit}
 .go[disabled]{opacity:.55}
+.langs{display:flex;gap:8px;flex-wrap:wrap}
+.lang{flex:1;min-width:96px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:12px;color:#fff;font:inherit;padding:12px;cursor:pointer}
+.lang.on{background:#7C3AED;border-color:#7C3AED;font-weight:700}
 .contact{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;color:#fff;font:inherit;padding:14px}
 .contact:focus{outline:2px solid #7C3AED;outline-offset:1px}
 .msg{margin-top:14px;font-size:14px;min-height:20px;word-break:break-all}
@@ -61,14 +66,15 @@ var T = {
     go: 'Собрать контент',
     sending: 'Отправляем…',
     okTitle: 'Готово, мы начали',
-    okText: 'Материалы будут готовы примерно через 30 минут.',
+    okText: 'Материалы будут готовы примерно через 30 минут — пришлём их вам на указанный контакт.',
     tooShort: 'Напишите чуть подробнее — три-четыре предложения.',
     err: 'Не получилось отправить. Попробуйте ещё раз.',
     added: 'Добавлено фотографий: ',
-    step3: 'Куда вам написать (по желанию)',
-    ph3: 'Telegram, WhatsApp или почта',
-    hint3: 'Если оставите — ответим лично. Если нет, просто сохраните ссылку, которую покажем после отправки.',
-    keep: 'Сохраните эту ссылку — материалы появятся по ней:'
+    step3: 'Шаг 3. На каком языке делать контент',
+    step4: 'Шаг 4. Куда прислать материалы',
+    ph4: 'Номер WhatsApp или ваш ник в Telegram',
+    hint4: 'Обязательно — иначе нам некуда отправить готовое.',
+    needContact: 'Укажите, куда прислать материалы.'
   },
   lv: {
     title: 'Paskatieties, kā izskatīsies jūsu saturs',
@@ -83,14 +89,15 @@ var T = {
     go: 'Sagatavot saturu',
     sending: 'Sūtām…',
     okTitle: 'Gatavs, esam sākuši',
-    okText: 'Materiāli būs gatavi apmēram pēc 30 minūtēm.',
+    okText: 'Materiāli būs gatavi apmēram pēc 30 minūtēm — atsūtīsim tos uz norādīto kontaktu.',
     tooShort: 'Uzrakstiet mazliet vairāk — trīs četrus teikumus.',
     err: 'Neizdevās nosūtīt. Mēģiniet vēlreiz.',
     added: 'Pievienotas fotogrāfijas: ',
-    step3: 'Kur jums rakstīt (pēc vēlēšanās)',
-    ph3: 'Telegram, WhatsApp vai e-pasts',
-    hint3: 'Ja atstāsiet — atbildēsim personīgi. Ja nē, vienkārši saglabājiet saiti, ko parādīsim pēc nosūtīšanas.',
-    keep: 'Saglabājiet šo saiti — materiāli parādīsies tur:'
+    step3: '3. solis. Kādā valodā veidot saturu',
+    step4: '4. solis. Kurp atsūtīt materiālus',
+    ph4: 'WhatsApp numurs vai jūsu segvārds Telegram',
+    hint4: 'Obligāti — citādi mums nebūs, kurp nosūtīt gatavo.',
+    needContact: 'Norādiet, kurp atsūtīt materiālus.'
   }
 };
 
@@ -117,8 +124,14 @@ function el(id) { return document.getElementById(id); }
     '<div class="hint">' + t.hint2 + '</div>' +
     '<div class="hint">' + t.hint2b + '</div>' +
     '<div class="step">' + t.step3 + '</div>' +
-    '<input id="c" class="contact" placeholder="' + t.ph3 + '">' +
-    '<div class="hint">' + t.hint3 + '</div>' +
+    '<div class="langs" id="lg">' +
+      '<button type="button" class="lang" data-v="ru">Русский</button>' +
+      '<button type="button" class="lang" data-v="lv">Latviešu</button>' +
+      '<button type="button" class="lang" data-v="en">English</button>' +
+    '</div>' +
+    '<div class="step">' + t.step4 + '</div>' +
+    '<input id="c" class="contact" placeholder="' + t.ph4 + '">' +
+    '<div class="hint">' + t.hint4 + '</div>' +
     '<button class="go" id="go">' + t.go + '</button>' +
     '<div class="msg" id="m"></div>';
 
@@ -155,15 +168,28 @@ function el(id) { return document.getElementById(id); }
     })();
   };
 
+  // Язык контента выбирает клиент — это не то же самое, что язык страницы
+  var CONTENT_LANG = LANG;
+  [].forEach.call(document.querySelectorAll('.lang'), function (b) {
+    if (b.getAttribute('data-v') === CONTENT_LANG) b.classList.add('on');
+    b.onclick = function () {
+      CONTENT_LANG = b.getAttribute('data-v');
+      [].forEach.call(document.querySelectorAll('.lang'), function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+    };
+  });
+
   el('go').onclick = function () {
     var d = el('d').value.trim();
     if (d.length < MIN_DESC) { el('m').textContent = t.tooShort; return; }
+    var contact = el('c').value.trim();
+    if (contact.length < 4) { el('m').textContent = t.needContact; el('c').focus(); return; }
     el('go').disabled = true; el('m').textContent = t.sending;
 
-    // Клиента заводим в момент отправки: страница открыта, заранее мы его не знаем
+    // Клиента заводим в момент отправки — по контакту, который он указал
     fetch(API + '/test/start', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lang: LANG })
+      body: JSON.stringify({ lang: CONTENT_LANG, contact: contact })
     }).then(function (r) { return r.json(); })
       .then(function (j) {
         if (!j || !j.key) throw new Error('start');
@@ -173,14 +199,12 @@ function el(id) { return document.getElementById(id); }
       .then(function () {
         return fetch(API + '/test/' + KEY + '/go', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ description: d, photos: photos.length, contact: el('c').value.trim() })
+          body: JSON.stringify({ description: d, photos: photos.length })
         });
       })
       .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('go')); })
-      .then(function (j) {
-        el('app').innerHTML = '<div class="ok"><h2>' + t.okTitle + '</h2><p class="lead">' + t.okText + '</p>' +
-          (j.result ? '<p class="lead">' + t.keep + '</p><a class="link" href="' + j.result + '">' + j.result + '</a>' : '') +
-          '</div>';
+      .then(function () {
+        el('app').innerHTML = '<div class="ok"><h2>' + t.okTitle + '</h2><p class="lead">' + t.okText + '</p></div>';
       })
       .catch(function () { el('m').textContent = t.err; el('go').disabled = false; });
   };
