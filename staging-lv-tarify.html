@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="lv">
 <head>
 <!-- Cookiebot (consent) — must stay first in <head>, before GTM -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="306d337e-dc09-46e4-a556-c7f08494b0c5" data-blockingmode="auto" type="text/javascript"></script>
@@ -13,7 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Создание сайта — Marketing DNA</title>
+<title>Tarifi — Marketing DNA</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -515,7 +515,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .pkg-platform-tags {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
   }
   .ptag {
@@ -527,6 +527,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .ptag i { font-size: 28px; }
   .ptag:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+  /* Официальные логотипы платформ (20.09.2026, решение Александра): марки в своих
+     цветах на светлой плитке — так их узнают быстрее, чем перекрашенные значки.
+     Логотипы не перекрашиваем и не меняем форму — это требование их бренд-правил. */
+  .ptag-brand { background: #fff; color: var(--dark); border: 1px solid #E5E7EB; }
+  .ptag-brand:hover { box-shadow: 0 6px 16px rgba(17,24,39,.10); }
+  .ptag-logo { display: flex; align-items: center; justify-content: center; height: 34px; }
+  .ptag-logo svg { height: 30px; width: auto; display: block; }
   .ptag-instagram { background: linear-gradient(135deg, #F58529, #DD2A7B, #515BD4); }
   .ptag-tiktok    { background: #010101; }
   .ptag-youtube   { background: #FF0000; }
@@ -534,7 +541,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ptag-facebook  { background: #1877F2; }
   .ptag-telegram  { background: #26A5E4; }
   @media(max-width:768px) {
-    .pkg-platform-tags { grid-template-columns: repeat(3, 1fr); }
+    .pkg-platform-tags { grid-template-columns: repeat(2, 1fr); }
     .pkg-platforms { padding: 24px; }
   }
 
@@ -1081,6 +1088,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   @media(max-width: 768px) {
     .pkg-grid { grid-template-columns: 1fr; }
+    .pkg-card { min-width: 0; }
+    .pkg-buy-btn { white-space: normal; }
     .magnet-items { flex-direction: column; align-items: center; }
     .pkg-card-price .pkg-price-num { font-size: 40px; }
   }
@@ -1218,127 +1227,278 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="nav-inner">
     <div class="nav-logo">Marketing <span>DNA</span></div>
         <div class="lang-switcher">
-      <a href="staging-lv-sayty.html" class="lang-btn" onclick="try{localStorage.setItem('mdna_lang','lv')}catch(e){}">LV</a>
-      <span class="lang-btn active">RU</span>
+      <span class="lang-btn active">LV</span>
+      <a href="staging-tarify.html" class="lang-btn" onclick="try{localStorage.setItem('mdna_lang','ru')}catch(e){}">RU</a>
       <span class="lang-btn lang-btn-disabled" style="opacity:0.4;cursor:default;">EN</span>
     </div>
-    <a href="staging.html#simple-start-form" data-entry="nav" class="nav-cta"><span class="nav-cta-full">Получить бесплатный пробный пакет →</span><span class="nav-cta-short">Бесплатный пакет →</span></a>
+    <a href="staging-lv.html#simple-start-form" data-entry="nav" class="nav-cta"><span class="nav-cta-full">Saņemt bezmaksas izmēģinājuma komplektu →</span><span class="nav-cta-short">Bezmaksas satura komplekts →</span></a>
   </div>
 </nav>
-<script>try{localStorage.setItem("mdna_lang","ru");}catch(e){}</script>
-<nav class="pagemenu"><div class="pagemenu-inner"><a href="staging.html">Главная</a><a href="staging-tarify.html">Тарифы</a><a href="staging-kak-eto-rabotaet.html">Как это работает</a><a href="staging-dlya-kogo.html">Для кого</a><a href="staging-sayty.html" class="active">Сайты</a><a href="staging-otzyvy-faq.html">Вопросы</a><a href="staging-kontakty.html">Контакты</a></div></nav><div class="pagemenu-spacer"></div>
-<section class="website-upsell" id="website">
-  <div class="website-upsell-inner">
+<script>try{localStorage.setItem("mdna_lang","lv");}catch(e){}</script>
+<nav class="pagemenu"><div class="pagemenu-inner"><a href="staging-lv.html">Sākums</a><a href="staging-lv-tarify.html" class="active">Tarifi</a><a href="staging-lv-kak-eto-rabotaet.html">Kā tas strādā</a><a href="staging-lv-dlya-kogo.html">Kam paredzēts</a><a href="staging-lv-sayty.html">Vietnes</a><a href="staging-lv-otzyvy-faq.html">Jautājumi</a><a href="staging-lv-kontakty.html">Kontakti</a></div></nav><div class="pagemenu-spacer"></div>
+<section class="packages" id="packages" style="padding-top:40px;">
+  <div class="container">
+    <h2 class="section-title">Izvēlieties savu tarifu plānu</h2>
 
-    <!-- ЛЕВАЯ ЧАСТЬ: тарифы -->
-    <div>
-      <h2>Соцсети разогревают интерес -<br>на сайте интерес превращается в продажи</h2>
-      <p class="website-upsell-desc">Можно показывать свой товар или услугу прямо в соцсетях и там же продавать - или делать это через свой сайт.<br>Сайт - это где заинтересованный человек принимает решение. Видит кто вы, что именно делаете, как это выглядит, сколько стоит - всё в одном месте.<br>Мы делаем хорошие сайты быстро и недорого - персонально под ваш бренд, ваш продукт и тех клиентов, которых вы хотите привлекать.</p>
-
-      <div class="site-tiers">
-
-        <!-- Визитка -->
-        <div class="site-tier">
-          <div class="tier-name">Сайт-визитка</div>
-          <div class="tier-screens">3 экрана · 1–2 дня</div>
-          <div class="tier-price">€150</div>
-          <div class="tier-desc">Кто вы, что делаете, как с вами связаться. Идеально для мастеров, фрилансеров и специалистов, которые хотят быстро и недорого получить свою страницу в интернете.</div>
-          <div class="tier-label">Пример сайта-визитки</div>
-          <div class="tier-thumbs">
-            <div class="pthumbs" onclick="openSitePreview('https://6a05d5047df708a1b9fdf74f--regal-tiramisu-3311e3.netlify.app','Визитка - Lena Kalnina')">
-              <img src="https://image.thum.io/get/width/400/https://6a05d5047df708a1b9fdf74f--regal-tiramisu-3311e3.netlify.app" alt="Визитка" loading="lazy">
-              <div class="pthumbs-name">Lena · визажист</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Эксперт -->
-        <div class="site-tier featured">
-          <div class="tier-badge">Популярно</div>
-          <div class="tier-name">Сайт эксперта</div>
-          <div class="tier-screens">9 экранов · до 5 дней</div>
-          <div class="tier-price">€299</div>
-          <div class="tier-desc">Полная упаковка: история, услуги с фото, процесс работы, кейсы, отзывы и FAQ. Для тех, кто хочет выглядеть профессионально и продавать дороже.</div>
-          <div class="tier-label">Пример сайта эксперта</div>
-          <div class="tier-thumbs">
-            <div class="pthumbs" onclick="openSitePreview('https://6a05dd8f35b7ec05081a1e03--regal-tiramisu-3311e3.netlify.app','Эксперт - Lena Kalnina')">
-              <img src="https://image.thum.io/get/width/400/https://6a05dd8f35b7ec05081a1e03--regal-tiramisu-3311e3.netlify.app" alt="Эксперт" loading="lazy" style="object-position: center 18%;">
-              <div class="pthumbs-name">Lena · эксперт</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Многостраничный -->
-        <div class="site-tier">
-          <div class="tier-name">Многостраничный сайт</div>
-          <div class="tier-screens">по договорённости</div>
-          <div class="tier-price">от €600</div>
-          <div class="tier-desc">Каталоги, платформы, образовательные сайты, сервисы. Структура, сроки и наполнение - обсуждаем индивидуально под вашу задачу.</div>
-          <div class="tier-label">Примеры наших работ</div>
-          <div class="tier-thumbs">
-            <div class="pthumbs" onclick="openSitePreview('https://smartskola.lv','SmartSkola','smartskola-preview.png')">
-              <img src="/smartskola-preview.png" alt="SmartSkola">
-              <div class="pthumbs-name">SmartSkola</div>
-            </div>
-            <div class="pthumbs" onclick="openSitePreview('https://modelmatch.pro/ru','ModelMatch')">
-              <img src="https://image.thum.io/get/width/400/https://modelmatch.pro/ru" alt="ModelMatch" loading="lazy">
-              <div class="pthumbs-name">ModelMatch</div>
-            </div>
-            <div class="pthumbs" onclick="openSitePreview('https://artandwine.club/ru','Art&Wine','artandwine-preview.png')">
-              <img src="/artandwine-preview.png" alt="Art&Wine" style="object-position: top center;">
-              <div class="pthumbs-name">Art&amp;Wine</div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /site-tiers -->
-
-      <a href="https://t.me/ContentDNAStart_bot?start=website" class="btn-secondary">→ Ответить на 5 вопросов - подберём сайт под вас</a>
-    </div><!-- /левая часть -->
-
-    <!-- ПРАВАЯ ЧАСТЬ: фото -->
-    <div class="upsell-visual">
-      <div class="upsell-person">
-        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=700&auto=format&fit=crop&q=80&crop=top" alt="Делаем сайты" loading="lazy">
-        <div class="upsell-person-overlay"></div>
-        <div class="upsell-person-text">
-          <div class="upsell-person-label">Сайт - это витрина вашего бизнеса</div>
-          <div class="upsell-person-sub">Для новой услуги, нового товара или для себя лично - мы упакуем это красиво и быстро.</div>
-          <a href="https://t.me/ContentDNAStart_bot?start=website" class="upsell-person-cta">Обсудить →</a>
-        </div>
+    <!-- ПРАВКА: общее для всех тарифов показано один раз, в карточках только различия -->
+    <div style="max-width:960px;margin:0 auto 28px;background:#F5F3FF;border:2px solid #DC2626;border-radius:14px;padding:18px 22px;position:relative;">
+      <span style="position:absolute;top:-13px;left:20px;background:#DC2626;color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;z-index:1;">Правка · общее для всех</span>
+      <div style="font-size:15px;font-weight:800;color:#1E1B4B;margin-bottom:8px;">Visos tarifos:</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 20px;font-size:14px;color:#374151;line-height:1.5;">
+        <div>📅 Satura plāns 30 dienām jūsu mērķim</div>
+        <div>📊 Konkurentu analīze + iespējas (pirmajā mēnesī)</div>
+        <div>🔍 Menedžeris apstiprina satura plānu un katru publikāciju</div>
+        <div>🚀 Saturs iznāk automātiski pēc grafika — īstajā laikā un īstajā tīklā</div>
+        <div>✅ Komplektu apstiprināt uzreiz 15 dienām (Profi — 10 dienām), katrs ieraksts atsevišķi nav jāapstiprina</div>
+        <div>✏️ Kļūdas izlabojam 24 stundās + 1 stratēģisks labojums mēnesī</div>
       </div>
     </div>
 
-    <!-- Модальное окно - превью сайта -->
-    <div class="site-modal" id="siteModal" onclick="closeSitePreview()">
-      <div class="site-modal-box" onclick="event.stopPropagation()">
-        <div class="site-modal-header">
-          <span class="site-modal-title" id="siteModalTitle"></span>
-          <button class="site-modal-close" onclick="closeSitePreview()">✕</button>
+    <div class="pkg-grid">
+
+      <!-- СТАРТ: вход, 3 публикации в неделю -->
+      <div class="pkg-card" style="border:2px solid #DC2626;">
+        <span style="position:absolute;top:-13px;left:20px;background:#DC2626;color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;z-index:1;">Правка · новый состав</span>
+        <div class="pkg-card-name">Tarifs «Starts» — 12 publikācijas + 12 Stories</div>
+        <div class="pkg-card-tagline">Sākumam: 3 publikācijas nedēļā, Stories tajās pašās dienās</div>
+        <div class="pkg-card-price">
+          <span class="pkg-price-num">€99</span>
+          <span class="pkg-price-period">/mēn.</span>
         </div>
-        <div class="site-modal-screen">
-          <img id="siteModalImg" src="" alt="">
+        <ul class="pkg-card-items">
+          <li class="pkg-extra t1">📆 3 reizes nedēļā</li>
+          <li>📸 4 foto ieraksti</li>
+          <li>🖼 4 karuseļi</li>
+          <li class="">
+            <div class="pkg-extra-row"><span>🎬 4 slaidu video</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">vertikāls video no 7 slaidiem, kas mainās paši — Reels, TikTok un Shorts</div>
+          </li>
+          <li>📱 12 Stories (publikāciju dienās)</li>
+          <li>📝 1 SEO un GEO raksts</li>
+          <li>🔄 2 viļņi pa 15 dienām</li>
+        </ul>
+        <a href="https://buy.stripe.com/eVq3cp8ZLdZqaxEgcd5Rm0Z?client_reference_id=web--pkg_a" class="btn-secondary-outline pkg-buy-btn">Noformēt abonementu - €99/mēn.</a>
+        <a href="staging-lv-kontakty.html" style="display:block;text-align:center;margin-top:8px;font-size:12px;color:#6B7280;text-decoration:underline;">Nestandarta gadījums? Iesniegt pieteikumu</a>
+        <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Vēlaties saturu divās valodās?</p>
+        <a href="https://t.me/ContentDNAStart_bot?start=pkg_a_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Otrā valoda: +€19/mēn.</a>
+      </div>
+
+      <!-- СТАНДАРТ: основной, каждый будний день -->
+      <div class="pkg-card pkg-card-featured" style="border:2px solid #DC2626;">
+        <span style="position:absolute;top:-13px;left:20px;background:#DC2626;color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;z-index:1;">Правка · новый состав</span>
+        <div class="pkg-card-name">Tarifs «Standarts» — 20 publikācijas + 20 Stories</div>
+        <div class="pkg-card-tagline">Galvenais: publikācija katru darba dienu</div>
+        <div class="pkg-card-price">
+          <span class="pkg-price-num">€149</span>
+          <span class="pkg-price-period">/mēn.</span>
         </div>
-        <div class="site-modal-footer">
-          <a id="siteModalLink" href="#" target="_blank" rel="noopener" class="site-modal-link">Открыть сайт полностью ↗</a>
+        <ul class="pkg-card-items">
+          <li class="pkg-extra t2">📆 Katru darba dienu</li>
+          <li>📸 6 foto ieraksti</li>
+          <li>🖼 6 karuseļi</li>
+          <li class="">
+            <div class="pkg-extra-row"><span>🎬 6 slaidu video</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">vertikāls video no 7 slaidiem, kas mainās paši — Reels, TikTok un Shorts</div>
+          </li>
+          <li class="pkg-extra t2">
+            <div class="pkg-extra-row"><span>🎥 2 AI video — reizi 2 nedēļās <span class="pkg-extra-delta t2">tikai «Standarts» un augstāk</span></span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">īsts video ar jūsu biznesu, ko veidojam ar mākslīgā intelekta palīdzību, bez filmēšanas</div>
+          </li>
+          <li>📱 20 Stories (publikāciju dienās)</li>
+          <li>📝 2 SEO un GEO raksti + 2 AI video titulattēli</li>
+          <li>🔄 2 viļņi pa 15 dienām</li>
+        </ul>
+        <a href="https://buy.stripe.com/eVq7sF0tfg7y7ls9NP5Rm11?client_reference_id=web--pkg_standard" class="btn-primary pkg-buy-btn">Noformēt abonementu - €149/mēn.</a>
+        <a href="staging-lv-kontakty.html" style="display:block;text-align:center;margin-top:8px;font-size:12px;color:#6B7280;text-decoration:underline;">Nestandarta gadījums? Iesniegt pieteikumu</a>
+        <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Vēlaties saturu divās valodās?</p>
+        <a href="https://t.me/ContentDNAStart_bot?start=pkg_standard_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Otrā valoda: +€29/mēn.</a>
+      </div>
+
+      <!-- ПРОФИ: премиум, каждый день -->
+      <div class="pkg-card pkg-card-premium" style="border:2px solid #DC2626;">
+        <span style="position:absolute;top:-13px;left:20px;background:#DC2626;color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;z-index:1;">Правка · новый состав</span>
+        <div class="pkg-card-name">Tarifs «Profi» — 30 publikācijas + 30 Stories</div>
+        <div class="pkg-card-tagline">Premium: publikācija katru dienu</div>
+        <div class="pkg-card-price">
+          <span class="pkg-price-num">€199</span>
+          <span class="pkg-price-period">/mēn.</span>
         </div>
+        <ul class="pkg-card-items">
+          <li class="pkg-extra t3">📆 Katru dienu</li>
+          <li>📸 8 foto ieraksti</li>
+          <li>🖼 8 karuseļi</li>
+          <li class="">
+            <div class="pkg-extra-row"><span>🎬 10 slaidu video</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">vertikāls video no 7 slaidiem, kas mainās paši — Reels, TikTok un Shorts</div>
+          </li>
+          <li class="pkg-extra t3">
+            <div class="pkg-extra-row"><span>🎥 4 AI video — pa vienam katru nedēļu <span class="pkg-extra-delta t3">×2 salīdzinot ar «Standartu»</span></span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">īsts video ar jūsu biznesu, ko veidojam ar mākslīgā intelekta palīdzību, bez filmēšanas</div>
+          </li>
+          <li>📱 30 Stories (publikāciju dienās)</li>
+          <li>📝 3 SEO un GEO raksti + 4 AI video titulattēli</li>
+          <li>🔄 3 viļņi pa 10 dienām — analīze un korekcijas biežāk</li>
+        </ul>
+        <a href="https://buy.stripe.com/fZu4gtdg1dZq5dk8JL5Rm13?client_reference_id=web--pkg_v" class="btn-secondary-outline pkg-buy-btn">Noformēt abonementu - €199/mēn.</a>
+        <a href="staging-lv-kontakty.html" style="display:block;text-align:center;margin-top:8px;font-size:12px;color:#6B7280;text-decoration:underline;">Nestandarta gadījums? Iesniegt pieteikumu</a>
+        <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Vēlaties saturu divās valodās?</p>
+        <a href="https://t.me/ContentDNAStart_bot?start=pkg_v_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Otrā valoda: +€39/mēn.</a>
+      </div>
+
+    </div>
+
+    
+    <p style="font-size:13px;color:#6B7280;text-align:center;max-width:820px;margin:20px auto 0;line-height:1.6"><b>Ko skaitām:</b> Publikācija ir foto ieraksts (attēls ar tekstu), karuselis, slaidu video (vertikāls video no 7 slaidiem, kas mainās paši) vai AI video. Stories skaitām atsevišķi, un tās iznāk tajās pašās dienās, kad publikācijas: cik publikāciju, tik Stories. SEO raksti un titulattēli skaitā neietilpst, tie ir bonuss. Vajadzīgs cits apjoms — <a href="staging-lv-kontakty.html" style="color:#7C3AED;font-weight:700">atstājiet pieteikumu</a>.</p>
+
+    <!-- ПРАВКА: блок «Как мы отвечаем за результат» -->
+    <div style="max-width:960px;margin:32px auto 0;background:#fff;border:2px solid #DC2626;border-radius:16px;padding:28px 24px;position:relative;">
+      <span style="position:absolute;top:-13px;left:20px;background:#DC2626;color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;z-index:1;">Правка · новый блок</span>
+      <h3 style="font-size:20px;font-weight:800;color:#1E1B4B;margin:0 0 6px;text-align:center;">Termiņi un garantija</h3>
+      <p style="font-size:14px;color:#6B7280;text-align:center;margin:0 0 18px;">Kas jāzina pirms apmaksas.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+        <div style="background:#F5F3FF;border-radius:12px;padding:16px;"><b style="color:#1E1B4B;">⏱ 1–2 darba dienas</b><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:6px 0 0;">Pirmais satura komplekts pēc apmaksas un anketas. Paziņojums pienāks ziņapmaiņas lietotnē.</p></div>
+        <div style="background:#F5F3FF;border-radius:12px;padding:16px;"><b style="color:#1E1B4B;">↩️ 14 dienu garantija</b><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:6px 0 0;">Ja pirmais satura komplekts jums neder, mēs to izlabosim, bet ja arī pēc labojumiem neder — atmaksāsim pirmā mēneša maksu. Garantija ir spēkā 14 dienas un kamēr neesat apstiprinājis komplektu. <a href="staging-terms.html#4" style="color:#7C3AED">Noteikumi</a></p></div>
       </div>
     </div>
 
+    <!-- ПРАВКА: сравнение с альтернативами -->
+    <div style="max-width:960px;margin:32px auto 0;background:#fff;border:2px solid #DC2626;border-radius:16px;padding:28px 22px;position:relative;">
+      <span style="position:absolute;top:-13px;left:20px;background:#DC2626;color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;">Правка · новый блок</span>
+      <h3 style="font-size:20px;font-weight:800;color:#1E1B4B;margin:0 0 6px;text-align:center;">Ko jūs saņemat par savu naudu</h3>
+      <p style="font-size:13px;color:#6B7280;text-align:center;margin:0 0 16px;">Pēc publiski pieejamiem datiem, 2026. gada septembris.</p>
+      <div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:14px;color:#374151;">
+        <thead><tr style="text-align:left;"><th style="padding:10px 12px;border-bottom:2px solid #E5E7EB;">Variants</th><th style="padding:10px 12px;border-bottom:2px solid #E5E7EB;">Cena mēnesī</th><th style="padding:10px 12px;border-bottom:2px solid #E5E7EB;">Kas ietilpst</th></tr></thead>
+        <tbody>
+        <tr style=""><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Sociālo tīklu aģentūra</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">no €700</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Menedžeris, stratēģija, apjoms pēc līguma</td></tr><tr style=""><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">SMM frīlancers</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">no €350</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Atkarīgs no cilvēka: termiņi un apjoms nav garantēti</td></tr><tr style=""><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Tipisks ierakstu abonements (ASV)</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">≈ $99</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">10–12 ieraksti ar attēlu; Stories un video par piemaksu</td></tr><tr style="background:#F5F3FF;font-weight:700;"><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Marketing DNA · «Starts»</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">€99</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">12 publikācijas + 12 Stories, menedžera pārbaude, 14 dienu garantija</td></tr><tr style="background:#F5F3FF;font-weight:700;"><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Marketing DNA · «Standarts»</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">€149</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">20 publikācijas + 20 Stories + AI video</td></tr>
+        </tbody></table></div>
+    </div>
+
+    <!-- BLOCK: PSYCHOLOGY DIGEST NOTE (черновик для staging, 18.07.2026) -->
+    <div class="pkg-note" style="margin-top:32px;">
+      Katrā vilnī izmantojam pircēju psiholoģijas atziņas: jūsu biznesa ierakstos, karuseļos un video iekļaujam paņēmienus, kas piesaista jūsu auditorijas uzmanību
+    </div>
+
+    <p style="font-size:13px;color:#6B7280;text-align:center;margin:20px 0 0;">⏱ Komplektu individuāli jūsu biznesam sagatavojam 1–2 darba dienās. Menedžeris apstiprina katru publikāciju un atsūta saiti uz WhatsApp vai Telegram — kur jums ērtāk. Viss saturs atrodas jūsu personīgajā lapā.</p>
+
+    <!-- BLOCK: MULTILINGUAL -->
+    <section style="background:linear-gradient(135deg,#F5F3FF 0%,#EDE9FE 100%);padding:72px 20px;margin:40px -20px 0;border-radius:0;">
+      <div style="max-width:1000px;margin:0 auto;">
+        <div class="lang-section-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+          <!-- Left: text -->
+          <div>
+            <div style="font-size:40px;margin-bottom:16px;">🇱🇻 &nbsp;🇷🇺 &nbsp;🇬🇧</div>
+            <h2 style="font-size:28px;font-weight:800;color:#1a1a2e;margin-bottom:16px;">Jūsu saturs — latviešu, krievu un angļu valodā</h2>
+            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:12px;">Latvija ir daudzvalodīga, un jūsu klienti runā dažādās valodās. Tāpēc arī jūsu saturs var būt vairākās valodās.</p>
+            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:12px;">Par nelielu piemaksu jūs saņemat to pašu pilno satura komplektu otrajā valodā. Izvēlieties kombināciju: latviešu + krievu, latviešu + angļu — vai arī visas trīs valodas.</p>
+            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:28px;">Uzturat atsevišķus profilus dažādām auditorijām? Katrs no tiem saņems savu gatavo saturu.</p>
+          </div>
+          <!-- Right: phone mockups 2+1 layout -->
+          <div style="display:flex;flex-direction:column;gap:16px;align-items:center;">
+            <!-- Row 1: LV + EN -->
+            <div class="lang-phones-row" style="display:flex;gap:16px;justify-content:center;width:100%;">
+
+              <!-- LV phone -->
+              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
+                <div class="phone-frame" style="width:100%;">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
+                    <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
+                      <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Mārketings</div>
+                      <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Ķermenis lūdz pauzi?</div>
+                      <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Masāža ķermenim un prātam.</div>
+                    </div>
+                    <div style="flex:1;min-height:90px;overflow:hidden;">
+                      <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                    </div>
+                    <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Jūsu bizness aug. Mēs parūpējamies par saturu. #bizness #mārketings</div>
+                  </div>
+                </div>
+                <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">LV</div>
+              </div>
+
+              <!-- EN phone -->
+              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
+                <div class="phone-frame" style="width:100%;">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
+                    <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
+                      <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Marketing</div>
+                      <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Your body needs a break?</div>
+                      <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Massage for body, mind and soul.</div>
+                    </div>
+                    <div style="flex:1;min-height:90px;overflow:hidden;">
+                      <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                    </div>
+                    <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Your business grows. We handle the content. #marketing #business</div>
+                  </div>
+                </div>
+                <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">EN</div>
+              </div>
+
+            </div>
+
+            <!-- Row 2: RU centered -->
+            <div class="lang-phones-bottom" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;width:100%;">
+              <div class="phone-frame" style="width:100%;">
+                <div class="phone-notch"></div>
+                <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
+                  <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
+                    <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Mārketings</div>
+                    <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Vai ķermenis prasa pauzi?</div>
+                    <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Masāža ķermenim un prātam.</div>
+                  </div>
+                  <div style="flex:1;min-height:90px;overflow:hidden;">
+                    <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                  </div>
+                  <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Jūsu bizness aug — mēs parūpēsimies par saturu. #bizness #mārketings</div>
+                </div>
+              </div>
+              <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">RU</div>
+            </div>
+
+          </div>
+        </div>
+        <div style="margin-top:36px;text-align:center;">
+          <div style="background:white;border-radius:14px;padding:18px 24px;box-shadow:0 4px 20px rgba(124,58,237,0.12);margin-bottom:12px;display:inline-block;">
+            <div style="font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:8px;">+ otrā valoda jūsu izvēlētajam tarifam:</div>
+            <div style="font-size:15px;color:#444;">«Starts» <strong>+€19</strong> &nbsp;·&nbsp; «Standarts» <strong>+€29</strong> &nbsp;·&nbsp; <span style="white-space:nowrap">«Profi» <strong>+€39</strong></span></div>
+          </div>
+          <p style="font-size:14px;color:#888;line-height:1.6;">Valodas pievienošana ir pieejama katra tarifa kartītē.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПЛАТФОРМЫ -->
+    <div class="pkg-platforms" style="margin-top:32px">
+      <p class="pkg-platforms-title">📱 Instagram, Facebook vai TikTok — viens sociālais tīkls ir iekļauts tarifā, otrs dāvanā uz 3 mēnešiem. Turklāt jūs atrod Google, ChatGPT un Claude.</p>
+            <div class="pkg-platform-tags">
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"><defs><radialGradient id="igGrad" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#FDF497"/><stop offset="5%" stop-color="#FDF497"/><stop offset="45%" stop-color="#FD5949"/><stop offset="60%" stop-color="#D6249F"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs> <g> <path d="M127.999746,23.06353 C162.177385,23.06353 166.225393,23.1936027 179.722476,23.8094161 C192.20235,24.3789926 198.979853,26.4642218 203.490736,28.2166477 C209.464938,30.5386501 213.729395,33.3128586 218.208268,37.7917319 C222.687141,42.2706052 225.46135,46.5350617 227.782844,52.5092638 C229.535778,57.0201472 231.621007,63.7976504 232.190584,76.277016 C232.806397,89.7746075 232.93647,93.8226147 232.93647,128.000254 C232.93647,162.177893 232.806397,166.225901 232.190584,179.722984 C231.621007,192.202858 229.535778,198.980361 227.782844,203.491244 C225.46135,209.465446 222.687141,213.729903 218.208268,218.208776 C213.729395,222.687649 209.464938,225.461858 203.490736,227.783352 C198.979853,229.536286 192.20235,231.621516 179.722476,232.191092 C166.227425,232.806905 162.179418,232.936978 127.999746,232.936978 C93.8200742,232.936978 89.772067,232.806905 76.277016,232.191092 C63.7971424,231.621516 57.0196391,229.536286 52.5092638,227.783352 C46.5345536,225.461858 42.2700971,222.687649 37.7912238,218.208776 C33.3123505,213.729903 30.538142,209.465446 28.2166477,203.491244 C26.4637138,198.980361 24.3784845,192.202858 23.808908,179.723492 C23.1930946,166.225901 23.0630219,162.177893 23.0630219,128.000254 C23.0630219,93.8226147 23.1930946,89.7746075 23.808908,76.2775241 C24.3784845,63.7976504 26.4637138,57.0201472 28.2166477,52.5092638 C30.538142,46.5350617 33.3123505,42.2706052 37.7912238,37.7917319 C42.2700971,33.3128586 46.5345536,30.5386501 52.5092638,28.2166477 C57.0196391,26.4642218 63.7971424,24.3789926 76.2765079,23.8094161 C89.7740994,23.1936027 93.8221066,23.06353 127.999746,23.06353 M127.999746,0 C93.2367791,0 88.8783247,0.147348072 75.2257637,0.770274749 C61.601148,1.39218523 52.2968794,3.55566141 44.1546281,6.72008828 C35.7374966,9.99121548 28.5992446,14.3679613 21.4833489,21.483857 C14.3674532,28.5997527 9.99070739,35.7380046 6.71958019,44.1551362 C3.55515331,52.2973875 1.39167714,61.6016561 0.769766653,75.2262718 C0.146839975,88.8783247 0,93.2372872 0,128.000254 C0,162.763221 0.146839975,167.122183 0.769766653,180.774236 C1.39167714,194.398852 3.55515331,203.703121 6.71958019,211.845372 C9.99070739,220.261995 14.3674532,227.400755 21.4833489,234.516651 C28.5992446,241.632547 35.7374966,246.009293 44.1546281,249.28042 C52.2968794,252.444847 61.601148,254.608323 75.2257637,255.230233 C88.8783247,255.85316 93.2367791,256 127.999746,256 C162.762713,256 167.121675,255.85316 180.773728,255.230233 C194.398344,254.608323 203.702613,252.444847 211.844864,249.28042 C220.261995,246.009293 227.400247,241.632547 234.516143,234.516651 C241.632039,227.400755 246.008785,220.262503 249.279912,211.845372 C252.444339,203.703121 254.607815,194.398852 255.229725,180.774236 C255.852652,167.122183 256,162.763221 256,128.000254 C256,93.2372872 255.852652,88.8783247 255.229725,75.2262718 C254.607815,61.6016561 252.444339,52.2973875 249.279912,44.1551362 C246.008785,35.7380046 241.632039,28.5997527 234.516143,21.483857 C227.400247,14.3679613 220.261995,9.99121548 211.844864,6.72008828 C203.702613,3.55566141 194.398344,1.39218523 180.773728,0.770274749 C167.121675,0.147348072 162.762713,0 127.999746,0 Z M127.999746,62.2703115 C91.698262,62.2703115 62.2698034,91.69877 62.2698034,128.000254 C62.2698034,164.301738 91.698262,193.730197 127.999746,193.730197 C164.30123,193.730197 193.729689,164.301738 193.729689,128.000254 C193.729689,91.69877 164.30123,62.2703115 127.999746,62.2703115 Z M127.999746,170.667175 C104.435741,170.667175 85.3328252,151.564259 85.3328252,128.000254 C85.3328252,104.436249 104.435741,85.3333333 127.999746,85.3333333 C151.563751,85.3333333 170.666667,104.436249 170.666667,128.000254 C170.666667,151.564259 151.563751,170.667175 127.999746,170.667175 Z M211.686338,59.6734287 C211.686338,68.1566129 204.809755,75.0337031 196.326571,75.0337031 C187.843387,75.0337031 180.966297,68.1566129 180.966297,59.6734287 C180.966297,51.1902445 187.843387,44.3136624 196.326571,44.3136624 C204.809755,44.3136624 211.686338,51.1902445 211.686338,59.6734287 Z" fill="url(#igGrad)"></path> </g> </svg></span> Instagram</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 290" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"> <title>TikTok</title> <g> <path d="M189.720224,104.421475 C208.398189,117.766281 231.279538,125.618095 255.992548,125.618095 L255.992548,78.0872726 C251.315611,78.0882654 246.650588,77.6008156 242.074913,76.6318726 L242.074913,114.045382 C217.363889,114.045382 194.485518,106.193568 175.80259,92.8497541 L175.80259,189.846306 C175.80259,238.368905 136.447224,277.701437 87.902784,277.701437 C69.7897057,277.701437 52.9543216,272.228299 38.9691786,262.841664 C54.9309256,279.153859 77.1908018,289.273158 101.81744,289.273158 C150.364858,289.273158 189.72221,249.940626 189.72221,201.416041 L189.72221,104.421475 L189.720224,104.421475 Z M206.889179,56.4687254 C197.343701,46.0456391 191.076347,32.5757434 189.720224,17.6842019 L189.720224,11.5707278 L176.531282,11.5707278 C179.851103,30.497877 191.174632,46.6681056 206.889179,56.4687254 L206.889179,56.4687254 Z M69.6735517,225.606854 C64.3403943,218.617757 61.4583846,210.068027 61.4712906,201.277053 C61.4712906,179.084685 79.472186,161.090739 101.680438,161.090739 C105.819294,161.089747 109.933331,161.723134 113.877603,162.974023 L113.877603,114.380938 C109.268175,113.749536 104.616057,113.481488 99.9659254,113.579773 L99.9659254,151.402303 C96.0186741,150.151413 91.9026521,149.516041 87.7628035,149.520012 C65.5545513,149.520012 47.5546487,167.511972 47.5546487,189.707318 C47.5546487,205.401018 56.552118,218.98806 69.6735517,225.606854 Z" fill="#FF004F"></path> <path d="M175.80259,92.8487613 C194.485518,106.192575 217.363889,114.044389 242.074913,114.044389 L242.074913,76.6308799 C228.281375,73.6942679 216.070311,66.4897401 206.889179,56.4687254 C191.173639,46.6671128 179.851103,30.4968842 176.531282,11.5707278 L141.8876,11.5707278 L141.8876,201.414056 C141.809172,223.545865 123.839052,241.466346 101.678453,241.466346 C88.6195635,241.466346 77.0180599,235.24466 69.6705734,225.606854 C56.5501325,218.98806 47.5526631,205.400025 47.5526631,189.708311 C47.5526631,167.51495 65.5525657,149.521004 87.760818,149.521004 C92.0158278,149.521004 96.1169583,150.183182 99.9639399,151.403295 L99.9639399,113.580765 C52.272289,114.565593 13.9166419,153.513923 13.9166419,201.415048 C13.9166419,225.326893 23.4680767,247.004014 38.9701714,262.842657 C52.9553144,272.228299 69.7906985,277.70243 87.9037768,277.70243 C136.449209,277.70243 175.803582,238.367912 175.803582,189.846306 L175.803582,92.8487613 L175.80259,92.8487613 Z" fill="#000000"></path> <path d="M242.074913,76.6308799 L242.074913,66.5145593 C229.636505,66.5334219 217.442318,63.0517795 206.889179,56.4677326 C216.231139,66.6902795 228.532545,73.7389425 242.074913,76.6308799 Z M176.531282,11.5707278 C176.214589,9.76190185 175.971361,7.9411627 175.80259,6.11347418 L175.80259,0 L127.968973,0 L127.968973,189.845313 C127.89253,211.974144 109.923403,229.894625 87.760818,229.894625 C81.2542071,229.894625 75.1109499,228.350869 69.6705734,225.607847 C77.0180599,235.24466 88.6195635,241.465353 101.678453,241.465353 C123.837066,241.465353 141.810164,223.546857 141.8876,201.415048 L141.8876,11.5707278 L176.531282,11.5707278 Z M99.9659254,113.580765 L99.9659254,102.811203 C95.9690357,102.265179 91.9393845,101.991175 87.9047695,101.99315 C39.3553659,101.99315 0,141.326686 0,189.845313 C0,220.263769 15.4673478,247.071522 38.9711641,262.840672 C23.4690694,247.003021 13.9176347,225.324907 13.9176347,201.414056 C13.9176347,153.513923 52.272289,114.565593 99.9659254,113.580765 Z" fill="#00F2EA"></path> </g> </svg></span> TikTok</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"> <title>Facebook</title> <g> <path d="M256,128 C256,57.3075 198.6925,0 128,0 C57.3075,0 0,57.3075 0,128 C0,191.8885 46.80775,244.8425 108,254.445 L108,165 L75.5,165 L75.5,128 L108,128 L108,99.8 C108,67.72 127.1095,50 156.3475,50 C170.35175,50 185,52.5 185,52.5 L185,84 L168.8595,84 C152.95875,84 148,93.86675 148,103.98925 L148,128 L183.5,128 L177.825,165 L148,165 L148,254.445 C209.19225,244.8425 256,191.8885 256,128" fill="#1877F2"></path> <path d="M177.825,165 L183.5,128 L148,128 L148,103.98925 C148,93.86675 152.95875,84 168.8595,84 L185,84 L185,52.5 C185,52.5 170.35175,50 156.3475,50 C127.1095,50 108,67.72 108,99.8 L108,128 L75.5,128 L75.5,165 L108,165 L108,254.445 C114.51675,255.4675 121.196,256 128,256 C134.804,256 141.48325,255.4675 148,254.445 L148,165 L177.825,165" fill="#FFFFFF"></path> </g> </svg></span> Facebook</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 262" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"> <g> <path d="M255.878,133.451 C255.878,122.717 255.007,114.884 253.122,106.761 L130.55,106.761 L130.55,155.209 L202.497,155.209 C201.047,167.249 193.214,185.381 175.807,197.565 L175.563,199.187 L214.318,229.21 L217.003,229.478 C241.662,206.704 255.878,173.196 255.878,133.451" fill="#4285F4"></path> <path d="M130.55,261.1 C165.798,261.1 195.389,249.495 217.003,229.478 L175.807,197.565 C164.783,205.253 149.987,210.62 130.55,210.62 C96.027,210.62 66.726,187.847 56.281,156.37 L54.75,156.5 L14.452,187.687 L13.925,189.152 C35.393,231.798 79.49,261.1 130.55,261.1" fill="#34A853"></path> <path d="M56.281,156.37 C53.525,148.247 51.93,139.543 51.93,130.55 C51.93,121.556 53.525,112.853 56.136,104.73 L56.063,103 L15.26,71.312 L13.925,71.947 C5.077,89.644 0,109.517 0,130.55 C0,151.583 5.077,171.455 13.925,189.152 L56.281,156.37" fill="#FBBC05"></path> <path d="M130.55,50.479 C155.064,50.479 171.6,61.068 181.029,69.917 L217.873,33.943 C195.245,12.91 165.798,0 130.55,0 C79.49,0 35.393,29.301 13.925,71.947 L56.136,104.73 C66.726,73.253 96.027,50.479 130.55,50.479" fill="#EB4335"></path> </g> </svg></span> Google</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 260" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"> <title>OpenAI</title> <g> <path d="M239.183914,106.202783 C245.054304,88.5242096 243.02228,69.1733805 233.607599,53.0998864 C219.451678,28.4588021 190.999703,15.7836129 163.213007,21.739505 C147.554077,4.32145883 123.794909,-3.42398554 100.87901,1.41873898 C77.9631105,6.26146349 59.3690093,22.9572536 52.0959621,45.2214219 C33.8436494,48.9644867 18.0901721,60.392749 8.86672513,76.5818033 C-5.443491,101.182962 -2.19544431,132.215255 16.8986662,153.320094 C11.0060865,170.990656 13.0197283,190.343991 22.4238231,206.422991 C36.5975553,231.072344 65.0680342,243.746566 92.8695738,237.783372 C105.235639,251.708249 123.001113,259.630942 141.623968,259.52692 C170.105359,259.552169 195.337611,241.165718 204.037777,214.045661 C222.28734,210.296356 238.038489,198.869783 247.267014,182.68528 C261.404453,158.127515 258.142494,127.262775 239.183914,106.202783 L239.183914,106.202783 Z M141.623968,242.541207 C130.255682,242.559177 119.243876,238.574642 110.519381,231.286197 L112.054146,230.416496 L163.724595,200.590881 C166.340648,199.056444 167.954321,196.256818 167.970781,193.224005 L167.970781,120.373788 L189.815614,133.010026 C190.034132,133.121423 190.186235,133.330564 190.224885,133.572774 L190.224885,193.940229 C190.168603,220.758427 168.442166,242.484864 141.623968,242.541207 Z M37.1575749,197.93062 C31.456498,188.086359 29.4094818,176.546984 31.3766237,165.342426 L32.9113895,166.263285 L84.6329973,196.088901 C87.2389349,197.618207 90.4682717,197.618207 93.0742093,196.088901 L156.255402,159.663793 L156.255402,184.885111 C156.243557,185.149771 156.111725,185.394602 155.89729,185.550176 L103.561776,215.733903 C80.3054953,229.131632 50.5924954,221.165435 37.1575749,197.93062 Z M23.5493181,85.3811273 C29.2899861,75.4733097 38.3511911,67.9162648 49.1287482,64.0478825 L49.1287482,125.438515 C49.0891492,128.459425 50.6965386,131.262556 53.3237748,132.754232 L116.198014,169.025864 L94.3531808,181.662102 C94.1132325,181.789434 93.8257461,181.789434 93.5857979,181.662102 L41.3526015,151.529534 C18.1419426,138.076098 10.1817681,108.385562 23.5493181,85.125333 L23.5493181,85.3811273 Z M203.0146,127.075598 L139.935725,90.4458545 L161.7294,77.8607748 C161.969348,77.7334434 162.256834,77.7334434 162.496783,77.8607748 L214.729979,108.044502 C231.032329,117.451747 240.437294,135.426109 238.871504,154.182739 C237.305714,172.939368 225.050719,189.105572 207.414262,195.67963 L207.414262,134.288998 C207.322521,131.276867 205.650697,128.535853 203.0146,127.075598 Z M224.757116,94.3850867 L223.22235,93.4642272 L171.60306,63.3828173 C168.981293,61.8443751 165.732456,61.8443751 163.110689,63.3828173 L99.9806554,99.8079259 L99.9806554,74.5866077 C99.9533004,74.3254088 100.071095,74.0701869 100.287609,73.9215426 L152.520805,43.7889738 C168.863098,34.3743518 189.174256,35.2529043 204.642579,46.0434841 C220.110903,56.8340638 227.949269,75.5923959 224.757116,94.1804513 L224.757116,94.3850867 Z M88.0606409,139.097931 L66.2158076,126.512851 C65.9950399,126.379091 65.8450965,126.154176 65.8065367,125.898945 L65.8065367,65.684966 C65.8314495,46.8285367 76.7500605,29.6846032 93.8270852,21.6883055 C110.90411,13.6920079 131.063833,16.2835462 145.5632,28.338998 L144.028434,29.2086986 L92.3579852,59.0343142 C89.7419327,60.5687513 88.1282597,63.3683767 88.1117998,66.4011901 L88.0606409,139.097931 Z M99.9294965,113.5185 L128.06687,97.3011417 L156.255402,113.5185 L156.255402,145.953218 L128.169187,162.170577 L99.9806554,145.953218 L99.9294965,113.5185 Z" fill="#000000"></path> </g> </svg></span> ChatGPT</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 257" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"> <title>Claude</title> <g> <path d="M50.2278481,170.321013 L100.585316,142.063797 L101.427848,139.601013 L100.585316,138.24 L98.1225316,138.24 L89.6972152,137.721519 L60.921519,136.943797 L35.9696203,135.906835 L11.795443,134.610633 L5.70329114,133.31443 L0,125.796456 L0.583291139,122.037468 L5.70329114,118.602532 L13.0268354,119.250633 L29.2293671,120.352405 L53.5331646,122.037468 L71.161519,123.07443 L97.28,125.796456 L101.427848,125.796456 L102.011139,124.111392 L100.585316,123.07443 L99.4835443,122.037468 L74.3372152,104.992405 L47.116962,86.9751899 L32.8587342,76.6055696 L25.1463291,71.3559494 L21.2577215,66.4303797 L19.5726582,55.6718987 L26.5721519,47.9594937 L35.9696203,48.6075949 L38.3675949,49.2556962 L47.8946835,56.5792405 L68.2450633,72.3281013 L94.8172152,91.9007595 L98.7058228,95.1412658 L100.261266,94.0394937 L100.455696,93.2617722 L98.7058228,90.3453165 L84.2531646,64.2268354 L68.8283544,37.6546835 L61.958481,26.636962 L60.1437975,20.0263291 C59.4956962,17.3043038 59.0420253,15.0359494 59.0420253,12.2491139 L67.0136709,1.42582278 L71.4207595,-1.42108547e-14 L82.0496203,1.42582278 L86.521519,5.31443038 L93.1321519,20.4151899 L103.825823,44.2005063 L120.417215,76.5407595 L125.277975,86.1326582 L127.87038,95.0116456 L128.842532,97.7336709 L130.527595,97.7336709 L130.527595,96.1782278 L131.888608,77.9665823 L134.416203,55.6070886 L136.878987,26.8313924 L137.721519,18.7301266 L141.739747,9.00860759 L149.711392,3.75898734 L155.933165,6.74025316 L161.053165,14.0637975 L160.340253,18.7949367 L157.294177,38.5620253 L151.331646,69.5412658 L147.443038,90.2805063 L149.711392,90.2805063 L152.303797,87.6881013 L162.803038,73.7539241 L180.431392,51.718481 L188.208608,42.9691139 L197.282025,33.3124051 L203.114937,28.7108861 L214.132658,28.7108861 L222.233924,40.7655696 L218.604557,53.2091139 L207.262785,67.596962 L197.865316,79.7812658 L184.38481,97.9281013 L175.959494,112.44557 L176.737215,113.612152 L178.746329,113.417722 L209.207089,106.936709 L225.668861,103.955443 L245.306329,100.585316 L254.185316,104.733165 L255.157468,108.945823 L251.657722,117.56557 L230.659241,122.75038 L206.031392,127.675949 L169.348861,136.360506 L168.89519,136.684557 L169.413671,137.332658 L185.940253,138.888101 L193.004557,139.276962 L210.308861,139.276962 L242.519494,141.674937 L250.94481,147.248608 L256,154.053671 L255.157468,159.238481 L242.195443,165.849114 L224.696709,161.701266 L183.866329,151.979747 L169.867342,148.48 L167.923038,148.48 L167.923038,149.646582 L179.588861,161.053165 L200.976203,180.366582 L227.742785,205.253671 L229.103797,211.410633 L225.668861,216.271392 L222.039494,215.752911 L198.513418,198.059747 L189.44,190.088101 L168.89519,172.783797 L167.534177,172.783797 L167.534177,174.598481 L172.265316,181.533165 L197.282025,219.123038 L198.578228,230.659241 L196.763544,234.418228 L190.282532,236.686582 L183.153418,235.39038 L168.506329,214.84557 L153.40557,191.708354 L141.221266,170.969114 L139.730633,171.811646 L132.536709,249.259747 L129.166582,253.213165 L121.389367,256.19443 L114.908354,251.268861 L111.473418,243.297215 L114.908354,227.548354 L119.056203,207.003544 L122.426329,190.671392 L125.472405,170.385823 L127.287089,163.64557 L127.157468,163.191899 L125.666835,163.386329 L110.371646,184.38481 L87.1048101,215.817722 L68.6987342,235.52 L64.2916456,237.269873 L56.6440506,233.316456 L57.356962,226.252152 L61.6344304,219.96557 L87.1048101,187.560506 L102.46481,167.469367 L112.380759,155.868354 L112.315949,154.183291 L111.732658,154.183291 L44.0708861,198.124557 L32.0162025,199.68 L26.8313924,194.819241 L27.4794937,186.847595 L29.9422785,184.25519 L50.2926582,170.256203 L50.2278481,170.321013 Z" fill="#D97757"></path> </g> </svg></span> Claude</span>
+      </div>
+    </div>
+
+    <div class="pkg-note">
+      🎯 Visi teksti tiek veidoti, balstoties uz jūsu klientu psiholoģijas izpēti: viņu bailēm, vēlmēm un motivāciju.<br>Saturs, kas piesaista klientus un pārdod.
+    </div>
   </div>
 </section>
 
 
+    <p style="text-align:center;font-size:15px;color:#6B7280;margin-top:8px;">Vai nepieciešama arī vietne? <a href="staging-lv-sayty.html" style="color:#7C3AED;font-weight:600;">Skatiet atsevišķu lapu «Vietnes» →</a></p>
 <section style="background:#F5F3FF;padding:48px 24px;text-align:center;">
-  <p style="font-size:22px;font-weight:800;color:#1a1a2e;margin:0 0 8px;">Остались вопросы?</p>
-  <p style="font-size:15px;color:#6B7280;margin:0 0 22px;">Оставьте заявку — ответим в течение дня.</p>
-  <a href="staging-kontakty.html" class="btn-primary">Оставить заявку →</a>
+  <p style="font-size:22px;font-weight:800;color:#1a1a2e;margin:0 0 8px;">Ir jautājums?</p>
+  <p style="font-size:15px;color:#6B7280;margin:0 0 22px;">Atstājiet pieteikumu — uzrakstīsim jums dienas laikā.</p>
+  <a href="staging-lv-kontakty.html" class="btn-primary">Atstājiet pieteikumu →</a>
 </section>
 <footer>
   <div style="max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;">
     <div style="text-align:left;">
       <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:4px;">Marketing <span style="color:#A78BFA;">DNA</span></div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.55);">SMM-студия для малого бизнеса</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55);">SMM studija mazajam biznesam</div>
     </div>
     <div style="display:flex;gap:14px;">
       <a href="https://www.facebook.com/marketing.dna.lv" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.7);font-size:18px;"><i class="fa-brands fa-facebook-f"></i></a>
@@ -1346,110 +1506,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div style="max-width:1040px;margin:16px auto 0;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.45);line-height:1.7;text-align:left;">
-    SIA «Studija Art and Wine» · Рег. № 40203381333 · Gulbju iela 25 k-1 - 1B, Jūrmala, LV-2008 · <a href="privacy.html?lang=ru" style="color:rgba(255,255,255,0.6);">Политика конфиденциальности</a> · <a href="terms.html?lang=ru" style="color:rgba(255,255,255,0.6);">Условия использования</a> · © 2026
+    SIA «Studija Art and Wine» · Reģ. Nr. 40203381333 · Gulbju iela 25 k-1 - 1B, Jūrmala, LV-2008 · <a href="privacy.html?lang=ru" style="color:rgba(255,255,255,0.6);">Privātuma politika</a> · <a href="terms.html?lang=ru" style="color:rgba(255,255,255,0.6);">Lietošanas noteikumi</a> · © 2026
   </div>
 </footer>
-<div id="mediaLightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;padding:20px;">
-  <button onclick="closeMediaLightbox()" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;">×</button>
-  <div id="mediaLightboxHtml" style="display:none;"></div>
-  <video id="mediaLightboxVideo" controls playsinline style="max-width:90vw;max-height:85vh;border-radius:12px;display:none;"></video>
-  <img id="mediaLightboxImg" style="max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain;display:none;" />
-<style>
-  #mediaLightbox { display:flex !important; opacity:0; pointer-events:none; transition:opacity 0.2s; }
-  #mediaLightbox.open { opacity:1; pointer-events:all; }
-  @media(max-width:768px){.mdna-3col,.mdna-2col{grid-template-columns:1fr!important;}}
-</style>
-<script>
-  function showTab(name) {
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-    document.getElementById('tab-' + name).classList.add('active');
-    event.target.classList.add('active');
-  }
-
-  function toggleFaq(el) {
-    const item = el.parentElement;
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
-  }
-
-  // Media lightbox (video/image examples)
-  var competitorsHtml = '<div style="max-width:720px;width:92vw;max-height:85vh;overflow-y:auto;background:#fff;border-radius:16px;padding:36px 40px;font-family:Inter,sans-serif;">  <div style="font-size:13px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">Анализ конкурентов · пример отчёта</div>  <div style="background:#F5F3FF;border-radius:12px;padding:16px 20px;margin-bottom:28px;">    <div style="font-size:12px;font-weight:700;color:#7C3AED;margin-bottom:4px;">🔍 ТАРИФ СТАРТ / СТАНДАРТ / ПРОФИ</div>    <h2 style="font-size:22px;font-weight:800;color:#1E1B4B;margin-bottom:8px;line-height:1.3;">Анализ конкурентов - входит во все платные тарифы</h2>    <p style="font-size:14px;color:#6B7280;line-height:1.6;margin:0;">Для каждого клиента мы изучаем конкурентов и учитываем это при создании материалов. В любом платном тарифе вы получаете полный отчёт с рекомендациями - каждый месяц.</p>  </div>  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px;">    <div style="background:#F9FAFB;border-radius:10px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;">      <span style="font-size:22px;flex-shrink:0;">👁</span>      <p style="font-size:14px;color:#374151;line-height:1.55;margin:0;">Что публикуют конкуренты и какой контент у них набирает охваты</p>    </div>    <div style="background:#F9FAFB;border-radius:10px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;">      <span style="font-size:22px;flex-shrink:0;">📊</span>      <p style="font-size:14px;color:#374151;line-height:1.55;margin:0;">Какие темы и форматы работают в вашей нише прямо сейчас</p>    </div>    <div style="background:#F9FAFB;border-radius:10px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;">      <span style="font-size:22px;flex-shrink:0;">🎯</span>      <p style="font-size:14px;color:#374151;line-height:1.55;margin:0;">Где у конкурентов слабые места - и как вам это использовать</p>    </div>    <div style="background:#F9FAFB;border-radius:10px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;">      <span style="font-size:22px;flex-shrink:0;">🧭</span>      <p style="font-size:14px;color:#374151;line-height:1.55;margin:0;">Конкретные рекомендации: куда двигаться и какие темы занять первыми</p>    </div>  </div>  <h3 style="font-size:16px;font-weight:700;color:#1E1B4B;margin-bottom:14px;">Пример фрагмента отчёта · Ниша: психолог / коуч</h3>  <div style="border:1px solid #E5E7EB;border-radius:10px;overflow:hidden;margin-bottom:16px;">    <div style="background:#1E1B4B;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;">      <span style="font-size:13px;font-weight:700;color:#fff;">Конкурент А - @psiholog_riga</span>      <span style="font-size:12px;color:#a5b4fc;">12 400 подписчиков</span>    </div>    <div style="padding:16px 18px;">      <p style="font-size:13px;color:#374151;line-height:1.65;margin-bottom:10px;">✅ <strong>Что работает:</strong> Reels с личными историями набирают 8–15k просмотров. Карусели «до/после» сохраняют в 3× чаще обычных постов. Публикации по вторникам и четвергам дают на 40% больший охват.</p>      <p style="font-size:13px;color:#374151;line-height:1.65;margin-bottom:10px;">❌ <strong>Слабые места:</strong> Нет контента про стоимость и процесс работы - клиенты не понимают как начать. Почти нет ответов на страхи и возражения. Stories выходят нерегулярно - раз в 2–3 недели.</p>      <p style="font-size:13px;color:#7C3AED;line-height:1.65;margin:0;">💡 <strong>Ваша возможность:</strong> Серия постов «как проходит первая сессия» + прозрачное объяснение цен закроет gap, который конкурент игнорирует. Эти темы не перегреты - вы займёте пустое место.</p>    </div>  </div>  <div style="border:1px solid #E5E7EB;border-radius:10px;overflow:hidden;margin-bottom:24px;">    <div style="background:#1E1B4B;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;">      <span style="font-size:13px;font-weight:700;color:#fff;">Конкурент Б - @coach_latvia</span>      <span style="font-size:12px;color:#a5b4fc;">5 800 подписчиков</span>    </div>    <div style="padding:16px 18px;">      <p style="font-size:13px;color:#374151;line-height:1.65;margin-bottom:10px;">✅ <strong>Что работает:</strong> Экспертные посты с конкретными советами - высокое сохранение. Активно использует опросы в Stories - вовлечённость выше среднего по нише на 25%.</p>      <p style="font-size:13px;color:#374151;line-height:1.65;margin-bottom:10px;">❌ <strong>Слабые места:</strong> Нет коротких видео совсем - TikTok и Reels не ведёт. Визуал однообразный, все посты в одном шаблоне. Нет отзывов и кейсов клиентов.</p>      <p style="font-size:13px;color:#7C3AED;line-height:1.65;margin:0;">💡 <strong>Ваша возможность:</strong> Один Reel в неделю с коротким советом + 2–3 поста с реальными результатами клиентов (анонимно) даст вам преимущество, которого у конкурента нет.</p>    </div>  </div>  <div style="background:#EDE9FE;border-radius:10px;padding:16px 20px;">    <p style="font-size:13px;color:#5B21B6;line-height:1.65;margin:0;">Это фрагмент реального формата отчёта. В вашем пакете - анализ 3–5 конкурентов конкретно в вашей нише и городе, с актуальными данными этого месяца и готовым списком тем для контента.</p>  </div></div>';
-  var contentPlanHtml = '<div style="max-width:700px;width:92vw;max-height:85vh;overflow-y:auto;background:#fff;border-radius:16px;padding:36px 40px;font-family:Inter,sans-serif;">  <div style="font-size:13px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">Контент-план на 15 дней · пример</div><h2 style="font-size:20px;font-weight:800;color:#1E1B4B;margin-bottom:4px;line-height:1.3;">КОНТЕНТ-ПЛАН НА 15 ДНЕЙ</h2><p style="font-size:13px;color:#6B7280;margin-bottom:24px;">AI-сервис контента для микро и малого бизнеса</p><div style="background:#F5F3FF;border-left:4px solid #7C3AED;padding:10px 16px;margin:24px 0 12px;border-radius:0 8px 8px 0;"><strong style="color:#7C3AED;font-size:14px;">ДЕНЬ 1:</strong></div><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Платформа:</strong> Instagram</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Формат:</strong> Reel</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Тема:</strong> Почему соцсети заброшены - и это не лень, а реальность малого бизнеса</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Хук:</strong> Ты не ленивый. Ты просто делаешь всё один.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Суть контента:</strong> Показываем день владельца микробизнеса - клиенты, запись, закупки, учёт, и в конце дня просто нет сил открыть Instagram. Говорим вслух то, что все думают, но никто не произносит: вести соцсети в такой ситуации физически невозможно без системы. Заканчиваем мыслью - это не твоя проблема с дисциплиной, это проблема отсутствия инструмента.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">СТА:</strong> Если узнал себя - напиши в директ, расскажу как мы это решаем.</p><div style="background:#F5F3FF;border-left:4px solid #7C3AED;padding:10px 16px;margin:24px 0 12px;border-radius:0 8px 8px 0;"><strong style="color:#7C3AED;font-size:14px;">ДЕНЬ 2:</strong></div><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Платформа:</strong> Instagram</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Формат:</strong> Карусель</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Тема:</strong> Что происходит с бизнесом, когда соцсети молчат больше двух недель</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Хук:</strong> Два слабых поста в месяц - хуже, чем полная тишина. Вот почему.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Суть контента:</strong> Слайды показывают конкретные последствия нерегулярного присутствия: алгоритм перестаёт показывать аккаунт, потенциальные клиенты заходят на страницу и уходят, доверие падает быстрее, чем кажется. Каждый слайд - одна мысль, без воды. Последний слайд - простой выход из этой ситуации.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">СТА:</strong> Напиши в директ - покажу, как выглядит регулярный контент без твоего участия.</p><div style="background:#F5F3FF;border-left:4px solid #7C3AED;padding:10px 16px;margin:24px 0 12px;border-radius:0 8px 8px 0;"><strong style="color:#7C3AED;font-size:14px;">ДЕНЬ 3:</strong></div><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Платформа:</strong> Instagram</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Формат:</strong> Пост</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Тема:</strong> История клиента - психолог, которая отдала деньги фрилансеру и получила три поста за месяц</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Хук:</strong> Она заплатила 200 евро. Получила три поста. Больше не отвечали.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Суть контента:</strong> Короткая история от первого лица - без имени, но очень узнаваемая. Деньги ушли, контент так и не появился, а страница снова замерла. Рассказываем, что это не исключение, а типичная история для малого бизнеса, который пытается делегировать контент фрилансерам без чёткой системы. Объясняем, чем наш подход отличается принципиально.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">СТА:</strong> Было похожее? Напиши в директ - расскажу как работаем мы.</p><div style="background:#F5F3FF;border-left:4px solid #7C3AED;padding:10px 16px;margin:24px 0 12px;border-radius:0 8px 8px 0;"><strong style="color:#7C3AED;font-size:14px;">ДЕНЬ 4:</strong></div><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Платформа:</strong> TikTok</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Формат:</strong> Reel</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Тема:</strong> Сколько реально стоит нанять SMM-менеджера в Латвии в 2025 году</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Хук:</strong> Тебе сказали 300 евро в месяц? Это только начало. Считаем дальше.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Суть контента:</strong> Быстрый разбор реальных цифр - гонорар специалиста, время на брифинги, согласования, правки, и ещё отдельно за видео, за дизайн, за тексты. Показываем, что итоговая сумма часто в два раза больше первоначального предложения. Не атакуем SMM-специалистов, просто честно раскладываем экономику для владельца бизнеса.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">СТА:</strong> Хочешь посчитать, во что обходится твой текущий контент? Напиши в директ.</p><div style="background:#F5F3FF;border-left:4px solid #7C3AED;padding:10px 16px;margin:24px 0 12px;border-radius:0 8px 8px 0;"><strong style="color:#7C3AED;font-size:14px;">ДЕНЬ 5:</strong></div><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Платформа:</strong> Instagram</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Формат:</strong> Stories (серия из 5 сторис)</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Тема:</strong> Как наш AI изучает твой бизнес перед тем, как написать первый пост</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Хук:</strong> Это не шаблоны. Вот что происходит до того, как ты получишь контент.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Суть контента:</strong> Пошаговый процесс - сторис первая про анализ бизнеса и аудитории, вторая про изучение конкурентов, третья про выбор тем и форматов, четвёртая про то, как выглядит готовый пакет на 15 дней, пятая - приглашение попробовать бесплатно. Формат простой, без перегруза. Цель - снять страх перед тем, что это безликий робот.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">СТА:</strong> Последняя сторис с кнопкой «Написать» и текстом: напиши в директ - объясню как начать.</p><div style="background:#F5F3FF;border-left:4px solid #7C3AED;padding:10px 16px;margin:24px 0 12px;border-radius:0 8px 8px 0;"><strong style="color:#7C3AED;font-size:14px;">ДЕНЬ 6:</strong></div><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Платформа:</strong> LinkedIn</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Формат:</strong> Пост</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Тема:</strong> Почему микробизнес в Латвии теряет клиентов через соцсети - и не знает об этом</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Хук:</strong> Клиент нашёл тебя. Зашёл на страницу. И ушёл. Ты об этом даже не узнаешь.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Суть контента:</strong> Серьёзный текст для предпринимательской аудитории - без заигрываний, с цифрами и логикой. Объясняем, что первое касание с бизнесом сегодня происходит через соцсети, и заброшенная страница работает против тебя активнее, чем её отсутствие. Приводим понятную аналогию: закрытая витрина в рабочее время отпугивает сильнее, чем просто закрытый магазин.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">СТА:</strong> Если работаешь с малым бизнесом или сам им являешься - напиши в директ, покажу конкретные примеры.</p><div style="background:#F5F3FF;border-left:4px solid #7C3AED;padding:10px 16px;margin:24px 0 12px;border-radius:0 8px 8px 0;"><strong style="color:#7C3AED;font-size:14px;">ДЕНЬ 7:</strong></div><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Платформа:</strong> Instagram</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Формат:</strong> Карусель</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Тема:</strong> Три вопроса, которые нужно задать перед тем, как платить за контент кому угодно</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Хук:</strong> Прежде чем отдать деньги за SMM - прочитай это.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">Суть контента:</strong> Карусель с тремя конкретными вопросами: кто конкретно пишет тексты и делает дизайн, как измеряется результат и что происходит если он не достигнут, можно ли увидеть реальные примеры для похожего бизнеса. Каждый вопрос - отдельный слайд с коротким объяснением зачем он важен. Последний слайд отвечает на эти же вопросы применительно к нашему сервису - честно и без пафоса.</p><p style="font-size:14px;color:#374151;line-height:1.65;margin-bottom:8px;"><strong style="color:#1E1B4B;">СТА:</strong> Есть вопросы по нашему сервису? Напиши в директ - отвечу на всё без скриптов.</p></div>';
-
-  document.querySelectorAll('.product-example-link[data-media]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const media = link.getAttribute('data-media');
-      const type = link.getAttribute('data-type');
-      const box = document.getElementById('mediaLightbox');
-      const vid = document.getElementById('mediaLightboxVideo');
-      const img = document.getElementById('mediaLightboxImg');
-      const htmlPanel = document.getElementById('mediaLightboxHtml');
-      if (type === 'html') {
-        vid.style.display = 'none';
-        img.style.display = 'none';
-        htmlPanel.innerHTML = media === 'content_plan' ? contentPlanHtml : media === 'competitors' ? competitorsHtml : media;
-        htmlPanel.style.display = 'block';
-        box.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        return;
-      }
-      htmlPanel.style.display = 'none';
-      if (type === 'video') {
-        vid.src = media;
-        vid.style.display = 'block';
-        img.style.display = 'none';
-        vid.play();
-      } else {
-        img.src = media;
-        img.style.display = 'block';
-        vid.style.display = 'none';
-        vid.src = '';
-      }
-      box.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-  function closeMediaLightbox() {
-    const box = document.getElementById('mediaLightbox');
-    const vid = document.getElementById('mediaLightboxVideo');
-    box.classList.remove('open');
-    vid.pause();
-    vid.src = '';
-    document.getElementById('mediaLightboxHtml').style.display = 'none';
-    document.body.style.overflow = '';
-  }
-  document.getElementById('mediaLightbox').addEventListener('click', function(e) {
-    if (e.target === this) closeMediaLightbox();
-  });
-
-  // Portfolio site preview modal
-  function openSitePreview(url, name, staticImg) {
-    document.getElementById('siteModalTitle').textContent = name;
-    document.getElementById('siteModalImg').src = staticImg
-      ? staticImg
-      : 'https://image.thum.io/get/width/1200/' + url;
-    document.getElementById('siteModalLink').href = url;
-    document.getElementById('siteModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeSitePreview() {
-    document.getElementById('siteModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSitePreview(); });
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]:not(#siteModalLink)').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-</script>
 <!-- ПРАВКА · восстановлен прямой вход в Telegram-бота (был до 21.08, случайно
      убран при переносе позиционирования - см. разбор с коллегой). Попап даёт
      быстрый путь: бесплатный пакет сразу в боте (ссылка зашивается в старт-
@@ -1458,32 +1517,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      странице. -->
 <div id="leadModalOverlay" style="display:none;position:fixed;inset:0;background:rgba(26,26,46,.55);z-index:9999;align-items:center;justify-content:center;padding:20px;">
   <div style="background:#fff;border-radius:18px;padding:32px 28px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25);text-align:left;">
-    <button onclick="closeLeadModal()" aria-label="Закрыть" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;background:#F3F4F6;border-radius:50%;font-size:16px;color:#6B7280;cursor:pointer;line-height:1;">✕</button>
+    <button onclick="closeLeadModal()" aria-label="Aizvērt" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;background:#F3F4F6;border-radius:50%;font-size:16px;color:#6B7280;cursor:pointer;line-height:1;">✕</button>
 
     <div id="leadViewFree">
-      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Получить бесплатный пакет</h3>
-      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Ссылка на ваш сайт или Instagram - соберём 3 готовые публикации и контент-план на 7 дней бесплатно.</p>
-      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Ссылка на сайт или Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
-      <p id="freeLinkHint" style="display:none;font-size:12px;color:#DC2626;margin:0 0 10px;font-weight:600;">Впишите, пожалуйста, ссылку на ваш сайт или Instagram.</p>
+      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Saņemt bezmaksas satura komplektu</h3>
+      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Atsūtiet saiti uz savu mājaslapu vai Instagram — bezmaksas sagatavosim 3 gatavas publikācijas un satura plānu 7 dienām.</p>
+      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Saite uz mājaslapu vai Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
+      <p id="freeLinkHint" style="display:none;font-size:12px;color:#DC2626;margin:0 0 10px;font-weight:600;">Lūdzu, ierakstiet saiti uz jūsu mājaslapu vai Instagram.</p>
 
       <!-- Выбор канала. Кнопка WhatsApp скрыта, пока в скрипте ниже не задан WA_NUMBER:
            нет номера - сайт работает как раньше, только Telegram. -->
-      <p id="freeChannelLabel" style="display:none;font-size:13px;font-weight:700;color:#4B5563;margin:16px 0 8px;">Куда прислать?</p>
-      <button id="freeWaBtn" class="btn-primary" style="display:none;width:100%;border:none;cursor:pointer;background:#25D366;margin-bottom:9px;">📱 В WhatsApp</button>
-      <button id="freeTgBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:4px;">✈️ В Telegram</button>
-      <p id="freeTgHint" style="display:none;font-size:12px;color:#059669;margin:10px 0 0;font-weight:600;">✅ Ссылка скопирована - вставьте её в чате бота.</p>
-      <a href="#" id="freeNoTgToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">Нет ни того, ни другого? Оставьте контакт - напишем сами</a>
+      <p id="freeChannelLabel" style="display:none;font-size:13px;font-weight:700;color:#4B5563;margin:16px 0 8px;">Kur atsūtīt?</p>
+      <button id="freeWaBtn" class="btn-primary" style="display:none;width:100%;border:none;cursor:pointer;background:#25D366;margin-bottom:9px;">📱 Uz WhatsApp</button>
+      <button id="freeTgBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:4px;">✈️ Uz Telegram</button>
+      <p id="freeTgHint" style="display:none;font-size:12px;color:#059669;margin:10px 0 0;font-weight:600;">✅ Saite nokopēta - ielīmējiet to bota tērzēšanā.</p>
+      <a href="#" id="freeNoTgToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">Nav ne viena, ne otra? Atstājiet kontaktu — uzrakstīsim paši.</a>
     </div>
 
     <div id="leadViewForm" style="display:none">
-      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Получить бесплатный пробный пакет</h3>
-      <p style="font-size:14px;color:#6B7280;margin:0 0 18px;">Ответим в течение дня.</p>
-      <input id="leadName" type="text" placeholder="Имя" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
-      <input id="leadContact" type="text" placeholder="Номер WhatsApp или ник в Telegram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
-      <input id="leadBiz" type="text" placeholder="Что продаёте и кому?" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:16px;outline:none;">
-      <button id="leadSendBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;" onclick="submitLeadModal()">Отправить заявку</button>
+      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Saņemt bezmaksas izmēģinājuma komplektu</h3>
+      <p style="font-size:14px;color:#6B7280;margin:0 0 18px;">Atbildēsim dienas laikā.</p>
+      <input id="leadName" type="text" placeholder="Vārds" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+      <input id="leadContact" type="text" placeholder="WhatsApp numurs vai Telegram lietotājvārds" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+      <input id="leadBiz" type="text" placeholder="Ko pārdodat un kam?" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:16px;outline:none;">
+      <button id="leadSendBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;" onclick="submitLeadModal()">Nosūtīt pieteikumu</button>
       <p id="leadStatus" style="display:none;font-size:13px;margin-top:10px;font-weight:600;text-align:center;"></p>
-      <a href="#" id="leadBackToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">← Есть Telegram? Быстрее через бота</a>
+      <a href="#" id="leadBackToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">← Ir Telegram? Ātrāk caur botu</a>
     </div>
 
   </div>
@@ -1546,7 +1605,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     freeWaBtn.style.display = 'block';
     freeChannelLabel.style.display = 'block';
   } else {
-    freeTgBtn.textContent = '📱 Получить в Telegram';
+    freeTgBtn.textContent = '📱 Saņemt Telegram';
   }
 
   // Проверка ссылки - общая для обеих кнопок
@@ -1567,10 +1626,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   freeWaBtn.addEventListener('click', function () {
     var v = requireLink();
     if (!v) return;
-    var msg = 'Здравствуйте! Хочу бесплатный пакет контента.\n'
-            + 'Мой сайт или Instagram: ' + v + '\n'
-            + '(код входа: web-ru-' + entryPoint + ')';
-    postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'ru' });
+    var msg = 'Labdien! Vēlos bezmaksas satura komplektu.\n'
+            + 'Mana mājaslapa vai Instagram: ' + v + '\n'
+            + '(ieejas kods: web-lv-' + entryPoint + ')';
+    postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'lv' });
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
   });
 
@@ -1580,12 +1639,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var enc = b64url(v);
     var url, clip = '';
     if (enc && enc.length <= 62) {
-      url = BOT + '?start=L_' + enc;
+      url = BOT + '?start=lv_L_' + enc;
     } else {
-      url = BOT + '?start=steps';
+      url = BOT + '?start=lv_steps';
       clip = v;
     }
-    postLead({ link: v, kind: 'tg_click', entry: entryPoint, lang: 'ru' });
+    postLead({ link: v, kind: 'tg_click', entry: entryPoint, lang: 'lv' });
     if (clip && navigator.clipboard) {
       navigator.clipboard.writeText(clip).then(function () { freeTgHint.style.display = 'block'; }).catch(function () {});
     }
@@ -1612,30 +1671,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var statusEl = document.getElementById('leadStatus');
     if (!name) {
       statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Напишите, пожалуйста, имя.';
+      statusEl.textContent = 'Lūdzu, ierakstiet vārdu.';
       return;
     }
     if (contact.length < 5) {
       statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Оставьте номер WhatsApp или ник в Telegram — иначе нам некуда прислать ваш пакет.';
+      statusEl.textContent = 'Atstājiet WhatsApp numuru vai Telegram lietotājvārdu — citādi mums nebūs, kur atsūtīt jūsu satura komplektu.';
       return;
     }
     var sendBtn = document.getElementById('leadSendBtn');
-    sendBtn.disabled = true; sendBtn.textContent = 'Отправляем...';
+    sendBtn.disabled = true; sendBtn.textContent = 'Nosūtām...';
     fetch(API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, contact: contact, link: biz, kind: 'lead_form', entry: entryPoint, lang: 'ru' }),
+      body: JSON.stringify({ name: name, contact: contact, link: biz, kind: 'lead_form', entry: entryPoint, lang: 'lv' }),
     }).then(function (r) { return r.json(); }).then(function (d) {
       if (d && d.ok) {
         statusEl.style.display = 'block'; statusEl.style.color = '#059669';
-        statusEl.textContent = '✅ Приняли! Напишем вам в течение дня.';
+        statusEl.textContent = 'Pieņemts! Atbildēsim dienas laikā.';
         sendBtn.style.display = 'none';
       } else { throw new Error('bad response'); }
     }).catch(function () {
       statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Не получилось отправить. Попробуйте ещё раз чуть позже.';
-      sendBtn.disabled = false; sendBtn.textContent = 'Отправить заявку';
+      statusEl.textContent = 'Neizdevās nosūtīt. Mēģiniet vēlreiz vēlāk.';
+      sendBtn.disabled = false; sendBtn.textContent = 'Nosūtīt pieteikumu';
     });
   };
 })();
