@@ -3,10 +3,31 @@
     {
       "source": "**",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/ru-multi-3-kak-eto-rabotaet",
+      "type": 301
+    },
+    {
+      "source": "/about-lv",
+      "destination": "/lv-multi-3-kak-eto-rabotaet",
+      "type": 301
     }
   ]
 }
