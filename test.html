@@ -74,7 +74,7 @@ var T = {
     pick: 'Выбрать фотографии',
     go: 'Собрать контент',
     sending: 'Отправляем…',
-    okTitle: 'Готово, мы начали',
+    okTitle: 'Почти готово',
     tooShort: 'Напишите чуть подробнее — три-четыре предложения.',
     err: 'Не получилось отправить. Попробуйте ещё раз.',
     added: 'Добавлено фотографий: ',
@@ -101,7 +101,7 @@ var T = {
     pick: 'Izvēlēties fotogrāfijas',
     go: 'Sagatavot saturu',
     sending: 'Sūtām…',
-    okTitle: 'Gatavs, esam sākuši',
+    okTitle: 'Gandrīz gatavs',
     tooShort: 'Uzrakstiet mazliet vairāk — trīs četrus teikumus.',
     err: 'Neizdevās nosūtīt. Mēģiniet vēlreiz.',
     added: 'Pievienotas fotogrāfijas: ',
@@ -219,7 +219,7 @@ function el(id) { return document.getElementById(id); }
 
     fetch(API + '/test/start', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lang: CONTENT_LANG, channel: CHANNEL })
+      body: JSON.stringify({ lang: CONTENT_LANG, uiLang: LANG, channel: CHANNEL })
     }).then(function (r) { return r.json(); })
       .then(function (j) {
         if (!j || !j.key) throw new Error('start');
