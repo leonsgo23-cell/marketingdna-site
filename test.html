@@ -78,6 +78,8 @@ var T = {
     tooShort: 'Напишите чуть подробнее — три-четыре предложения.',
     err: 'Не получилось отправить. Попробуйте ещё раз.',
     added: 'Добавлено фотографий: ',
+    notOpened: 'Не открылись: ',
+    heicHint: 'Такое бывает с форматом HEIC с iPhone — загрузите эти фото прямо с телефона или сохраните их как JPEG и добавьте снова.',
     step3: 'Шаг 3. На каком языке делать контент',
     step4: 'Шаг 4. Куда прислать материалы',
     wa: 'В WhatsApp',
@@ -105,6 +107,8 @@ var T = {
     tooShort: 'Uzrakstiet mazliet vairāk — trīs četrus teikumus.',
     err: 'Neizdevās nosūtīt. Mēģiniet vēlreiz.',
     added: 'Pievienotas fotogrāfijas: ',
+    notOpened: 'Neatvērās: ',
+    heicHint: 'Tā mēdz gadīties ar iPhone HEIC formātu. Augšupielādējiet šīs bildes tieši no telefona vai saglabājiet tās kā JPEG un pievienojiet vēlreiz.',
     step3: '3. solis. Kādā valodā veidot saturu',
     step4: '4. solis. Kur sūtīt materiālus',
     wa: 'Uz WhatsApp',
@@ -175,10 +179,17 @@ function el(id) { return document.getElementById(id); }
 
   el('f').onchange = function (e) {
     var files = [].slice.call(e.target.files || []).slice(0, MAX - photos.length);
-    var i = 0;
+    var i = 0, failed = [];
+    // Фото, которое браузер не смог открыть (чаще всего HEIC с iPhone в Chrome на
+    // компьютере), раньше молча пропадало — теперь клиент видит, какое и что сделать (29.09.2026)
     (function next() {
-      if (i >= files.length) { el('m').textContent = t.added + photos.length; return; }
-      shrink(files[i++]).then(function (d) {
+      if (i >= files.length) {
+        el('m').textContent = t.added + photos.length + (failed.length ? '. ' + t.notOpened + failed.join(', ') + '. ' + t.heicHint : '');
+        return;
+      }
+      var cur = files[i++];
+      shrink(cur).then(function (d) {
+        if (!d) failed.push(cur.name);
         if (d) {
           photos.push(d);
           var im = document.createElement('img'); im.src = d; el('th').appendChild(im);
