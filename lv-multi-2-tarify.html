@@ -1094,6 +1094,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .pkg-card-price .pkg-price-num { font-size: 40px; }
   }
 
+  /* 05.10.2026: карточки тарифов вылезали за контейнер — колонки 1fr растягивались
+     по кнопке «Оформить подписку» (white-space:nowrap): на 1280 px Профи обрезан,
+     на 800–1024 px почти не виден. Колонки строго по 1/3, кнопка переносится,
+     ≤1024 px — одна колонка по центру. */
+  .pkg-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pkg-card { min-width: 0; }
+  .pkg-buy-btn { white-space: normal; }
+  @media(max-width: 1024px) {
+    .pkg-grid { grid-template-columns: minmax(0, 1fr); max-width: 560px; margin-left: auto; margin-right: auto; }
+  }
+
   /* PHONE ANIMATIONS */
   .phone-video-progress { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.25); }
   .phone-video-progress-bar { height: 100%; background: #fff; animation: videoProgress 7s linear infinite; }
