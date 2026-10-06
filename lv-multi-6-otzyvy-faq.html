@@ -1481,13 +1481,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div id="leadViewFree">
       <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Saņemt bezmaksas satura komplektu</h3>
-      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Atsūtiet saiti uz savu mājaslapu vai Instagram — sagatavosim jums bezmaksas foto ierakstu, karuseli, Story Reel, titulattēlu, Stories un satura plānu 7 dienām.</p>
-      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Saite uz mājaslapu vai Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
+      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Sagatavosim jums bezmaksas foto ierakstu, karuseli, Story Reel, titulattēlu, Stories un satura plānu 7 dienām. Lai to izdarītu, norādiet savu mājaslapu un Instagram kontu.</p>
+      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Mājaslapa vai Instagram (ja ir)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
       <p id="freeLinkHint" style="display:none;font-size:12px;color:#DC2626;margin:0 0 10px;font-weight:600;">Lūdzu, ierakstiet saiti uz jūsu mājaslapu vai Instagram.</p>
 
       <!-- Выбор канала. Кнопка WhatsApp скрыта, пока в скрипте ниже не задан WA_NUMBER:
            нет номера - сайт работает как раньше, только Telegram. -->
-      <p id="freeChannelLabel" style="display:none;font-size:13px;font-weight:700;color:#4B5563;margin:16px 0 8px;">Kur atsūtīt?</p>
+      <p id="freeChannelLabel" style="display:none;font-size:13px;font-weight:700;color:#4B5563;margin:16px 0 8px;">Kur jums ērtāk saņemt bezmaksas satura komplektu?<br><span style="font-weight:500;color:#6B7280;">Nospiediet, un atvērsies saruna ar mums — tajā arī atsūtīsim jūsu komplektu.</span></p>
       <button id="freeWaBtn" class="btn-primary" style="display:none;width:100%;border:none;cursor:pointer;background:#25D366;margin-bottom:9px;">📱 Uz WhatsApp</button>
       <button id="freeTgBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:4px;">✈️ Uz Telegram</button>
       <p id="freeTgHint" style="display:none;font-size:12px;color:#059669;margin:10px 0 0;font-weight:600;">✅ Saite nokopēta - ielīmējiet to bota tērzēšanā.</p>
@@ -1527,6 +1527,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     viewFree.style.display = 'block';
     viewForm.style.display = 'none';
     overlay.style.display = 'flex';
+    freeTgHint.style.display = 'none';
+    postLead({ link: '', kind: 'modal_open', entry: entryPoint, lang: 'lv' });
   };
   window.closeLeadModal = function () {
     overlay.style.display = 'none';
@@ -1569,15 +1571,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   // Проверка ссылки - общая для обеих кнопок
+  // Ссылка НЕОБЯЗАТЕЛЬНА (06.10.2026, Александр: «я завис и ушёл» — красная надпись
+  // без объяснения, что дальше). Бот без ссылки работает: анкета спросит её сама.
   function requireLink() {
-    var v = (freeLinkInput.value || '').trim();
-    if (v.length < 4) {
-      freeLinkHint.style.display = 'block';
-      freeLinkInput.focus();
-      return null;
-    }
     freeLinkHint.style.display = 'none';
-    return v;
+    return (freeLinkInput.value || '').trim();
+  }
+  // Что делать после нажатия: чат открылся, но сообщение ещё надо отправить самому
+  function showAfterHint(text) {
+    freeTgHint.textContent = text;
+    freeTgHint.style.display = 'block';
   }
 
   // WhatsApp: клиент ОБЯЗАН написать первым - именно его сообщение открывает
@@ -1585,20 +1588,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // здесь ссылка wa.me с заранее набранным текстом, а не форма со сбором номера.
   freeWaBtn.addEventListener('click', function () {
     var v = requireLink();
-    if (!v) return;
     var msg = 'Labdien! Vēlos bezmaksas satura komplektu.\n'
-            + 'Mana mājaslapa vai Instagram: ' + v + '\n'
+            + (v ? 'Mana mājaslapa vai Instagram: ' + v + '\n' : '')
             + '(ieejas kods: web-lv-' + entryPoint + ')';
     postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'lv' });
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    showAfterHint('✅ WhatsApp atvērts — sarunā ar mums nospiediet «Sūtīt».');
   });
 
   freeTgBtn.addEventListener('click', function () {
     var v = requireLink();
-    if (!v) return;
-    var enc = b64url(v);
+    var enc = v ? b64url(v) : null;
     var url, clip = '';
-    if (enc && enc.length <= 62) {
+    if (!v) {
+      url = BOT + '?start=lv_steps';
+    } else if (enc && enc.length <= 62) {
       url = BOT + '?start=lv_L_' + enc;
     } else {
       url = BOT + '?start=lv_steps';
@@ -1606,8 +1610,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     postLead({ link: v, kind: 'tg_click', entry: entryPoint, lang: 'lv' });
     if (clip && navigator.clipboard) {
-      navigator.clipboard.writeText(clip).then(function () { freeTgHint.style.display = 'block'; }).catch(function () {});
+      navigator.clipboard.writeText(clip).catch(function () {});
     }
+    showAfterHint('✅ Telegram atvērts — botā nospiediet «Sākt» (Start).' + (clip ? ' Saiti uz jūsu mājaslapu mēs nokopējām — ielīmējiet to sarunā.' : ''));
     window.open(url, '_blank', 'noopener');
   });
 

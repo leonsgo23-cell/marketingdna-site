@@ -1461,13 +1461,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div id="leadViewFree">
       <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Получить бесплатный пакет</h3>
-      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Ссылка на ваш сайт или Instagram - соберём бесплатно фото-пост, карусель, Story Reel, обложку, Stories и контент-план на 7 дней.</p>
-      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Ссылка на сайт или Instagram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
+      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Соберём бесплатно фото-пост, карусель, Story Reel, обложку, Stories и контент-план на 7 дней — под ваш бизнес. Для этого укажите ваш сайт и Instagram.</p>
+      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Сайт или Instagram (если есть)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
       <p id="freeLinkHint" style="display:none;font-size:12px;color:#DC2626;margin:0 0 10px;font-weight:600;">Впишите, пожалуйста, ссылку на ваш сайт или Instagram.</p>
 
       <!-- Выбор канала. Кнопка WhatsApp скрыта, пока в скрипте ниже не задан WA_NUMBER:
            нет номера - сайт работает как раньше, только Telegram. -->
-      <p id="freeChannelLabel" style="display:none;font-size:13px;font-weight:700;color:#4B5563;margin:16px 0 8px;">Куда прислать?</p>
+      <p id="freeChannelLabel" style="display:none;font-size:13px;font-weight:700;color:#4B5563;margin:16px 0 8px;">Где вам удобнее получить бесплатный пакет?<br><span style="font-weight:500;color:#6B7280;">Нажмите — откроется чат с нами. В этот чат мы и пришлём ваш пакет.</span></p>
       <button id="freeWaBtn" class="btn-primary" style="display:none;width:100%;border:none;cursor:pointer;background:#25D366;margin-bottom:9px;">📱 В WhatsApp</button>
       <button id="freeTgBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:4px;">✈️ В Telegram</button>
       <p id="freeTgHint" style="display:none;font-size:12px;color:#059669;margin:10px 0 0;font-weight:600;">✅ Ссылка скопирована - вставьте её в чате бота.</p>
@@ -1507,6 +1507,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     viewFree.style.display = 'block';
     viewForm.style.display = 'none';
     overlay.style.display = 'flex';
+    freeTgHint.style.display = 'none';
+    postLead({ link: '', kind: 'modal_open', entry: entryPoint, lang: 'ru' });
   };
   window.closeLeadModal = function () {
     overlay.style.display = 'none';
@@ -1549,15 +1551,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   // Проверка ссылки - общая для обеих кнопок
+  // Ссылка НЕОБЯЗАТЕЛЬНА (06.10.2026, Александр: «я завис и ушёл» — красная надпись
+  // без объяснения, что дальше). Бот без ссылки работает: анкета спросит её сама.
   function requireLink() {
-    var v = (freeLinkInput.value || '').trim();
-    if (v.length < 4) {
-      freeLinkHint.style.display = 'block';
-      freeLinkInput.focus();
-      return null;
-    }
     freeLinkHint.style.display = 'none';
-    return v;
+    return (freeLinkInput.value || '').trim();
+  }
+  // Что делать после нажатия: чат открылся, но сообщение ещё надо отправить самому
+  function showAfterHint(text) {
+    freeTgHint.textContent = text;
+    freeTgHint.style.display = 'block';
   }
 
   // WhatsApp: клиент ОБЯЗАН написать первым - именно его сообщение открывает
@@ -1565,20 +1568,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // здесь ссылка wa.me с заранее набранным текстом, а не форма со сбором номера.
   freeWaBtn.addEventListener('click', function () {
     var v = requireLink();
-    if (!v) return;
     var msg = 'Здравствуйте! Хочу бесплатный пакет контента.\n'
-            + 'Мой сайт или Instagram: ' + v + '\n'
+            + (v ? 'Мой сайт или Instagram: ' + v + '\n' : '')
             + '(код входа: web-ru-' + entryPoint + ')';
     postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'ru' });
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    showAfterHint('✅ Открыли WhatsApp — нажмите «Отправить» в чате с нами.');
   });
 
   freeTgBtn.addEventListener('click', function () {
     var v = requireLink();
-    if (!v) return;
-    var enc = b64url(v);
+    var enc = v ? b64url(v) : null;
     var url, clip = '';
-    if (enc && enc.length <= 62) {
+    if (!v) {
+      url = BOT + '?start=steps';
+    } else if (enc && enc.length <= 62) {
       url = BOT + '?start=L_' + enc;
     } else {
       url = BOT + '?start=steps';
@@ -1586,8 +1590,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     postLead({ link: v, kind: 'tg_click', entry: entryPoint, lang: 'ru' });
     if (clip && navigator.clipboard) {
-      navigator.clipboard.writeText(clip).then(function () { freeTgHint.style.display = 'block'; }).catch(function () {});
+      navigator.clipboard.writeText(clip).catch(function () {});
     }
+    showAfterHint('✅ Открыли Telegram — нажмите «Старт» (Start) в боте.' + (clip ? ' Ссылку на ваш сайт мы скопировали — вставьте её в чат.' : ''));
     window.open(url, '_blank', 'noopener');
   });
 
