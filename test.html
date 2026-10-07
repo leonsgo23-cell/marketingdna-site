@@ -119,6 +119,36 @@ var T = {
     openWa: 'Atvērt WhatsApp',
     tgWait: 'Palicis viens solis: atveriet botu un nospiediet «Sākt» — tad sāksim gatavot materiālus un atsūtīsim tos jums.',
     waWait: 'Palicis viens solis: atveriet WhatsApp un nosūtiet sagatavoto ziņu — tad sāksim gatavot materiālus un atsūtīsim tos jums.'
+  },
+  // Английская версия сайтов (07.10.2026)
+  en: {
+    title: 'See what your content will look like',
+    lead: 'We’ll make a carousel, a video, a post and stories for you — using your own photos. It takes about half an hour.',
+    step1: 'Step 1. Tell us about your business',
+    ph1: 'What you do, what you sell, where you are, who your customers are. Three or four sentences.',
+    hint1: 'The more specific you are, the more accurate the copy will be.',
+    step2: 'Step 2. Photos of your place',
+    hint2: 'Shop window, hall, workplace, products. Three to ten ordinary phone photos.',
+    hint2b: 'With photos, the materials will show your own premises. Without them it works too — but the setting will be generic.',
+    pick: 'Choose photos',
+    go: 'Create content',
+    sending: 'Sending…',
+    okTitle: 'Almost done',
+    tooShort: 'Please write a bit more — three or four sentences.',
+    err: 'Could not send. Please try again.',
+    added: 'Photos added: ',
+    notOpened: 'Could not open: ',
+    heicHint: 'This happens with the iPhone HEIC format — upload these photos directly from your phone, or save them as JPEG and add them again.',
+    step3: 'Step 3. Which language should the content be in',
+    step4: 'Step 4. Where to send the materials',
+    wa: 'On WhatsApp',
+    tg: 'On Telegram',
+    hintWa: 'The button opens WhatsApp with a ready message — send it, and the materials will arrive there.',
+    hintTg: 'The button opens our bot — tap “Start” in it, and we’ll send the materials there.',
+    openTg: 'Open Telegram',
+    openWa: 'Open WhatsApp',
+    tgWait: 'One step left: open the bot and tap “Start” — then we’ll start preparing and send the materials to you.',
+    waWait: 'One step left: open WhatsApp and send the ready message — then we’ll start preparing and send the materials to you.'
   }
 };
 
@@ -127,7 +157,7 @@ function q(name) {
   return m ? decodeURIComponent(m[1]) : '';
 }
 // Язык: из адреса, иначе по языку браузера — страница открыта для всех
-var LANG = q('l') === 'lv' ? 'lv' : (q('l') === 'ru' ? 'ru' : ((navigator.language || '').slice(0,2) === 'lv' ? 'lv' : 'ru'));
+var LANG = ['ru', 'lv', 'en'].indexOf(q('l')) >= 0 ? q('l') : ((navigator.language || '').slice(0,2) === 'lv' ? 'lv' : 'ru');
 var t = T[LANG], KEY = '';
 document.documentElement.lang = LANG;
 function el(id) { return document.getElementById(id); }

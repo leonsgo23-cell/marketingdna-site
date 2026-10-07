@@ -67,6 +67,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="lang-switch no-print">
     <button class="lang-btn" data-l="lv" type="button">LV</button>
     <button class="lang-btn" data-l="ru" type="button">RU</button>
+    <button class="lang-btn" data-l="en" type="button">EN</button>
   </div>
 
   <div id="formView">
@@ -104,9 +105,13 @@ var T = {
   lv: { h:'Atteikšanās no līguma', lead:'Ja esat privātpersona, 14 dienu laikā no līguma noslēgšanas varat atteikties no līguma bez paskaidrojumiem. Aizpildiet formu — tas aizņems minūti.',
         name:'Vārds un uzvārds', contact:'E-pasts vai tālruņa numurs, ko norādījāt, apmaksājot pasūtījumu', date:'Pasūtījuma datums (ja atceraties)', email:'Kur atsūtīt apstiprinājumu (e-pasts)', reason:'Iemesls (nav obligāti)',
         go:'Apstiprināt atteikumu', done:'Jūsu atteikumu esam saņēmuši', save:'Saglabāt apstiprinājumu', mailed:'Šo apstiprinājumu nosūtījām arī uz jūsu e-pastu.',
-        net:'Neizdevās nosūtīt. Pārbaudiet interneta savienojumu un mēģiniet vēlreiz.', badEmail:'Pārbaudiet, vai e-pasta adrese ir norādīta pareizi.' }
+        net:'Neizdevās nosūtīt. Pārbaudiet interneta savienojumu un mēģiniet vēlreiz.', badEmail:'Pārbaudiet, vai e-pasta adrese ir norādīta pareizi.' },
+  en: { h:'Withdrawal from the contract', lead:'If you are a consumer, you may withdraw from the contract within 14 days of its conclusion without giving any reason. Fill in the form — it takes a minute.',
+        name:'First and last name', contact:'Email or phone number you gave when paying', date:'Order date (if you remember)', email:'Where to send the confirmation (email)', reason:'Reason (optional)',
+        go:'Confirm withdrawal', done:'We have received your withdrawal', save:'Save confirmation', mailed:'We have also sent this confirmation to your email.',
+        net:'Could not send. Check your internet connection and try again.', badEmail:'Please check that the email address is correct.' }
 };
-var LANG = ((location.search.match(/[?&]lang=(ru|lv)/) || [])[1]) || 'lv';
+var LANG = ((location.search.match(/[?&]lang=(ru|lv|en)/) || [])[1]) || 'lv';
 function $(id){ return document.getElementById(id); }
 function apply(){
   var t = T[LANG]; document.documentElement.lang = LANG; document.title = t.h + ' — Marketing DNA';

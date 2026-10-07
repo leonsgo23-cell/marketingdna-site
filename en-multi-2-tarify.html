@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+<!-- Сгенерировано build_en.py из ru-multi-2-tarify.html — не правьте руками: правьте русскую страницу или i18n/en.tsv -->
 <head>
 <!-- Cookiebot (consent) — must stay first in <head>, before GTM -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="306d337e-dc09-46e4-a556-c7f08494b0c5" data-blockingmode="auto" type="text/javascript"></script>
@@ -13,7 +14,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для кого Marketing DNA — ниши и сравнение</title>
+<title>Pricing — Marketing DNA</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -515,7 +516,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .pkg-platform-tags {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
   }
   .ptag {
@@ -527,6 +528,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .ptag i { font-size: 28px; }
   .ptag:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+  /* Официальные логотипы платформ (20.09.2026, решение Александра): марки в своих
+     цветах на светлой плитке — так их узнают быстрее, чем перекрашенные значки.
+     Логотипы не перекрашиваем и не меняем форму — это требование их бренд-правил. */
+  .ptag-brand { background: #fff; color: var(--dark); border: 1px solid #E5E7EB; }
+  .ptag-brand:hover { box-shadow: 0 6px 16px rgba(17,24,39,.10); }
+  .ptag-logo { display: flex; align-items: center; justify-content: center; height: 34px; }
+  .ptag-logo svg { height: 30px; width: auto; display: block; }
   .ptag-instagram { background: linear-gradient(135deg, #F58529, #DD2A7B, #515BD4); }
   .ptag-tiktok    { background: #010101; }
   .ptag-youtube   { background: #FF0000; }
@@ -534,7 +542,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ptag-facebook  { background: #1877F2; }
   .ptag-telegram  { background: #26A5E4; }
   @media(max-width:768px) {
-    .pkg-platform-tags { grid-template-columns: repeat(3, 1fr); }
+    .pkg-platform-tags { grid-template-columns: repeat(2, 1fr); }
     .pkg-platforms { padding: 24px; }
   }
 
@@ -1081,8 +1089,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   @media(max-width: 768px) {
     .pkg-grid { grid-template-columns: 1fr; }
+    .pkg-card { min-width: 0; }
+    .pkg-buy-btn { white-space: normal; }
     .magnet-items { flex-direction: column; align-items: center; }
     .pkg-card-price .pkg-price-num { font-size: 40px; }
+  }
+
+  /* 05.10.2026: карточки тарифов вылезали за контейнер — колонки 1fr растягивались
+     по кнопке «Оформить подписку» (white-space:nowrap): на 1280 px Профи обрезан,
+     на 800–1024 px почти не виден. Колонки строго по 1/3, кнопка переносится,
+     ≤1024 px — одна колонка по центру. */
+  .pkg-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pkg-card { min-width: 0; }
+  .pkg-buy-btn { white-space: normal; }
+  @media(max-width: 1024px) {
+    .pkg-grid { grid-template-columns: minmax(0, 1fr); max-width: 560px; margin-left: auto; margin-right: auto; }
   }
 
   /* PHONE ANIMATIONS */
@@ -1218,225 +1239,290 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="nav-inner">
     <div class="nav-logo">Marketing <span>DNA</span></div>
         <div class="lang-switcher">
-      <a href="lv-multi-4-dlya-kogo.html" class="lang-btn" onclick="try{localStorage.setItem('mdna_lang','lv')}catch(e){}">LV</a>
-      <span class="lang-btn active">RU</span>
-      <a href="en-multi-4-dlya-kogo.html" class="lang-btn" onclick="try{localStorage.setItem('mdna_lang','en')}catch(e){}">EN</a>
+      <a href="lv-multi-2-tarify.html" class="lang-btn" onclick="try{localStorage.setItem('mdna_lang','lv')}catch(e){}">LV</a>
+      <a href="ru-multi-2-tarify.html" class="lang-btn" onclick="try{localStorage.setItem('mdna_lang','ru')}catch(e){}">RU</a>
+      <span class="lang-btn active">EN</span>
     </div>
-    <a href="ru.html#simple-start-form" data-entry="nav" class="nav-cta"><span class="nav-cta-full">Получить бесплатный пробный пакет →</span><span class="nav-cta-short">Бесплатный пакет →</span></a>
+    <a href="en.html#simple-start-form" data-entry="nav" class="nav-cta"><span class="nav-cta-full">Get your free trial package →</span><span class="nav-cta-short">Free package →</span></a>
   </div>
 </nav>
-<script>try{localStorage.setItem("mdna_lang","ru");}catch(e){}</script>
-<nav class="pagemenu"><div class="pagemenu-inner"><a href="ru.html">Главная</a><a href="ru-multi-2-tarify.html">Тарифы</a><a href="ru-multi-3-kak-eto-rabotaet.html">Как это работает</a><a href="ru-multi-4-dlya-kogo.html" class="active">Для кого</a><a href="ru-multi-5-sayty.html">Сайты</a><a href="ru-multi-6-otzyvy-faq.html">Вопросы</a><a href="ru-multi-7-kontakty.html">Контакты</a></div></nav><div class="pagemenu-spacer"></div>
-<section class="forwhom-index">
+<script>try{localStorage.setItem("mdna_lang","en");}catch(e){}</script>
+<nav class="pagemenu"><div class="pagemenu-inner"><a href="en.html">Home</a><a href="en-multi-2-tarify.html" class="active">Pricing</a><a href="en-multi-3-kak-eto-rabotaet.html">How it works</a><a href="en-multi-4-dlya-kogo.html">Who it’s for</a><a href="en-multi-5-sayty.html">Websites</a><a href="en-multi-6-otzyvy-faq.html">FAQ</a><a href="en-multi-7-kontakty.html">Contact</a></div></nav><div class="pagemenu-spacer"></div>
+<section class="packages" id="packages" style="padding-top:40px;">
   <div class="container">
+    <h2 class="section-title">Choose your package</h2>
 
-    <h2 class="section-title">Вы профессионал в своём деле.<br>Мы - в соцсетях.</h2>
-    <p class="section-sub" style="text-align:center;max-width:680px;margin:0 auto 40px;">Marketing DNA ведёт соцсети самым разным бизнесам. С помощью искусственного интеллекта мы изучаем вашу нишу, аудиторию и конкурентов и на основе анализа готовим фото-посты, карусели, Story Reels, видео-карусели и AI-видео именно для вашего бизнеса. Менеджер утверждает контент-план и каждую публикацию. Вас увидят, вас запомнят, а ваши соцсети будут регулярно привлекать внимание клиентов.</p>
-
-    <div class="niches-index">
-      <div class="niche-index">
-        <img src="/niche_cafe.jpg" class="niche-photo" alt="Кафе и рестораны">
-        <div class="niche-text">
-          <div class="niche-index-name">Кафе и рестораны</div>
-          <div class="niche-index-desc">Большинство гостей смотрят соцсети заведения до визита. Ваши фото и видео - это первое впечатление, которое решает: придут к вам или к конкуренту. Мы создаём контент, который продаёт атмосферу ещё до того как человек переступил порог</div>
-        </div>
-      </div>
-      <div class="niche-index">
-        <img src="/niche_beauty.jpg" class="niche-photo" alt="Салоны красоты">
-        <div class="niche-text">
-          <div class="niche-index-name">Салоны красоты</div>
-          <div class="niche-index-desc">Клиентки возвращаются к мастеру - не в салон. Они выбирают по доверию: смотрят работы, читают посты, чувствуют характер человека. Мы строим этот образ в соцсетях - чтобы новые клиентки приходили уже готовые записаться</div>
-        </div>
-      </div>
-      <div class="niche-index">
-        <img src="/niche_shop.jpg" class="niche-photo" alt="Магазины и шоурумы">
-        <div class="niche-text">
-          <div class="niche-index-name">Магазины и шоурумы</div>
-          <div class="niche-index-desc">Покупатель сегодня сначала изучает в соцсетях - потом идёт в магазин. Мы показываем товар через образ жизни и эмоцию: не «вот куртка», а «так ты будешь выглядеть». Это превращает подписчика в покупателя</div>
-        </div>
-      </div>
-      <div class="niche-index">
-        <img src="/niche_fitness.jpg" class="niche-photo" alt="Фитнес и тренеры">
-        <div class="niche-text">
-          <div class="niche-index-name">Фитнес и тренеры</div>
-          <div class="niche-index-desc">Главный барьер у будущих клиентов - «у меня не получится». Трансформации реальных людей похожих на них разрушают этот барьер лучше любой рекламы. Мы строим контент вокруг результатов и пути - не вокруг упражнений</div>
-        </div>
-      </div>
-      <div class="niche-index">
-        <img src="/niche_expert.jpg" class="niche-photo" alt="Мастера и эксперты">
-        <div class="niche-text">
-          <div class="niche-index-name">Мастера и эксперты</div>
-          <div class="niche-index-desc">К психологу, коучу или терапевту не обращаются по прайс-листу. Решение принимается после того как человек прочитал посты и почувствовал: «Этот человек понимает меня». Мы создаём именно такой контент</div>
-        </div>
-      </div>
-      <div class="niche-index">
-        <img src="/niche_legal.jpg" class="niche-photo" alt="Юристы и бухгалтеры">
-        <div class="niche-text">
-          <div class="niche-index-name">Юристы и бухгалтеры</div>
-          <div class="niche-index-desc">Ваши клиенты боятся выглядеть некомпетентно - и боятся ошибиться. Контент который объясняет сложное просто снимает эту тревогу и делает вас экспертом которому доверяют ещё до первого звонка</div>
-        </div>
-      </div>
-      <div class="niche-index">
-        <img src="/niche_realty.jpg" class="niche-photo" alt="Недвижимость">
-        <div class="niche-text">
-          <div class="niche-index-name">Недвижимость</div>
-          <div class="niche-index-desc">Покупка или аренда - одно из самых эмоционально нагруженных решений в жизни. За квадратными метрами клиент ищет человека, который поможет не ошибиться. Контент строит этот образ надёжного партнёра заблаговременно</div>
-        </div>
-      </div>
-      <div class="niche-index">
-        <img src="/niche_design.jpg" class="niche-photo" alt="Дизайн и творчество">
-        <div class="niche-text">
-          <div class="niche-index-name">Дизайн и творчество</div>
-          <div class="niche-index-desc">В дизайне клиент платит не за результат - он платит за вкус и за то как вы думаете. Портфолио показывает что вы делаете. Контент показывает кто вы - и именно это продаёт</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:#fff;border-radius:16px;padding:32px;margin-top:32px;text-align:center;box-shadow:0 2px 12px rgba(124,58,237,0.07);border:1.5px solid #EDE9FE;">
-      <p style="font-size:15px;font-weight:700;color:#7C3AED;margin:0;line-height:1.7;">Для каждой ниши - своя аудитория, свой язык, свои боли.<br>Мы изучаем именно ваших клиентов — и готовим фото-посты, карусели и ролики именно для них.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="problem-screen" id="problem">
-  <div class="container">
-    <h2 class="section-title">Знакомая история?</h2>
-    <div class="pain-cards">
-      <div class="pain-card">
-        <div class="pain-icon">🙋</div>
-        <h3>Пробовали сами</h3>
-        <p>Каждый раз - головная боль: что снять, что написать, что вообще выложить. Откладывали на «когда будет время». Посты выходили редко и без системы - каждый как отдельная история, никак не связанная с предыдущей.</p>
-        <p class="pain-card-result">Итог: контент есть, но нерегулярный и разрозненный - без стратегии, которая ведёт к клиентам.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">👤</div>
-        <h3>Наняли фрилансера - SMM-маркетолога</h3>
-        <p>Пришёл человек - умеет снимать, делать Reels, красиво оформить профиль. Контент пошёл, стало красивее. Но за этим нет ни исследования аудитории, ни анализа конкурентов, ни понимания что именно заставляет вашего клиента купить.</p>
-        <p class="pain-card-result">Итог: красивый профиль - но без стратегии это просто картинки, которые не продают.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">🏢</div>
-        <h3>Обратились в агентство</h3>
-        <p>Всё серьёзно: контракт, бриф, разработка визуального стиля, регулярные Reels. Но любая правка - отдельный счёт. Говорят: «нужно минимум полгода». Платить надо сразу, а результат - обещают, но не гарантируют.</p>
-        <p class="pain-card-result">Итог: каждый месяц оплачиваем работу агентства - немалые деньги, а когда придут клиенты - никто не гарантирует.</p>
-      </div>
-    </div>
-
-    <div class="scenario-total">
-      <p>Если считать по деньгам — у агентства €700–1500, у фрилансера €350–500 в месяц, и это обычно за ведение одной соцсети. У нас одна соцсеть входит в тариф от €99, а вторая — в подарок на 3 месяца.</p>
-      <p>Если считать по времени - недели на онбординг, правки, согласования. А контент нужен сегодня.</p>
-    </div>
-
-    <div class="scenario-fourth">
-      <h3>Что если есть четвёртый путь?</h3>
-      <p>Контент, созданный на основе <strong>реального исследования</strong> - вашего бизнеса, вашей аудитории, ваших конкурентов. Не шаблоны. Не общие советы.</p>
-      <p><strong>Instagram, Facebook или TikTok — одна соцсеть входит в тариф, вторая в подарок на 3 месяца.</strong> Для каждой — свой текст и хэштеги.</p>
-      <p>Готовые фото-посты, карусели, Story Reels, видео-карусели и статьи — за 1–2 рабочих дня. Каждый месяц. По цене доступной малому бизнесу - и с результатом, за который агентства берут в 5 раз больше.</p>
-      <p>Контент который работает на привлечение, прогрев и продажи - одновременно. Без найма команды и недель ожидания.</p>
-    </div>
-
-    <!-- Мост между экранами -->
-    <div class="bridge-block">
-      <h3>Каким должен быть хороший контент-сервис?</h3>
-      <ul class="bridge-list">
-        <li>Понимает ваш бизнес и конкурентов - посты интересны вашим клиентам</li>
-        <li>Даёт готовый контент — он выходит сам, по расписанию</li>
-        <li>Работает быстро и стоит разумных денег</li>
-        <li>Каждый месяц - свежий анализ, новые темы, актуальный контент</li>
-      </ul>
-      <p class="bridge-conclusion">Так работает Marketing DNA - и это можно проверить бесплатно — пакет за 1–2 часа в рабочее время.</p>
-      <div class="bridge-arrows">
-        <span class="arrow-down">↓</span>
-        <span class="arrow-down">↓</span>
-        <span class="arrow-down">↓</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="who" id="who">
-  <div class="who-inner">
-    <h2>Marketing DNA - глубокий анализ<br>и готовый контент за 1–2 дня</h2>
-    <p class="who-desc" style="margin-bottom:20px;border-radius:12px;padding:14px 16px;position:relative;">
+    
+    <div style="max-width:960px;margin:0 auto 28px;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:14px;padding:18px 22px;position:relative;">
       
-      <span style="display:block;margin-top:8px;">SMM-студия, которая с помощью искусственного интеллекта готовит контент для малого бизнеса. Изучаем ваш бизнес, конкурентов и клиентов — и делаем фото-посты, карусели, Story Reels, видео-карусели, AI-видео и SEO-статьи персонально под ваш бизнес. Менеджер утверждает каждую публикацию, и контент выходит в ваших соцсетях регулярно и вовремя.</span>
-    </p>
-    <h2 class="section-title" style="text-align:center;margin-bottom:16px;">Сравнительная таблица</h2>
-    <div class="compare-table-wrap">
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:#111827"></th>
-          <th class="ours">Marketing DNA</th>
-          <th>Агентство</th>
-          <th>Фрилансер</th>
-          <th>Делать самому</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Старт работы</td>
-          <td class="ours"><span class="badge-win">Сразу после анкеты</span></td>
-          <td>1–2 недели</td>
-          <td>3–7 дней</td>
-          <td style="text-align:center;color:#9CA3AF;font-size:20px;font-weight:700;">?</td>
-        </tr>
-        <tr>
-          <td>Исследование потенциальных клиентов</td>
-          <td class="ours"><span class="badge-win">Глубокое изучение</span></td>
-          <td>Иногда</td>
-          <td>Иногда</td>
-          <td style="text-align:center;color:#9CA3AF;font-size:20px;font-weight:700;">?</td>
-        </tr>
-        <tr>
-          <td>Анализ конкурентов</td>
-          <td class="ours"><span class="badge-win">Каждый месяц</span></td>
-          <td>Раз в начале</td>
-          <td>Иногда</td>
-          <td style="text-align:center;color:#9CA3AF;font-size:20px;font-weight:700;">?</td>
-        </tr>
-        <tr>
-          <td>Готовый результат</td>
-          <td class="ours"><span class="badge-win">1–2 рабочих дня</span></td>
-          <td>2–4 недели</td>
-          <td>1–2 недели</td>
-          <td style="text-align:center;color:#9CA3AF;font-size:20px;font-weight:700;">?</td>
-        </tr>
-        <tr>
-          <td>Стоимость</td>
-          <td class="ours" style="position:relative;">
-            
-            <span class="badge-win">от €99/мес</span>
-          </td>
-          <td>от €700/мес</td>
-          <td>от €350/мес</td>
-          <td>Стоимость вашего часа</td>
-        </tr>
-        <tr>
-          <td>Ваше время</td>
-          <td class="ours"><span class="badge-win">30 минут</span></td>
-          <td>2–4 часа</td>
-          <td>3+ часа</td>
-          <td>8+ часов в месяц</td>
-        </tr>
-      </tbody>
-    </table>
+      <div style="font-size:15px;font-weight:800;color:#1E1B4B;margin-bottom:8px;">In every plan:</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 20px;font-size:14px;color:#374151;line-height:1.5;">
+        <div>📅 30-day content plan for your goal</div>
+        <div>📊 Competitor analysis + opportunities (in the first month)</div>
+        <div>🔍 A manager approves the content plan and every post</div>
+        <div>🚀 Content goes out automatically on schedule — at the right time, on the right network</div>
+        <div>✅ Approve 15 days at once (Pro: 10), no need to confirm each post</div>
+        <div>✏️ Mistakes fixed within 24 hours + 1 strategic revision per month</div>
+      </div>
+    </div>
+
+    <div class="pkg-grid">
+
+      <!-- СТАРТ: вход, 3 публикации в неделю -->
+      <div class="pkg-card">
+        
+        <div class="pkg-card-name">Start plan — 12 posts + 12 Stories</div>
+        <div class="pkg-card-tagline">Entry: 3 posts a week, Stories on the same days</div>
+        <div class="pkg-card-price">
+          <span class="pkg-price-num">€99</span>
+          <span class="pkg-price-period">/mo</span>
+        </div>
+        <ul class="pkg-card-items">
+          <li class="pkg-extra t1">📆 3 times a week</li>
+          <li>📸 4 photo posts</li>
+          <li>🖼 4 carousels (swipe posts)</li>
+          <li class="">
+            <div class="pkg-extra-row"><span>🎬 2 Story Reels</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">a video made from photo frames, text appears word by word — for Reels, TikTok and Shorts</div>
+          </li>
+          <li class="">
+            <div class="pkg-extra-row"><span>🎠 2 video carousels</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">a vertical video of 7 auto-advancing slides — for Reels, TikTok and Shorts</div>
+          </li>
+          <li>📱 12 Stories (1–3 slides each, on posting days)</li>
+          <li>📝 1 SEO & GEO article</li>
+          <li>🔄 2 waves of 15 days</li>
+        </ul>
+        <a href="https://buy.stripe.com/aFabIV0xFgN15L32nhasg03?client_reference_id=web--pkg_a--en" class="btn-secondary-outline pkg-buy-btn">Subscribe — €99/mo</a>
+        <a href="en-multi-7-kontakty.html" style="display:block;text-align:center;margin-top:8px;font-size:12px;color:#6B7280;text-decoration:underline;">Something custom? Send a request</a>
+        <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Want content in two languages at once?</p>
+        <a href="https://t.me/ContentDNAStart_bot?start=en_pkg_a_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Add a second language +€19/mo</a>
+      </div>
+
+      <!-- СТАНДАРТ: основной, каждый будний день -->
+      <div class="pkg-card pkg-card-featured">
+        
+        <div class="pkg-card-name">Standard plan — 20 posts + 20 Stories</div>
+        <div class="pkg-card-tagline">Core: a post every weekday</div>
+        <div class="pkg-card-price">
+          <span class="pkg-price-num">€149</span>
+          <span class="pkg-price-period">/mo</span>
+        </div>
+        <ul class="pkg-card-items">
+          <li class="pkg-extra t2">📆 Every weekday</li>
+          <li>📸 6 photo posts</li>
+          <li>🖼 6 carousels (swipe posts)</li>
+          <li class="">
+            <div class="pkg-extra-row"><span>🎬 3 Story Reels</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">a video made from photo frames, text appears word by word — for Reels, TikTok and Shorts</div>
+          </li>
+          <li class="">
+            <div class="pkg-extra-row"><span>🎠 3 video carousels</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">a vertical video of 7 auto-advancing slides — for Reels, TikTok and Shorts</div>
+          </li>
+          <li class="pkg-extra t2">
+            <div class="pkg-extra-row"><span>🎥 2 AI videos — one every 2 weeks <span class="pkg-extra-delta t2">Standard and above only</span></span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">a real video featuring your business, created with AI — no filming needed</div>
+          </li>
+          <li>📱 20 Stories (1–3 slides each, on posting days)</li>
+          <li>📝 2 SEO & GEO articles + 2 AI video covers</li>
+          <li>🔄 2 waves of 15 days</li>
+        </ul>
+        <a href="https://buy.stripe.com/00wcMZbcj7crflD0f9asg07?client_reference_id=web--pkg_standard--en" class="btn-primary pkg-buy-btn">Subscribe — €149/mo</a>
+        <a href="en-multi-7-kontakty.html" style="display:block;text-align:center;margin-top:8px;font-size:12px;color:#6B7280;text-decoration:underline;">Something custom? Send a request</a>
+        <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Want content in two languages at once?</p>
+        <a href="https://t.me/ContentDNAStart_bot?start=en_pkg_standard_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Add a second language +€29/mo</a>
+      </div>
+
+      <!-- ПРОФИ: премиум, каждый день -->
+      <div class="pkg-card pkg-card-premium">
+        
+        <div class="pkg-card-name">Pro plan — 30 posts + 30 Stories</div>
+        <div class="pkg-card-tagline">Premium: a post every day</div>
+        <div class="pkg-card-price">
+          <span class="pkg-price-num">€199</span>
+          <span class="pkg-price-period">/mo</span>
+        </div>
+        <ul class="pkg-card-items">
+          <li class="pkg-extra t3">📆 Every day</li>
+          <li>📸 8 photo posts</li>
+          <li>🖼 8 carousels (swipe posts)</li>
+          <li class="">
+            <div class="pkg-extra-row"><span>🎬 5 Story Reels</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">a video made from photo frames, text appears word by word — for Reels, TikTok and Shorts</div>
+          </li>
+          <li class="">
+            <div class="pkg-extra-row"><span>🎠 5 video carousels</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">a vertical video of 7 auto-advancing slides — for Reels, TikTok and Shorts</div>
+          </li>
+          <li class="pkg-extra t3">
+            <div class="pkg-extra-row"><span>🎥 4 AI videos — one every week <span class="pkg-extra-delta t3">×2 vs Standard</span></span></div>
+            <div style="font-size:11px;color:#9ca3af;font-weight:400;margin-top:2px;">a real video featuring your business, created with AI — no filming needed</div>
+          </li>
+          <li>📱 30 Stories (1–3 slides each, on posting days)</li>
+          <li>📝 3 SEO & GEO articles + 4 AI video covers</li>
+          <li>🔄 3 waves of 10 days — more frequent analysis and adjustments</li>
+        </ul>
+        <a href="https://buy.stripe.com/aFaeV7807aoDflDge7asg0b?client_reference_id=web--pkg_v--en" class="btn-secondary-outline pkg-buy-btn">Subscribe — €199/mo</a>
+        <a href="en-multi-7-kontakty.html" style="display:block;text-align:center;margin-top:8px;font-size:12px;color:#6B7280;text-decoration:underline;">Something custom? Send a request</a>
+        <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Want content in two languages at once?</p>
+        <a href="https://t.me/ContentDNAStart_bot?start=en_pkg_v_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Add a second language +€39/mo</a>
+      </div>
+
+    </div>
+
+    
+    <p style="font-size:13px;color:#6B7280;text-align:center;max-width:820px;margin:20px auto 0;line-height:1.6"><b>What counts:</b> a post is a photo post (image with caption), a carousel (swipe post), a Story Reel, a video carousel or an AI video. Stories are counted separately and go out on the same days as posts: as many Stories as posts, each a 1–3 slide story. SEO articles and covers don’t count — they’re a bonus. Need a different volume? <a href="en-multi-7-kontakty.html" style="color:#7C3AED;font-weight:700">send us a request</a>.</p>
+
+    
+    <div style="max-width:960px;margin:32px auto 0;background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;position:relative;">
+      
+      <h3 style="font-size:20px;font-weight:800;color:#1E1B4B;margin:0 0 6px;text-align:center;">Timing and guarantee</h3>
+      <p style="font-size:14px;color:#6B7280;text-align:center;margin:0 0 18px;">What you should know before paying.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+        <div style="background:#F5F3FF;border-radius:12px;padding:16px;"><b style="color:#1E1B4B;">⏱ 1–2 business days</b><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:6px 0 0;">Your first package after payment and the questionnaire. You’ll get a notification in your messenger.</p></div>
+        <div style="background:#F5F3FF;border-radius:12px;padding:16px;"><b style="color:#1E1B4B;">↩️ 14-day guarantee</b><p style="font-size:13px;color:#6B7280;line-height:1.6;margin:6px 0 0;">If the first package isn’t right for you, we’ll fix it — and if it still isn’t right after revisions, we’ll refund the first month. Valid for 14 days and until you approve the package. <a href="terms.html#4" style="color:#7C3AED">Terms</a></p></div>
+      </div>
+    </div>
+
+    
+    <div style="max-width:960px;margin:32px auto 0;background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 22px;position:relative;">
+      
+      <h3 style="font-size:20px;font-weight:800;color:#1E1B4B;margin:0 0 6px;text-align:center;">What you get for your money</h3>
+      <p style="font-size:13px;color:#6B7280;text-align:center;margin:0 0 16px;">Based on public data as of September 2026.</p>
+      <div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:14px;color:#374151;">
+        <thead><tr style="text-align:left;"><th style="padding:10px 12px;border-bottom:2px solid #E5E7EB;">Option</th><th style="padding:10px 12px;border-bottom:2px solid #E5E7EB;">Price per month</th><th style="padding:10px 12px;border-bottom:2px solid #E5E7EB;">What’s included</th></tr></thead>
+        <tbody>
+        <tr style=""><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Social media agency</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">from €700</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Manager, strategy, volume per contract</td></tr><tr style=""><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">SMM freelancer</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">from €350</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Depends on the person: timing and volume not guaranteed</td></tr><tr style=""><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Typical post subscription (US)</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">≈ $99</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">10–12 posts with an image; Stories and video cost extra</td></tr><tr style="background:#F5F3FF;font-weight:700;"><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Marketing DNA · Start</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">€99</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">12 posts + 12 Stories, manager review, 14-day guarantee</td></tr><tr style="background:#F5F3FF;font-weight:700;"><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">Marketing DNA · Standard</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;white-space:nowrap;">€149</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;">20 posts + 20 Stories + AI video</td></tr>
+        </tbody></table></div>
+    </div>
+
+    <!-- BLOCK: PSYCHOLOGY DIGEST NOTE (черновик для staging, 18.07.2026) -->
+    <div class="pkg-note" style="margin-top:32px;">
+      In every wave we use buyer psychology: your posts, carousels and videos include techniques that sharpen your audience’s attention
+    </div>
+
+    <p style="font-size:13px;color:#6B7280;text-align:center;margin:20px 0 0;">⏱ We prepare a package tailored to your business in 1–2 business days. A manager approves every post and sends you a link on WhatsApp or Telegram — whichever you prefer. Everything is on your personal page.</p>
+
+    <!-- BLOCK: MULTILINGUAL -->
+    <section style="background:linear-gradient(135deg,#F5F3FF 0%,#EDE9FE 100%);padding:72px 20px;margin:40px -20px 0;border-radius:0;">
+      <div style="max-width:1000px;margin:0 auto;">
+        <div class="lang-section-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+          <!-- Left: text -->
+          <div>
+            <div style="font-size:40px;margin-bottom:16px;">🇱🇻 &nbsp;🇷🇺 &nbsp;🇬🇧</div>
+            <h2 style="font-size:28px;font-weight:800;color:#1a1a2e;margin-bottom:16px;">Your content in Latvian, Russian and English</h2>
+            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:12px;">Latvia is multilingual — your customers speak different languages. Your content can be in several languages too.</p>
+            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:12px;">For a small extra fee you get the full package of the same materials in a second language. Choose a pair: Latvian + Russian, Latvian + English — or all three languages at once.</p>
+            <p style="font-size:16px;color:#555;line-height:1.7;margin-bottom:28px;">Running separate accounts for different audiences? Each one gets its own ready content.</p>
+          </div>
+          <!-- Right: phone mockups 2+1 layout -->
+          <div style="display:flex;flex-direction:column;gap:16px;align-items:center;">
+            <!-- Row 1: LV + EN -->
+            <div class="lang-phones-row" style="display:flex;gap:16px;justify-content:center;width:100%;">
+
+              <!-- LV phone -->
+              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
+                <div class="phone-frame" style="width:100%;">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
+                    <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
+                      <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Mārketings</div>
+                      <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Ķermenis lūdz pauzi?</div>
+                      <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Masāža ķermenim un prātam.</div>
+                    </div>
+                    <div style="flex:1;min-height:90px;overflow:hidden;">
+                      <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                    </div>
+                    <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Jūsu bizness aug. Mēs parūpējamies par saturu. #bizness #mārketings</div>
+                  </div>
+                </div>
+                <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">LV</div>
+              </div>
+
+              <!-- EN phone -->
+              <div class="phone-wrap-lang" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;flex:1;">
+                <div class="phone-frame" style="width:100%;">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
+                    <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
+                      <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Marketing</div>
+                      <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Your body needs a break?</div>
+                      <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Massage for body, mind and soul.</div>
+                    </div>
+                    <div style="flex:1;min-height:90px;overflow:hidden;">
+                      <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                    </div>
+                    <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Your business grows. We handle the content. #marketing #business</div>
+                  </div>
+                </div>
+                <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">EN</div>
+              </div>
+
+            </div>
+
+            <!-- Row 2: RU centered -->
+            <div class="lang-phones-bottom" style="display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;width:100%;">
+              <div class="phone-frame" style="width:100%;">
+                <div class="phone-notch"></div>
+                <div class="phone-screen" style="display:flex;flex-direction:column;overflow:hidden;">
+                  <div style="background:#1a1a2e;padding:8px 10px;flex-shrink:0;">
+                    <div style="font-size:7px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Маркетинг</div>
+                    <div style="font-size:10px;font-weight:800;color:#fff;line-height:1.3;">Тело просит паузу?</div>
+                    <div style="font-size:8px;color:#c4b5fd;margin-top:2px;line-height:1.3;">Массаж для тела, души и настроения.</div>
+                  </div>
+                  <div style="flex:1;min-height:90px;overflow:hidden;">
+                    <img src="/storis_primer.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;">
+                  </div>
+                  <div style="background:#fff;padding:7px 10px;font-size:8px;color:#555;line-height:1.4;flex-shrink:0;">Ваш бизнес растёт. Мы берём контент на себя. #маркетинг #бизнес</div>
+                </div>
+              </div>
+              <div style="font-size:12px;font-weight:800;color:#7C3AED;letter-spacing:1px;">RU</div>
+            </div>
+
+          </div>
+        </div>
+        <div style="margin-top:36px;text-align:center;">
+          <div style="background:white;border-radius:14px;padding:18px 24px;box-shadow:0 4px 20px rgba(124,58,237,0.12);margin-bottom:12px;display:inline-block;">
+            <div style="font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:8px;">+ a second language for your package:</div>
+            <div style="font-size:15px;color:#444;">Start <strong>+€19</strong> &nbsp;·&nbsp; Standard <strong>+€29</strong> &nbsp;·&nbsp; <span style="white-space:nowrap">Pro <strong>+€39</strong></span></div>
+          </div>
+          <p style="font-size:14px;color:#888;line-height:1.6;">The add-language button is in the card of the plan you choose.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПЛАТФОРМЫ -->
+    <div class="pkg-platforms" style="margin-top:32px">
+      <p class="pkg-platforms-title">📱 Instagram, Facebook or TikTok — one network is included in the plan, a second one is free for 3 months. Plus, people find you on Google, ChatGPT and Claude.</p>
+            <div class="pkg-platform-tags">
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"><defs><radialGradient id="igGrad" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#FDF497"/><stop offset="5%" stop-color="#FDF497"/><stop offset="45%" stop-color="#FD5949"/><stop offset="60%" stop-color="#D6249F"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs> <g> <path d="M127.999746,23.06353 C162.177385,23.06353 166.225393,23.1936027 179.722476,23.8094161 C192.20235,24.3789926 198.979853,26.4642218 203.490736,28.2166477 C209.464938,30.5386501 213.729395,33.3128586 218.208268,37.7917319 C222.687141,42.2706052 225.46135,46.5350617 227.782844,52.5092638 C229.535778,57.0201472 231.621007,63.7976504 232.190584,76.277016 C232.806397,89.7746075 232.93647,93.8226147 232.93647,128.000254 C232.93647,162.177893 232.806397,166.225901 232.190584,179.722984 C231.621007,192.202858 229.535778,198.980361 227.782844,203.491244 C225.46135,209.465446 222.687141,213.729903 218.208268,218.208776 C213.729395,222.687649 209.464938,225.461858 203.490736,227.783352 C198.979853,229.536286 192.20235,231.621516 179.722476,232.191092 C166.227425,232.806905 162.179418,232.936978 127.999746,232.936978 C93.8200742,232.936978 89.772067,232.806905 76.277016,232.191092 C63.7971424,231.621516 57.0196391,229.536286 52.5092638,227.783352 C46.5345536,225.461858 42.2700971,222.687649 37.7912238,218.208776 C33.3123505,213.729903 30.538142,209.465446 28.2166477,203.491244 C26.4637138,198.980361 24.3784845,192.202858 23.808908,179.723492 C23.1930946,166.225901 23.0630219,162.177893 23.0630219,128.000254 C23.0630219,93.8226147 23.1930946,89.7746075 23.808908,76.2775241 C24.3784845,63.7976504 26.4637138,57.0201472 28.2166477,52.5092638 C30.538142,46.5350617 33.3123505,42.2706052 37.7912238,37.7917319 C42.2700971,33.3128586 46.5345536,30.5386501 52.5092638,28.2166477 C57.0196391,26.4642218 63.7971424,24.3789926 76.2765079,23.8094161 C89.7740994,23.1936027 93.8221066,23.06353 127.999746,23.06353 M127.999746,0 C93.2367791,0 88.8783247,0.147348072 75.2257637,0.770274749 C61.601148,1.39218523 52.2968794,3.55566141 44.1546281,6.72008828 C35.7374966,9.99121548 28.5992446,14.3679613 21.4833489,21.483857 C14.3674532,28.5997527 9.99070739,35.7380046 6.71958019,44.1551362 C3.55515331,52.2973875 1.39167714,61.6016561 0.769766653,75.2262718 C0.146839975,88.8783247 0,93.2372872 0,128.000254 C0,162.763221 0.146839975,167.122183 0.769766653,180.774236 C1.39167714,194.398852 3.55515331,203.703121 6.71958019,211.845372 C9.99070739,220.261995 14.3674532,227.400755 21.4833489,234.516651 C28.5992446,241.632547 35.7374966,246.009293 44.1546281,249.28042 C52.2968794,252.444847 61.601148,254.608323 75.2257637,255.230233 C88.8783247,255.85316 93.2367791,256 127.999746,256 C162.762713,256 167.121675,255.85316 180.773728,255.230233 C194.398344,254.608323 203.702613,252.444847 211.844864,249.28042 C220.261995,246.009293 227.400247,241.632547 234.516143,234.516651 C241.632039,227.400755 246.008785,220.262503 249.279912,211.845372 C252.444339,203.703121 254.607815,194.398852 255.229725,180.774236 C255.852652,167.122183 256,162.763221 256,128.000254 C256,93.2372872 255.852652,88.8783247 255.229725,75.2262718 C254.607815,61.6016561 252.444339,52.2973875 249.279912,44.1551362 C246.008785,35.7380046 241.632039,28.5997527 234.516143,21.483857 C227.400247,14.3679613 220.261995,9.99121548 211.844864,6.72008828 C203.702613,3.55566141 194.398344,1.39218523 180.773728,0.770274749 C167.121675,0.147348072 162.762713,0 127.999746,0 Z M127.999746,62.2703115 C91.698262,62.2703115 62.2698034,91.69877 62.2698034,128.000254 C62.2698034,164.301738 91.698262,193.730197 127.999746,193.730197 C164.30123,193.730197 193.729689,164.301738 193.729689,128.000254 C193.729689,91.69877 164.30123,62.2703115 127.999746,62.2703115 Z M127.999746,170.667175 C104.435741,170.667175 85.3328252,151.564259 85.3328252,128.000254 C85.3328252,104.436249 104.435741,85.3333333 127.999746,85.3333333 C151.563751,85.3333333 170.666667,104.436249 170.666667,128.000254 C170.666667,151.564259 151.563751,170.667175 127.999746,170.667175 Z M211.686338,59.6734287 C211.686338,68.1566129 204.809755,75.0337031 196.326571,75.0337031 C187.843387,75.0337031 180.966297,68.1566129 180.966297,59.6734287 C180.966297,51.1902445 187.843387,44.3136624 196.326571,44.3136624 C204.809755,44.3136624 211.686338,51.1902445 211.686338,59.6734287 Z" fill="url(#igGrad)"></path> </g> </svg></span> Instagram</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 290" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"> <title>TikTok</title> <g> <path d="M189.720224,104.421475 C208.398189,117.766281 231.279538,125.618095 255.992548,125.618095 L255.992548,78.0872726 C251.315611,78.0882654 246.650588,77.6008156 242.074913,76.6318726 L242.074913,114.045382 C217.363889,114.045382 194.485518,106.193568 175.80259,92.8497541 L175.80259,189.846306 C175.80259,238.368905 136.447224,277.701437 87.902784,277.701437 C69.7897057,277.701437 52.9543216,272.228299 38.9691786,262.841664 C54.9309256,279.153859 77.1908018,289.273158 101.81744,289.273158 C150.364858,289.273158 189.72221,249.940626 189.72221,201.416041 L189.72221,104.421475 L189.720224,104.421475 Z M206.889179,56.4687254 C197.343701,46.0456391 191.076347,32.5757434 189.720224,17.6842019 L189.720224,11.5707278 L176.531282,11.5707278 C179.851103,30.497877 191.174632,46.6681056 206.889179,56.4687254 L206.889179,56.4687254 Z M69.6735517,225.606854 C64.3403943,218.617757 61.4583846,210.068027 61.4712906,201.277053 C61.4712906,179.084685 79.472186,161.090739 101.680438,161.090739 C105.819294,161.089747 109.933331,161.723134 113.877603,162.974023 L113.877603,114.380938 C109.268175,113.749536 104.616057,113.481488 99.9659254,113.579773 L99.9659254,151.402303 C96.0186741,150.151413 91.9026521,149.516041 87.7628035,149.520012 C65.5545513,149.520012 47.5546487,167.511972 47.5546487,189.707318 C47.5546487,205.401018 56.552118,218.98806 69.6735517,225.606854 Z" fill="#FF004F"></path> <path d="M175.80259,92.8487613 C194.485518,106.192575 217.363889,114.044389 242.074913,114.044389 L242.074913,76.6308799 C228.281375,73.6942679 216.070311,66.4897401 206.889179,56.4687254 C191.173639,46.6671128 179.851103,30.4968842 176.531282,11.5707278 L141.8876,11.5707278 L141.8876,201.414056 C141.809172,223.545865 123.839052,241.466346 101.678453,241.466346 C88.6195635,241.466346 77.0180599,235.24466 69.6705734,225.606854 C56.5501325,218.98806 47.5526631,205.400025 47.5526631,189.708311 C47.5526631,167.51495 65.5525657,149.521004 87.760818,149.521004 C92.0158278,149.521004 96.1169583,150.183182 99.9639399,151.403295 L99.9639399,113.580765 C52.272289,114.565593 13.9166419,153.513923 13.9166419,201.415048 C13.9166419,225.326893 23.4680767,247.004014 38.9701714,262.842657 C52.9553144,272.228299 69.7906985,277.70243 87.9037768,277.70243 C136.449209,277.70243 175.803582,238.367912 175.803582,189.846306 L175.803582,92.8487613 L175.80259,92.8487613 Z" fill="#000000"></path> <path d="M242.074913,76.6308799 L242.074913,66.5145593 C229.636505,66.5334219 217.442318,63.0517795 206.889179,56.4677326 C216.231139,66.6902795 228.532545,73.7389425 242.074913,76.6308799 Z M176.531282,11.5707278 C176.214589,9.76190185 175.971361,7.9411627 175.80259,6.11347418 L175.80259,0 L127.968973,0 L127.968973,189.845313 C127.89253,211.974144 109.923403,229.894625 87.760818,229.894625 C81.2542071,229.894625 75.1109499,228.350869 69.6705734,225.607847 C77.0180599,235.24466 88.6195635,241.465353 101.678453,241.465353 C123.837066,241.465353 141.810164,223.546857 141.8876,201.415048 L141.8876,11.5707278 L176.531282,11.5707278 Z M99.9659254,113.580765 L99.9659254,102.811203 C95.9690357,102.265179 91.9393845,101.991175 87.9047695,101.99315 C39.3553659,101.99315 0,141.326686 0,189.845313 C0,220.263769 15.4673478,247.071522 38.9711641,262.840672 C23.4690694,247.003021 13.9176347,225.324907 13.9176347,201.414056 C13.9176347,153.513923 52.272289,114.565593 99.9659254,113.580765 Z" fill="#00F2EA"></path> </g> </svg></span> TikTok</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"> <title>Facebook</title> <g> <path d="M256,128 C256,57.3075 198.6925,0 128,0 C57.3075,0 0,57.3075 0,128 C0,191.8885 46.80775,244.8425 108,254.445 L108,165 L75.5,165 L75.5,128 L108,128 L108,99.8 C108,67.72 127.1095,50 156.3475,50 C170.35175,50 185,52.5 185,52.5 L185,84 L168.8595,84 C152.95875,84 148,93.86675 148,103.98925 L148,128 L183.5,128 L177.825,165 L148,165 L148,254.445 C209.19225,244.8425 256,191.8885 256,128" fill="#1877F2"></path> <path d="M177.825,165 L183.5,128 L148,128 L148,103.98925 C148,93.86675 152.95875,84 168.8595,84 L185,84 L185,52.5 C185,52.5 170.35175,50 156.3475,50 C127.1095,50 108,67.72 108,99.8 L108,128 L75.5,128 L75.5,165 L108,165 L108,254.445 C114.51675,255.4675 121.196,256 128,256 C134.804,256 141.48325,255.4675 148,254.445 L148,165 L177.825,165" fill="#FFFFFF"></path> </g> </svg></span> Facebook</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 262" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"> <g> <path d="M255.878,133.451 C255.878,122.717 255.007,114.884 253.122,106.761 L130.55,106.761 L130.55,155.209 L202.497,155.209 C201.047,167.249 193.214,185.381 175.807,197.565 L175.563,199.187 L214.318,229.21 L217.003,229.478 C241.662,206.704 255.878,173.196 255.878,133.451" fill="#4285F4"></path> <path d="M130.55,261.1 C165.798,261.1 195.389,249.495 217.003,229.478 L175.807,197.565 C164.783,205.253 149.987,210.62 130.55,210.62 C96.027,210.62 66.726,187.847 56.281,156.37 L54.75,156.5 L14.452,187.687 L13.925,189.152 C35.393,231.798 79.49,261.1 130.55,261.1" fill="#34A853"></path> <path d="M56.281,156.37 C53.525,148.247 51.93,139.543 51.93,130.55 C51.93,121.556 53.525,112.853 56.136,104.73 L56.063,103 L15.26,71.312 L13.925,71.947 C5.077,89.644 0,109.517 0,130.55 C0,151.583 5.077,171.455 13.925,189.152 L56.281,156.37" fill="#FBBC05"></path> <path d="M130.55,50.479 C155.064,50.479 171.6,61.068 181.029,69.917 L217.873,33.943 C195.245,12.91 165.798,0 130.55,0 C79.49,0 35.393,29.301 13.925,71.947 L56.136,104.73 C66.726,73.253 96.027,50.479 130.55,50.479" fill="#EB4335"></path> </g> </svg></span> Google</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 260" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"> <title>OpenAI</title> <g> <path d="M239.183914,106.202783 C245.054304,88.5242096 243.02228,69.1733805 233.607599,53.0998864 C219.451678,28.4588021 190.999703,15.7836129 163.213007,21.739505 C147.554077,4.32145883 123.794909,-3.42398554 100.87901,1.41873898 C77.9631105,6.26146349 59.3690093,22.9572536 52.0959621,45.2214219 C33.8436494,48.9644867 18.0901721,60.392749 8.86672513,76.5818033 C-5.443491,101.182962 -2.19544431,132.215255 16.8986662,153.320094 C11.0060865,170.990656 13.0197283,190.343991 22.4238231,206.422991 C36.5975553,231.072344 65.0680342,243.746566 92.8695738,237.783372 C105.235639,251.708249 123.001113,259.630942 141.623968,259.52692 C170.105359,259.552169 195.337611,241.165718 204.037777,214.045661 C222.28734,210.296356 238.038489,198.869783 247.267014,182.68528 C261.404453,158.127515 258.142494,127.262775 239.183914,106.202783 L239.183914,106.202783 Z M141.623968,242.541207 C130.255682,242.559177 119.243876,238.574642 110.519381,231.286197 L112.054146,230.416496 L163.724595,200.590881 C166.340648,199.056444 167.954321,196.256818 167.970781,193.224005 L167.970781,120.373788 L189.815614,133.010026 C190.034132,133.121423 190.186235,133.330564 190.224885,133.572774 L190.224885,193.940229 C190.168603,220.758427 168.442166,242.484864 141.623968,242.541207 Z M37.1575749,197.93062 C31.456498,188.086359 29.4094818,176.546984 31.3766237,165.342426 L32.9113895,166.263285 L84.6329973,196.088901 C87.2389349,197.618207 90.4682717,197.618207 93.0742093,196.088901 L156.255402,159.663793 L156.255402,184.885111 C156.243557,185.149771 156.111725,185.394602 155.89729,185.550176 L103.561776,215.733903 C80.3054953,229.131632 50.5924954,221.165435 37.1575749,197.93062 Z M23.5493181,85.3811273 C29.2899861,75.4733097 38.3511911,67.9162648 49.1287482,64.0478825 L49.1287482,125.438515 C49.0891492,128.459425 50.6965386,131.262556 53.3237748,132.754232 L116.198014,169.025864 L94.3531808,181.662102 C94.1132325,181.789434 93.8257461,181.789434 93.5857979,181.662102 L41.3526015,151.529534 C18.1419426,138.076098 10.1817681,108.385562 23.5493181,85.125333 L23.5493181,85.3811273 Z M203.0146,127.075598 L139.935725,90.4458545 L161.7294,77.8607748 C161.969348,77.7334434 162.256834,77.7334434 162.496783,77.8607748 L214.729979,108.044502 C231.032329,117.451747 240.437294,135.426109 238.871504,154.182739 C237.305714,172.939368 225.050719,189.105572 207.414262,195.67963 L207.414262,134.288998 C207.322521,131.276867 205.650697,128.535853 203.0146,127.075598 Z M224.757116,94.3850867 L223.22235,93.4642272 L171.60306,63.3828173 C168.981293,61.8443751 165.732456,61.8443751 163.110689,63.3828173 L99.9806554,99.8079259 L99.9806554,74.5866077 C99.9533004,74.3254088 100.071095,74.0701869 100.287609,73.9215426 L152.520805,43.7889738 C168.863098,34.3743518 189.174256,35.2529043 204.642579,46.0434841 C220.110903,56.8340638 227.949269,75.5923959 224.757116,94.1804513 L224.757116,94.3850867 Z M88.0606409,139.097931 L66.2158076,126.512851 C65.9950399,126.379091 65.8450965,126.154176 65.8065367,125.898945 L65.8065367,65.684966 C65.8314495,46.8285367 76.7500605,29.6846032 93.8270852,21.6883055 C110.90411,13.6920079 131.063833,16.2835462 145.5632,28.338998 L144.028434,29.2086986 L92.3579852,59.0343142 C89.7419327,60.5687513 88.1282597,63.3683767 88.1117998,66.4011901 L88.0606409,139.097931 Z M99.9294965,113.5185 L128.06687,97.3011417 L156.255402,113.5185 L156.255402,145.953218 L128.169187,162.170577 L99.9806554,145.953218 L99.9294965,113.5185 Z" fill="#000000"></path> </g> </svg></span> ChatGPT</span>
+        <span class="ptag ptag-brand"><span class="ptag-logo"><svg viewBox="0 0 256 257" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"> <title>Claude</title> <g> <path d="M50.2278481,170.321013 L100.585316,142.063797 L101.427848,139.601013 L100.585316,138.24 L98.1225316,138.24 L89.6972152,137.721519 L60.921519,136.943797 L35.9696203,135.906835 L11.795443,134.610633 L5.70329114,133.31443 L0,125.796456 L0.583291139,122.037468 L5.70329114,118.602532 L13.0268354,119.250633 L29.2293671,120.352405 L53.5331646,122.037468 L71.161519,123.07443 L97.28,125.796456 L101.427848,125.796456 L102.011139,124.111392 L100.585316,123.07443 L99.4835443,122.037468 L74.3372152,104.992405 L47.116962,86.9751899 L32.8587342,76.6055696 L25.1463291,71.3559494 L21.2577215,66.4303797 L19.5726582,55.6718987 L26.5721519,47.9594937 L35.9696203,48.6075949 L38.3675949,49.2556962 L47.8946835,56.5792405 L68.2450633,72.3281013 L94.8172152,91.9007595 L98.7058228,95.1412658 L100.261266,94.0394937 L100.455696,93.2617722 L98.7058228,90.3453165 L84.2531646,64.2268354 L68.8283544,37.6546835 L61.958481,26.636962 L60.1437975,20.0263291 C59.4956962,17.3043038 59.0420253,15.0359494 59.0420253,12.2491139 L67.0136709,1.42582278 L71.4207595,-1.42108547e-14 L82.0496203,1.42582278 L86.521519,5.31443038 L93.1321519,20.4151899 L103.825823,44.2005063 L120.417215,76.5407595 L125.277975,86.1326582 L127.87038,95.0116456 L128.842532,97.7336709 L130.527595,97.7336709 L130.527595,96.1782278 L131.888608,77.9665823 L134.416203,55.6070886 L136.878987,26.8313924 L137.721519,18.7301266 L141.739747,9.00860759 L149.711392,3.75898734 L155.933165,6.74025316 L161.053165,14.0637975 L160.340253,18.7949367 L157.294177,38.5620253 L151.331646,69.5412658 L147.443038,90.2805063 L149.711392,90.2805063 L152.303797,87.6881013 L162.803038,73.7539241 L180.431392,51.718481 L188.208608,42.9691139 L197.282025,33.3124051 L203.114937,28.7108861 L214.132658,28.7108861 L222.233924,40.7655696 L218.604557,53.2091139 L207.262785,67.596962 L197.865316,79.7812658 L184.38481,97.9281013 L175.959494,112.44557 L176.737215,113.612152 L178.746329,113.417722 L209.207089,106.936709 L225.668861,103.955443 L245.306329,100.585316 L254.185316,104.733165 L255.157468,108.945823 L251.657722,117.56557 L230.659241,122.75038 L206.031392,127.675949 L169.348861,136.360506 L168.89519,136.684557 L169.413671,137.332658 L185.940253,138.888101 L193.004557,139.276962 L210.308861,139.276962 L242.519494,141.674937 L250.94481,147.248608 L256,154.053671 L255.157468,159.238481 L242.195443,165.849114 L224.696709,161.701266 L183.866329,151.979747 L169.867342,148.48 L167.923038,148.48 L167.923038,149.646582 L179.588861,161.053165 L200.976203,180.366582 L227.742785,205.253671 L229.103797,211.410633 L225.668861,216.271392 L222.039494,215.752911 L198.513418,198.059747 L189.44,190.088101 L168.89519,172.783797 L167.534177,172.783797 L167.534177,174.598481 L172.265316,181.533165 L197.282025,219.123038 L198.578228,230.659241 L196.763544,234.418228 L190.282532,236.686582 L183.153418,235.39038 L168.506329,214.84557 L153.40557,191.708354 L141.221266,170.969114 L139.730633,171.811646 L132.536709,249.259747 L129.166582,253.213165 L121.389367,256.19443 L114.908354,251.268861 L111.473418,243.297215 L114.908354,227.548354 L119.056203,207.003544 L122.426329,190.671392 L125.472405,170.385823 L127.287089,163.64557 L127.157468,163.191899 L125.666835,163.386329 L110.371646,184.38481 L87.1048101,215.817722 L68.6987342,235.52 L64.2916456,237.269873 L56.6440506,233.316456 L57.356962,226.252152 L61.6344304,219.96557 L87.1048101,187.560506 L102.46481,167.469367 L112.380759,155.868354 L112.315949,154.183291 L111.732658,154.183291 L44.0708861,198.124557 L32.0162025,199.68 L26.8313924,194.819241 L27.4794937,186.847595 L29.9422785,184.25519 L50.2926582,170.256203 L50.2278481,170.321013 Z" fill="#D97757"></path> </g> </svg></span> Claude</span>
+      </div>
+    </div>
+
+    <div class="pkg-note">
+      🎯 All copy is based on research into your clients’ psychology — their fears, desires and motivations.<br>Content that brings clients and makes sales.
     </div>
   </div>
 </section>
 
 
+    <p style="text-align:center;font-size:15px;color:#6B7280;margin-top:8px;">Need a website too? <a href="en-multi-5-sayty.html" style="color:#7C3AED;font-weight:600;">See the separate "Websites" page →</a></p>
 <section style="background:#F5F3FF;padding:48px 24px;text-align:center;">
-  <p style="font-size:22px;font-weight:800;color:#1a1a2e;margin:0 0 8px;">Остались вопросы?</p>
-  <p style="font-size:15px;color:#6B7280;margin:0 0 22px;">Оставьте заявку — ответим в течение дня.</p>
-  <a href="ru-multi-7-kontakty.html" class="btn-primary">Оставить заявку →</a>
+  <p style="font-size:22px;font-weight:800;color:#1a1a2e;margin:0 0 8px;">Still have questions?</p>
+  <p style="font-size:15px;color:#6B7280;margin:0 0 22px;">Send a request — we’ll reply within one business day.</p>
+  <a href="en-multi-7-kontakty.html" class="btn-primary">Send a request →</a>
 </section>
 <footer>
   <div style="max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;">
     <div style="text-align:left;">
       <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:4px;">Marketing <span style="color:#A78BFA;">DNA</span></div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.55);">SMM-студия для малого бизнеса</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55);">SMM studio for small businesses</div>
     </div>
     <div style="display:flex;gap:14px;">
       <a href="https://www.facebook.com/marketing.dna.lv" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.7);font-size:18px;"><i class="fa-brands fa-facebook-f"></i></a>
@@ -1444,38 +1530,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div style="max-width:1040px;margin:16px auto 0;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.45);line-height:1.7;text-align:left;">
-    SIA «Studija Art and Wine» · Рег. № 40203381333 · Gulbju iela 25 k-1 - 1B, Jūrmala, LV-2008 · <a href="privacy.html?lang=ru" style="color:rgba(255,255,255,0.6);">Политика конфиденциальности</a> · <a href="terms.html?lang=ru" style="color:rgba(255,255,255,0.6);">Условия использования</a> · <a href="atteikums.html?lang=ru" style="color:rgba(255,255,255,0.85);font-weight:600;">Отказаться от договора</a> · © 2026
+    SIA «Studija Art and Wine» · Reg. No. 40203381333 · Gulbju iela 25 k-1 - 1B, Jūrmala, LV-2008, Latvia · <a href="privacy.html?lang=en" style="color:rgba(255,255,255,0.6);">Privacy policy</a> · <a href="terms.html?lang=en" style="color:rgba(255,255,255,0.6);">Terms of use</a> · <a href="atteikums.html?lang=en" style="color:rgba(255,255,255,0.85);font-weight:600;">Cancel the contract</a> · © 2026
   </div>
 </footer>
 
 <div id="leadModalOverlay" style="display:none;position:fixed;inset:0;background:rgba(26,26,46,.55);z-index:9999;align-items:center;justify-content:center;padding:20px;">
   <div style="background:#fff;border-radius:18px;padding:32px 28px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25);text-align:left;">
-    <button onclick="closeLeadModal()" aria-label="Закрыть" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;background:#F3F4F6;border-radius:50%;font-size:16px;color:#6B7280;cursor:pointer;line-height:1;">✕</button>
+    <button onclick="closeLeadModal()" aria-label="Close" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;background:#F3F4F6;border-radius:50%;font-size:16px;color:#6B7280;cursor:pointer;line-height:1;">✕</button>
 
     <div id="leadViewFree">
-      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Получить бесплатный пакет</h3>
-      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Соберём бесплатно фото-пост, карусель, Story Reel, обложку, Stories и контент-план на 7 дней — под ваш бизнес. Для этого укажите ваш сайт и Instagram.</p>
-      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Сайт или Instagram (если есть)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
-      <p id="freeLinkHint" style="display:none;font-size:12px;color:#DC2626;margin:0 0 10px;font-weight:600;">Впишите, пожалуйста, ссылку на ваш сайт или Instagram.</p>
+      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Get your free package</h3>
+      <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">We’ll put together a free photo post, carousel, Story Reel, cover, Stories and a 7-day content plan — for your business. Just tell us your website and Instagram.</p>
+      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Website or Instagram (if you have one)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
+      <p id="freeLinkHint" style="display:none;font-size:12px;color:#DC2626;margin:0 0 10px;font-weight:600;">Please enter a link to your website or Instagram.</p>
 
       <!-- Выбор канала. Кнопка WhatsApp скрыта, пока в скрипте ниже не задан WA_NUMBER:
            нет номера - сайт работает как раньше, только Telegram. -->
-      <p id="freeChannelLabel" style="display:none;font-size:13px;font-weight:700;color:#4B5563;margin:16px 0 8px;">Где вам удобнее получить бесплатный пакет?<br><span style="font-weight:500;color:#6B7280;">Нажмите — откроется чат с нами. В этот чат мы и пришлём ваш пакет.</span></p>
-      <button id="freeWaBtn" class="btn-primary" style="display:none;width:100%;border:none;cursor:pointer;background:#25D366;margin-bottom:9px;">📱 В WhatsApp</button>
-      <button id="freeTgBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:4px;">✈️ В Telegram</button>
-      <p id="freeTgHint" style="display:none;font-size:12px;color:#059669;margin:10px 0 0;font-weight:600;">✅ Ссылка скопирована - вставьте её в чате бота.</p>
-      <a href="#" id="freeNoTgToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">Нет ни того, ни другого? Оставьте контакт - напишем сами</a>
+      <p id="freeChannelLabel" style="display:none;font-size:13px;font-weight:700;color:#4B5563;margin:16px 0 8px;">Where would you like to receive your free package?<br><span style="font-weight:500;color:#6B7280;">Tap — a chat with us will open. That’s where we’ll send your package.</span></p>
+      <button id="freeWaBtn" class="btn-primary" style="display:none;width:100%;border:none;cursor:pointer;background:#25D366;margin-bottom:9px;">📱 On WhatsApp</button>
+      <button id="freeTgBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:4px;">✈️ On Telegram</button>
+      <p id="freeTgHint" style="display:none;font-size:12px;color:#059669;margin:10px 0 0;font-weight:600;">✅ Link copied — paste it into the bot chat.</p>
+      <a href="#" id="freeNoTgToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">Use neither? Leave a contact and we’ll message you</a>
     </div>
 
     <div id="leadViewForm" style="display:none">
-      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Получить бесплатный пробный пакет</h3>
-      <p style="font-size:14px;color:#6B7280;margin:0 0 18px;">Ответим в течение дня.</p>
-      <input id="leadName" type="text" placeholder="Имя" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
-      <input id="leadContact" type="text" placeholder="Номер WhatsApp или ник в Telegram" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
-      <input id="leadBiz" type="text" placeholder="Что продаёте и кому?" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:16px;outline:none;">
-      <button id="leadSendBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;" onclick="submitLeadModal()">Отправить заявку</button>
+      <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Get your free trial package</h3>
+      <p style="font-size:14px;color:#6B7280;margin:0 0 18px;">We’ll reply within one business day.</p>
+      <input id="leadName" type="text" placeholder="Name" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+      <input id="leadContact" type="text" placeholder="WhatsApp number or Telegram username" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;">
+      <input id="leadBiz" type="text" placeholder="What do you sell, and to whom?" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:16px;outline:none;">
+      <button id="leadSendBtn" class="btn-primary" style="width:100%;border:none;cursor:pointer;" onclick="submitLeadModal()">Send request</button>
       <p id="leadStatus" style="display:none;font-size:13px;margin-top:10px;font-weight:600;text-align:center;"></p>
-      <a href="#" id="leadBackToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">← Есть Telegram? Быстрее через бота</a>
+      <a href="#" id="leadBackToggle" style="display:block;text-align:center;margin-top:14px;font-size:13px;color:#6B7280;text-decoration:underline;">← Have Telegram? The bot is faster</a>
     </div>
 
   </div>
@@ -1501,7 +1587,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     viewForm.style.display = 'none';
     overlay.style.display = 'flex';
     freeTgHint.style.display = 'none';
-    postLead({ link: '', kind: 'modal_open', entry: entryPoint, lang: 'ru' });
+    postLead({ link: '', kind: 'modal_open', entry: entryPoint, lang: 'en' });
   };
   window.closeLeadModal = function () {
     overlay.style.display = 'none';
@@ -1540,7 +1626,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     freeWaBtn.style.display = 'block';
     freeChannelLabel.style.display = 'block';
   } else {
-    freeTgBtn.textContent = '📱 Получить в Telegram';
+    freeTgBtn.textContent = '📱 Get it in Telegram';
   }
 
   // Проверка ссылки - общая для обеих кнопок
@@ -1561,12 +1647,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // здесь ссылка wa.me с заранее набранным текстом, а не форма со сбором номера.
   freeWaBtn.addEventListener('click', function () {
     var v = requireLink();
-    var msg = 'Здравствуйте! Хочу бесплатный пакет контента.\n'
-            + (v ? 'Мой сайт или Instagram: ' + v + '\n' : '')
-            + '(код входа: web-ru-' + entryPoint + ')';
-    postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'ru' });
+    var msg = 'Hello! I’d like a free content package.\n'
+            + (v ? 'My website or Instagram: ' + v + '\n' : '')
+            + '(entry code: web-en-' + entryPoint + ')';
+    postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'en' });
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-    showAfterHint('✅ Открыли WhatsApp — нажмите «Отправить» в чате с нами.');
+    showAfterHint('✅ WhatsApp is open — tap “Send” in the chat with us.');
   });
 
   freeTgBtn.addEventListener('click', function () {
@@ -1574,18 +1660,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var enc = v ? b64url(v) : null;
     var url, clip = '';
     if (!v) {
-      url = BOT + '?start=steps';
-    } else if (enc && enc.length <= 62) {
-      url = BOT + '?start=L_' + enc;
+      url = BOT + '?start=en_steps';
+    } else if (enc && enc.length <= 59) {
+      url = BOT + '?start=en_L_' + enc;
     } else {
-      url = BOT + '?start=steps';
+      url = BOT + '?start=en_steps';
       clip = v;
     }
-    postLead({ link: v, kind: 'tg_click', entry: entryPoint, lang: 'ru' });
+    postLead({ link: v, kind: 'tg_click', entry: entryPoint, lang: 'en' });
     if (clip && navigator.clipboard) {
       navigator.clipboard.writeText(clip).catch(function () {});
     }
-    showAfterHint('✅ Открыли Telegram — нажмите «Старт» (Start) в боте.' + (clip ? ' Ссылку на ваш сайт мы скопировали — вставьте её в чат.' : ''));
+    showAfterHint('✅ Telegram is open — tap “Start” in the bot.' + (clip ? ' We’ve copied your website link — paste it into the chat.' : ''));
     window.open(url, '_blank', 'noopener');
   });
 
@@ -1609,30 +1695,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var statusEl = document.getElementById('leadStatus');
     if (!name) {
       statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Напишите, пожалуйста, имя.';
+      statusEl.textContent = 'Please enter your name.';
       return;
     }
     if (contact.length < 5) {
       statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Оставьте номер WhatsApp или ник в Telegram — иначе нам некуда прислать ваш пакет.';
+      statusEl.textContent = 'Leave your WhatsApp number or Telegram username — otherwise we have nowhere to send your package.';
       return;
     }
     var sendBtn = document.getElementById('leadSendBtn');
-    sendBtn.disabled = true; sendBtn.textContent = 'Отправляем...';
+    sendBtn.disabled = true; sendBtn.textContent = 'Sending...';
     fetch(API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, contact: contact, link: biz, kind: 'lead_form', entry: entryPoint, lang: 'ru' }),
+      body: JSON.stringify({ name: name, contact: contact, link: biz, kind: 'lead_form', entry: entryPoint, lang: 'en' }),
     }).then(function (r) { return r.json(); }).then(function (d) {
       if (d && d.ok) {
         statusEl.style.display = 'block'; statusEl.style.color = '#059669';
-        statusEl.textContent = '✅ Приняли! Напишем вам в течение дня.';
+        statusEl.textContent = '✅ Received! We’ll get back to you within one business day.';
         sendBtn.style.display = 'none';
       } else { throw new Error('bad response'); }
     }).catch(function () {
       statusEl.style.display = 'block'; statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Не получилось отправить. Попробуйте ещё раз чуть позже.';
-      sendBtn.disabled = false; sendBtn.textContent = 'Отправить заявку';
+      statusEl.textContent = 'Couldn’t send. Please try again a bit later.';
+      sendBtn.disabled = false; sendBtn.textContent = 'Send request';
     });
   };
 })();
