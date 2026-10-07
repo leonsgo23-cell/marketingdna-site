@@ -1294,7 +1294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       </div><!-- /site-tiers -->
 
-      <a href="https://t.me/ContentDNAStart_bot?start=en_website" class="btn-secondary">→ Answer 5 questions — we’ll pick the right website for you</a>
+      <a href="#" data-entry="website" data-form="website" class="btn-secondary">→ Answer 5 questions — we’ll pick the right website for you</a>
     </div><!-- /левая часть -->
 
     <!-- ПРАВАЯ ЧАСТЬ: фото -->
@@ -1305,7 +1305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="upsell-person-text">
           <div class="upsell-person-label">A website is your business’s shop window</div>
           <div class="upsell-person-sub">For a new service, a new product or for yourself — we’ll package it beautifully and fast.</div>
-          <a href="https://t.me/ContentDNAStart_bot?start=en_website" class="upsell-person-cta">Let’s talk →</a>
+          <a href="#" data-entry="website" data-form="website" class="upsell-person-cta">Let’s talk →</a>
         </div>
       </div>
     </div>
@@ -1347,7 +1347,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div style="max-width:1040px;margin:16px auto 0;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.45);line-height:1.7;text-align:left;">
-    SIA «Studija Art and Wine» · Reg. No. 40203381333 · Gulbju iela 25 k-1 - 1B, Jūrmala, LV-2008, Latvia · <a href="privacy.html?lang=en" style="color:rgba(255,255,255,0.6);">Privacy policy</a> · <a href="terms.html?lang=en" style="color:rgba(255,255,255,0.6);">Terms of use</a> · <a href="atteikums.html?lang=en" style="color:rgba(255,255,255,0.85);font-weight:600;">Cancel the contract</a> · © 2026
+    SIA «Studija Art and Wine» · Reg. No. 40203381333 · Gulbju iela 25 k-1 - 1B, Jūrmala, LV-2008, Latvia · <a href="privacy.html?lang=en" style="color:rgba(255,255,255,0.6);">Privacy policy</a> · <a href="terms.html?lang=en" style="color:rgba(255,255,255,0.6);">Terms of use</a> · <a href="atteikums.html?lang=en" style="color:rgba(255,255,255,0.85);font-weight:600;">Withdraw from contract</a> · © 2026
   </div>
 </footer>
 <div id="mediaLightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;padding:20px;">
@@ -1639,6 +1639,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       sendBtn.disabled = false; sendBtn.textContent = 'Send request';
     });
   };
+})();
+</script>
+<script>
+// Кнопки с data-form открывают в окне заявки сразу форму контакта со своим заголовком
+// (build_en.py). Обычные кнопки возвращают исходный заголовок формы.
+(function () {
+  var form = document.getElementById('leadViewForm');
+  if (!form) return;
+  var h = form.querySelector('h3'), p = form.querySelector('p'), biz = document.getElementById('leadBiz');
+  var back = document.getElementById('leadBackToggle');
+  var orig = { h: h.textContent, p: p.textContent, biz: biz.placeholder };
+  var TXT = {
+    website: { h: 'Order a website', p: 'Leave your contact — we’ll reply within one business day.', biz: 'What kind of website do you need?' },
+    lang: { h: 'Add a second language', p: 'Leave your contact — a manager will add the language to your plan within one business day.', biz: 'Your plan and the language to add' }
+  };
+  document.querySelectorAll('a[data-entry]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var t = TXT[a.getAttribute('data-form')];
+      h.textContent = t ? t.h : orig.h; p.textContent = t ? t.p : orig.p; biz.placeholder = t ? t.biz : orig.biz;
+      back.style.display = t ? 'none' : 'block';
+      if (t) { document.getElementById('leadViewFree').style.display = 'none'; form.style.display = 'block'; }
+    });
+  });
 })();
 </script>
 </body>

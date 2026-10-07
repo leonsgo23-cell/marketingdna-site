@@ -100,6 +100,31 @@ def translate(s, pairs):
     return s
 
 
+FORM_SCRIPT = """<script>
+// Кнопки с data-form открывают в окне заявки сразу форму контакта со своим заголовком
+// (build_en.py). Обычные кнопки возвращают исходный заголовок формы.
+(function () {
+  var form = document.getElementById('leadViewForm');
+  if (!form) return;
+  var h = form.querySelector('h3'), p = form.querySelector('p'), biz = document.getElementById('leadBiz');
+  var back = document.getElementById('leadBackToggle');
+  var orig = { h: h.textContent, p: p.textContent, biz: biz.placeholder };
+  var TXT = {
+    website: { h: 'Order a website', p: 'Leave your contact — we’ll reply within one business day.', biz: 'What kind of website do you need?' },
+    lang: { h: 'Add a second language', p: 'Leave your contact — a manager will add the language to your plan within one business day.', biz: 'Your plan and the language to add' }
+  };
+  document.querySelectorAll('a[data-entry]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var t = TXT[a.getAttribute('data-form')];
+      h.textContent = t ? t.h : orig.h; p.textContent = t ? t.p : orig.p; biz.placeholder = t ? t.biz : orig.biz;
+      back.style.display = t ? 'none' : 'block';
+      if (t) { document.getElementById('leadViewFree').style.display = 'none'; form.style.display = 'block'; }
+    });
+  });
+})();
+</script>"""
+
+
 def localize(s, ru_name):
     en_name, lv_name = PAGES[ru_name]
     s = s.replace('<html lang="ru">', '<html lang="en">', 1)
@@ -130,7 +155,15 @@ def localize(s, ru_name):
     s = s.replace('if (enc && enc.length <= 62)', 'if (enc && enc.length <= 59)')
     # оплата: те же ссылки Stripe (цены в евро те же), язык — меткой в client_reference_id.
     # Бот по ней показывает страницу после оплаты (/paid-start) на английском.
-    s = re.sub(r'(client_reference_id=web--pkg_\w+)"', r'\1--en"', s)
+    # locale=en — интерфейс страницы оплаты Stripe по-английски, а не по языку браузера
+    s = re.sub(r'(client_reference_id=web--pkg_\w+)"', r'\1--en&amp;locale=en"', s)
+    # «Заказать сайт» (start=website) и «Добавить второй язык» (start=pkg_*_lang) в боте —
+    # старые сценарии только на русском. С английской страницы они открывают форму
+    # контакта в окне заявки: менеджер получает заявку с кнопкой входа и языком en.
+    s = re.sub(r'href="https://t\.me/ContentDNAStart_bot\?start=(?:en_)?(website|pkg_\w+_lang)"',
+               lambda m: f'href="#" data-entry="{m.group(1)}" data-form="{"website" if m.group(1) == "website" else "lang"}"', s)
+    if 'data-form=' in s:
+        s = s.replace('</body>', FORM_SCRIPT + '\n</body>', 1)
     # заявки и клики — с языком en
     s = re.sub(r"lang: *'ru'", "lang: 'en'", s)
     s = s.replace("'ru_footer'", "'en_footer'")
