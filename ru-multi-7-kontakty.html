@@ -1311,7 +1311,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="leadViewFree">
       <h3 style="font-size:19px;font-weight:800;color:#1a1a2e;margin:0 0 6px;">Получить бесплатный пакет</h3>
       <p style="font-size:14px;color:#6B7280;margin:0 0 16px;">Соберём бесплатно фото-пост, карусель, Story Reel, обложку, Stories и контент-план на 7 дней — под ваш бизнес. Для этого укажите ваш сайт и Instagram.</p>
-      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Сайт или Instagram (если есть)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
+      <p style="font-size:13.5px;color:#5B21B6;background:#F5F3FF;border-radius:10px;padding:10px 12px;margin:-6px 0 16px;line-height:1.5;">🎁 Вместе с пакетом вы получите разбор шапки вашего профиля в Instagram и рекомендации, как сделать её сильнее для ваших клиентов и подписчиков.</p>
+      <input id="freeLinkInput" type="text" inputmode="url" placeholder="Ваш сайт (если есть)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
+      <input id="freeIgInput" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Instagram (если есть)" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:14px;margin-bottom:6px;outline:none;">
       <p id="freeLinkHint" style="display:none;font-size:12px;color:#DC2626;margin:0 0 10px;font-weight:600;">Впишите, пожалуйста, ссылку на ваш сайт или Instagram.</p>
 
       <!-- Выбор канала. Кнопка WhatsApp скрыта, пока в скрипте ниже не задан WA_NUMBER:
@@ -1402,9 +1404,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // Проверка ссылки - общая для обеих кнопок
   // Ссылка НЕОБЯЗАТЕЛЬНА (06.10.2026, Александр: «я завис и ушёл» — красная надпись
   // без объяснения, что дальше). Бот без ссылки работает: анкета спросит её сама.
+  // Сайт и Instagram — два поля (08.10.2026, Александр): по Instagram бот бесплатно разбирает
+  // шапку профиля. Ник без @ дополняем, чтобы бот не принял «my.studio» за сайт.
+  var freeIgInput = document.getElementById('freeIgInput');
+  function siteValue() { return (freeLinkInput.value || '').trim(); }
+  function igValue() {
+    var v = (freeIgInput && freeIgInput.value || '').trim();
+    if (v && !/instagram\.com/i.test(v) && v.charAt(0) !== '@') v = '@' + v;
+    return v;
+  }
   function requireLink() {
     freeLinkHint.style.display = 'none';
-    return (freeLinkInput.value || '').trim();
+    return [siteValue(), igValue()].filter(Boolean).join(' ');
   }
   // Что делать после нажатия: чат открылся, но сообщение ещё надо отправить самому
   function showAfterHint(text) {
@@ -1418,7 +1429,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   freeWaBtn.addEventListener('click', function () {
     var v = requireLink();
     var msg = 'Здравствуйте! Хочу бесплатный пакет контента.\n'
-            + (v ? 'Мой сайт или Instagram: ' + v + '\n' : '')
+            + (siteValue() ? 'Мой сайт: ' + siteValue() + '\n' : '')
+            + (igValue() ? 'Мой Instagram: ' + igValue() + '\n' : '')
             + '(код входа: web-ru-' + entryPoint + ')';
     postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'ru' });
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
@@ -1447,7 +1459,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   document.getElementById('freeNoTgToggle').addEventListener('click', function (e) {
     e.preventDefault();
-    var v = (freeLinkInput.value || '').trim();
+    var v = requireLink();
     if (v && !document.getElementById('leadBiz').value) document.getElementById('leadBiz').value = v;
     viewFree.style.display = 'none';
     viewForm.style.display = 'block';
