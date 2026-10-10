@@ -1571,12 +1571,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // WhatsApp: клиент ОБЯЗАН написать первым - именно его сообщение открывает
   // 24-часовое окно, внутри которого мы можем свободно вести переписку. Поэтому
   // здесь ссылка wa.me с заранее набранным текстом, а не форма со сбором номера.
+  // Кнопка входа — невидимой меткой (10.10.2026): клиент не видит «(ieejas kods: …)»,
+  // бот читает её из символов нулевой ширины (src/onboarding.js, decodeEntryMark)
+  function entryMark(code) {
+    var b = '';
+    for (var i = 0; i < code.length; i++) b += ('00000000' + code.charCodeAt(i).toString(2)).slice(-8);
+    return '\u2063' + b.replace(/0/g, '\u200C').replace(/1/g, '\u200D') + '\u2063';
+  }
+
   freeWaBtn.addEventListener('click', function () {
     var v = requireLink();
-    var msg = 'Hello! I’d like a free content package.\n'
+    var msg = 'Hello! I’d like a free content package.' + entryMark('en-' + entryPoint) + '\n'
             + (siteValue() ? 'My website: ' + siteValue() + '\n' : '')
             + (igValue() ? 'My Instagram: ' + igValue() + '\n' : '')
-            + '(entry code: web-en-' + entryPoint + ')';
+            ;
     postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'en' });
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     showAfterHint('✅ WhatsApp is open — tap “Send” in the chat with us.');

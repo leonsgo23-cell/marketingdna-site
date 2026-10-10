@@ -1658,12 +1658,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // WhatsApp: клиент ОБЯЗАН написать первым - именно его сообщение открывает
   // 24-часовое окно, внутри которого мы можем свободно вести переписку. Поэтому
   // здесь ссылка wa.me с заранее набранным текстом, а не форма со сбором номера.
+  // Кнопка входа — невидимой меткой (10.10.2026): клиент не видит «(ieejas kods: …)»,
+  // бот читает её из символов нулевой ширины (src/onboarding.js, decodeEntryMark)
+  function entryMark(code) {
+    var b = '';
+    for (var i = 0; i < code.length; i++) b += ('00000000' + code.charCodeAt(i).toString(2)).slice(-8);
+    return '\u2063' + b.replace(/0/g, '\u200C').replace(/1/g, '\u200D') + '\u2063';
+  }
+
   freeWaBtn.addEventListener('click', function () {
     var v = requireLink();
-    var msg = 'Labdien! Vēlos bezmaksas satura komplektu.\n'
+    var msg = 'Labdien! Vēlos bezmaksas satura komplektu.' + entryMark('lv-' + entryPoint) + '\n'
             + (siteValue() ? 'Mana mājaslapa: ' + siteValue() + '\n' : '')
             + (igValue() ? 'Mans Instagram: ' + igValue() + '\n' : '')
-            + '(ieejas kods: web-lv-' + entryPoint + ')';
+            ;
     postLead({ link: v, kind: 'wa_click', entry: entryPoint, lang: 'lv' });
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     showAfterHint('✅ WhatsApp atvērts — sarunā ar mums nospiediet «Sūtīt».');
