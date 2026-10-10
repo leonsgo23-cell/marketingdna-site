@@ -19,7 +19,7 @@
 | Место | Файл | Как сделано |
 |---|---|---|
 | 7 страниц сайта | `en.html`, `en-multi-*.html` | `build_en.py` из русских страниц |
-| Кнопка EN в переключателе | все `ru*`, `index.html`, `lv-multi-*` | ссылка на английскую страницу |
+| Кнопка EN в переключателе | все `ru*`, `index.html`, `lv-multi-*` | **10.10.2026 убрана** (решение владельца: пока нет английских видео и картинок). Английские страницы живы по прямой ссылке. Вернуть — добавить в `<div class="lang-switcher">` строку `<a href="en….html" class="lang-btn" onclick="try{localStorage.setItem('mdna_lang','en')}catch(e){}">EN</a>` |
 | Условия, политика | `terms.html`, `privacy.html` | раздел EN уже был, ссылки `?lang=en` |
 | Отказ от договора | `atteikums.html` | словарь `T.en`, `?lang=en` |
 | Страница теста | `test.html` | словарь `T.en`, `?l=en` |
