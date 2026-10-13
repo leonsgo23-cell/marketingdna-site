@@ -1240,19 +1240,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @media (prefers-reduced-motion:reduce){.nav-cta,.nav-cta::after{animation:none}}
 </style>
 <style id="freeTryBtn">
-/* Проба на черновике (13.10.2026): «Попробуйте бесплатный пакет» под каждой кнопкой подписки.
-   Тёплый градиент на фиолетовой странице + блик каждые 2 секунды — чтобы не сливалась. */
+/* Проба на черновике (13.10.2026): кнопки подписки — тёплый градиент, «Попробуйте бесплатный
+   пакет» под каждой — фиолетовая с бликом каждые 2 секунды (цвета поменяны местами по просьбе). */
+.pkg-card .pkg-buy-btn{background:linear-gradient(135deg,#F59E0B 0%,#F97316 45%,#EC4899 100%)!important;
+  color:#fff!important;border:none!important;box-shadow:0 6px 18px rgba(236,72,153,.30);transition:transform .15s}
+.pkg-card .pkg-buy-btn:hover{transform:translateY(-2px);color:#fff!important}
 .free-try-btn{position:relative;overflow:hidden;isolation:isolate;display:block;box-sizing:border-box;width:100%;
   margin-top:12px;padding:13px 16px;border-radius:12px;text-align:center;text-decoration:none;
   font-weight:800;font-size:15px;line-height:1.3;color:#fff;
-  background:linear-gradient(135deg,#F59E0B 0%,#F97316 45%,#EC4899 100%);
-  box-shadow:0 6px 18px rgba(236,72,153,.35);animation:freeGlow 2s ease-in-out infinite;transition:transform .15s}
+  background:linear-gradient(135deg,#8B5CF6 0%,#7C3AED 50%,#5B21B6 100%);
+  box-shadow:0 6px 18px rgba(124,58,237,.35);animation:freeGlow 2s ease-in-out infinite;transition:transform .15s}
 .free-try-btn:hover{transform:translateY(-2px);color:#fff}
 .free-try-btn::after{content:"";position:absolute;top:-50%;left:-60%;width:45%;height:200%;
-  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.65) 50%,rgba(255,255,255,0) 100%);
+  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 100%);
   transform:skewX(-20deg);animation:freeShine 2s ease-in-out infinite;pointer-events:none;z-index:1}
 @keyframes freeShine{0%{left:-60%}50%,100%{left:130%}}
-@keyframes freeGlow{0%,100%{box-shadow:0 6px 18px rgba(236,72,153,.30)}50%{box-shadow:0 6px 26px rgba(249,115,22,.65)}}
+@keyframes freeGlow{0%,100%{box-shadow:0 6px 18px rgba(124,58,237,.30)}50%{box-shadow:0 6px 28px rgba(124,58,237,.75)}}
 @media (prefers-reduced-motion:reduce){.free-try-btn,.free-try-btn::after{animation:none}}
 </style>
 </head>
