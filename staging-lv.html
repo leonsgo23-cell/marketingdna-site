@@ -1219,6 +1219,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @keyframes ctaGlow{0%,100%{box-shadow:0 4px 14px rgba(124,58,237,.30)}50%{box-shadow:0 4px 24px rgba(124,58,237,.75)}}
 @media (prefers-reduced-motion:reduce){.nav-cta,.nav-cta::after{animation:none}}
 </style>
+<style id="heroTagline">
+/* Черновик (13.10.2026): строка «ИИ анализирует… Менеджер… Вы получаете…» — в 2 строки на компьютере.
+   Размер — от ширины колонки (≈ 1/30), от 15 до 20 px. */
+@media (min-width:769px){
+  .hero-bottom{container-type:inline-size}
+  .hero-tagline{font-size:clamp(15px, calc(100cqw / 30), 20px);letter-spacing:-0.2px}
+}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1257,6 +1265,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="icon">🧠</span>
           <span>Pircēju psiholoģija katrā ierakstā — āķi un paņēmieni, ko apstiprina zinātne un prakse</span>
         </div>
+        <div class="hero-fact">
+          <span class="icon">💰</span>
+          <span>5 reizes lētāk nekā aģentūrā</span>
+        </div>
       </div>
     </div>
     <div class="hero-visual">
@@ -1294,9 +1306,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="text-align:center;">
         <a href="#simple-start-form" data-entry="hero" class="btn-primary">→ Saņemt bezmaksas izmēģinājuma komplektu</a>
         <p style="text-align:center;max-width:400px;margin:12px auto 0;font-size:13px;color:var(--dark);line-height:1.6;">Viss individuāli jūsu biznesam. Bez maksas</p>
-        <p class="hero-social-proof" style="text-align:center;max-width:400px;margin:14px auto 0;">✅ Regulāra analīze un ierakstu uzlabošana, balstoties uz jūsu auditorijas reakciju</p>
         <p class="hero-social-proof" style="text-align:center;max-width:440px;margin:8px auto 0;">Bez kartes · 14 dienu garantija</p>
-        <p class="hero-social-proof" style="text-align:center;max-width:400px;margin:8px auto 0;">✅ 5 reizes lētāk nekā aģentūrā</p>
       </div>
     </div>
   </div>
