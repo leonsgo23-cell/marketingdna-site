@@ -26,9 +26,9 @@ BADGE = ('<div id="stagingBadge" style="position:fixed;left:50%;top:0;transform:
          'ЧЕРНОВИК · STAGING</div>')
 
 
-# Что пробуем на черновике до переноса на боевые (сейчас — компактная плашка cookies,
-# 13.10.2026). Вставляется сразу после скрипта Cookiebot. Перенесли на боевые — убрать отсюда.
-STAGING_ONLY_HEAD = '<script src="/cookie-banner.js" data-cookieconsent="ignore"></script>'
+# Скрипт, который пробуем только на черновике (вставляется сразу после Cookiebot в <head>).
+# 13.10.2026: плашка cookies перенесена на боевые — сейчас пусто.
+STAGING_ONLY_HEAD = ''
 
 
 def add_head_extra(s):

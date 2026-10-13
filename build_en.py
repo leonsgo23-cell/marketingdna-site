@@ -164,6 +164,9 @@ def localize(s, ru_name):
                lambda m: f'href="#" data-entry="{m.group(1)}" data-form="{"website" if m.group(1) == "website" else "lang"}"', s)
     if 'data-form=' in s:
         s = s.replace('</body>', FORM_SCRIPT + '\n</body>', 1)
+    # язык Cookiebot и невидимая метка входа в сообщении WhatsApp (10.10.2026, entryMark)
+    s = s.replace('data-culture="RU"', 'data-culture="EN"')
+    s = s.replace("entryMark('ru-'", "entryMark('en-'")
     # заявки и клики — с языком en
     s = re.sub(r"lang: *'ru'", "lang: 'en'", s)
     s = s.replace("'ru_footer'", "'en_footer'")
