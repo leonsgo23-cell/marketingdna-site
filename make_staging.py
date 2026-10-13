@@ -20,9 +20,9 @@ for n, slug in SLUGS:
     PAGES[f'ru-multi-{n}-{slug}.html'] = f'staging-{slug}.html'
     PAGES[f'lv-multi-{n}-{slug}.html'] = f'staging-lv-{slug}.html'
 
-BADGE = ('<div id="stagingBadge" style="position:fixed;left:10px;bottom:10px;z-index:2147483646;'
+BADGE = ('<div id="stagingBadge" style="position:fixed;left:50%;top:0;transform:translateX(-50%);z-index:2147483646;'
          'background:#DC2626;color:#fff;font:700 11px/1 -apple-system,Segoe UI,sans-serif;'
-         'letter-spacing:.5px;padding:6px 9px;border-radius:6px;opacity:.85;pointer-events:none">'
+         'letter-spacing:.5px;padding:3px 9px;border-radius:0 0 6px 6px;opacity:.85;pointer-events:none">'
          'ЧЕРНОВИК · STAGING</div>')
 
 
