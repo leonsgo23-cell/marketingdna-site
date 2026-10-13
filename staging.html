@@ -1219,6 +1219,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @keyframes ctaGlow{0%,100%{box-shadow:0 4px 14px rgba(124,58,237,.30)}50%{box-shadow:0 4px 24px rgba(124,58,237,.75)}}
 @media (prefers-reduced-motion:reduce){.nav-cta,.nav-cta::after{animation:none}}
 </style>
+<style id="heroMobile">
+/* Черновик (13.10.2026): на телефоне кнопка и галочки — сразу под заголовком (83% визитов с
+   телефона, внимание — в верхней половине первого экрана), затем формула и пункты, ролики ниже. */
+.hero-cta-mobile{display:none}
+@media (max-width:768px){
+  .hero-cta-mobile{display:block;text-align:center;margin:18px 0 6px}
+  .hero-cta-mobile .btn-primary{display:block;width:100%;box-sizing:border-box;text-align:center}
+  .hero-cta-mobile p{margin:10px auto 0;font-size:13px;color:#6B7280;line-height:1.5}
+  .hero-inner .hero-top{order:1}.hero-inner .hero-bottom{order:2}.hero-inner .hero-visual{order:3;margin-top:24px}
+}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1244,6 +1255,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-top">
       <div class="hero-badge">SMM-студия: контент на каждый день для ваших соцсетей</div>
       <h1>Готовый контент для ваших соцсетей в ритме вашего бизнеса<span style="display:block;font-size:0.55em;font-weight:700;line-height:1.2;margin-top:-2px;">— от €99/мес</span></h1>
+      <div class="hero-cta-mobile"><a href="#simple-start-form" data-entry="hero_m" class="btn-primary">→ Получить бесплатный пробный пакет</a><p>✓ Бесплатно, без карты · ✓ Готово за 1–2 часа · ✓ Каждый пост проверяет менеджер</p></div>
     </div>
     <div class="hero-bottom">
       <p class="hero-tagline">Без агентства и SMM-специалиста: ИИ анализирует и готовит, менеджер проверяет, вы получаете готовый контент.</p>
