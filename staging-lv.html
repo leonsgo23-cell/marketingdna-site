@@ -1208,6 +1208,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .hero{padding-top:32px !important;}
 @media(max-width:480px){ section{padding:44px 20px;} }
 </style>
+<style id="ctaShine">
+/* Проба на черновике (13.10.2026): кнопка «бесплатный пакет» в шапке переливается
+   каждые 2 секунды — блик пробегает по кнопке и мягко пульсирует свечение. */
+.nav-cta{position:relative;overflow:hidden;isolation:isolate;animation:ctaGlow 2s ease-in-out infinite}
+.nav-cta::after{content:"";position:absolute;top:-50%;left:-60%;width:45%;height:200%;
+  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.6) 50%,rgba(255,255,255,0) 100%);
+  transform:skewX(-20deg);animation:ctaShine 2s ease-in-out infinite;pointer-events:none;z-index:1}
+@keyframes ctaShine{0%{left:-60%}50%,100%{left:130%}}
+@keyframes ctaGlow{0%,100%{box-shadow:0 4px 14px rgba(124,58,237,.30)}50%{box-shadow:0 4px 24px rgba(124,58,237,.75)}}
+@media (prefers-reduced-motion:reduce){.nav-cta,.nav-cta::after{animation:none}}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1236,20 +1247,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="hero-bottom">
       <p class="hero-tagline">AI analizē un sagatavo. Menedžeris pārbauda un apstiprina. Jūs saņemat gatavu saturu.</p>
-      <p class="hero-sub">Ar mākslīgā intelekta palīdzību mēs izpētām jūsu biznesu, analizējam konkurentus un jūsu auditoriju un sagatavojam foto ierakstus, karuseļus, Story Reels, video karuseļus, Stories un AI video. Menedžeris apstiprina satura plānu un katru publikāciju — saturs jūsu sociālajā tīklā iznāk regulāri un laikā.</p>
-      <div class="hero-slogan">Katrs ieraksts, karuselis un video top jūsu auditorijai — lai augtu skatījumi un sekotāji.</div>
       <div class="hero-facts">
         <div class="hero-fact">
           <span class="icon">🗓️</span>
-          <span>Jums vairs nebūs jālauza galva, ko un kad publicēt un kas to visu darīs</span>
+          <span>Jums vairs nebūs jālauza galva, ko un kad publicēt</span>
         </div>
         <div class="hero-fact">
           <span class="icon">🎯</span>
-          <span>Skaists saturs pats par sevi nepārdod. Aiz katra ieraksta ir analīze un stratēģija, kas piesaista jūsu klientus</span>
+          <span>Aiz katra ieraksta ir analīze un stratēģija, kas piesaista jūsu klientus</span>
         </div>
         <div class="hero-fact">
           <span class="icon">🧠</span>
-          <span>Pircēju psiholoģija katrā ierakstā — āķi un paņēmieni, ko apstiprina zinātne un prakse</span>
+          <span>Pircēju psiholoģija katrā ierakstā</span>
         </div>
       </div>
     </div>
@@ -1288,7 +1297,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="text-align:center;">
         <a href="#simple-start-form" data-entry="hero" class="btn-primary">→ Saņemt bezmaksas izmēģinājuma komplektu</a>
         <p style="text-align:center;max-width:400px;margin:12px auto 0;font-size:13px;color:var(--dark);line-height:1.6;">foto ieraksts · karuselis (7 slaidi) · Story Reel · titulattēls · Stories · satura plāns 7 dienām. Viss individuāli jūsu biznesam. Bez maksas</p>
-        <p class="hero-social-proof" style="text-align:center;max-width:400px;margin:14px auto 0;">✅ Regulāra analīze un ierakstu uzlabošana, balstoties uz jūsu auditorijas reakciju</p>
         <p class="hero-social-proof" style="text-align:center;max-width:440px;margin:8px auto 0;">Bezmaksas satura komplekts — 1–2 stundu laikā darba laikā · Bez kartes · pārbauda personīgais menedžeris · 14 dienu garantija</p>
         <p class="hero-social-proof" style="text-align:center;max-width:400px;margin:8px auto 0;">✅ 5 reizes lētāk nekā aģentūrā</p>
       </div>
@@ -1300,13 +1308,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="background:#fff;padding:56px 20px 8px;">
   <div style="max-width:960px;margin:0 auto;">
     <h2 class="section-title" style="margin-bottom:8px;">Kas ko dara — bez pārsteigumiem</h2>
-    <p style="text-align:center;color:#6B7280;font-size:15px;margin:0 0 26px;">Jūs katru mēnesi maksājat par gatavu rezultātu, nevis par «komandas stundām» un ne par programmu, kas jāvada pašam.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;">
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🤖</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">AI sagatavo</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Analizē jūsu mājaslapu un Instagram, izpēta klientus un konkurentus, raksta tekstus, veido attēlus un video jūsu biznesam.</p></div>
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🧑‍💼</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Menedžeris pārbauda</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Katru komplektu pirms nosūtīšanas jums apskata cilvēks. Kļūdas izlabojam 24 stundu laikā.</p></div>
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">✅</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Jūs izlemjat</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Apstiprināt gatavo satura komplektu, un katrs ieraksts iznāk īstajā laikā un īstajā sociālajā tīklā pēc gatava grafika.</p></div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🤖</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">AI sagatavo</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Izpēta jūsu biznesu un konkurentus, raksta tekstus, veido attēlus un video.</p></div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🧑‍💼</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Menedžeris pārbauda</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Katru komplektu apskata cilvēks. Kļūdas izlabojam 24 stundu laikā.</p></div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">✅</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Jūs izlemjat</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Apstiprināt gatavo satura komplektu, un katrs ieraksts iznāk pēc grafika.</p></div>
     </div>
-    <p style="max-width:720px;margin:22px auto 0;background:#F5F3FF;border-radius:14px;padding:16px 20px;font-size:15px;color:#374151;line-height:1.6;text-align:center;">📸 <strong>Attēli — pēc jūsu fotogrāfijām.</strong> Ņemam fotogrāfijas no jūsu mājaslapas un Instagram (ar jūsu atļauju), vai arī jūs atsūtāt līdz 10 savām. Pēc tām ar mākslīgā intelekta palīdzību veidojam attēlus ar jūsu vietas noskaņu un iekārtojumu.</p>
+    <p style="max-width:720px;margin:22px auto 0;background:#F5F3FF;border-radius:14px;padding:16px 20px;font-size:15px;color:#374151;line-height:1.6;text-align:center;">📸 <strong>Attēli — pēc jūsu fotogrāfijām.</strong> Ņemam fotogrāfijas no jūsu mājaslapas un Instagram (ar jūsu atļauju), vai arī jūs atsūtāt līdz 10 savām.</p>
   </div>
 </section>
 
@@ -1325,7 +1332,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">📝 Jūs: atsūtāt saiti</span>
         </div>
         <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Viena saite un saziņas kanāls</h3>
-        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Saite uz jūsu mājaslapu vai Instagram un kur ērtāk saņemt komplektu — WhatsApp vai Telegram. Tas ir viss, kas vajadzīgs pirmajā solī.</p>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Saite uz jūsu mājaslapu vai Instagram un kur ērtāk saņemt komplektu — WhatsApp vai Telegram.</p>
       </div>
       <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;position:relative;">
         
@@ -1334,7 +1341,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">🔍 Mēs: izpētām jūsu biznesu ar AI palīdzību</span>
         </div>
         <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Parādām, ko sapratām</h3>
-        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Ar mākslīgā intelekta palīdzību analizējam jūsu mājaslapu un Instagram, jūsu klientus un konkurentus jūsu nišā, un parādām, ko sapratām par jūsu biznesu. Jūs apstiprināt vai izlabojat un atbildat uz dažiem īsiem jautājumiem. Nav ne mājaslapas, ne sociālo tīklu — pastāstīsiet par biznesu pāris vārdos.</p>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Jūs apstiprināt vai izlabojat. Nav ne mājaslapas, ne sociālo tīklu — pastāstīsiet par biznesu pāris vārdos.</p>
       </div>
       <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;position:relative;">
         
@@ -1343,7 +1350,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">📦 Jūs: saņemat 3 gatavas publikācijas</span>
         </div>
         <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Reāls saturs jūsu biznesam</h3>
-        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Ar mākslīgā intelekta palīdzību sagatavojam foto ierakstu, karuseli, Story Reel, titulattēlu un Stories. Menedžeris apstiprina satura plānu 7 dienām un katru publikāciju, tad atsūta jums saiti. Jūs novērtējat kvalitāti un varat uzreiz publicēt savos sociālajos tīklos — bez maksas.</p>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Jūs novērtējat kvalitāti un varat uzreiz publicēt savos sociālajos tīklos — bez maksas.</p>
       </div>
       <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;position:relative;">
         
@@ -1352,7 +1359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">✅ Jūs: izvēlaties tarifu</span>
         </div>
         <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Izvēlaties tarifu, kas atbilst jūsu mērķiem</h3>
-        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Publikācijas 3 reizes nedēļā, katru darba dienu vai katru dienu — atkarībā no tarifa. Regulāra analīze un satura uzlabošana jūsu auditorijai.</p>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Publikācijas 3 reizes nedēļā, katru darba dienu vai katru dienu — atkarībā no tarifa.</p>
       </div>
     </div>
 
@@ -1363,7 +1370,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div style="max-width:640px;margin:32px auto 0;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:12px;padding:16px 22px;text-align:center;position:relative;">
       
-      <p style="font-size:14px;color:#4C1D95;line-height:1.7;margin:0 0 10px;"><strong>Pēc tam</strong> izvēlaties vienu no komplektiem visam mēnesim: gatavi ieraksti jūsu sociālajos tīklos — regulāri un laikā. <strong>Ikdienas un regulāras publikācijas.</strong></p>
+      <p style="font-size:14px;color:#4C1D95;line-height:1.7;margin:0 0 10px;"><strong>Pēc tam</strong> izvēlaties vienu no komplektiem visam mēnesim: gatavi ieraksti jūsu sociālajos tīklos — regulāri un laikā.</p>
       <a href="staging-lv-tarify.html#packages" style="font-size:14px;font-weight:700;color:#7C3AED;text-decoration:underline;">Apskatīt tarifus →</a>
     </div>
   </div>

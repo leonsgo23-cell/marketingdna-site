@@ -1208,6 +1208,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .hero{padding-top:32px !important;}
 @media(max-width:480px){ section{padding:44px 20px;} }
 </style>
+<style id="ctaShine">
+/* Проба на черновике (13.10.2026): кнопка «бесплатный пакет» в шапке переливается
+   каждые 2 секунды — блик пробегает по кнопке и мягко пульсирует свечение. */
+.nav-cta{position:relative;overflow:hidden;isolation:isolate;animation:ctaGlow 2s ease-in-out infinite}
+.nav-cta::after{content:"";position:absolute;top:-50%;left:-60%;width:45%;height:200%;
+  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.6) 50%,rgba(255,255,255,0) 100%);
+  transform:skewX(-20deg);animation:ctaShine 2s ease-in-out infinite;pointer-events:none;z-index:1}
+@keyframes ctaShine{0%{left:-60%}50%,100%{left:130%}}
+@keyframes ctaGlow{0%,100%{box-shadow:0 4px 14px rgba(124,58,237,.30)}50%{box-shadow:0 4px 24px rgba(124,58,237,.75)}}
+@media (prefers-reduced-motion:reduce){.nav-cta,.nav-cta::after{animation:none}}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1236,20 +1247,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="hero-bottom">
       <p class="hero-tagline">ИИ анализирует и подготавливает. Менеджер проверяет и утверждает. Вы получаете готовый контент.</p>
-      <p class="hero-sub">С помощью искусственного интеллекта мы изучаем ваш бизнес, анализируем конкурентов и вашу аудиторию и подготавливаем фото-посты, карусели, Story Reels, видео-карусели, Stories и AI-видео. Менеджер утверждает контент-план и каждую публикацию — контент выходит в вашей соцсети регулярно и вовремя.</p>
-      <div class="hero-slogan">Каждый пост, карусель и ролик создаются под вашу аудиторию — чтобы росли просмотры и подписчики.</div>
       <div class="hero-facts">
         <div class="hero-fact">
           <span class="icon">🗓️</span>
-          <span>У вас больше не будет вопросов — что, когда публиковать и кто это всё будет делать</span>
+          <span>Что и когда публиковать — больше не ваша забота</span>
         </div>
         <div class="hero-fact">
           <span class="icon">🎯</span>
-          <span>Красивый контент сам по себе не продаёт. За каждым постом — анализ и стратегия, которые приводят ваших клиентов</span>
+          <span>За каждым постом — анализ и стратегия, которые приводят клиентов</span>
         </div>
         <div class="hero-fact">
           <span class="icon">🧠</span>
-          <span>Психология покупателя в каждом посте — крючки и приёмы, проверенные наукой и практикой</span>
+          <span>Психология покупателя в каждом посте</span>
         </div>
       </div>
     </div>
@@ -1288,7 +1297,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="text-align:center;">
         <a href="#simple-start-form" data-entry="hero" class="btn-primary">→ Получить бесплатный пробный пакет</a>
         <p style="text-align:center;max-width:400px;margin:12px auto 0;font-size:13px;color:var(--dark);line-height:1.6;">фото-пост · карусель (7 слайдов) · Story Reel · обложка · Stories · контент-план на 7 дней. Всё персонально под ваш бизнес. Бесплатно</p>
-        <p class="hero-social-proof" style="text-align:center;max-width:400px;margin:14px auto 0;">✅ Регулярный анализ и улучшения постов на основе реакций вашей аудитории</p>
         <p class="hero-social-proof" style="text-align:center;max-width:440px;margin:8px auto 0;">Бесплатный пакет — за 1–2 часа в рабочее время · Без карты · проверка персональным менеджером · гарантия 14 дней</p>
         <p class="hero-social-proof" style="text-align:center;max-width:400px;margin:8px auto 0;">✅ В 5 раз дешевле, чем в агентстве</p>
       </div>
@@ -1300,13 +1308,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="background:#fff;padding:56px 20px 8px;">
   <div style="max-width:960px;margin:0 auto;">
     <h2 class="section-title" style="margin-bottom:8px;">Кто что делает - без сюрпризов</h2>
-    <p style="text-align:center;color:#6B7280;font-size:15px;margin:0 0 26px;">Вы платите за готовый результат каждый месяц, а не за «часы команды» и не за программу, которой надо управлять самому.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;">
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🤖</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">ИИ готовит</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Анализирует ваш сайт и Instagram, изучает клиентов и конкурентов, пишет тексты, делает картинки и ролики под ваш бизнес.</p></div>
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🧑‍💼</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Менеджер проверяет</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Каждый пакет смотрит человек до того, как он попадёт к вам. Ошибки исправляем в течение 24 часов.</p></div>
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">✅</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Вы решаете</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Одобряете пакет готового контента, и каждый пост выходит в нужное время и в нужной соцсети по готовому графику.</p></div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🤖</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">ИИ готовит</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Изучает ваш бизнес и конкурентов, пишет тексты, делает картинки и ролики.</p></div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🧑‍💼</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Менеджер проверяет</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Каждый пакет смотрит человек. Ошибки исправляем за 24 часа.</p></div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">✅</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Вы решаете</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Одобряете пакет — посты выходят сами, по графику.</p></div>
     </div>
-    <p style="max-width:720px;margin:22px auto 0;background:#F5F3FF;border-radius:14px;padding:16px 20px;font-size:15px;color:#374151;line-height:1.6;text-align:center;">📸 <strong>Картинки — по вашим фото.</strong> Берём фото с вашего сайта и Instagram (с вашего разрешения) или вы присылаете до 10 своих. По ним с помощью искусственного интеллекта мы создаём картинки с обстановкой вашего места.</p>
+    <p style="max-width:720px;margin:22px auto 0;background:#F5F3FF;border-radius:14px;padding:16px 20px;font-size:15px;color:#374151;line-height:1.6;text-align:center;">📸 <strong>Картинки — по вашим фото.</strong> Берём фото с вашего сайта и Instagram (с вашего разрешения) или вы присылаете до 10 своих.</p>
   </div>
 </section>
 
@@ -1325,7 +1332,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">📝 Вы: присылаете ссылку</span>
         </div>
         <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Одна ссылка и мессенджер</h3>
-        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Ссылка на ваш сайт или Instagram и куда удобнее получить пакет — WhatsApp или Telegram. Это всё, что нужно на первом шаге.</p>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Сайт или Instagram — и где удобнее получить пакет: WhatsApp или Telegram.</p>
       </div>
       <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;position:relative;">
         
@@ -1334,7 +1341,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">🔍 Мы: изучаем ваш бизнес с помощью ИИ</span>
         </div>
         <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Показываем, что поняли</h3>
-        <p style="font-size:14px;color:#6B7280;line-height:1.7;">С помощью искусственного интеллекта мы анализируем ваш сайт и Instagram, ваших клиентов и конкурентов в вашей нише и показываем, что поняли о вашем бизнесе. Вы подтверждаете или поправляете и отвечаете на пару коротких вопросов. Нет ни сайта, ни соцсетей — расскажете о бизнесе в двух словах.</p>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Вы подтверждаете или поправляете. Нет ни сайта, ни соцсетей — расскажете о бизнесе в двух словах.</p>
       </div>
       <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;position:relative;">
         
@@ -1343,7 +1350,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">📦 Вы: получаете 3 готовые публикации</span>
         </div>
         <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Реальный контент под ваш бизнес</h3>
-        <p style="font-size:14px;color:#6B7280;line-height:1.7;">С помощью искусственного интеллекта подготавливаем фото-пост, карусель, Story Reel, обложку и Stories. Менеджер утверждает контент-план на 7 дней и каждую публикацию и присылает вам ссылку. Вы оцениваете качество и можете сразу публиковать в своих соцсетях — бесплатно.</p>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Оцениваете качество и сразу публикуете в своих соцсетях — бесплатно.</p>
       </div>
       <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:28px 24px;position:relative;">
         
@@ -1352,7 +1359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:.5px;">✅ Вы: выбираете тариф</span>
         </div>
         <h3 style="font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:10px;">Выбираете тариф, который подходит для ваших целей</h3>
-        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Публикации 3 раза в неделю, каждый будний день или каждый день - в зависимости от тарифа. Регулярный анализ и улучшение контента под вашу аудиторию.</p>
+        <p style="font-size:14px;color:#6B7280;line-height:1.7;">Публикации 3 раза в неделю, каждый будний день или каждый день — в зависимости от тарифа.</p>
       </div>
     </div>
 
@@ -1363,7 +1370,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div style="max-width:640px;margin:32px auto 0;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:12px;padding:16px 22px;text-align:center;position:relative;">
       
-      <p style="font-size:14px;color:#4C1D95;line-height:1.7;margin:0 0 10px;"><strong>А дальше</strong> - выбираете один из пакетов на весь месяц: готовые посты в ваших соцсетях, регулярно и вовремя. <strong>Ежедневные и регулярные публикации.</strong></p>
+      <p style="font-size:14px;color:#4C1D95;line-height:1.7;margin:0 0 10px;"><strong>А дальше</strong> - выбираете один из пакетов на весь месяц: готовые посты в ваших соцсетях, регулярно и вовремя.</p>
       <a href="staging-tarify.html#packages" style="font-size:14px;font-weight:700;color:#7C3AED;text-decoration:underline;">Посмотреть пакеты →</a>
     </div>
   </div>
