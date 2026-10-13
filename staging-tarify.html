@@ -1239,6 +1239,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @keyframes ctaGlow{0%,100%{box-shadow:0 4px 14px rgba(124,58,237,.30)}50%{box-shadow:0 4px 24px rgba(124,58,237,.75)}}
 @media (prefers-reduced-motion:reduce){.nav-cta,.nav-cta::after{animation:none}}
 </style>
+<style id="freeTryBtn">
+/* Проба на черновике (13.10.2026): «Попробуйте бесплатный пакет» под каждой кнопкой подписки.
+   Тёплый градиент на фиолетовой странице + блик каждые 2 секунды — чтобы не сливалась. */
+.free-try-btn{position:relative;overflow:hidden;isolation:isolate;display:block;box-sizing:border-box;width:100%;
+  margin-top:12px;padding:13px 16px;border-radius:12px;text-align:center;text-decoration:none;
+  font-weight:800;font-size:15px;line-height:1.3;color:#fff;
+  background:linear-gradient(135deg,#F59E0B 0%,#F97316 45%,#EC4899 100%);
+  box-shadow:0 6px 18px rgba(236,72,153,.35);animation:freeGlow 2s ease-in-out infinite;transition:transform .15s}
+.free-try-btn:hover{transform:translateY(-2px);color:#fff}
+.free-try-btn::after{content:"";position:absolute;top:-50%;left:-60%;width:45%;height:200%;
+  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.65) 50%,rgba(255,255,255,0) 100%);
+  transform:skewX(-20deg);animation:freeShine 2s ease-in-out infinite;pointer-events:none;z-index:1}
+@keyframes freeShine{0%{left:-60%}50%,100%{left:130%}}
+@keyframes freeGlow{0%,100%{box-shadow:0 6px 18px rgba(236,72,153,.30)}50%{box-shadow:0 6px 26px rgba(249,115,22,.65)}}
+@media (prefers-reduced-motion:reduce){.free-try-btn,.free-try-btn::after{animation:none}}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1262,8 +1278,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="packages" id="packages" style="padding-top:40px;">
   <div class="container">
     <h2 class="section-title">Выберите свой пакет</h2>
-    <!-- Проба на черновике (13.10.2026): бесплатный пакет на странице тарифов — строка сверху -->
-    <p style="text-align:center;margin:-8px auto 24px;font-size:15px;color:#6B7280;">Сначала хотите увидеть результат? <a href="#" data-entry="tarify_top" style="color:#7C3AED;font-weight:700;text-decoration:underline;">Получите бесплатный пакет →</a></p>
 
     
     <div style="max-width:960px;margin:0 auto 28px;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:14px;padding:18px 22px;position:relative;">
@@ -1307,7 +1321,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>📝 1 SEO- и GEO-статья</li>
           <li>🔄 2 волны по 15 дней</li>
         </ul>
-        <a href="https://buy.stripe.com/aFabIV0xFgN15L32nhasg03?client_reference_id=web--pkg_a" class="btn-secondary-outline pkg-buy-btn">Оформить подписку - €99/мес</a>
+        <a href="https://buy.stripe.com/aFabIV0xFgN15L32nhasg03?client_reference_id=web--pkg_a" class="btn-secondary-outline pkg-buy-btn">Оформите подписку - €99/мес</a>
+        <a href="#" data-entry="tarify_card_pkg_a" class="free-try-btn">🎁 Попробуйте бесплатный пакет</a>
         <a href="staging-kontakty.html" style="display:block;text-align:center;margin-top:8px;font-size:12px;color:#6B7280;text-decoration:underline;">Нестандартный случай? Оставить заявку</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Хотите контент сразу на двух языках?</p>
         <a href="https://t.me/ContentDNAStart_bot?start=pkg_a_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€19/мес</a>
@@ -1343,7 +1358,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>📝 2 SEO- и GEO-статьи + 2 обложки для AI-видео</li>
           <li>🔄 2 волны по 15 дней</li>
         </ul>
-        <a href="https://buy.stripe.com/00wcMZbcj7crflD0f9asg07?client_reference_id=web--pkg_standard" class="btn-primary pkg-buy-btn">Оформить подписку - €149/мес</a>
+        <a href="https://buy.stripe.com/00wcMZbcj7crflD0f9asg07?client_reference_id=web--pkg_standard" class="btn-primary pkg-buy-btn">Оформите подписку - €149/мес</a>
+        <a href="#" data-entry="tarify_card_pkg_standard" class="free-try-btn">🎁 Попробуйте бесплатный пакет</a>
         <a href="staging-kontakty.html" style="display:block;text-align:center;margin-top:8px;font-size:12px;color:#6B7280;text-decoration:underline;">Нестандартный случай? Оставить заявку</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Хотите контент сразу на двух языках?</p>
         <a href="https://t.me/ContentDNAStart_bot?start=pkg_standard_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€29/мес</a>
@@ -1379,7 +1395,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>📝 3 SEO- и GEO-статьи + 4 обложки для AI-видео</li>
           <li>🔄 3 волны по 10 дней - анализ и коррекции чаще</li>
         </ul>
-        <a href="https://buy.stripe.com/aFaeV7807aoDflDge7asg0b?client_reference_id=web--pkg_v" class="btn-secondary-outline pkg-buy-btn">Оформить подписку - €199/мес</a>
+        <a href="https://buy.stripe.com/aFaeV7807aoDflDge7asg0b?client_reference_id=web--pkg_v" class="btn-secondary-outline pkg-buy-btn">Оформите подписку - €199/мес</a>
+        <a href="#" data-entry="tarify_card_pkg_v" class="free-try-btn">🎁 Попробуйте бесплатный пакет</a>
         <a href="staging-kontakty.html" style="display:block;text-align:center;margin-top:8px;font-size:12px;color:#6B7280;text-decoration:underline;">Нестандартный случай? Оставить заявку</a>
         <p style="text-align:center;font-size:11px;color:#9CA3AF;margin:8px 0 4px;line-height:1.5">Хотите контент сразу на двух языках?</p>
         <a href="https://t.me/ContentDNAStart_bot?start=pkg_v_lang" style="display:block;text-align:center;margin-top:10px;padding:9px 16px;border-radius:10px;border:1.5px dashed #7C3AED;color:#7C3AED;font-size:13px;font-weight:600;text-decoration:none;">🌐 Добавить второй язык +€39/мес</a>
