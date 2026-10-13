@@ -1219,17 +1219,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @keyframes ctaGlow{0%,100%{box-shadow:0 4px 14px rgba(124,58,237,.30)}50%{box-shadow:0 4px 24px rgba(124,58,237,.75)}}
 @media (prefers-reduced-motion:reduce){.nav-cta,.nav-cta::after{animation:none}}
 </style>
-<style id="heroMobile">
-/* Черновик (13.10.2026): на телефоне кнопка и галочки — сразу под заголовком (83% визитов с
-   телефона, внимание — в верхней половине первого экрана), затем формула и пункты, ролики ниже. */
-.hero-cta-mobile{display:none}
-@media (max-width:768px){
-  .hero-cta-mobile{display:block;text-align:center;margin:18px 0 6px}
-  .hero-cta-mobile .btn-primary{display:block;width:100%;box-sizing:border-box;text-align:center}
-  .hero-cta-mobile p{margin:10px auto 0;font-size:13px;color:#6B7280;line-height:1.5}
-  .hero-inner .hero-top{order:1}.hero-inner .hero-bottom{order:2}.hero-inner .hero-visual{order:3;margin-top:24px}
-}
-</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1255,22 +1244,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-top">
       <div class="hero-badge">SMM-студия: контент на каждый день для ваших соцсетей</div>
       <h1>Готовый контент для ваших соцсетей в ритме вашего бизнеса<span style="display:block;font-size:0.55em;font-weight:700;line-height:1.2;margin-top:-2px;">— от €99/мес</span></h1>
-      <div class="hero-cta-mobile"><a href="#simple-start-form" data-entry="hero_m" class="btn-primary">→ Получить бесплатный пробный пакет</a><p>✓ Бесплатно, без карты · ✓ Готово за 1–2 часа · ✓ Каждый пост проверяет менеджер</p></div>
     </div>
     <div class="hero-bottom">
-      <p class="hero-tagline">Без агентства и SMM-специалиста: ИИ анализирует и готовит, менеджер проверяет, вы получаете готовый контент.</p>
+      <p class="hero-tagline">ИИ анализирует и подготавливает. Менеджер проверяет и утверждает. Вы получаете готовый контент.</p>
+      <p class="hero-sub">С помощью искусственного интеллекта мы изучаем ваш бизнес, анализируем конкурентов и вашу аудиторию и подготавливаем фото-посты, карусели, Story Reels, видео-карусели, Stories и AI-видео. Менеджер утверждает контент-план и каждую публикацию — контент выходит в вашей соцсети регулярно и вовремя.</p>
+      <div class="hero-slogan">Каждый пост, карусель и ролик создаются под вашу аудиторию — чтобы росли просмотры и подписчики.</div>
       <div class="hero-facts">
         <div class="hero-fact">
           <span class="icon">🗓️</span>
-          <span>Что, когда и где публиковать — больше не ваша забота</span>
+          <span>У вас больше не будет вопросов — что, когда публиковать и кто это всё будет делать</span>
         </div>
         <div class="hero-fact">
           <span class="icon">🎯</span>
-          <span>Анализ вашего бизнеса, клиентов и конкурентов — за каждым постом стратегия, а не просто картинка</span>
+          <span>Красивый контент сам по себе не продаёт. За каждым постом — анализ и стратегия, которые приводят ваших клиентов</span>
         </div>
         <div class="hero-fact">
           <span class="icon">🧠</span>
-          <span>Психология покупателя в каждом посте — чтобы росли просмотры и подписчики</span>
+          <span>Психология покупателя в каждом посте — крючки и приёмы, проверенные наукой и практикой</span>
         </div>
       </div>
     </div>
@@ -1308,7 +1298,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div style="text-align:center;">
         <a href="#simple-start-form" data-entry="hero" class="btn-primary">→ Получить бесплатный пробный пакет</a>
-        <p class="hero-social-proof" style="text-align:center;max-width:440px;margin:14px auto 0;">✓ Бесплатно, без карты · ✓ Готово за 1–2 часа · ✓ Каждый пост проверяет менеджер</p>
+        <p style="text-align:center;max-width:400px;margin:12px auto 0;font-size:13px;color:var(--dark);line-height:1.6;">фото-пост · карусель (7 слайдов) · Story Reel · обложка · Stories · контент-план на 7 дней. Всё персонально под ваш бизнес. Бесплатно</p>
+        <p class="hero-social-proof" style="text-align:center;max-width:400px;margin:14px auto 0;">✅ Регулярный анализ и улучшения постов на основе реакций вашей аудитории</p>
+        <p class="hero-social-proof" style="text-align:center;max-width:440px;margin:8px auto 0;">Бесплатный пакет — за 1–2 часа в рабочее время · Без карты · проверка персональным менеджером · гарантия 14 дней</p>
         <p class="hero-social-proof" style="text-align:center;max-width:400px;margin:8px auto 0;">✅ В 5 раз дешевле, чем в агентстве</p>
       </div>
     </div>
@@ -1318,15 +1310,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section style="background:#fff;padding:56px 20px 8px;">
   <div style="max-width:960px;margin:0 auto;">
-    <h2 class="section-title" style="margin-bottom:8px;">Как создаётся ваш контент</h2>
+    <h2 class="section-title" style="margin-bottom:8px;">Кто что делает - без сюрпризов</h2>
     <p style="text-align:center;color:#6B7280;font-size:15px;margin:0 0 26px;">Вы платите за готовый результат каждый месяц, а не за «часы команды» и не за программу, которой надо управлять самому.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;">
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🤖</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">ИИ готовит</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Анализирует ваш сайт и Instagram, изучает клиентов и конкурентов. Готовит фото-посты, карусели, Story Reels, видео-карусели, Stories и AI-видео под ваш бизнес.</p></div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🤖</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">ИИ готовит</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Анализирует ваш сайт и Instagram, изучает клиентов и конкурентов, пишет тексты, делает картинки и ролики под ваш бизнес.</p></div>
       <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">🧑‍💼</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Менеджер проверяет</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Каждый пакет смотрит человек до того, как он попадёт к вам. Ошибки исправляем в течение 24 часов.</p></div>
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">✅</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Вы решаете</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Одобряете пакет готового контента, и каждый пост выходит в нужное время и в нужной соцсети — регулярно, по готовому графику.</p></div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:26px 22px;position:relative;"><div style="font-size:28px;">✅</div><h3 style="font-size:18px;margin:8px 0 6px;color:#1E1B4B;">Вы решаете</h3><p style="font-size:14px;color:#6B7280;line-height:1.7;margin:0;">Одобряете пакет готового контента, и каждый пост выходит в нужное время и в нужной соцсети по готовому графику.</p></div>
     </div>
     <p style="max-width:720px;margin:22px auto 0;background:#F5F3FF;border-radius:14px;padding:16px 20px;font-size:15px;color:#374151;line-height:1.6;text-align:center;">📸 <strong>Картинки — по вашим фото.</strong> Берём фото с вашего сайта и Instagram (с вашего разрешения) или вы присылаете до 10 своих. По ним с помощью искусственного интеллекта мы создаём картинки с обстановкой вашего места.</p>
-    <div style="max-width:720px;margin:12px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;"><p style="margin:0;background:#F5F3FF;border-radius:14px;padding:14px 18px;font-size:15px;color:#374151;line-height:1.6;">🔄 <strong>Каждые 15 дней — анализ.</strong> Смотрим, как реагирует ваша аудитория, и улучшаем следующий контент.</p><p style="margin:0;background:#F5F3FF;border-radius:14px;padding:14px 18px;font-size:15px;color:#374151;line-height:1.6;">↩️ <strong>Гарантия 14 дней.</strong> Не подойдёт первый пакет — исправим, а если и после правок не подойдёт — вернём оплату.</p></div>
   </div>
 </section>
 
